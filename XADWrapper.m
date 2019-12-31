@@ -146,6 +146,6 @@
 
 -(BOOL)uncompress:(int)index as:(NSString*)fileName
 {
-	return [archive _extractEntry:[self xadIndexOfName:[[contentArray objectAtIndex:index] path]] as:fileName];
+	return [archive _extractEntry:[self xadIndexOfName:[[contentArray objectAtIndex:index] path]] as:fileName deferDirectories:NO dataFork:YES resourceFork:YES];
 }
 @end

@@ -1,4 +1,3 @@
-#import <HetimaUnZip/HetimaUnZip.h>
 #import "XADWrapper.h"
 #import "XADItem.h"
 #import "Controller.h"
@@ -129,7 +128,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 }
 - (int)mode
 {
-	//0:fold 1:hetimazip 2:xad 3:savedSearch 4:pdf 5:dummy
+	//0:fold 1:hetimazip=>disable 2:xad 3:savedSearch 4:pdf 5:dummy
 	return mode;
 }
 
@@ -192,7 +191,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 	}
 	if (mode==4) {
 		return [[[COPDFImage alloc] initWithPDFRep:pdfRep page:index] autorelease];
-	} else if(mode==1|mode==2) {		
+	} else if(mode==2) {
 		NSString *rawName = [contentPathDic objectForKey:[contentPathArray objectAtIndex:index]];
 		NSArray*    items=[archiveContainer contents];
 		
@@ -322,7 +321,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 
 - (BOOL)crypted
 {
-	if (mode==1 || mode==2) 
+	if (mode==2)
 		return [archiveContainer crypted];
 	
 	return NO;
@@ -330,7 +329,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 
 - (void)setPassword:(NSString *)inStr
 {
-	if (mode==1 || mode==2) {
+	if (mode==2) {
 		if(password)[password release];
 		password=nil;
 		if(inStr){
@@ -342,7 +341,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 
 - (BOOL)checkPassword
 {
-	if (rightPassward || !(mode==1 || mode==2) || ![self crypted]) return YES;
+	if (rightPassward || !(mode==2) || ![self crypted]) return YES;
 	if (password==nil) return NO;
 	
 	NSData *tempData = [[[archiveContainer contents] objectAtIndex:0] data];
@@ -411,17 +410,6 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 			[contentPathArray addObject:[NSString stringWithFormat:@"%@/%i.pdf",filePath,i+1]];
 		}
 		return;
-		
-		
-	} else if(([[filePath pathExtension] compare:@"zip" options:NSCaseInsensitiveSearch] == NSOrderedSame)
-			  || ([[filePath pathExtension] compare:@"cbz" options:NSCaseInsensitiveSearch] == NSOrderedSame)) {
-		mode=1;
-		archiveContainer=[[HetimaUnZipContainer unZipContainerWithZipFile:filePath listOnlyRealFile:YES extensionFilter:nil]retain];
-		[archiveContainer setKeepData:NO];
-		//subArchiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-		[self checkArchiveContainer:0];
-		return;
-		
 		
 	} else if([[COImageLoader archiveTypes] containsObject:[[filePath pathExtension] lowercaseString]]) {
 		mode=2;
@@ -517,31 +505,9 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 - (BOOL)checkArchiveContainer:(int)index
 {
 	if ([[archiveContainer contents] count] == 0) {
-		if (mode==1) {
-			[archiveContainer release];
-			archiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-			return [self checkArchiveContainer:0];
-		} else {
-			return NO;
-		}
+        return NO;
 	}
 	if ([[[archiveContainer contents] objectAtIndex:index] path] == nil) {
-		if(mode==1){
-			[archiveContainer setEncoding:NSShiftJISStringEncoding];
-			if ([[[archiveContainer contents] objectAtIndex:index] path] == nil) {
-				//一回作り直してみる
-				[archiveContainer release];
-				archiveContainer=[[HetimaUnZipContainer unZipContainerWithZipFile:filePath listOnlyRealFile:YES extensionFilter:nil]retain];
-				[archiveContainer setKeepData:NO];
-				if ([[[archiveContainer contents] objectAtIndex:index] path] == nil) {
-					//それでもだめならXADで
-					if (!subArchiveContainer) {
-						[archiveContainer release];
-						archiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-					}
-				}
-			}
-		}
 		if (password) [archiveContainer setPassword:password];
 	}
 	
