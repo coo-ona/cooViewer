@@ -1,0 +1,280 @@
+{
+    IBClasses = (
+        {CLASS = AccessorySettingView; LANGUAGE = ObjC; SUPERCLASS = AccessoryView; }, 
+        {
+            CLASS = AccessoryView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {controller = id; imageView = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = AccessoryWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {
+            ACTIONS = {
+                addNewBookmark = id; 
+                cancel = id; 
+                deleteRow = id; 
+                ok = id; 
+                openInFinder = id; 
+                openInSelf = id; 
+            }; 
+            CLASS = BookmarkController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                allBookNameTableView = id; 
+                allBookmarkPanel = id; 
+                allBookmarkSplitView = id; 
+                allBookmarkTableView = id; 
+                allNewBookmarkTextField = id; 
+                bookmarkPanel = id; 
+                bookmarkTableView = id; 
+                contextMenuItem = id; 
+                controller = id; 
+                newBookmarkTextField = id; 
+                selectedView = id; 
+                window = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = BookmarkPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {target = id; }; 
+            SUPERCLASS = NSPanel; 
+        }, 
+        {CLASS = COButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
+        {CLASS = COColorPopUpButton; LANGUAGE = ObjC; SUPERCLASS = NSPopUpButton; }, 
+        {CLASS = COPopUpTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }, 
+        {CLASS = COTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }, 
+        {CLASS = COTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }, 
+        {CLASS = COTextView; LANGUAGE = ObjC; SUPERCLASS = NSTextView; }, 
+        {
+            ACTIONS = {
+                addBookmark = id; 
+                backBookmark = id; 
+                backFolder = id; 
+                changeReadModeMenu = id; 
+                changeSortModeMenu = id; 
+                clearRecent = id; 
+                contextAction = id; 
+                deleteSettings = id; 
+                editBookmark = id; 
+                fitToScreen = id; 
+                fitToScreenWidth = id; 
+                fitToScreenWidthDivide = id; 
+                fullscreen = id; 
+                goBookmark = id; 
+                keyAction = id; 
+                mouseAction = id; 
+                nextBookmark = id; 
+                nextFolder = id; 
+                noScale = id; 
+                open = id; 
+                openFromOpenRecent = id; 
+                openFromSameDir = id; 
+                openTheLastPage = id; 
+                preferences = id; 
+                rotateLeft = id; 
+                rotateRight = id; 
+                sheetCancel = id; 
+                sheetOk = id; 
+                showInFinderFirst = id; 
+                showInFinderSecond = id; 
+                showThumbnail = id; 
+                slideshow = id; 
+                switchSingle = id; 
+                viewAtOriginalSizeFirst = id; 
+                viewAtOriginalSizeSecond = id; 
+            }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bookmarkController = id; 
+                bookmarkMenuItem = id; 
+                fullImagePanel = id; 
+                fullImageView = id; 
+                imageView = id; 
+                openRecentMenuItem = id; 
+                openSameFolderMenuItem = id; 
+                passPanel = id; 
+                passTextField = id; 
+                prefController = id; 
+                progressIndicator = id; 
+                thumController = id; 
+                window = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = CustomImageView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {accessoryView = id; accessoryWindow = id; }; 
+            SUPERCLASS = NSImageView; 
+        }, 
+        {
+            CLASS = CustomPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {target = id; }; 
+            SUPERCLASS = NSPanel; 
+        }, 
+        {
+            ACTIONS = {performMiniaturize = id; }; 
+            CLASS = CustomWindow; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {controller = id; target = id; view = NSImageView; }; 
+            SUPERCLASS = NSWindow; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = FullImagePanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {target = id; }; 
+            SUPERCLASS = NSPanel; 
+        }, 
+        {CLASS = FullImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }, 
+        {CLASS = IndicatorView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = NSDatePicker; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                changeBufferingMode = id; 
+                changeFontBGColor = id; 
+                changeFontColor = id; 
+                changePageBarBGColor = id; 
+                changePageBarFontColor = id; 
+                dummyAction = id; 
+                keyConfig = id; 
+                keyConfigAction = id; 
+                keyConfigDelete = id; 
+                keyPanelCancel = id; 
+                keyPanelOk = id; 
+                keyPanelPopUpButtonAction = id; 
+                keyReset = id; 
+                mouseConfig = id; 
+                mouseConfigDelete = id; 
+                mousePanelActionPopUpButtonAction = id; 
+                mousePanelCancel = id; 
+                mousePanelOk = id; 
+                mouseReset = id; 
+                selectedKeyMode = id; 
+                selectedMouseMode = id; 
+                selectedOtherColor = id; 
+                setPosition = id; 
+                setValueToSlider = id; 
+                sheetCancel = id; 
+                sheetOk = id; 
+                showFontPanel = id; 
+                showPageBarFontPanel = id; 
+                sliderMoved = id; 
+            }; 
+            CLASS = PreferenceController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                accessorySettingPanel = id; 
+                accessorySettingView = id; 
+                alwaysRememberLastCheck = id; 
+                bufferingModePopUpButton = id; 
+                canScrollActionPopUpButton = id; 
+                changeCreatorCheck = id; 
+                changeOpenWithCheck = id; 
+                controller = id; 
+                dontHideMenubarCheck = id; 
+                enlargePopUpButton = id; 
+                fitOriginalCheck = id; 
+                fontTextField = id; 
+                goToLastPopUpButton = id; 
+                imageCacheTextField = id; 
+                inputTabView = id; 
+                inputTableView = id; 
+                interpolationPopUpButton = id; 
+                keyConfigPanel = id; 
+                keyModePopUpButton = id; 
+                keyPanelPopUpButton = id; 
+                keyPanelSwitchActionCheck = id; 
+                keyPanelTextView = id; 
+                keyValueTextField = id; 
+                loopPopUpButton = id; 
+                loupeRateTextField = id; 
+                loupeSizeTextField = id; 
+                mouseConfigPanel = id; 
+                mouseModePopUpButton = id; 
+                mousePanelActionPopUpButton = id; 
+                mousePanelButtonPopUpButton = id; 
+                mousePanelClickPopUpButton = id; 
+                mousePanelControlCheck = id; 
+                mousePanelOptionCheck = id; 
+                mousePanelShiftCheck = id; 
+                mouseTableView = id; 
+                mouseValueTextField = id; 
+                numberOfOpenRecentTextField = id; 
+                openLastFolderCheck = id; 
+                pageBGColor = id; 
+                pageBarAutoHideCheck = id; 
+                pageBarBGColor = id; 
+                pageBarBorderColor = id; 
+                pageBarFontColor = id; 
+                pageBarFontTextField = id; 
+                pageBarReadedColor = id; 
+                pageBarShowThumbCheck = id; 
+                pageBorderColor = id; 
+                pageColor = id; 
+                pageNumAutoHideCheck = id; 
+                preferences = id; 
+                prevPageActionPopUpButton = id; 
+                readLeftButton = id; 
+                readRightButton = id; 
+                readSingleCheckButton = id; 
+                readSubFolderCheck = id; 
+                rememberBookSettingsCheck = id; 
+                screenCacheTextField = id; 
+                showPageBarCheck = id; 
+                showPageNumCheck = id; 
+                showThumbnailCheck = id; 
+                singleSettingTextField = id; 
+                slideshowSlider = id; 
+                slideshowTextField = id; 
+                sortModePopUpButton = id; 
+                thumbnailCacheTextField = id; 
+                thumbnailTextFieldCol = id; 
+                thumbnailTextFieldRow = id; 
+                viewBackGroundColor = id; 
+                wheelSlider = id; 
+                window = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = PreferencePanel; LANGUAGE = ObjC; SUPERCLASS = NSPanel; }, 
+        {
+            ACTIONS = {
+                comicMode = id; 
+                contextAction = id; 
+                imageSelected = id; 
+                next = id; 
+                onlyBookmark = id; 
+                prev = id; 
+                sort = id; 
+            }; 
+            CLASS = ThumbnailController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                comicModeButton = id; 
+                contextMenu = id; 
+                controller = id; 
+                matrix = id; 
+                nameTextField = id; 
+                onlyBookmarkButton = id; 
+                panel = id; 
+                sortPopUpButton = id; 
+                stateTextField = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = ThumbnailMatrix; LANGUAGE = ObjC; SUPERCLASS = NSMatrix; }, 
+        {
+            CLASS = ThumbnailPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {matrix = id; target = id; }; 
+            SUPERCLASS = NSPanel; 
+        }
+    ); 
+    IBVersion = 1; 
+}
