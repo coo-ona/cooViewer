@@ -49,7 +49,6 @@
 		766DE03909936CF5004DD915 /* COColorPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 766DE03709936CF4004DD915 /* COColorPopUpButton.m */; };
 		76705AE60885785900FEF4E2 /* NSString_Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 76705AE40885785900FEF4E2 /* NSString_Compare.h */; };
 		76705AE70885785900FEF4E2 /* NSString_Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 76705AE50885785900FEF4E2 /* NSString_Compare.m */; };
-		76791EAA097909CE00AC8B41 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 76791EA9097909CE00AC8B41 /* MainMenu.nib */; };
 		767EEA210D5F6C8800522A56 /* NSAttributedString_Adding.h in Headers */ = {isa = PBXBuildFile; fileRef = 767EEA1F0D5F6C8800522A56 /* NSAttributedString_Adding.h */; };
 		767EEA220D5F6C8800522A56 /* NSAttributedString_Adding.m in Sources */ = {isa = PBXBuildFile; fileRef = 767EEA200D5F6C8800522A56 /* NSAttributedString_Adding.m */; };
 		768C80130838765500E6C5C8 /* left.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 768C80120838765500E6C5C8 /* left.tiff */; };
@@ -116,6 +115,7 @@
 		76FE6988082E4C6E00283560 /* ThumbnailController.h in Headers */ = {isa = PBXBuildFile; fileRef = 76FE6986082E4C6E00283560 /* ThumbnailController.h */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -244,7 +244,7 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* cooViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3582E2123BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A3582E2223BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		E412D4A123BE1A7400CDEAB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,7 +332,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				76791EA9097909CE00AC8B41 /* MainMenu.nib */,
+				E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */,
 				76181B7D08BE17BC000A527E /* Credits.rtf */,
 				089C165DFE840E0CC02AAC07 /* InfoPlist.strings */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -665,7 +665,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76791EAA097909CE00AC8B41 /* MainMenu.nib in Resources */,
 				7621F56808C5719B006A9301 /* InfoPlist.strings in Resources */,
 				76A68049080A8E6E00440F6B /* icon.icns in Resources */,
 				76F33A17083727A90099A43D /* broken.png in Resources */,
@@ -677,6 +676,7 @@
 				76B8606B099BEF0F0077A211 /* coo_cbz.icns in Resources */,
 				76B8606C099BEF0F0077A211 /* coo_zip.icns in Resources */,
 				76B8606D099BEF0F0077A211 /* coo_cbr.icns in Resources */,
+				E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */,
 				76B8606E099BEF0F0077A211 /* coo_tiff.icns in Resources */,
 				76B86070099BEF0F0077A211 /* coo_gif.icns in Resources */,
 				76B86071099BEF0F0077A211 /* coo_rar.icns in Resources */,
@@ -754,12 +754,12 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		76791EA9097909CE00AC8B41 /* MainMenu.nib */ = {
+		E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A3582E2223BBB03500DCC566 /* en */,
+				E412D4A123BE1A7400CDEAB5 /* en */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
