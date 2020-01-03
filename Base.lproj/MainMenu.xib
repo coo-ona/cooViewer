@@ -358,7 +358,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="" id="850">
-                                <view key="view" id="852">
+                                <view key="view" ambiguous="YES" id="852">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1614,7 +1614,7 @@ go to the last page always.</string>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced" identifier="" id="1607">
-                                <view key="view" ambiguous="YES" id="1608">
+                                <view key="view" id="1608">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -2159,7 +2159,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="745">
-                        <rect key="frame" x="217" y="12" width="82" height="32"/>
+                        <rect key="frame" x="202" y="12" width="97" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="4330">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2192,6 +2192,7 @@ Gw
                     </textField>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="140.5" y="1995.5"/>
         </window>
         <window title="Panel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="772" userLabel="FullImagePanel" customClass="FullImagePanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" utility="YES"/>
@@ -2207,7 +2208,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Bfm-Bs-9B9">
                             <rect key="frame" x="0.0" y="0.0" width="449" height="351"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="777" customClass="FullImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="234" height="223"/>
@@ -2230,6 +2231,7 @@ Gw
             <connections>
                 <outlet property="target" destination="484" id="1016"/>
             </connections>
+            <point key="canvasLocation" x="140" y="2320"/>
         </window>
         <menu title="Menu" id="791" userLabel="RightMenu">
             <items>
@@ -2343,7 +2345,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="994">
-                        <rect key="frame" x="565" y="12" width="82" height="32"/>
+                        <rect key="frame" x="547" y="12" width="100" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="4337">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2365,7 +2367,7 @@ Gw
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="vwn-bQ-fWA">
                                     <rect key="frame" x="1" y="0.0" width="294" height="278"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="4449" id="997">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="255"/>
@@ -2409,7 +2411,7 @@ Gw
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="004-bk-tbV">
                                     <rect key="frame" x="1" y="0.0" width="393" height="278"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" headerView="4446" id="984">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="255"/>
@@ -2505,6 +2507,7 @@ Gw
                 <outlet property="delegate" destination="617" id="1023"/>
                 <outlet property="target" destination="617" id="1027"/>
             </connections>
+            <point key="canvasLocation" x="139.5" y="2774.5"/>
         </window>
         <window title="thumbnail" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="1084" userLabel="ThumbnailPanel" customClass="ThumbnailPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
@@ -2562,7 +2565,7 @@ Gw
                         </connections>
                     </matrix>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1345">
-                        <rect key="frame" x="154" y="362" width="25" height="25"/>
+                        <rect key="frame" x="141" y="362" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="left" imagePosition="only" alignment="center" inset="2" id="4344">
                             <behavior key="behavior" lightByContents="YES"/>
@@ -2573,7 +2576,7 @@ Gw
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1346">
-                        <rect key="frame" x="178" y="362" width="25" height="25"/>
+                        <rect key="frame" x="165" y="362" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="right" imagePosition="only" alignment="center" inset="2" id="4345">
                             <behavior key="behavior" lightByContents="YES"/>
@@ -2613,12 +2616,12 @@ Gw
                         </textFieldCell>
                     </textField>
                     <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2278">
-                        <rect key="frame" x="211" y="362" width="60" height="25"/>
+                        <rect key="frame" x="198" y="362" width="60" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="axesIndependently" image="base" id="4350"/>
                     </imageView>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2249">
-                        <rect key="frame" x="220" y="362" width="24" height="24"/>
+                        <rect key="frame" x="207" y="362" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="comic" imagePosition="only" alignment="left" alternateImage="comic_a" inset="2" id="4349">
                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -2629,7 +2632,7 @@ Gw
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2232">
-                        <rect key="frame" x="243" y="362" width="24" height="24"/>
+                        <rect key="frame" x="230" y="362" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="bookmark" imagePosition="only" alignment="left" alternateImage="bookmark_a" inset="2" id="4348">
                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -2667,9 +2670,9 @@ Gw
                         </popUpButtonCell>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1250">
-                        <rect key="frame" x="275" y="368" width="32" height="14"/>
+                        <rect key="frame" x="254" y="368" width="53" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="sort :" id="4343">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="sort :" id="4343">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2680,6 +2683,7 @@ Gw
             <connections>
                 <outlet property="matrix" destination="1175" id="2231"/>
             </connections>
+            <point key="canvasLocation" x="198" y="3245.5"/>
         </window>
         <customObject id="1113" userLabel="ThumbnailController" customClass="ThumbnailController">
             <connections>
@@ -2724,7 +2728,7 @@ Gw
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1462">
-                        <rect key="frame" x="247" y="53" width="82" height="32"/>
+                        <rect key="frame" x="225" y="53" width="104" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="4354">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2868,6 +2872,7 @@ Gw
                     </button>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="197.5" y="3640"/>
         </window>
         <customObject id="1673" userLabel="PreferenceController" customClass="PreferenceController">
             <connections>
@@ -3323,6 +3328,7 @@ Gw
                     </customView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="823" y="3658"/>
         </window>
         <window title="Position and Size" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="2863" userLabel="AccessorySettingPanel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" utility="YES"/>
@@ -3339,6 +3345,7 @@ Gw
                     </customView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="821" y="4127"/>
         </window>
         <window title="disposing of settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="3296" userLabel="Panel (disposing of settings)" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES"/>
@@ -3354,7 +3361,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3301">
-                        <rect key="frame" x="180" y="12" width="82" height="32"/>
+                        <rect key="frame" x="162" y="12" width="100" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="4363">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -3378,6 +3385,7 @@ Gw
                     </textField>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="821" y="3309.5"/>
         </window>
     </objects>
     <resources>
