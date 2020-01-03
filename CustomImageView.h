@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import <Controller.h>
+#import <LoupeView.h>
 
 @interface CustomImageView : NSImageView
 {

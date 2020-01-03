@@ -215,7 +215,7 @@
 													 userInfo:NULL
 													  repeats:NO];
 	}
-	[view mouseMoved:theEvent];	 
+	[view mouseMoved:theEvent];
 }
 
 -(void)becomeKeyWindow

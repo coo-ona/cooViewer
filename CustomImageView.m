@@ -1291,9 +1291,7 @@ NSTimeInterval elapsed=0;
 -(void)drawLoupe
 {
 	if (lensWindow) {
-		int fromLensSize = lensSize;
-		
-		NSView *winContentView = [lensWindow contentView];
+		LoupeView *winContentView = [lensWindow contentView];
 		lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
 		if (!NSPointInRect([[[self window] contentView] convertPoint:lensOldPoint toView:self],[self visibleRect])) {
 			[winContentView setHidden:YES];
@@ -1310,7 +1308,7 @@ NSTimeInterval elapsed=0;
 		
 		NSRect lensWindowRect = NSMakeRect((int)(lensOldPoint.x-lensSize/2),(int)(lensOldPoint.y-lensSize/2),lensSize,lensSize);
 		
-		NSPoint mPoint,iPoint;
+		NSPoint mPoint;
 		mPoint = [[[self window] contentView] convertPoint:[[self window] mouseLocationOutsideOfEventStream] toView:self];
 		if (NSPointInRect(mPoint,fRect) || NSPointInRect(mPoint,sRect)) {
 			[winContentView setHidden:NO];
@@ -1318,160 +1316,20 @@ NSTimeInterval elapsed=0;
 			[winContentView setHidden:YES];
 			return;
 		}
-		
-		[winContentView lockFocus];
-		
-		NSGraphicsContext *gc = [NSGraphicsContext currentContext];
-		[gc saveGraphicsState];
-		//[gc setShouldAntialias:NO];
-		switch (interpolation) {
-			case 1:
-				[gc setImageInterpolation:NSImageInterpolationNone];
-				break;
-			case 2:
-				[gc setImageInterpolation:NSImageInterpolationLow];
-				break;
-			case 3:
-				[gc setImageInterpolation:NSImageInterpolationHigh];
-				break;
-			default:
-				[gc setImageInterpolation:NSImageInterpolationDefault];
-				break;
-		}
-		
-		[[NSColor blackColor] set];
-		NSRectFill(NSMakeRect(0,0,lensSize+2,lensSize+2));
-		if (NSPointInRect(mPoint,fRect) || NSPointInRect(mPoint,sRect)) {
-			if (NSIsEmptyRect(sRect)) {
-				NSPoint drawPoint = mPoint;
-				NSAffineTransform *transform = [NSAffineTransform transform];
-				NSRect tempRect = fRect;
-				if (rotateMode==1) {
-					[transform translateXBy:lensSize yBy:0];
-					[transform rotateByDegrees:90];
-					tempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					drawPoint.x = mPoint.y;
-					drawPoint.y = [self frame].size.width-mPoint.x;
-				} else if (rotateMode==2) {
-					[transform translateXBy:lensSize yBy:lensSize];
-					[transform rotateByDegrees:180];
-					drawPoint.x = [self frame].size.width-mPoint.x;
-					drawPoint.y = [self frame].size.height-mPoint.y;
-				} else if (rotateMode==3) {
-					[transform translateXBy:0 yBy:lensSize];
-					[transform rotateByDegrees:270];
-					tempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					drawPoint.x = [self frame].size.height-mPoint.y;
-					drawPoint.y = mPoint.x;
-				}
-				float x = [_image size].width/tempRect.size.width;
-				iPoint.x = (int)((drawPoint.x - tempRect.origin.x)*x);
-				iPoint.y = (int)((drawPoint.y - tempRect.origin.y)*x);
-				if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				[transform concat];
-				[_image drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-						  fromRect:NSMakeRect(iPoint.x-fromLensSize/2,iPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-						 operation:NSCompositeSourceOver fraction:1.0];
-				[transform invert];
-				[transform concat];
-			} else {
-				//!NSIsEmptyRect(sRect)
-				NSImage *image;
-				NSAffineTransform *transform = [NSAffineTransform transform];
-				NSRect fTempRect = fRect;
-				NSRect sTempRect = sRect;
-				NSPoint drawPoint = mPoint;
-				if (rotateMode==1) {
-					[transform translateXBy:lensSize yBy:0];
-					[transform rotateByDegrees:90];
-					fTempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					sTempRect = NSMakeRect(sRect.origin.y,sRect.origin.x,sRect.size.height,sRect.size.width);
-					drawPoint.x = mPoint.y;
-					drawPoint.y = [self frame].size.width-mPoint.x;
-				} else if (rotateMode==2) {
-					[transform translateXBy:lensSize yBy:lensSize];
-					[transform rotateByDegrees:180];
-					fTempRect = NSMakeRect(sRect.origin.x,fRect.origin.y,fRect.size.width,fRect.size.height);
-					sTempRect = NSMakeRect(fRect.size.width+sRect.origin.x,sRect.origin.y,sRect.size.width,sRect.size.height);
-					drawPoint.x = [self frame].size.width-mPoint.x;
-					drawPoint.y = [self frame].size.height-mPoint.y;
-				} else if (rotateMode==3) {
-					[transform translateXBy:0 yBy:lensSize];
-					[transform rotateByDegrees:270];
-					fTempRect = NSMakeRect(sRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					sTempRect = NSMakeRect(fRect.size.height,sRect.origin.x,sRect.size.height,sRect.size.width);
-					drawPoint.x = [self frame].size.height-mPoint.y;
-					drawPoint.y = mPoint.x;
-				}
-				[transform concat];
-				if (NSPointInRect(mPoint,fRect)) {
-					if ([target readFromLeft]) {
-						image = [target image1];
-					} else {
-						image = [target image2];
-					}
-					float x = [image size].width/fTempRect.size.width;
-					iPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*x);
-					iPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*x);
-					if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),sRect)) {
-						NSImage *sImage;
-						if ([target readFromLeft]) {
-							sImage = [target image2];
-						} else {
-							sImage = [target image1];
-						}
-						float sx = [sImage size].width/sTempRect.size.width;
-						NSPoint sPoint;
-						sPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*sx);
-						sPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*sx);
-						if (lensRate != 1.0) fromLensSize = lensSize*(sx/lensRate);
-						[sImage drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-								  fromRect:NSMakeRect(sPoint.x-fromLensSize/2,sPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-								 operation:NSCompositeSourceOver fraction:1.0];
-					}
-					if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				} else if (NSPointInRect(mPoint,sRect)) {
-					if ([target readFromLeft]) {
-						image = [target image2];
-					} else {
-						image = [target image1];
-					}
-					float x = [image size].width/sTempRect.size.width;
-					iPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*x);
-					iPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*x);
-					if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),fRect)) {
-						NSImage *sImage;
-						if ([target readFromLeft]) {
-							sImage = [target image1];
-						} else {
-							sImage = [target image2];
-						}
-						float sx = [sImage size].width/fTempRect.size.width;
-						NSPoint sPoint;
-						sPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*sx);
-						sPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*sx);
-						if (lensRate != 1.0) fromLensSize = lensSize*(sx/lensRate);
-						[sImage drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-								  fromRect:NSMakeRect(sPoint.x-fromLensSize/2,sPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-								 operation:NSCompositeSourceOver fraction:1.0];
-					}
-					if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				}
-				[image drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-						  fromRect:NSMakeRect(iPoint.x-fromLensSize/2,iPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-						 operation:NSCompositeSourceOver fraction:1.0];
-				[transform invert];
-				[transform concat];
-			}
-		}
-		[[NSColor lightGrayColor] set];
-		NSFrameRectWithWidth(NSMakeRect(0,0,lensSize,lensSize),1.0);
-		[winContentView unlockFocus];
-		[lensWindow setFrameOrigin:lensWindowRect.origin];
-		[winContentView displayIfNeeded];
-		[lensWindow displayIfNeeded];
-		[gc restoreGraphicsState];
-	}
+        
+        [winContentView setTargetController:target];
+        [winContentView setMPoint:mPoint];
+        [winContentView setFRect:fRect];
+        [winContentView setSRect:sRect];
+        [winContentView setLensRate:lensRate];
+        [winContentView setLensSize:lensSize];
+        [winContentView setRotateMode:rotateMode];
+        [winContentView setInterpolation:interpolation];
+        [winContentView setParentFrame:[self frame]];
+        [winContentView display];
+        
+        [lensWindow setFrame:lensWindowRect display:true];
+    }
 	
 }
 
@@ -1511,6 +1369,7 @@ NSTimeInterval elapsed=0;
 		[lensWindow setBackgroundColor:[NSColor clearColor]];
 		[lensWindow setOpaque:NO];
 		[lensWindow setIgnoresMouseEvents:YES];
+        [lensWindow setContentView:[[[LoupeView alloc] init] autorelease]];
 		lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
 		lensOldPoint.x += [[self window] frame].origin.x;
 		lensOldPoint.y += [[self window] frame].origin.y;
@@ -1529,6 +1388,7 @@ NSTimeInterval elapsed=0;
 		lensRate = [defaults floatForKey:@"LoupeRate"];
 		
 		[self drawLoupe];
+        /*
 		NSMutableDictionary* attr = [NSMutableDictionary dictionary];
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 		[attr setObject:[NSColor darkGrayColor] forKey:NSBackgroundColorAttributeName];
@@ -1547,6 +1407,7 @@ NSTimeInterval elapsed=0;
 		
 		[winContentView displayIfNeeded];
 		[lensWindow displayIfNeeded];
+        */
 	} else {
 		lensRate = [defaults floatForKey:@"LoupeRate"];
 	}
