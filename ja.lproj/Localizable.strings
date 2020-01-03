@@ -1,0 +1,408 @@
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Add Bookmark" = "ブックマークを追加";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Add/RemoveBookmark" = "ブックマークを追加/削除";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Advanced" = "高度な設定";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Appearance" = "アピアランス";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Are you sure you want to delete the setting which file is not found?" = "ファイルが見つけられない設定を削除してもよろしいですか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Are you sure you want to reset the %@ mode key setting?" = "%@モードのキー設定をリセットしますか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Are you sure you want to reset the %@ mode mouse setting?" = "%@モードのマウス設定をリセットしますか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"BackSkip" = "指定ページ戻る";
+
+/* No comment provided by engineer.No comment provided by engineer. */
+"Cancel" = "キャンセル";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Change current folder" = "カレントフォルダの変更";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ChangeReadMode" = "ページ方向を切り替え";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ChangeSortMode" = "ソートモードを切り替え";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ChangeViewMode" = "表示モードを切り替え";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Close" = "閉じる";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ContextualMenu" = "コンテクストメニュー";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Creation Date" = "作成日";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Delete Settings" = "設定を削除";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Delete this Bookmark" = "このブックマークを削除";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Disposing of settings" = "設定の整理";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Disposing of settings was canceled" = "設定の整理をキャンセルしました";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Disposing of settings was completed" = "設定の整理が完了しました";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Do you really want to move %@ to the trash?" = "本当に %@ をゴミ箱に移動しますか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Do you want to go to %i page?" = "%iページに移動しますか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"DragScroll" = "ドラッグスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Edit Bookmark..." = "ブックマークを編集...";
+
+/* No comment provided by engineer. */
+"EnlargeViewMode" = "表示モードを拡大";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"File" = "ファイル";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Fit to Screen" = "画面内に収める";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Fit to Screen Width" = "画面の横幅に合わせる";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Fit to Screen Width(divide)" = "見開き分割";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Fullscreen" = "フルスクリーン";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"General" = "一般";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Go to %" = "%ページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Go to FirstPage" = "最初のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Go to LastPage" = "最後のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Go to Page" = "指定ページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Go to the last page" = "最後に開いたページへ移動";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"HalfNext/PrevPage*" = "1ページだけ次/前のページへ*";
+
+/* No comment provided by engineer. */
+"HalfNext/PrevPage**" = "1ページだけ次/前のページへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"HalfNextPage" = "1ページだけ次のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"HalfPreviousPage" = "1ページだけ前のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Input" = "入力";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Last/TopPage*" = "最初/最後のページへ*";
+
+/* No comment provided by engineer. */
+"Last/TopPage**" = "最初/最後のページへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Left to Right" = "左から右";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Left to Right (single)" = "左から右（単ページ）";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"LoupePower-" = "ルーペ拡大率-";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"LoupePower+" = "ルーペ拡大率+";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Minimize" = "しまう";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"MinimizeWindow" = "ウィンドウをしまう";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Modification Date" = "変更日";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Move to Trash" = "ゴミ箱に移動";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Move to Trash(L/R)*" = "左/右の画像をゴミ箱に移動*";
+
+/* No comment provided by engineer. */
+"Move to Trash(L/R)**" = "左/右の画像をゴミ箱に移動**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Move to Trash(left)" = "左の画像をゴミ箱に移動";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Move to Trash(right)" = "右の画像をゴミ箱に移動";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Name" = "ファイル名";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next Bookmark" = "次のブックマークへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next Folder" = "次のフォルダ・アーカイブへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next/PrevBookmark*" = "次/前のブックマークへ*";
+
+/* No comment provided by engineer. */
+"Next/PrevBookmark**" = "次/前のブックマークへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next/PrevFolder(Archive)*" = "次/前のフォルダ・アーカイブへ*";
+
+/* No comment provided by engineer. */
+"Next/PrevFolder(Archive)**" = "次/前のフォルダ・アーカイブへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next/PrevPage*" = "次/前のページへ*";
+
+/* No comment provided by engineer. */
+"Next/PrevPage**" = "次/前のページへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Next/PrevSubFolder(Archive)*" = "次/前のサブフォルダ・アーカイブへ*";
+
+/* No comment provided by engineer. */
+"Next/PrevSubFolder(Archive)**" = "次/前のサブフォルダ・アーカイブへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"NextBookmark" = "次のブックマークへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"NextFolder(Archive)" = "次のフォルダ・アーカイブへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"NextPage" = "次のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"NextSubFolder(Archive)" = "次のサブフォルダ・アーカイブへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"No Scale" = "画面に合わせない";
+
+/* No comment provided by engineer.No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Open '%@' in default browser?" = "Open '%@' in default browser?";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Open the last page" = "最後に開いたページを開く";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Open URL" = "URLを開く";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageDown" = "1画面分下へ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageDown + NextPage" = "1画面分下へ+次のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageUp" = "1画面分上へ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageUp + PrevPage" = "1画面分上へ+前のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageUp/Down + Prev/NextPage" = "1画面分上へ/下へ+前/次のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PageUp/Down + Prev/NextPage*" = "一画面分上へ/下へ+前/次のページへ*";
+
+/* No comment provided by engineer. */
+"PageUp/Down + Prev/NextPage**" = "一画面分上へ/下へ+前/次のページへ**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Previous Bookmark" = "前のブックマークへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Previous Folder" = "前のフォルダ・アーカイブへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PreviousBookmark" = "前のブックマークへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PreviousFolder(Archive)" = "前のフォルダ・アーカイブへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PreviousPage" = "前のページへ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"PreviousSubFolder(Archive)" = "前のサブフォルダ・アーカイブへ";
+
+/* No comment provided by engineer. */
+"ReduceViewMode" = "表示モードを縮小";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Remove Bookmark" = "ブックマークを削除";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Reset key setting" = "キー設定をリセット";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Reset mouse setting" = "マウス設定をリセット";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Right to Left" = "右から左";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Right to Left (single)" = "右から左（単ページ）";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Rotate Left" = "左に回転";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Rotate Right" = "右に回転";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Rotate(L/R)*" = "左/右に回転*";
+
+/* No comment provided by engineer. */
+"Rotate(L/R)**" = "左/右に回転**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollDown" = "下へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollLeft" = "左へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollRight" = "右へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollToEnd" = "最後へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollToTop" = "最初へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ScrollUp" = "上へスクロール";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Setting is not found" = "設定が見つかりません";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Setting of %@ is not found.\nDo you want to use a setting of %@ ?" = "Setting of %1$@ is not found.\nDo you want to use a setting of %2$@ ?";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Show in Finder" = "Finder に表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Show in Finder(L/R)*" = "左/右の画像をFinder に表示*";
+
+/* No comment provided by engineer. */
+"Show in Finder(L/R)**" = "左/右の画像をFinder に表示**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Show in Finder(left)" = "左の画像をFinder に表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Show in Finder(right)" = "右の画像をFinder に表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Show Thumbnail" = "一覧を表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ShowLoupe" = "ルーペを表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ShowNumber" = "ページ数を表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ShowPageBar" = "ページバーを表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Shuffle" = "シャッフル";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Skip" = "指定ページ進む";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Skip/BackSkip*" = "指定ページ進む/戻る*";
+
+/* No comment provided by engineer. */
+"Skip/BackSkip**" = "指定ページ進む/戻る**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Slideshow" = "スライドショウ";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Start Slideshow" = "スライドショウを開始";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Start/Stop" = "開始/停止";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Stop Slideshow" = "スライドショウを停止";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Switch Single/Bind" = "単ページ・見開きを切り替え";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"SwitchFullscreen" = "フルスクリーン";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"SwitchSingle/Bind" = "単ページ・見開きを切り替え";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"The current opening book was moved. Are you sure you want to change current folder?" = "現在開いている本が移動されました。カレントフォルダを変更してもよろしいですか？";
+
+/* No comment provided by engineer. */
+"The parent folder of current book was changed. Do you want to follow?" = "現在開いている本が移動されました。カレントフォルダを移動してもよろしいですか？";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"unknown" = "unknown";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"View at Original Size" = "実際のサイズで表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ViewOriginal(L/R)*" = "左/右の画像を実際のサイズで表示*";
+
+/* No comment provided by engineer. */
+"ViewOriginal(L/R)**" = "左/右の画像を実際のサイズで表示**";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ViewOriginal(left)" = "左の画像を実際のサイズで表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"ViewOriginal(right)" = "右の画像を実際のサイズで表示";
+
+/* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
+"Window" = "ウインドウ";
+
