@@ -890,7 +890,6 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
@@ -993,7 +992,6 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
@@ -1024,7 +1022,6 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
