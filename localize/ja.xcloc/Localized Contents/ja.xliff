@@ -2449,6 +2449,11 @@ go to the last page always.</source>
         <target>Radio</target>
         <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
       </trans-unit>
+      <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
+        <source>"Old" does not work properly on retina display</source>
+        <target>"Old" はRetinaディスプレイでは正常に動作しません</target>
+        <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
+      </trans-unit>
     </body>
   </file>
   <file original="en.lproj/Localizable.strings" source-language="en" target-language="ja" datatype="plaintext">

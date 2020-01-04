@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <AccessoryView.h>
+#import "AccessoryView.h"
 
 
 @interface AccessorySettingView : AccessoryView {
@@ -21,7 +21,6 @@
 -(NSDictionary*)pageBarSize;
 -(NSDictionary*)pageMargin;
 -(NSDictionary*)pageBarMargin;
--(NSDictionary*)pageBarSize;
 
 -(void)setPageBarBGColor:(NSColor*)color;
 -(void)setPageBarBorderColor:(NSColor*)color;

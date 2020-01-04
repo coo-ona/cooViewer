@@ -72,7 +72,7 @@ static const int DIALOG_CANCEL	= 129;
 
 
 #pragma mark editBookmark
--(void)editBookmark:(NSArray*)array
+-(void)editBookmark:(NSMutableArray*)array
 {
 	[bookmarkPanel setTarget:self];
     [bookmarkPanel setAction:@selector(keyDown:)];
@@ -80,8 +80,8 @@ static const int DIALOG_CANCEL	= 129;
 	//	bookmarkArray = [[defaults objectForKey:bookName] retain];
 	bookmarkArray = [array retain];
 	
-    [bookmarkTableView setDataSource:self];
-    [bookmarkTableView setDelegate:self];
+    [bookmarkTableView setDataSource:(id)self];
+    [bookmarkTableView setDelegate:(id)self];
 	[bookmarkTableView reloadData];
 	
 	
@@ -139,7 +139,7 @@ static const int DIALOG_CANCEL	= 129;
 - (void)keyDown:(NSEvent *)theEvent
 {
 	int selectedRow;
-	selectedRow = [bookmarkTableView selectedRow];
+	selectedRow = (int)[bookmarkTableView selectedRow];
 	if (0 <= selectedRow) {
 		[bookmarkArray removeObjectAtIndex:selectedRow];
 		[bookmarkTableView reloadData];
@@ -150,16 +150,16 @@ static const int DIALOG_CANCEL	= 129;
 }
 
 #pragma mark editAllBookmark
--(void)editAllBookmark:(NSArray*)array
+-(void)editAllBookmark:(NSMutableArray*)array
 {
 	[allBookmarkPanel setTarget:self];
     [allBookmarkPanel setAction:@selector(keyDownAll:)];
 	
-    [allBookmarkTableView setDataSource:self];
-    [allBookmarkTableView setDelegate:self];
+    [allBookmarkTableView setDataSource:(id)self];
+    [allBookmarkTableView setDelegate:(id)self];
 
-    [allBookNameTableView setDataSource:self];
-    [allBookNameTableView setDelegate:self];
+    [allBookNameTableView setDataSource:(id)self];
+    [allBookNameTableView setDelegate:(id)self];
 	
 	if (![defaults dictionaryForKey:@"BookSettings"]) {
 		allBookmark = [[NSMutableDictionary dictionary] retain];
@@ -180,7 +180,7 @@ static const int DIALOG_CANCEL	= 129;
 	[allBookmarkTableView reloadData];
 	[allBookNameTableView reloadData];
 	int result;
-	result = [[NSApplication sharedApplication] runModalForWindow:allBookmarkPanel];
+	result = (int)[[NSApplication sharedApplication] runModalForWindow:allBookmarkPanel];
 	[allBookmarkPanel orderOut:self];
 	
 	
@@ -209,7 +209,7 @@ static const int DIALOG_CANCEL	= 129;
 {
 	int selectedRow;
 	if (selectedView == allBookNameTableView) {
-		selectedRow = [allBookNameTableView selectedRow];
+		selectedRow = (int)[allBookNameTableView selectedRow];
 		if (selectedRow > -1) {
 			NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[allBookmark objectForKey:[bookNameArray objectAtIndex:selectedRow]]];
 			[dic removeObjectForKey:@"bookmarks"];
@@ -228,7 +228,7 @@ static const int DIALOG_CANCEL	= 129;
 		}
 		
 	} else {
-		selectedRow = [allBookmarkTableView selectedRow];
+		selectedRow = (int)[allBookmarkTableView selectedRow];
 		if (selectedRow > -1) {
 			
 			id dic = [allBookmark objectForKey:[bookNameArray objectAtIndex:[allBookNameTableView selectedRow]]];
@@ -254,7 +254,7 @@ static const int DIALOG_CANCEL	= 129;
 - (IBAction)deleteRow:(id)sender;
 {
 	int selectedRow;
-	selectedRow = [bookmarkTableView selectedRow];
+	selectedRow = (int)[bookmarkTableView selectedRow];
 	if (0 <= selectedRow) {
 		[bookmarkArray removeObjectAtIndex:selectedRow];
 		[bookmarkTableView reloadData];
@@ -265,7 +265,7 @@ static const int DIALOG_CANCEL	= 129;
 -(IBAction)addNewBookmark:(id)sender
 {
 	if ([bookmarkPanel isVisible]) {
-		int count = [bookmarkArray count];
+		int count = (int)[bookmarkArray count];
 		
 		NSString *bookmarkCountName = [NSString stringWithFormat:@"bookmark%i",count + 1];
 		
@@ -292,7 +292,7 @@ static const int DIALOG_CANCEL	= 129;
 			NSMutableArray *newArray = [NSMutableArray arrayWithArray:array];
 			
 			
-			int count = [newArray count];
+			int count = (int)[newArray count];
 			NSString *bookmarkCountName = [NSString stringWithFormat:@"bookmark%i",count + 1];
 			int bookmarkPage;
 			bookmarkPage = [newBookmarkTextField intValue];
@@ -321,7 +321,7 @@ static const int DIALOG_CANCEL	= 129;
 - (BOOL)validateMenuItem:(NSMenuItem *)anItem
 {
     int selectedRow;
-    selectedRow = [bookmarkTableView selectedRow];
+    selectedRow = (int)[bookmarkTableView selectedRow];
 	
     if( [[anItem title] isEqualToString:NSLocalizedString(@"Delete this Bookmark", @"")] == YES){
 		if (selectedRow > -1) {
@@ -351,7 +351,7 @@ static const int DIALOG_CANCEL	= 129;
 {
 	if ([allBookNameTableView selectedRow] > -1) {
 		NSData *alias = [[allBookmark objectForKey:[bookNameArray objectAtIndex:[allBookNameTableView selectedRow]]] objectForKey:@"alias"];
-		[controller application:nil openFile:[controller pathFromAliasData:alias]];
+		[controller application:NSApp openFile:[controller pathFromAliasData:alias]];
 		[allBookmarkPanel makeKeyAndOrderFront:self];
 	} else {
 		NSBeep();
@@ -390,18 +390,18 @@ static const int DIALOG_CANCEL	= 129;
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 	if (aTableView == bookmarkTableView) {
-		return [bookmarkArray count];
+		return (int)[bookmarkArray count];
 	} else if (aTableView == allBookmarkTableView) {
 		if (allBookmark && [allBookNameTableView selectedRow] > -1) {
 			id dic = [allBookmark objectForKey:[bookNameArray objectAtIndex:[allBookNameTableView selectedRow]]];
 			
 			//NSLog(@"%i,%i",[allBookNameTableView selectedRow],[[dic objectForKey:@"bookmarks"] count]);
-			return [[dic objectForKey:@"bookmarks"] count];
+			return (int)[[dic objectForKey:@"bookmarks"] count];
 		} else {
 			return 0;
 		}
 	} else if (aTableView == allBookNameTableView) {
-		return [bookNameArray count];
+		return (int)[bookNameArray count];
 	}
 	return 0;
 }
@@ -582,6 +582,7 @@ static const int DIALOG_CANCEL	= 129;
 
 #pragma mark tableDataSource_drag&drop
 
+/*
 -(BOOL)tableView:(NSTableView *)tv writeRows:(NSArray*)rows toPasteboard:(NSPasteboard*)pboard
 {
 	if (tv == allBookmarkTableView || tv == bookmarkTableView) {
@@ -591,6 +592,22 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	return NO;
 }
+*/
+- (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
+{
+    if (tv == allBookmarkTableView || tv == bookmarkTableView) {
+        NSMutableArray *rows=[NSMutableArray array];
+            [rowIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                [rows addObject:[NSNumber numberWithInteger:idx]];
+            }];
+        
+        [pboard declareTypes:[NSArray arrayWithObject:@"row"] owner:self];
+        [pboard setPropertyList:rows forType:@"row"];
+        return YES;
+    }
+    return NO;
+}
+
 -(NSDragOperation)tableView:(NSTableView*)tv validateDrop:(id <NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)op
 {
 	NSPasteboard *pboard=[info draggingPasteboard];
@@ -632,8 +649,8 @@ static const int DIALOG_CANCEL	= 129;
 				[tv reloadData];
 				[tv deselectAll:nil];
 				
-				for (i=[upperArray count];i<([upperArray count] + [middleArray count]);i++) {
-					[tv selectRow:i byExtendingSelection:[tv allowsMultipleSelection]];
+				for (i=(int)[upperArray count];i<([upperArray count] + [middleArray count]);i++) {
+                    [tv selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:[tv allowsMultipleSelection]];
 				}
 				
 				return YES;
@@ -672,8 +689,8 @@ static const int DIALOG_CANCEL	= 129;
 			[tv reloadData];
 			[tv deselectAll:nil];
 			
-			for (i=[upperArray count];i<([upperArray count] + [middleArray count]);i++) {
-				[tv selectRow:i byExtendingSelection:[tv allowsMultipleSelection]];
+			for (i=(int)[upperArray count];i<([upperArray count] + [middleArray count]);i++) {
+                [tv selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:[tv allowsMultipleSelection]];
 			}
 			
 			return YES;

@@ -5,7 +5,7 @@
 //  Created by coo on 2020/01/02.
 //
 
-#import <Controller.h>
+#import "Controller.h"
 #import <Cocoa/Cocoa.h>
 
 @interface LoupeView : NSView

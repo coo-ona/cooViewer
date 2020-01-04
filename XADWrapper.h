@@ -14,12 +14,12 @@
 	XADArchive *archive;
 	NSString*	filePath;
 	NSMutableArray*	contentArray;
-	NSStringEncoding	nameEncoding;
 	NSMutableArray*	contentIndexArray;
 	
 	NSString *password;
 }
 
+-(id)initWithPath:(NSString*)path;
 -(id)initWithPath:(NSString*)path nameEncoding:(NSStringEncoding)enc;
 
 	

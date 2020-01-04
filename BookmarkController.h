@@ -1,7 +1,7 @@
 /* BookmarkController */
 
 #import <Cocoa/Cocoa.h>
-#import <Controller.h>
+#import "Controller.h"
 
 @interface BookmarkController : NSObject
 {
@@ -40,8 +40,8 @@
 - (void)setSplitViewPosition:(NSSplitView *)splitView position:(NSString *)position;
 
 -(void)setPathDic:(NSDictionary*)dic;
--(void)editBookmark:(NSArray*)array;
--(void)editAllBookmark:(NSArray*)array;
+-(void)editBookmark:(NSMutableArray*)array;
+-(void)editAllBookmark:(NSMutableArray*)array;
 - (BOOL)validateMenuItem:(NSMenuItem *)anItem;
 
 - (IBAction)deleteRow:(id)sender;

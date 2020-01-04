@@ -1,7 +1,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import <COPDFImageRep.h>
+#import "COPDFImageRep.h"
 
 
 @interface COPDFImage : NSImage {

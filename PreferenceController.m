@@ -2,6 +2,7 @@
 #import "COColorPopUpButton.h"
 #import "Controller.h"
 #import "AccessorySettingView.h"
+#import "NSDictionary_Adding.h"
 
 
 @implementation PreferenceController
@@ -26,7 +27,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:0],@"action",
-				@"left arrow",@"keyname", [NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey],@"key",
+				@"left arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSLeftArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -44,7 +45,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:1],@"action",
-				@"right arrow",@"keyname", [NSString stringWithFormat:@"%C",NSRightArrowFunctionKey],@"key",
+				@"right arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSRightArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -62,7 +63,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:2],@"action",
-				@"shift+left arrow",@"keyname", [NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey],@"key", 
+				@"shift+left arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSLeftArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:1],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -75,7 +76,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:3],@"action",
-				@"shift+right arrow",@"keyname", [NSString stringWithFormat:@"%C",NSRightArrowFunctionKey],@"key",
+				@"shift+right arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSRightArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:1],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -88,7 +89,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:4],@"action",
-				@"option+left arrow",@"keyname", [NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey],@"key", 
+				@"option+left arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSLeftArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:2],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -101,7 +102,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:5],@"action",
-				@"option+right arrow",@"keyname", [NSString stringWithFormat:@"%C",NSRightArrowFunctionKey],@"key",
+				@"option+right arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSRightArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:2],@"modifier",
 				[NSNumber numberWithBool:YES],@"switchAction",
 				nil],
@@ -113,7 +114,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:6],@"action",
-				@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",NSDownArrowFunctionKey],@"key",
+				@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSDownArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			
@@ -124,7 +125,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:7],@"action",
-				@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",NSUpArrowFunctionKey],@"key",
+				@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSUpArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			
@@ -135,7 +136,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:8],@"action",
-				@"control+down arrow",@"keyname", [NSString stringWithFormat:@"%C",NSDownArrowFunctionKey],@"key",
+				@"control+down arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSDownArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:4],@"modifier",
 				nil],
 			
@@ -146,7 +147,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:9],@"action",
-				@"control+up arrow",@"keyname", [NSString stringWithFormat:@"%C",NSUpArrowFunctionKey],@"key",
+				@"control+up arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSUpArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:4],@"modifier",
 				nil],
 			
@@ -170,14 +171,14 @@ static const int DIALOG_CANCEL	= 129;
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:13],@"action",
-				@"tab",@"keyname", [NSString stringWithFormat:@"%C",NSTabCharacter],@"key",
+				@"tab",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSTabCharacter],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithInt:10],@"value",
 				nil],
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:14],@"action",
-				@"shift+tab",@"keyname", [NSString stringWithFormat:@"%C",NSBackTabCharacter],@"key",
+				@"shift+tab",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSBackTabCharacter],@"key",
 				[NSNumber numberWithInt:1],@"modifier",
 				[NSNumber numberWithInt:10],@"value",
 				nil],
@@ -325,7 +326,7 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:35],@"action",
-				@"shift+control+down arrow",@"keyname", [NSString stringWithFormat:@"%C",NSDownArrowFunctionKey],@"key",
+				@"shift+control+down arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSDownArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:5],@"modifier",
 				nil],
 			
@@ -336,18 +337,18 @@ static const int DIALOG_CANCEL	= 129;
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:36],@"action",
-				@"shift+control+up arrow",@"keyname", [NSString stringWithFormat:@"%C",NSUpArrowFunctionKey],@"key",
+				@"shift+control+up arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSUpArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:5],@"modifier",
 				nil],
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:21],@"action",
-				@"num enter",@"keyname", [NSString stringWithFormat:@"%C",NSEnterCharacter],@"key",
+				@"num enter",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSEnterCharacter],@"key",
 				[NSNumber numberWithInt:8],@"modifier",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:21],@"action",
-				@"return",@"keyname", [NSString stringWithFormat:@"%C",NSCarriageReturnCharacter],@"key",
+				@"return",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSCarriageReturnCharacter],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			
@@ -363,18 +364,18 @@ static const int DIALOG_CANCEL	= 129;
 	return [NSMutableArray arrayWithObjects:
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:24],@"action",
-			@"page up",@"keyname", [NSString stringWithFormat:@"%C",NSPageUpFunctionKey],@"key",
+			@"page up",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSPageUpFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			nil],
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:25],@"action",
-			@"page down",@"keyname", [NSString stringWithFormat:@"%C",NSPageDownFunctionKey],@"key",
+			@"page down",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSPageDownFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			nil],
 		
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:26],@"action",
-			@"shift+space",@"keyname", [NSString stringWithFormat:@"%C",0x20],@"key",
+			@"shift+space",@"keyname", [NSString stringWithFormat:@"%C",(unichar)0x20],@"key",
 			[NSNumber numberWithInt:1],@"modifier",
 			nil],
 		[NSDictionary dictionaryWithObjectsAndKeys:
@@ -384,24 +385,24 @@ static const int DIALOG_CANCEL	= 129;
 			nil],
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:28],@"action",
-			@"home",@"keyname", [NSString stringWithFormat:@"%C",NSHomeFunctionKey],@"key",
+			@"home",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSHomeFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			nil],
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:29],@"action",
-			@"end",@"keyname", [NSString stringWithFormat:@"%C",NSEndFunctionKey],@"key",
+			@"end",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSEndFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			nil],
 		
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:30],@"action",
-			@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",NSUpArrowFunctionKey],@"key",
+			@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSUpArrowFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			[NSNumber numberWithInt:20],@"value",
 			nil],
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:31],@"action",
-			@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",NSDownArrowFunctionKey],@"key",
+			@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSDownArrowFunctionKey],@"key",
 			[NSNumber numberWithInt:0],@"modifier",
 			[NSNumber numberWithInt:20],@"value",
 			nil],
@@ -418,18 +419,18 @@ static const int DIALOG_CANCEL	= 129;
 	return [NSMutableArray arrayWithObjects:
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:24],@"action",
-				@"page up",@"keyname", [NSString stringWithFormat:@"%C",NSPageUpFunctionKey],@"key",
+				@"page up",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSPageUpFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:25],@"action",
-				@"page down",@"keyname", [NSString stringWithFormat:@"%C",NSPageDownFunctionKey],@"key",
+				@"page down",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSPageDownFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:26],@"action",
-				@"shift+space",@"keyname", [NSString stringWithFormat:@"%C",0x20],@"key",
+				@"shift+space",@"keyname", [NSString stringWithFormat:@"%C",(unichar)0x20],@"key",
 				[NSNumber numberWithInt:1],@"modifier",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
@@ -440,36 +441,36 @@ static const int DIALOG_CANCEL	= 129;
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:28],@"action",
-				@"home",@"keyname", [NSString stringWithFormat:@"%C",NSHomeFunctionKey],@"key",
+				@"home",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSHomeFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:29],@"action",
-				@"end",@"keyname", [NSString stringWithFormat:@"%C",NSEndFunctionKey],@"key",
+				@"end",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSEndFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				nil],
 			
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:30],@"action",
-				@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",NSUpArrowFunctionKey],@"key",
+				@"up arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSUpArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithInt:20],@"value",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:31],@"action",
-				@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",NSDownArrowFunctionKey],@"key",
+				@"down arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSDownArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithInt:20],@"value",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:32],@"action",
-				@"left arrow",@"keyname", [NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey],@"key",
+				@"left arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSLeftArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithInt:20],@"value",
 				nil],
 			[NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:33],@"action",
-				@"right arrow",@"keyname", [NSString stringWithFormat:@"%C",NSRightArrowFunctionKey],@"key",
+				@"right arrow",@"keyname", [NSString stringWithFormat:@"%C",(unichar)NSRightArrowFunctionKey],@"key",
 				[NSNumber numberWithInt:0],@"modifier",
 				[NSNumber numberWithInt:20],@"value",
 				nil],
@@ -640,9 +641,9 @@ static const int DIALOG_CANCEL	= 129;
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 	if (aTableView == inputTableView) {
-		return [currentKeyArray count];
+		return (int)[currentKeyArray count];
 	} else if (aTableView == mouseTableView) {
-		return [currentMouseArray count];
+		return (int)[currentMouseArray count];
 	}
 	return 0;
 }
@@ -944,22 +945,22 @@ static const int DIALOG_CANCEL	= 129;
 	[currentMouseArray sortUsingSelector:@selector(mouseArrayCompare:)];
 	
 	
-	int bufferingMode = [defaults integerForKey:@"BufferingMode"];
+	int bufferingMode = (int)[defaults integerForKey:@"BufferingMode"];
 	BOOL fitOriginal = [defaults boolForKey:@"FitOriginal"];
 	BOOL rememberBookSettings = [defaults boolForKey:@"RememberBookSettings"];
 	NSDictionary *thumbnail = [defaults dictionaryForKey:@"Thumbnail"];
 	float sliderValue = [defaults floatForKey:@"SlideshowDelay"];
-	int loopCheck = [defaults integerForKey:@"LoopCheck"];
+	int loopCheck = (int)[defaults integerForKey:@"LoopCheck"];
 	
-	int maxEnlargement = [defaults integerForKey:@"MaxEnlargement"];
+	int maxEnlargement = (int)[defaults integerForKey:@"MaxEnlargement"];
 	//int skipPage = [defaults integerForKey:@"SkipPage"];
-	int singleSetting = [defaults integerForKey:@"SingleSetting"];
+	int singleSetting = (int)[defaults integerForKey:@"SingleSetting"];
 	BOOL readSubFolder = [defaults boolForKey:@"ReadSubFolder"];
 	float wheelSensitivity = [defaults floatForKey:@"WheelSensitivity"];
 	BOOL openLastFolder = [defaults boolForKey:@"OpenLastFolder"];
 	
-	int prevPageAction = [defaults integerForKey:@"PrevPageMode"];
-	int canScrollAction = [defaults integerForKey:@"CanScrollMode"];
+	int prevPageAction = (int)[defaults integerForKey:@"PrevPageMode"];
+	int canScrollAction = (int)[defaults integerForKey:@"CanScrollMode"];
 	
 	[prevPageActionPopUpButton selectItemAtIndex:prevPageAction];
 	[canScrollActionPopUpButton selectItemAtIndex:canScrollAction];
@@ -1042,7 +1043,7 @@ static const int DIALOG_CANCEL	= 129;
 	[goToLastPopUpButton selectItemAtIndex:[defaults integerForKey:@"GoToLastPage"]];
 	
 	if ([defaults integerForKey:@"OpenRecentLimit"]) {
-		[numberOfOpenRecentTextField setStringValue:[NSString stringWithFormat:@"%i",[defaults integerForKey:@"OpenRecentLimit"] ]];
+		[numberOfOpenRecentTextField setStringValue:[NSString stringWithFormat:@"%i",(int)[defaults integerForKey:@"OpenRecentLimit"] ]];
 	}
 	
 	/*pdf link*/
@@ -1090,7 +1091,7 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	
 	/*loupe*/
-	int loupeSize = [defaults integerForKey:@"LoupeSize"];
+	int loupeSize = (int)[defaults integerForKey:@"LoupeSize"];
 	[loupeSizeTextField setStringValue:[NSString stringWithFormat:@"%i", loupeSize]];
 	float loupeRate = [defaults floatForKey:@"LoupeRate"];
 	[loupeRateTextField setStringValue:[NSString stringWithFormat:@"%f", loupeRate]];
@@ -1103,21 +1104,21 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	[viewBackGroundColor setCurrentColor:viewBackGround];
 	/*cache*/
-	int imageCache = [defaults integerForKey:@"ImageCache"];
+	int imageCache = (int)[defaults integerForKey:@"ImageCache"];
 	[imageCacheTextField setStringValue:[NSString stringWithFormat:@"%i", imageCache]];
-	int screenCache = [defaults integerForKey:@"ScreenCache"];
+	int screenCache = (int)[defaults integerForKey:@"ScreenCache"];
 	[screenCacheTextField setStringValue:[NSString stringWithFormat:@"%i", screenCache]];
-	int thumbnailCache = [defaults integerForKey:@"ThumbnailCache"];
+	int thumbnailCache = (int)[defaults integerForKey:@"ThumbnailCache"];
 	[thumbnailCacheTextField setStringValue:[NSString stringWithFormat:@"%i", thumbnailCache]];
 	
 	
 	/**/
-    [inputTableView setDataSource:self];
-    [inputTableView setDelegate:self];
+    [inputTableView setDataSource:(id)self];
+    [inputTableView setDelegate:(id)self];
 	[inputTableView reloadData];
 	
-	[mouseTableView setDataSource:self];
-    [mouseTableView setDelegate:self];
+	[mouseTableView setDataSource:(id)self];
+    [mouseTableView setDelegate:(id)self];
 	[mouseTableView reloadData];
 	/**/
 	
@@ -1275,7 +1276,7 @@ static const int DIALOG_CANCEL	= 129;
 		[preferences setLevel:NSModalPanelWindowLevel];
 	}
 	int result;
-	result = [[NSApplication sharedApplication] runModalForWindow:preferences];
+	result = (int)[[NSApplication sharedApplication] runModalForWindow:preferences];
 	[preferences orderOut:self];
 	
 	if(result == DIALOG_CANCEL) {
@@ -1303,7 +1304,7 @@ static const int DIALOG_CANCEL	= 129;
 
 		[defaults setBool:fitOriginal forKey:@"FitOriginal"];
 		
-		bufferingMode = [bufferingModePopUpButton indexOfSelectedItem];
+		bufferingMode = (int)[bufferingModePopUpButton indexOfSelectedItem];
 		[defaults setInteger:bufferingMode forKey:@"BufferingMode"];
 		
 		[defaults setObject:keyArray forKey:@"KeyArray"];
@@ -1347,7 +1348,7 @@ static const int DIALOG_CANCEL	= 129;
 		}
 		[defaults setBool:readSubFolder forKey:@"ReadSubFolder"];
 		
-		int loopIndex = [loopPopUpButton indexOfSelectedItem];		
+		int loopIndex = (int)[loopPopUpButton indexOfSelectedItem];
 		if (loopIndex == 0){
 			loopCheck = 0;
 		} else if (loopIndex == 1){
@@ -1368,7 +1369,7 @@ static const int DIALOG_CANCEL	= 129;
 			} else {
 				readMode = 0;
 			}
-		} else if ([readRightButton state] == NSOnState) {
+		} else /*if ([readRightButton state] == NSOnState)*/ {
 			if ([readSingleCheckButton state] == NSOnState) {
 				readMode = 3;
 			} else {
@@ -1384,10 +1385,10 @@ static const int DIALOG_CANCEL	= 129;
 		[defaults setInteger:singleSetting forKey:@"SingleSetting"];
 		
 		
-		int interpolationIndex = [interpolationPopUpButton indexOfSelectedItem];
+		int interpolationIndex = (int)[interpolationPopUpButton indexOfSelectedItem];
 		[defaults setInteger:interpolationIndex forKey:@"Interpolation"];
 		
-		int enlargementIndex = [enlargePopUpButton indexOfSelectedItem];
+		int enlargementIndex = (int)[enlargePopUpButton indexOfSelectedItem];
 		if (enlargementIndex == 0){
 			maxEnlargement = 1;
 		} else if (enlargementIndex == 1){
@@ -1430,8 +1431,8 @@ static const int DIALOG_CANCEL	= 129;
 		[defaults setFloat:sliderValue forKey:@"SlideshowDelay"];
 		
 		
-		prevPageAction = [prevPageActionPopUpButton indexOfSelectedItem];
-		canScrollAction = [canScrollActionPopUpButton indexOfSelectedItem];
+		prevPageAction = (int)[prevPageActionPopUpButton indexOfSelectedItem];
+		canScrollAction = (int)[canScrollActionPopUpButton indexOfSelectedItem];
 		[defaults setInteger:prevPageAction forKey:@"PrevPageMode"];
 		[defaults setInteger:canScrollAction forKey:@"CanScrollMode"];
 		
@@ -1801,8 +1802,6 @@ static const int DIALOG_CANCEL	= 129;
 
 - (IBAction)disposeSettings:(id)sender
 {
-	NSString *message = NSLocalizedString(@"Are you sure you want to delete the setting which file is not found?",@"");
-	
     NSBeginAlertSheet(NSLocalizedString(@"Disposing of settings",@""),
 					  NSLocalizedString(@"OK",@""), 
 					  NSLocalizedString(@"Cancel",@""), 
@@ -1812,7 +1811,7 @@ static const int DIALOG_CANCEL	= 129;
 					  @selector(sureDisposeSettingAlertSheetDidEnd:returnCode:contextInfo:), 
 					  nil, 
 					  nil, 
-					  message);
+					  NSLocalizedString(@"Are you sure you want to delete the setting which file is not found?",@""));
 }
 - (void)sureDisposeSettingAlertSheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
 {
@@ -1923,7 +1922,7 @@ static const int DIALOG_CANCEL	= 129;
 					  @selector(completeDisposeSettingAlertSheetDidEnd:returnCode:contextInfo:), 
 					  nil, 
 					  nil, 
-					  message);
+                      @"%@", message);
 }
 - (void)completeDisposeSettingAlertSheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
 {
@@ -1938,7 +1937,7 @@ static const int DIALOG_CANCEL	= 129;
     fontPanel = [[NSFontManager sharedFontManager] fontPanel:YES];
 	[[NSFontManager sharedFontManager] setSelectedFont:[fontTextField font] isMultiple:NO];
 	[fontPanel setLevel:NSMainMenuWindowLevel];
-	[fontPanel setDelegate:self];
+	[fontPanel setDelegate:(id)self];
 	[[NSFontManager sharedFontManager] setAction:@selector(changeFont:)];
     [fontPanel makeKeyAndOrderFront:self];
 }
@@ -1964,7 +1963,7 @@ static const int DIALOG_CANCEL	= 129;
     fontPanel = [[NSFontManager sharedFontManager] fontPanel:YES];
 	[[NSFontManager sharedFontManager] setSelectedFont:[pageBarFontTextField font] isMultiple:NO];
 	[fontPanel setLevel:NSMainMenuWindowLevel];
-	[fontPanel setDelegate:self];
+	[fontPanel setDelegate:(id)self];
 	[[NSFontManager sharedFontManager] setAction:@selector(changePageBarFont:)];
     [fontPanel makeKeyAndOrderFront:self];
 }
@@ -1983,7 +1982,7 @@ static const int DIALOG_CANCEL	= 129;
 	[pageBarFontTextField setBackgroundColor:[sender currentColor]];
 }
 
-- (unsigned int) validModesForFontPanel : (NSFontPanel *) fontPanel
+- (NSFontPanelModeMask) validModesForFontPanel : (NSFontPanel *) fontPanel
 {
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 1040
 	if([NSObject respondsToSelector:@selector(finalize)]){
@@ -2067,7 +2066,7 @@ static const int DIALOG_CANCEL	= 129;
 			
 	}
 	
-	[mouse setObject:[NSNumber numberWithInt:[mousePanelButtonPopUpButton selectedTag]] forKey:@"button"];
+	[mouse setObject:[NSNumber numberWithInt:(int)[mousePanelButtonPopUpButton selectedTag]] forKey:@"button"];
 	int cMod = 0;
 	if ([mousePanelShiftCheck state] == NSOnState) {
 		cMod += 1;
@@ -2124,7 +2123,7 @@ static const int DIALOG_CANCEL	= 129;
 	[currentMouseArray addObject:mouse];
 	[currentMouseArray sortUsingSelector:@selector(mouseArrayCompare:)];
 	[mouseTableView reloadData];
-	[mouseTableView selectRow:[currentMouseArray indexOfObject:mouse] byExtendingSelection:NO];
+    [mouseTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:[currentMouseArray indexOfObject:mouse]] byExtendingSelection:NO];
 	[mouseTableView scrollRowToVisible:[currentMouseArray indexOfObject:mouse]];
 	[[NSApplication sharedApplication] endSheet:mouseConfigPanel returnCode:DIALOG_OK];
 	[lastInput release];
@@ -2184,10 +2183,10 @@ static const int DIALOG_CANCEL	= 129;
 	[mousePanelActionPopUpButton setTitle:[sender title]];
 	
 	if (lastInput) {
-		[lastInput setObject:[NSNumber numberWithInt:[sender tag]] forKey:@"action"];
+		[lastInput setObject:[NSNumber numberWithInt:(int)[sender tag]] forKey:@"action"];
 	} else {
 		lastInput = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-			[NSNumber numberWithInt:[sender tag]],@"action",
+			[NSNumber numberWithInt:(int)[sender tag]],@"action",
 			nil];
 	}
 }
@@ -2196,7 +2195,7 @@ static const int DIALOG_CANCEL	= 129;
 
 - (IBAction)mouseReset:(id)sender
 {
-	int mode = [mouseModePopUpButton indexOfSelectedItem];	
+	int mode = (int)[mouseModePopUpButton indexOfSelectedItem];
 	NSString *title,*message;
 	switch (mode) {
 		case 0:
@@ -2229,7 +2228,7 @@ static const int DIALOG_CANCEL	= 129;
 					  @selector(runAlertSheetDidEnd:returnCode:contextInfo:), 
 					  nil, 
 					  @"mouse", 
-					  message);
+                      @"%@", message);
 }
 
 #pragma mark keyConfig
@@ -2509,7 +2508,7 @@ static const int DIALOG_CANCEL	= 129;
 	[currentKeyArray addObject:lastInput];
 	[currentKeyArray sortUsingSelector:@selector(keyArrayCompare:)];
 	[inputTableView reloadData];
-	[inputTableView selectRow:[currentKeyArray indexOfObject:lastInput] byExtendingSelection:NO];
+    [inputTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:[currentKeyArray indexOfObject:lastInput]] byExtendingSelection:NO];
 	[inputTableView scrollRowToVisible:[currentKeyArray indexOfObject:lastInput]];
 	[[NSApplication sharedApplication] endSheet:keyConfigPanel returnCode:DIALOG_OK];
 	[lastInput release];
@@ -2576,7 +2575,7 @@ static const int DIALOG_CANCEL	= 129;
 	[keyPanelPopUpButton setTitle:[sender title]];
 	
 	if (lastInput) {
-		[lastInput setObject:[NSNumber numberWithInt:[sender tag]] forKey:@"action"];
+		[lastInput setObject:[NSNumber numberWithInt:(int)[sender tag]] forKey:@"action"];
 	}
 }
 
@@ -2587,7 +2586,7 @@ static const int DIALOG_CANCEL	= 129;
 	/* 000のリセット
 	000をリセットしてもよろしいですか?*/
 	
-	int mode = [keyModePopUpButton indexOfSelectedItem];
+	int mode = (int)[keyModePopUpButton indexOfSelectedItem];
 	NSString *title,*message;
 	switch (mode) {
 		case 0:
@@ -2618,7 +2617,7 @@ static const int DIALOG_CANCEL	= 129;
 					  @selector(runAlertSheetDidEnd:returnCode:contextInfo:), 
 					  nil, 
 					  @"key", 
-					  message);	
+                      @"%@", message);	
 }
 #pragma mark key&mouseEdit
 - (BOOL)tableView:(NSTableView *)aTableView shouldEditTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
@@ -2786,7 +2785,7 @@ static const int DIALOG_CANCEL	= 129;
 	
 	if(returnCode == NSAlertDefaultReturn) {
 		if ([(NSString*)contextInfo isEqualToString:@"mouse"]) {
-			int mode = [mouseModePopUpButton indexOfSelectedItem];	
+			int mode = (int)[mouseModePopUpButton indexOfSelectedItem];
 			switch (mode) {
 				case 0:
 					[mouseArray removeAllObjects];
@@ -2809,7 +2808,7 @@ static const int DIALOG_CANCEL	= 129;
 			[currentMouseArray sortUsingSelector:@selector(mouseArrayCompare:)];
 			[mouseTableView reloadData];
 		} else if ([(NSString*)contextInfo isEqualToString:@"key"]) {
-			int mode = [keyModePopUpButton indexOfSelectedItem];	
+			int mode = (int)[keyModePopUpButton indexOfSelectedItem];	
 			switch (mode) {
 				case 0:
 					[keyArray removeAllObjects];
@@ -2843,7 +2842,7 @@ static const int DIALOG_CANCEL	= 129;
 	[accessorySettingPanel setBackgroundColor:[viewBackGroundColor currentColor]];
 	[accessorySettingView display];
 	[accessorySettingPanel setLevel:NSMainMenuWindowLevel];
-	[accessorySettingPanel setDelegate:self];
+	[accessorySettingPanel setDelegate:(id)self];
 	
 	
 	[accessorySettingView setPageBarBGColor:[pageBarBGColor currentColor]];

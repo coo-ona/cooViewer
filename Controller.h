@@ -1,17 +1,17 @@
 /* Controller */
 
 #import <Cocoa/Cocoa.h>
-#import <ThumbnailController.h>
-#import <BookmarkController.h>
-#import <PreferenceController.h>
-#import <NSString_Compare.h>
+#import "ThumbnailController.h"
+#import "BookmarkController.h"
+#import "PreferenceController.h"
+#import "NSString_Compare.h"
 
-#import <COImageLoader.h>
+#import "COImageLoader.h"
 
-#import <AppleRemote.h>
-#import <GlobalKeyboardDevice.h>
-#import <KeyspanFrontRowControl.h>
-#import <MultiClickRemoteBehavior.h>
+#import "AppleRemote.h"
+#import "GlobalKeyboardDevice.h"
+#import "KeyspanFrontRowControl.h"
+#import "MultiClickRemoteBehavior.h"
 
 @class RemoteControl;
 @class MultiClickRemoteBehavior;
@@ -328,6 +328,9 @@
 */
 
 - (IBAction)slideshow:(id)sender;
+
+- (void)nextOriginal;
+- (void)prevOriginal;
 @end
 
 @interface Controller(private)

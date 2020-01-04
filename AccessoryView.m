@@ -82,8 +82,8 @@ NSRect COIntRect(NSRect aRect)
 	
 	autoHidePageBar = [defaults boolForKey:@"PageBarAutoHide"];
 	autoHidePageString = [defaults boolForKey:@"PageNumAutoHide"];
-	pageBarShowThumbnail = [defaults integerForKey:@"PageBarShowThumbnail"];
-	pageBarPosition = [defaults integerForKey:@"PageBarPosition"];
+	pageBarShowThumbnail = (int)[defaults integerForKey:@"PageBarShowThumbnail"];
+	pageBarPosition = (int)[defaults integerForKey:@"PageBarPosition"];
 	
 	
 	NSDictionary *dic = [defaults dictionaryForKey:@"PageBarSize"];
@@ -140,7 +140,7 @@ NSRect COIntRect(NSRect aRect)
 	}
 	
 	
-	pageStringPosition = [defaults integerForKey:@"PageNumPosition"];
+	pageStringPosition = (int)[defaults integerForKey:@"PageNumPosition"];
 	
 	pageMargin = NSZeroPoint;
 	if ([defaults dictionaryForKey:@"Margin_Page"]) {
@@ -167,7 +167,7 @@ NSRect COIntRect(NSRect aRect)
 	
 	if ([textBGColor isEqualTo:[NSColor clearColor]]) {
 		NSColor *shadowColor = [textFontColor colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
-		float white,alpha;
+		CGFloat white,alpha;
 		[shadowColor getWhite:&white alpha:&alpha];
 		NSShadow *shadow = [[NSShadow alloc] init];
 		[shadow setShadowBlurRadius:white];
@@ -247,7 +247,7 @@ NSRect COIntRect(NSRect aRect)
 			}
 			temp = temp/tempRect.size.width;
 			
-			float fPage = [controller pageCount]*temp;
+			float fPage = [(Controller *)controller pageCount]*temp;
 			int page = (int)fPage;
 			
 			NSMutableDictionary* attr = [NSMutableDictionary dictionary];
@@ -289,14 +289,9 @@ NSRect COIntRect(NSRect aRect)
 				theight = 10;
 				float rad = 10.0;
 				NSImage *thumbnail = [controller loadThumbnailImage:page];
-				NSImageRep *rep = [thumbnail  bestRepresentationForRect:NSMakeRect(0,0,200,200) context:nil hints:nil];
 				
-				NSInteger widthValue = [rep pixelsWide];
-				NSInteger heightValue = [rep pixelsHigh];
-                if( (widthValue>0 && heightValue>0) && ([thumbnail size].width != widthValue || [thumbnail size].height != heightValue) ){
-                    [thumbnail setScalesWhenResized:YES];
-                    [thumbnail setSize:NSMakeSize(widthValue,heightValue)];
-                }
+				NSInteger widthValue = [thumbnail size].width;
+				NSInteger heightValue = [thumbnail size].height;
 				float imageRectWidth = 200;
 				float imageRectHeight = 200;
 				float width,height;
@@ -705,9 +700,6 @@ NSRect COIntRect(NSRect aRect)
 		default:
 			break;
 	}
-	return COIntRect(rect);
-	rect.size.width = [infoString sizeWithBG].width;
-	rect.size.height = [infoString sizeWithBG].height;
 	return COIntRect(rect);
 }
 

@@ -172,7 +172,7 @@ static BOOL appleRemoteHoldDown = NO;
 - (BOOL)getKeyAction:(unichar)character mod:(int)cMod mode:(int)mode slideshow:(BOOL)slideshow
 {
 	
-	NSEnumerator *enu;
+    NSEnumerator *enu = nil;
 	switch (mode) {
 		case 0:
 			enu = [keyArray objectEnumerator];
@@ -354,12 +354,12 @@ static BOOL appleRemoteHoldDown = NO;
 					} else {
 						if (!secondImage) {
 							int i = nowPage - 1;
-							[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+							[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 							numberSwitch = YES;
 						} else if (secondImage) {
 							int i = nowPage - 1;
 							int iS = i - 1;
-							[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+							[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 							numberSwitch = YES;
 						}
 						[defaults setBool:numberSwitch forKey:@"ShowNumber"];
@@ -383,7 +383,7 @@ static BOOL appleRemoteHoldDown = NO;
 					}
 						nowPage += skipI;
 					if (nowPage >= [completeMutableArray count]) {
-						nowPage = [completeMutableArray count];
+						nowPage = (int)[completeMutableArray count];
 						nowPage -= 2;
 					}
 						[self lookahead];
@@ -807,7 +807,7 @@ static BOOL appleRemoteHoldDown = NO;
 		[imageView setSlideshow:NO];
 	}
 	
-	int button = [sender buttonNumber];
+	int button = (int)[sender buttonNumber];
 	unsigned int cMod = 0;
 	BOOL shift = ([sender modifierFlags] & NSShiftKeyMask) ? YES : NO;
 	BOOL option = ([sender modifierFlags] & NSAlternateKeyMask) ? YES : NO;
@@ -949,7 +949,7 @@ static BOOL appleRemoteHoldDown = NO;
 
 - (void)gestureAction:(NSEvent*)sender moved:(int)moved
 {
-	int button = [sender buttonNumber];
+	int button = (int)[sender buttonNumber];
 	unsigned int cMod = 0;
 	switch (moved) {
 		case 0:
@@ -1034,7 +1034,7 @@ static BOOL appleRemoteHoldDown = NO;
 
 - (BOOL)getMouseAction:(int)button mod:(int)cMod mode:(int)mode left:(BOOL)left
 {
-	NSEnumerator *enu;
+    NSEnumerator *enu = nil;
 	switch (mode) {
 		case 0:
 			enu = [mouseArray objectEnumerator];
@@ -1113,7 +1113,7 @@ static BOOL appleRemoteHoldDown = NO;
 							[lock unlock];
 							threadStop = NO;
 							[imageMutableArray removeAllObjects];
-							nowPage = [completeMutableArray count];
+							nowPage = (int)[completeMutableArray count];
 							if (readMode > 1) {
 								nowPage--;
 								[self lookahead];
@@ -1188,7 +1188,7 @@ static BOOL appleRemoteHoldDown = NO;
 						skipI -= 2;
 						nowPage += skipI;
 						if (nowPage >= [completeMutableArray count]) {
-							nowPage = [completeMutableArray count];
+							nowPage = (int)[completeMutableArray count];
 							nowPage -= 2;
 						}
 						[self lookahead];
@@ -1327,12 +1327,12 @@ static BOOL appleRemoteHoldDown = NO;
 					} else {
 						if (!secondImage) {
 							int i = nowPage - 1;
-							[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+							[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 							numberSwitch = YES;
 						} else if (secondImage) {
 							int i = nowPage - 1;
 							int iS = i - 1;
-							[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+							[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 							numberSwitch = YES;
 						}
 						[defaults setBool:numberSwitch forKey:@"ShowNumber"];
@@ -1350,7 +1350,7 @@ static BOOL appleRemoteHoldDown = NO;
 					skipI -= 2;
 					nowPage += skipI;
 					if (nowPage >= [completeMutableArray count]) {
-						nowPage = [completeMutableArray count];
+						nowPage = (int)[completeMutableArray count];
 						nowPage -= 2;
 					}
 						[self lookahead];
@@ -1940,7 +1940,7 @@ static BOOL appleRemoteHoldDown = NO;
 	int i = nowPage;
 	i--;
 	NSString *currentFilePath = [imageLoader itemPathAtIndex:i];
-	[[NSWorkspace sharedWorkspace] selectFile:currentFilePath inFileViewerRootedAtPath:nil];
+	[[NSWorkspace sharedWorkspace] selectFile:currentFilePath inFileViewerRootedAtPath:@""];
 	/*
 	if ([[NSWorkspace sharedWorkspace] isFilePackageAtPath:[currentFilePath stringByDeletingLastPathComponent]]) {
 		[[NSWorkspace sharedWorkspace] selectFile:[currentFilePath stringByDeletingLastPathComponent] inFileViewerRootedAtPath:nil];
@@ -1955,7 +1955,7 @@ static BOOL appleRemoteHoldDown = NO;
 	i--;
 	if (secondImage) i--;
 	NSString *currentFilePath = [imageLoader itemPathAtIndex:i];
-	[[NSWorkspace sharedWorkspace] selectFile:currentFilePath inFileViewerRootedAtPath:nil];
+	[[NSWorkspace sharedWorkspace] selectFile:currentFilePath inFileViewerRootedAtPath:@""];
 	/*
 	if ([[NSWorkspace sharedWorkspace] isFilePackageAtPath:[currentFilePath stringByDeletingLastPathComponent]]) {
 		[[NSWorkspace sharedWorkspace] selectFile:[currentFilePath stringByDeletingLastPathComponent] inFileViewerRootedAtPath:nil];
@@ -1983,12 +1983,14 @@ static BOOL appleRemoteHoldDown = NO;
 		[fullImageView setImage:firstImage];
 	}
 	
-	NSSize theScrollViewSize = [NSScrollView
-				  frameSizeForContentSize:[fullImageView frame].size
-					hasHorizontalScroller:[scrollView hasHorizontalScroller]
-					  hasVerticalScroller:[scrollView hasVerticalScroller]
-							   borderType:[scrollView borderType]
-		];
+    NSSize theScrollViewSize = [NSScrollView
+                                frameSizeForContentSize:[fullImageView frame].size
+                                horizontalScrollerClass:nil
+                                  verticalScrollerClass:nil
+                                             borderType:[scrollView borderType]
+                                            controlSize:NSRegularControlSize
+                                          scrollerStyle:[scrollView scrollerStyle]
+    ];
 	[fullImagePanel setContentSize:theScrollViewSize];
 	
 	NSRect theScrollViewRect;
@@ -2032,12 +2034,14 @@ static BOOL appleRemoteHoldDown = NO;
 		i = nowPage - 1;
 		[fullImageView setImage:secondImage];
 	}
-	NSSize theScrollViewSize = [NSScrollView
-                      frameSizeForContentSize:[fullImageView frame].size
-						hasHorizontalScroller:[scrollView hasHorizontalScroller]
-						  hasVerticalScroller:[scrollView hasVerticalScroller]
-								   borderType:[scrollView borderType]
-		];
+    NSSize theScrollViewSize = [NSScrollView
+                                frameSizeForContentSize:[fullImageView frame].size
+                                horizontalScrollerClass:nil
+                                  verticalScrollerClass:nil
+                                             borderType:[scrollView borderType]
+                                            controlSize:NSRegularControlSize
+                                          scrollerStyle:[scrollView scrollerStyle]
+    ];
 	[fullImagePanel setContentSize:theScrollViewSize];
 	NSRect theScrollViewRect;
 	theScrollViewRect.origin = NSZeroPoint;
@@ -2157,7 +2161,7 @@ static BOOL appleRemoteHoldDown = NO;
 				[lock unlock];
 				threadStop = NO;
 				[imageMutableArray removeAllObjects];
-				nowPage = [completeMutableArray count];
+				nowPage = (int)[completeMutableArray count];
 				nowPage --;
 				[self lookahead];
 			} else if (loopCheck == 1) {
@@ -2192,7 +2196,7 @@ static BOOL appleRemoteHoldDown = NO;
 					[lock unlock];
 					threadStop = NO;
 					[imageMutableArray removeAllObjects];
-					nowPage = [completeMutableArray count];
+					nowPage = (int)[completeMutableArray count];
 					nowPage -= 2;
 					if (bufferingMode == 0 && screenCache>0) [self imageDisplayIfHasScreenCache];
 					[self lookahead];
@@ -2262,7 +2266,7 @@ static BOOL appleRemoteHoldDown = NO;
 					[lock unlock];
 					threadStop = NO;
 					[imageMutableArray removeAllObjects];
-					nowPage = [completeMutableArray count];
+					nowPage = (int)[completeMutableArray count];
 					nowPage -= 2;
 					if (bufferingMode == 0 && screenCache>0) [self imageDisplayIfHasScreenCache];
 					[self lookahead];
@@ -2346,7 +2350,7 @@ static BOOL appleRemoteHoldDown = NO;
 		if (nowPage <2) {
 			if (loopCheck == 0) {
 				[imageMutableArray removeAllObjects];
-				nowPage = [completeMutableArray count];
+				nowPage = (int)[completeMutableArray count];
 				nowPage --;
 				[self lookahead];
 			} else if (loopCheck == 1) {
@@ -2369,7 +2373,7 @@ static BOOL appleRemoteHoldDown = NO;
 			if (nowPage <2) {
 				if (loopCheck == 0) {
 					[imageMutableArray removeAllObjects];
-					nowPage = [completeMutableArray count];
+					nowPage = (int)[completeMutableArray count];
 					nowPage --;
 					[self lookahead];
 				} else if (loopCheck == 1) {
@@ -2412,7 +2416,7 @@ static BOOL appleRemoteHoldDown = NO;
 			if (nowPage < 3) {
 				if (loopCheck == 0) {
 					[imageMutableArray removeAllObjects];
-					nowPage = [completeMutableArray count];
+					nowPage = (int)[completeMutableArray count];
 					nowPage -= 2;
 					[self lookahead];
 					if ([self isSmallImage:[imageMutableArray objectAtIndex:0] page:nowPage+1] == NO) {
@@ -2452,7 +2456,7 @@ static BOOL appleRemoteHoldDown = NO;
 	if (nowPage < [completeMutableArray count]) {
 		useComposedImage = NO;
 		[imageMutableArray removeAllObjects];
-		nowPage = [completeMutableArray count];
+		nowPage = (int)[completeMutableArray count];
 		if (readMode > 1) {
 			nowPage--;
 			[self lookahead];
@@ -2508,7 +2512,7 @@ static BOOL appleRemoteHoldDown = NO;
 		if (iS > iSS) {
 			NSEnumerator *enumerator = [bookmarkArray objectEnumerator];
 			id object;
-			NSString *bookmarkTitle;
+            NSString *bookmarkTitle = nil;
 			while (object = [enumerator nextObject]) {
 				if ([[object objectForKey:@"page"] intValue] == iS){
 					bookmarkTitle = [object objectForKey:@"name"];
@@ -2536,7 +2540,7 @@ static BOOL appleRemoteHoldDown = NO;
 		[oldArray addObject:number];
 	}
 	NSArray *newArray = [oldArray sortedArrayUsingSelector:@selector(compare:)];
-	for (i = [newArray count]-1; i >= 0; i--) {
+	for (i = (int)[newArray count]-1; i >= 0; i--) {
 		int iS = [[newArray objectAtIndex:i] intValue];
 		int iSS = nowPage;
 		if (secondImage) {
@@ -2546,7 +2550,7 @@ static BOOL appleRemoteHoldDown = NO;
 			
 			NSEnumerator *enumerator = [bookmarkArray objectEnumerator];
 			id object;
-			NSString *bookmarkTitle;
+            NSString *bookmarkTitle = nil;
 			while (object = [enumerator nextObject]) {
 				if ([[object objectForKey:@"page"] intValue] == iS){
 					bookmarkTitle = [object objectForKey:@"name"];
@@ -2745,7 +2749,7 @@ static BOOL appleRemoteHoldDown = NO;
 	if (nowPage < 0) {
 		nowPage = 0;
 	} else if (nowPage >= [completeMutableArray count]) {
-		nowPage = [completeMutableArray count]-1;
+		nowPage = (int)[completeMutableArray count]-1;
 	}
 	[imageMutableArray removeAllObjects];
 	[self lookahead];
@@ -2795,7 +2799,7 @@ static BOOL appleRemoteHoldDown = NO;
 	[lock unlock];
 	threadStop = NO;
 	
-	float temp = [completeMutableArray count]*par;
+	float temp = (int)[completeMutableArray count]*par;
 	int page = (int)temp;
 	nowPage = page;
 	if (nowPage < 0) {
@@ -3037,7 +3041,7 @@ static NSTimer* dontSleepTimer = nil;
 
 - (void)addBookmarkWithPage:(int)page
 {
-	int bookmarkCount = [bookmarkArray count];
+	int bookmarkCount = (int)[bookmarkArray count];
 	NSString *bookmarkCountName = [NSString stringWithFormat:@"bookmark%d",bookmarkCount + 1];
 	NSString *bookmarkNowPageString = [NSString stringWithFormat:@"%d",page];
 	
@@ -3074,13 +3078,12 @@ static NSTimer* dontSleepTimer = nil;
 }
 - (void)trashFile:(NSString*)path
 {
-	NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Do you really want to move %@ to the trash?",@""),
-		[path lastPathComponent]];
-	int result = NSRunAlertPanel(NSLocalizedString(@"Move to Trash",@""),
-								 message,
+	int result = (int)NSRunAlertPanel(NSLocalizedString(@"Move to Trash",@""),
+								 NSLocalizedString(@"Do you really want to move %@ to the trash?",@""),
 								 NSLocalizedString(@"OK",@""), 
 								 NSLocalizedString(@"Cancel",@""), 
-								 nil);
+								 nil,
+                                 [path lastPathComponent]);
 	
 	if(result == NSAlertDefaultReturn || result == NSAlertFirstButtonReturn) {
 		BOOL b = NO;
@@ -3097,7 +3100,7 @@ static NSTimer* dontSleepTimer = nil;
 			//string = [NSString stringWithFormat:@"tell application \"Finder\" to delete POSIX file \"%@\"", [path precomposedStringWithCompatibilityMapping]]; 
 			string = [NSString stringWithFormat:@"tell application \"Finder\" to delete selection"];
 			script = [[NSAppleScript alloc] initWithSource:string];
-			[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:nil];
+			[[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:@""];
 			desc = [script executeAndReturnError:&error];
 			//NSLog(@"1 %@ %@",desc,error);
 			[script release];

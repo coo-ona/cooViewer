@@ -2452,6 +2452,11 @@ when the currently open book was moved:</target>
         <target>Radio</target>
         <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
       </trans-unit>
+      <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
+        <source>"Old" does not work properly on retina display</source>
+        <target>"Old" does not work properly on retina display</target>
+        <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
+      </trans-unit>
     </body>
   </file>
   <file original="en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">

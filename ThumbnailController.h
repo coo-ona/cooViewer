@@ -1,7 +1,7 @@
 /* ThumbnailController */
 
 #import <Cocoa/Cocoa.h>
-#import <COImageLoader.h>
+#import "COImageLoader.h"
 
 
 @interface ThumbnailController : NSObject
@@ -71,6 +71,7 @@
 - (void)imageSelected:(id)sender;
 -(void)appleRemoteAction:(NSString*)characters;
 -(void)action:(NSEvent*)event;
+-(void)wheelAction:(NSEvent*)event;
 -(void)wheelSetting:(float)set;
 -(void)wheelUp;
 -(void)wheelDown;

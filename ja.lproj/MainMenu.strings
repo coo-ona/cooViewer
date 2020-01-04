@@ -1462,3 +1462,6 @@
 /* Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424"; */
 "4424.title" = "Radio";
 
+/* Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D"; */
+"Uaz-oE-D3D.title" = "\"Old\" はRetinaディスプレイでは正常に動作しません";
+

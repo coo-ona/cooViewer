@@ -1,10 +1,11 @@
 
 #import <Cocoa/Cocoa.h>
+#import "Controller.h"
 
 
 @interface FullImagePanel : NSPanel {
 	id keyArray;
-	id target;
+	Controller *target;
 	BOOL fitMode;
 }
 - (void)setFitMode:(BOOL)yes;

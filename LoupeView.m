@@ -80,14 +80,6 @@
             NSAffineTransform *transform = [NSAffineTransform transform];
             NSRect tempRect = fRect;
             image = [targetController image1];
-            NSImageRep *rep;
-            rep = [image bestRepresentationForDevice:nil];
-            widthValue = [rep pixelsWide];
-            heightValue = [rep pixelsHigh];
-            if( (widthValue>0 && heightValue>0) && ([image size].width != widthValue || [image size].height != heightValue) ){
-                [image setScalesWhenResized:YES];
-                [image setSize:NSMakeSize(widthValue,heightValue)];
-            }
             widthValue = [image size].width;
             heightValue = [image size].height;
             
@@ -154,14 +146,6 @@
                 } else {
                     image = [targetController image2];
                 }
-                NSImageRep *rep;
-                rep = [image bestRepresentationForDevice:nil];
-                widthValue = [rep pixelsWide];
-                heightValue = [rep pixelsHigh];
-                if( (widthValue>0 && heightValue>0) && ([image size].width != widthValue || [image size].height != heightValue) ){
-                    [image setScalesWhenResized:YES];
-                    [image setSize:NSMakeSize(widthValue,heightValue)];
-                }
                 widthValue = [image size].width;
                 heightValue = [image size].height;
                 
@@ -180,16 +164,8 @@
                     } else {
                         sImage = [targetController image1];
                     }
-                    NSImageRep *rep;
-                    rep = [sImage bestRepresentationForDevice:nil];
-                    NSInteger sWidthValue = [rep pixelsWide];
-                    NSInteger sHeightValue = [rep pixelsHigh];
-                    if( (sWidthValue>0 && heightValue>0) && ([sImage size].width != sWidthValue || [sImage size].height != sHeightValue) ){
-                        [sImage setScalesWhenResized:YES];
-                        [sImage setSize:NSMakeSize(sWidthValue,sHeightValue)];
-                    }
-                    sWidthValue = [sImage size].width;
-                    sHeightValue = [sImage size].height;
+                    NSInteger sWidthValue = [sImage size].width;
+                    NSInteger sHeightValue = [sImage size].height;
                     float sx = [sImage size].width/sTempRect.size.width;
                     NSPoint sPoint;
                     sPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*lensRate*x);
@@ -198,19 +174,11 @@
                             fromRect:NSMakeRect(0,0,sWidthValue,sHeightValue)
                             operation:NSCompositeSourceOver fraction:1.0];
                 }
-            } else if (NSPointInRect(mPoint,sRect)) {
+            } else /*if (NSPointInRect(mPoint,sRect))*/ {
                 if ([targetController readFromLeft]) {
                     image = [targetController image2];
                 } else {
                     image = [targetController image1];
-                }
-                NSImageRep *rep;
-                rep = [image bestRepresentationForDevice:nil];
-                widthValue = [rep pixelsWide];
-                heightValue = [rep pixelsHigh];
-                if( (widthValue>0 && heightValue>0) && ([image size].width != widthValue || [image size].height != heightValue) ){
-                    [image setScalesWhenResized:YES];
-                    [image setSize:NSMakeSize(widthValue,heightValue)];
                 }
                 widthValue = [image size].width;
                 heightValue = [image size].height;
@@ -230,16 +198,8 @@
                     } else {
                         sImage = [targetController image2];
                     }
-                    NSImageRep *rep;
-                    rep = [sImage bestRepresentationForDevice:nil];
-                    NSInteger sWidthValue = [rep pixelsWide];
-                    NSInteger sHeightValue = [rep pixelsHigh];
-                    if( (sWidthValue>0 && sHeightValue>0) && ([sImage size].width != sWidthValue || [sImage size].height != sHeightValue) ){
-                        [sImage setScalesWhenResized:YES];
-                        [sImage setSize:NSMakeSize(sWidthValue,sHeightValue)];
-                    }
-                    sWidthValue = [sImage size].width;
-                    sHeightValue = [sImage size].height;
+                    NSInteger sWidthValue = [sImage size].width;
+                    NSInteger sHeightValue = [sImage size].height;
                     float sx = [sImage size].width/fTempRect.size.width;
                     NSPoint sPoint;
                     sPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*lensRate*x);

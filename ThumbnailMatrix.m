@@ -68,13 +68,14 @@
 			[bezier fill];
 			
 			NSImage *image = [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bookmark_a" ofType:@"tiff"]] autorelease];
-			[image setFlipped:YES];
 			
 			imageRect.origin.y+=1;
 			[image drawInRect:imageRect
 					 fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
 					operation:NSCompositeSourceOver
-					 fraction:1.0];	
+					 fraction:1.0
+               respectFlipped:YES
+                        hints:nil];
 		}
 	}
 	

@@ -60,7 +60,7 @@
 	maxEnlargement = [target maxEnlargement];
 	
 	
-	lensSize=[defaults integerForKey:@"LoupeSize"];
+	lensSize=(int)[defaults integerForKey:@"LoupeSize"];
 	lensRate=[defaults floatForKey:@"LoupeRate"];
 	
 	[self display];
@@ -127,7 +127,7 @@
 	cursorMoved = NSMakePoint(0,0);
 	oldPoint=[event locationInWindow];
 	
-	int button = [event buttonNumber];
+	int button = (int)[event buttonNumber];
 	
 	unsigned int cMod = 100;
 	if (([event modifierFlags] & NSShiftKeyMask))
@@ -723,16 +723,13 @@ NSTimeInterval elapsed=0;
 
 - (void)drawImage:(NSImage*)image
 {	
-	NSImageRep *rep;
-	rep = [image bestRepresentationForDevice:nil];
-		
 	int widthValue,heightValue;
 	if (rotateMode==1||rotateMode==3) {
-		widthValue = [rep pixelsHigh];
-		heightValue = [rep pixelsWide];
+		widthValue = [image size].height;
+		heightValue = [image size].width;
 	} else {
-		widthValue = [rep pixelsWide];
-		heightValue = [rep pixelsHigh];
+		widthValue = [image size].width;
+		heightValue = [image size].height;
 	}
 
 	float screenWidthValue = NSWidth([[[self window] contentView] frame]);
@@ -868,7 +865,7 @@ NSTimeInterval elapsed=0;
 		drawRect = NSMakeRect((int)x,(int)y,(int)width,(int)height);
 	}
 	[image drawInRect:drawRect
-			 fromRect:NSMakeRect(0,0,[rep pixelsWide],[rep pixelsHigh])
+			 fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
 			operation:NSCompositeSourceOver fraction:1.0];
 	if (rotateMode!=0) {
 		[transform invert];
@@ -897,13 +894,11 @@ NSTimeInterval elapsed=0;
 	NSDivideRect (fullscreenRect, &leftRect, &rightRect, fullscreenRect.size.width/2, NSMinXEdge);
 
 	
-	NSImageRep* rep1 = [image1 bestRepresentationForDevice:nil];
-	int widthValue01 = [rep1 pixelsWide];
-	int heightValue01 = [rep1 pixelsHigh];
+	int widthValue01 = [image1 size].width;
+	int heightValue01 = [image1 size].height;
 	
-	NSImageRep* rep2 = [image2 bestRepresentationForDevice:nil];
-	int widthValue02 = [rep2 pixelsWide];
-	int heightValue02 = [rep2 pixelsHigh];
+	int widthValue02 = [image2 size].width;
+	int heightValue02 = [image2 size].height;
 	
 	int widthValue1 = widthValue01;
 	int heightValue1 = heightValue01;
