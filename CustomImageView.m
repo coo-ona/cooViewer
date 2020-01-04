@@ -645,7 +645,7 @@ NSTimeInterval elapsed=0;
 			[super setImage:_image];
 		} else {
 			needFirstScroll = YES;
-			[self setNeedsDisplayInRect:[self visibleRect]];
+			[self setNeedsDisplay];
 		}
 	} else {
 		if (image == nil) {
@@ -654,7 +654,11 @@ NSTimeInterval elapsed=0;
 			[self setNeedsDisplayInRect:[self visibleRect]];
 		}
 	}
-	[self displayIfNeededInRect:[self visibleRect]];
+    if (needFirstScroll) {
+        [self display];
+    } else {
+        [self displayIfNeededInRect:[self visibleRect]];
+    }
 	[accessoryView displayIfNeeded];
 }
 
@@ -672,7 +676,7 @@ NSTimeInterval elapsed=0;
 			[super setImage:_image];
 		} else {
 			needFirstScroll = YES;
-			[self setNeedsDisplayInRect:[self visibleRect]];
+			[self setNeedsDisplay];
 		}
 	} else {
 		if (image == nil) {
@@ -681,7 +685,11 @@ NSTimeInterval elapsed=0;
 			[self setNeedsDisplayInRect:[self visibleRect]];
 		}
 	}
-	[self displayIfNeededInRect:[self visibleRect]];
+    if (needFirstScroll) {
+        [self display];
+    } else {
+        [self displayIfNeededInRect:[self visibleRect]];
+    }
 	[accessoryView displayIfNeeded];
 }
 
