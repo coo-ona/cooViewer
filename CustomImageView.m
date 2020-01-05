@@ -265,7 +265,7 @@
 
 - (void)beginGestureWithEvent:(NSEvent *)event
 {
-//	NSLog(@"beginGestureWithEvent %@",event);
+//  NSLog(@"beginGestureWithEvent %@",event);
 	mt_rotation = 0;
 	mt_deltaZ = 0;
 	mt_didAction = NO;
@@ -279,13 +279,18 @@
 
 - (void)magnifyWithEvent:(NSEvent *)event
 {
-//	NSLog(@"deltaZ=%f",[event deltaZ]);
+//  NSLog(@"magnification=%f",[event magnification]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if (mt_didAction == NO) {
-		mt_deltaZ += [event deltaZ];
-		if (mt_deltaZ<-100) {
+		mt_deltaZ += [event magnification];
+		if (mt_deltaZ<-0.2) {
 			[target multiTouchAction:event action:4];
 			mt_didAction = YES;
-		} else if (mt_deltaZ>100) {
+		} else if (mt_deltaZ>0.2) {
 			[target multiTouchAction:event action:5];
 			mt_didAction = YES;
 		}
@@ -294,7 +299,12 @@
 
 - (void)rotateWithEvent:(NSEvent *)event
 {
-//	NSLog(@"rotation=%f",[event rotation]);
+//  NSLog(@"rotation=%f",[event rotation]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if (mt_didAction == NO) {
 		mt_rotation += [event rotation];
 		if (mt_rotation<-15) {
@@ -310,7 +320,12 @@
 
 - (void)swipeWithEvent:(NSEvent *)event
 {
-//	NSLog(@"deltaX=%f,deltaY=%f",[event deltaX],[event deltaY]);
+//  NSLog(@"deltaX=%f,deltaY=%f",[event deltaX],[event deltaY]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if ([event deltaX]<0) {
 		[target multiTouchAction:event action:0];
 	} else if ([event deltaX]>0) {
@@ -321,7 +336,6 @@
 		[target multiTouchAction:event action:3];
 	}
 }
-
 
 #pragma mark scroll
 
@@ -872,9 +886,7 @@ NSTimeInterval elapsed=0;
 	} else {
 		drawRect = NSMakeRect((int)x,(int)y,(int)width,(int)height);
 	}
-	[image drawInRect:drawRect
-			 fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
-			operation:NSCompositeSourceOver fraction:1.0];
+	[image drawInRect:drawRect];
 	if (rotateMode!=0) {
 		[transform invert];
 		[transform concat];
