@@ -29,6 +29,7 @@
 		return;
 	} else {
 		[super setFrame:windowFrame display:displayViews];
+        [view setAccessoryWindowFrame];
 	}	
 }
 - (void)setFullScreen:(BOOL)b

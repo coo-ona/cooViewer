@@ -1,6 +1,7 @@
 /* CustomWindow */
 
 #import <Cocoa/Cocoa.h>
+#import "CustomImageView.h"
 
 @interface CustomWindow : NSWindow
 {
@@ -15,7 +16,7 @@
 	NSRect mouseRect;
 	BOOL hideMenuBar;
 	BOOL resizable;
-	NSImageView *view;
+	CustomImageView *view;
 }
 - (void)setFullScreen:(BOOL)b;
 - (BOOL)isFullScreen;

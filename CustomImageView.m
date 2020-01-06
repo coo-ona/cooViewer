@@ -1361,11 +1361,14 @@ NSTimeInterval elapsed=0;
 - (void)setFrame:(NSRect)frameRect
 {
 	[super setFrame:frameRect];
-	NSRect temp = [[[self window] contentView] frame];
-	temp.origin = [[self window] frame].origin;
-	[accessoryWindow setFrame:temp display:YES];
-	//[self displayIfNeededInRect:[self visibleRect]];
-	//[self setNeedsDisplayInRect:[self visibleRect]];
+}
+- (void)setAccessoryWindowFrame
+{
+    NSRect temp = [[[self window] contentView] frame];
+    temp.origin = [[self window] frame].origin;
+    [accessoryWindow setFrame:temp display:YES];
+    //[self displayIfNeededInRect:[self visibleRect]];
+    //[self setNeedsDisplayInRect:[self visibleRect]];
 }
 -(void)setLoupe
 {

@@ -110,4 +110,5 @@
 -(void)setInfoString:(NSString*)string;
 
 -(id)accessoryView;
+-(void)setAccessoryWindowFrame;
 @end
