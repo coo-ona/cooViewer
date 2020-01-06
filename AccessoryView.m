@@ -213,9 +213,30 @@ NSRect COIntRect(NSRect aRect)
 }
 - (void)mouseMoved:(NSEvent *)theEvent
 {
+    NSDisableScreenUpdates();
     NSPoint lensOldPoint;
     if ([controller indicator] && ![imageView loupeIsVisible]) {
         lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
+        
+        if (autoHidedPageBar) {
+            autoHidedPageBar = NO;
+            [self displayRect:[self pageBarRect]];
+        }
+    
+        if (autoHidedPageString) {
+            autoHidedPageString = NO;
+            [self displayRect:[self pageStringRect]];
+            [self setInfoString:[infoString string]];
+        }
+        
+        if (autoHidePageBar || autoHidePageString) {
+            [accessoryTimer invalidate];
+            accessoryTimer = [NSTimer scheduledTimerWithTimeInterval:2
+                                                               target:self
+                                                             selector:@selector(hideAccessory)
+                                                             userInfo:nil
+                                                              repeats:NO];
+        }
         
         NSRect tempPageBarRect = NSInsetRect([self pageBarRect],2,2);
         if (NSPointInRect(lensOldPoint, tempPageBarRect)) {
@@ -226,6 +247,7 @@ NSRect COIntRect(NSRect aRect)
             }
         }
     }
+    NSEnableScreenUpdates();
 }
 - (void)drawPageBarBubble
 {
