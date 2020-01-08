@@ -691,6 +691,7 @@ static const int DIALOG_CANCEL	= 129;
 	[progressIndicator startAnimation:self];
 	[progressIndicator displayIfNeeded];
 	
+    /*
 	[imageView lockFocus];
 	NSRect rect = [[window contentView] convertRect:[progressIndicator frame] toView:imageView];
 	rect = NSMakeRect(rect.origin.x-2,rect.origin.y-2,rect.size.width+4,rect.size.height+4);
@@ -709,6 +710,7 @@ static const int DIALOG_CANCEL	= 129;
 	[bezier fill];
 	[imageView unlockFocus];
 	[imageView displayIfNeeded];
+    */
 	
 
 	NSString *fromFileName = nil;
@@ -746,7 +748,7 @@ static const int DIALOG_CANCEL	= 129;
 			[window performClose:self];
 		}
 		[progressIndicator stopAnimation:self];
-		[imageView displayRect:rect];
+		//[imageView displayRect:rect];
 		return;
 	} else if ([imageView image]) {
 		/*ウィンドウを開いてたら準備する*/
@@ -1024,7 +1026,7 @@ static const int DIALOG_CANCEL	= 129;
 	
 	
 	[progressIndicator stopAnimation:self];
-	[imageView displayRect:rect];
+	//[imageView displayRect:rect];
 	[window updateTrackingRect];
 	[self viewSet];
 	[self imageDisplay];
@@ -1198,6 +1200,7 @@ static const int DIALOG_CANCEL	= 129;
 	
 	NSImage *image = [imageLoader itemAtIndex:index];	
     int heightValue = 0,widthValue = 0,repi = 0;
+    /*
 	NSImageRep*	rep;
 	NSArray *repArray=[image representations];
 	for(repi=0;repi<[repArray count];repi++){
@@ -1212,6 +1215,7 @@ static const int DIALOG_CANCEL	= 129;
 		//[image setScalesWhenResized:YES];
 		[image setSize:NSMakeSize(widthValue,heightValue)];
 	}
+     */
 	if (cacheSize != 0) {
 		[cacheArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[completeMutableArray objectAtIndex:index],@"name",image,@"image",nil]];
 		//NSLog(@"load %@",[completeMutableArray objectAtIndex:index]);
@@ -1635,8 +1639,8 @@ static const int DIALOG_CANCEL	= 129;
 	//[window disableFlushWindow];
 	
 	NSDisableScreenUpdates();
-	 [self lockedImageDisplay];
-	 NSEnableScreenUpdates();
+    [self lockedImageDisplay];
+    NSEnableScreenUpdates();
 	
 	//[window enableFlushWindow];
 	//[window flushWindowIfNeeded];
@@ -2782,7 +2786,13 @@ static const int DIALOG_CANCEL	= 129;
 			[imageView setImage:firstImage];
 			[self lookaheadAndCompose];
 		}
-	}
+    } else {
+        if (secondImage) {
+            [imageView setImages:secondImage];
+        } else {
+            [imageView setImage:firstImage];
+        }
+    }
 }
 
 
@@ -2972,6 +2982,21 @@ static const int DIALOG_CANCEL	= 129;
 
 - (void)viewDidEndLiveResize:(NSNotification *)aNotification
 {
+    if (bufferingMode == 0) {
+        if (secondImage) {
+            [self composeImage];
+            [self lookaheadAndCompose];
+        } else {
+            [imageView setImage:firstImage];
+            [self lookaheadAndCompose];
+        }
+    } else {
+        if (secondImage) {
+            [imageView setImages:secondImage];
+        } else {
+            [imageView setImage:firstImage];
+        }
+    }
 }
 
 - (void)openLink:(NSURL *)url
