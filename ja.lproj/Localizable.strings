@@ -218,7 +218,7 @@
 "OK" = "OK";
 
 /* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
-"Open '%@' in default browser?" = "Open '%@' in default browser?";
+"Open '%@' in default browser?" = "'%@' をデフォルトブラウザで開きますか？";
 
 /* No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer. */
 "Open the last page" = "最後に開いたページを開く";

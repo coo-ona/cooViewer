@@ -8,7 +8,9 @@
 	IBOutlet id accessoryView;
 	
 	BOOL needFirstScroll;
-	
+	    
+    CALayer *fLayer;
+    CALayer *sLayer;
 	
 	BOOL didFirst;
 	NSWindow *lensWindow;
@@ -25,7 +27,6 @@
 	NSRect sRect;
 	NSCursor *crossCursor;
 	NSRect lensRect;
-	
 	
 	/*#import <QuartzCore/QuartzCore.h>*/
 	/*OTHER_LDFLAGS -weak_framework QuartzCore*/

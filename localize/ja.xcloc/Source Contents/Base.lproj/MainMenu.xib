@@ -321,6 +321,16 @@
                                     <action selector="rotateRight:" target="484" id="1894"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="e0a-pk-KgN">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Filter" id="usF-pH-ycg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <accessibilityConnection property="link" destination="1666" id="IB4-9B-nE9"/>
+                                    <action selector="openFilterPanel:" target="7Ik-II-pge" id="MAU-Fs-HTe"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -358,7 +368,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="" id="850">
-                                <view key="view" id="852">
+                                <view key="view" ambiguous="YES" id="852">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -643,7 +653,7 @@
                                             </buttonCell>
                                         </button>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2008">
-                                            <rect key="frame" x="17" y="119" width="279" height="17"/>
+                                            <rect key="frame" x="16" y="119" width="279" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Number of items in the Open Recent menu:" id="4279">
                                                 <font key="font" metaFont="system"/>
@@ -1614,7 +1624,7 @@ go to the last page always.</string>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced" identifier="" id="1607">
-                                <view key="view" ambiguous="YES" id="1608">
+                                <view key="view" id="1608">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1994,7 +2004,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="Cu5-Wy-5Gx">
                             <rect key="frame" x="1" y="0.0" width="539" height="278"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" headerView="4441" id="612">
                                     <rect key="frame" x="0.0" y="0.0" width="539" height="255"/>
@@ -2191,9 +2201,9 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="748">
-                        <rect key="frame" x="17" y="62" width="58" height="14"/>
+                        <rect key="frame" x="5" y="62" width="70" height="14"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Password:" id="4332">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="4332">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2376,7 +2386,7 @@ Gw
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="vwn-bQ-fWA">
                                     <rect key="frame" x="1" y="0.0" width="294" height="278"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="4449" id="997">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="255"/>
@@ -2420,7 +2430,7 @@ Gw
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="004-bk-tbV">
                                     <rect key="frame" x="1" y="0.0" width="393" height="278"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" headerView="4446" id="984">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="255"/>
@@ -2960,6 +2970,15 @@ Gw
                 <outlet property="window" destination="21" id="1676"/>
             </connections>
         </customObject>
+        <customObject id="7Ik-II-pge" customClass="FilterPanelController">
+            <connections>
+                <outlet property="contentsView" destination="1oQ-cG-8Uy" id="jcQ-9l-poF"/>
+                <outlet property="controller" destination="484" id="90P-hl-rX6"/>
+                <outlet property="filterPanel" destination="EcN-5h-84Q" id="oAh-ao-fcl"/>
+                <outlet property="popupButton" destination="xTo-RC-5eC" id="kYz-xQ-6JN"/>
+                <outlet property="scrollView" destination="T7G-gM-l9s" id="clS-kK-aPT"/>
+            </connections>
+        </customObject>
         <menu title="Menu" id="2256" userLabel="ThumbnailMenu">
             <items>
                 <menuItem title="Add Bookmark" id="2257">
@@ -3395,6 +3414,53 @@ Gw
                 </subviews>
             </view>
             <point key="canvasLocation" x="821" y="3309.5"/>
+        </window>
+        <window title="Filter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="EcN-5h-84Q" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="90" y="125" width="294" height="280"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="rHs-xr-KcK">
+                <rect key="frame" x="0.0" y="0.0" width="294" height="280"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-RC-5eC">
+                        <rect key="frame" x="3" y="256" width="288" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vwO-sI-g9O">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="h66-z4-Wfq"/>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="filterSelected:" target="7Ik-II-pge" id="iCC-lV-ZLP"/>
+                        </connections>
+                    </popUpButton>
+                    <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-gM-l9s">
+                        <rect key="frame" x="5" y="7" width="283" height="244"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="RHv-Bg-9Br">
+                            <rect key="frame" x="0.0" y="0.0" width="283" height="244"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view ambiguous="YES" id="1oQ-cG-8Uy" customClass="NSStackView">
+                                    <rect key="frame" x="0.0" y="0.0" width="283" height="244"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="g84-jt-UhY">
+                            <rect key="frame" x="-100" y="-100" width="215" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ARX-10-Pr9">
+                            <rect key="frame" x="267" y="0.0" width="16" height="244"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="583" y="57"/>
         </window>
     </objects>
     <resources>

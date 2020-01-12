@@ -10,12 +10,12 @@
 @end
 
 @implementation CustomImageView
-- (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setWantsLayer:YES];
-    }
-    return self;
+-(void)awakeFromNib
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(filterValueDidChange:)
+                                                 name:@"FilterUIValueDidChange"
+                                               object:nil];
 }
 - (void)setTarget:(id)tar
 {
@@ -469,7 +469,7 @@ NSTimeInterval elapsed=0;
 	
 	[clipView scrollToPoint:point];
 	//[self setNeedsDisplayInRect:[self visibleRect]];
-	[self displayIfNeededInRect:[self visibleRect]];
+	//[self displayIfNeededInRect:[self visibleRect]];
 	 
 	/*
 	stop=[NSDate timeIntervalSinceReferenceDate];
@@ -678,6 +678,41 @@ NSTimeInterval elapsed=0;
 
 -(void)imageDisplay
 {
+    if ([[[self layer] sublayers] count]==0) {
+        fLayer = [[CALayer alloc] init];
+        sLayer = [[CALayer alloc] init];
+        [[self layer] addSublayer:fLayer];
+        [[self layer] addSublayer:sLayer];
+        [fLayer setSpeed:1];
+        [sLayer setSpeed:1];
+        [fLayer setContentsScale:[[NSScreen mainScreen] backingScaleFactor]];
+        [sLayer setContentsScale:[[NSScreen mainScreen] backingScaleFactor]];
+        [fLayer setShouldRasterize:YES];
+        [sLayer setShouldRasterize:YES];
+        [fLayer setRasterizationScale:2];
+        [sLayer setRasterizationScale:2];
+        [fLayer setMinificationFilter:kCAFilterLinear];
+        [sLayer setMinificationFilter:kCAFilterLinear];
+        [fLayer setMagnificationFilter:kCAFilterLinear];
+        [sLayer setMagnificationFilter:kCAFilterLinear];
+        [fLayer setContentsGravity:kCAGravityResize];
+        [sLayer setContentsGravity:kCAGravityResize];
+        
+        /*
+        //CoreImage Filterも使えるよ！
+        CIFilter *sepiaFilter = [CIFilter filterWithName:@"CISepiaTone"];
+        [sepiaFilter setValue:[NSNumber numberWithFloat:0.8] forKey:@"inputIntensity"];
+        [sLayer setFilters:[NSArray arrayWithObject:sepiaFilter]];
+        [fLayer setFilters:[NSArray arrayWithObject:sepiaFilter]];
+        */
+        
+        /*
+        [fLayer setBorderColor:CGColorCreateGenericRGB(1, 0, 0, 1)];
+        [fLayer setBorderWidth:3];
+        [sLayer setBorderColor:CGColorCreateGenericRGB(0, 1, 0, 1)];
+        [sLayer setBorderWidth:3];
+        */
+    }
     if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
     if (fitScreenMode > 0) {
         if (images) {
@@ -694,42 +729,31 @@ NSTimeInterval elapsed=0;
             [self setNeedsDisplayInRect:[self frame]];
         }
     } else {
-        [self setNeedsDisplayInRect:[self visibleRect]];
+    }
+    if (images) {
+        [self drawImages:[target image1] and:[target image2]];
+    } else {
+        //single & oldscroll
+        [self drawImage:_image];
     }
     [accessoryView drawAccessory];
 //    [self displayIfNeededInRect:[self visibleRect]];
 //    [accessoryView displayIfNeeded];
 }
 
+- (void)filterValueDidChange:(NSNotification *)aNotification
+{
+    [sLayer setFilters:nil];
+    [fLayer setFilters:nil];
+    [sLayer setFilters:[aNotification object]];
+    [fLayer setFilters:[aNotification object]];
+}
+
 #pragma mark draw
 
 -(void)drawRect:(NSRect)frameRect
 {
-    if (_image == nil) {
-        [super drawRect:frameRect];
-    } else {
-        NSGraphicsContext *gc = [NSGraphicsContext currentContext];
-        switch (interpolation) {
-            case 1:
-                [gc setImageInterpolation:NSImageInterpolationNone];
-                break;
-            case 2:
-                [gc setImageInterpolation:NSImageInterpolationLow];
-                break;
-            case 3:
-                [gc setImageInterpolation:NSImageInterpolationHigh];
-                break;
-            default:
-                [gc setImageInterpolation:NSImageInterpolationDefault];
-                break;
-        }
-        if ([target firstImage] && images) {
-            [self drawImages:[target image1] and:[target image2]];
-        } else {
-            //single & oldscroll
-            [self drawImage:[target image1]];
-        }
-    }
+    [super drawRect:frameRect];
     
 	if (lensWindow) [self drawLoupe];
 }
@@ -865,37 +889,38 @@ NSTimeInterval elapsed=0;
 {
     NSDictionary *infodic = [self getDrawImageInfo:image];
     NSRect drawRect = NSRectFromString([infodic objectForKey:@"drawRect"]);
-		
-	NSAffineTransform *transform;
-	switch (rotateMode) {
-		case 1:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:NSWidth([self bounds]) yBy:0];
-			[transform rotateByDegrees:90];
-			[transform concat];
-			break;
-		case 2:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:NSWidth([self bounds]) yBy:NSHeight([self bounds])];
-			[transform rotateByDegrees:180];
-			[transform concat];
-			break;
-		case 3:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:0 yBy:NSHeight([self bounds])];
-			[transform rotateByDegrees:270];
-			[transform concat];
-			break;
-		default:
-			break;
-	}
-    [image drawInRect:drawRect
-              fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
-             operation:NSCompositeSourceOver fraction:1.0];
-	if (rotateMode!=0) {
-		[transform invert];
-		[transform concat];
-	}
+    
+    CGAffineTransform cgtransform;
+    switch (rotateMode) {
+        case 1:
+            cgtransform = CGAffineTransformMakeTranslation(NSWidth([self bounds]),0);
+            cgtransform = CGAffineTransformRotate(cgtransform, 90 / 180.0 * M_PI);
+            break;
+        case 2:
+            cgtransform = CGAffineTransformMakeTranslation(NSWidth([self bounds]),NSHeight([self bounds]));
+            cgtransform = CGAffineTransformRotate(cgtransform, 180 / 180.0 * M_PI);
+            break;
+        case 3:
+            cgtransform = CGAffineTransformMakeTranslation(0,NSHeight([self bounds]));
+            cgtransform = CGAffineTransformRotate(cgtransform, 270 / 180.0 * M_PI);
+            break;
+        default:
+            cgtransform = CGAffineTransformMakeTranslation(0,0);
+            cgtransform = CGAffineTransformRotate(cgtransform, 360 / 180.0 * M_PI);
+            break;
+    }
+    drawRect = COIntRect(CGRectApplyAffineTransform(drawRect, cgtransform));
+    [sLayer setFrame:drawRect];
+    [sLayer setContents:nil];
+    [sLayer setHidden:YES];
+    [sLayer removeAllAnimations];
+    [fLayer setAffineTransform:cgtransform];
+    [fLayer setFrame:drawRect];
+    [fLayer setContents:image];
+    [fLayer removeAllAnimations];
+    
+
+    
     float x = [[infodic objectForKey:@"x"] floatValue];
     float y = [[infodic objectForKey:@"y"] floatValue];
     float width = [[infodic objectForKey:@"width"] floatValue];
@@ -1251,60 +1276,42 @@ NSTimeInterval elapsed=0;
     NSRect drawRect1 = NSRectFromString([infodic objectForKey:@"drawRect1"]);
     NSRect drawRect2 = NSRectFromString([infodic objectForKey:@"drawRect2"]);
     NSRect fullscreenRect = NSRectFromString([infodic objectForKey:@"fullscreenRect"]);
-	
-	NSAffineTransform *transform;
-	switch (rotateMode) {
-		case 1:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:NSWidth([self bounds]) yBy:0];
-			[transform rotateByDegrees:90];
-            [transform concat];
-			break;
-		case 2:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:NSWidth([self bounds]) yBy:NSHeight([self bounds])];
-			[transform rotateByDegrees:180];
-            [transform concat];
-			break;
-		case 3:
-			transform = [NSAffineTransform transform];
-			[transform translateXBy:0 yBy:NSHeight([self bounds])];
-			[transform rotateByDegrees:270];
-            [transform concat];
-			break;
-		default:
-			break;
-	}
-	[image2 drawInRect:drawRect2
-			  fromRect:NSMakeRect(0,0,widthValue02,heightValue02)
-			 operation:NSCompositeSourceOver fraction:1.0];
-	[image1 drawInRect:drawRect1
-			  fromRect:NSMakeRect(0,0,widthValue01,heightValue01)
-			 operation:NSCompositeSourceOver fraction:1.0];
-	/*
-	if( [NSObject respondsToSelector:@selector(finalize)] ){
-		if ([target readFromLeft]) {
-			[self drawCIImage:image1
-					   inRect:CGRectMake(x,center1,widthValue1,heightValue1)
-					 fromRect:CGRectMake(0,0,[rep1 pixelsWide],[rep1 pixelsHigh])];
-			[self drawCIImage:image2
-					   inRect:CGRectMake(x+widthValue1,center2,widthValue2,heightValue2)
-					 fromRect:CGRectMake(0,0,[rep2 pixelsWide],[rep2 pixelsHigh])];
-		} else {
-			[self drawCIImage:image2
-					   inRect:CGRectMake(x,center2,widthValue2,heightValue2)
-					 fromRect:CGRectMake(0,0,[rep2 pixelsWide],[rep2 pixelsHigh])];
-			[self drawCIImage:image1
-					   inRect:CGRectMake(x+widthValue2,center1,widthValue1,heightValue1)
-					 fromRect:CGRectMake(0,0,[rep1 pixelsWide],[rep1 pixelsHigh])];
-		}
-	}*/
-	
-	if (rotateMode!=0) {
-		[transform invert];
-		[transform concat];
-	}
+    
+    CGAffineTransform cgtransform;
+    switch (rotateMode) {
+        case 1:
+            cgtransform = CGAffineTransformMakeTranslation(NSWidth([self bounds]),0);
+            cgtransform = CGAffineTransformRotate(cgtransform, 90 / 180.0 * M_PI);
+            break;
+        case 2:
+            cgtransform = CGAffineTransformMakeTranslation(NSWidth([self bounds]),NSHeight([self bounds]));
+            cgtransform = CGAffineTransformRotate(cgtransform, 180 / 180.0 * M_PI);
+            break;
+        case 3:
+            cgtransform = CGAffineTransformMakeTranslation(0,NSHeight([self bounds]));
+            cgtransform = CGAffineTransformRotate(cgtransform, 270 / 180.0 * M_PI);
+            break;
+        default:
+            cgtransform = CGAffineTransformMakeTranslation(0,0);
+            cgtransform = CGAffineTransformRotate(cgtransform, 360 / 180.0 * M_PI);
+            break;
+    }
+    drawRect1 = COIntRect(CGRectApplyAffineTransform(drawRect1, cgtransform));
+    drawRect2 = COIntRect(CGRectApplyAffineTransform(drawRect2, cgtransform));
+    [fLayer setContents:image1];
+    [fLayer removeAllAnimations];
+    [fLayer setAffineTransform:cgtransform];
+    [fLayer setFrame:drawRect1];
+    [fLayer removeAllAnimations];
+    [sLayer setHidden:NO];
+    [sLayer setContents:image2];
+    [sLayer removeAllAnimations];
+    [sLayer setAffineTransform:cgtransform];
+    [sLayer setFrame:drawRect2];
+    [sLayer removeAllAnimations];
+
 }
+
 #pragma mark slideshow
 -(void)setSlideshow:(BOOL)b
 {
@@ -1382,16 +1389,13 @@ NSTimeInterval elapsed=0;
 #pragma mark set
 -(void)setScreenFitMode:(int)mode
 {
-	if (mode == 0) {
-		fitScreenMode = mode;
-		[self setFrameSize:NSMakeSize([[[self window] contentView] frame].size.width,[[[self window] contentView] frame].size.height)];
-		return;
-	}
-	fitScreenMode = mode;
-}
-- (void)setFrame:(NSRect)frameRect
-{
-	[super setFrame:frameRect];
+    if (mode != fitScreenMode) {
+        fitScreenMode = mode;
+        if (mode == 0) {
+            [self setFrameSize:NSMakeSize([[[self window] contentView] frame].size.width,[[[self window] contentView] frame].size.height)];
+        }        
+        [self imageDisplay];
+    }
 }
 - (void)setAccessoryWindowFrame
 {

@@ -213,19 +213,19 @@ NSRect COIntRect(NSRect aRect)
 }
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    NSDisableScreenUpdates();
+    //NSDisableScreenUpdates();
     NSPoint lensOldPoint;
     if ([controller indicator] && ![imageView loupeIsVisible]) {
         lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
         
         if (autoHidedPageBar) {
             autoHidedPageBar = NO;
-            [self displayRect:[self pageBarRect]];
+            [self setNeedsDisplayInRect:[self pageBarRect]];
         }
     
         if (autoHidedPageString) {
             autoHidedPageString = NO;
-            [self displayRect:[self pageStringRect]];
+            [self setNeedsDisplayInRect:[self pageStringRect]];
             [self setInfoString:[infoString string]];
         }
         
@@ -240,14 +240,14 @@ NSRect COIntRect(NSRect aRect)
         
         NSRect tempPageBarRect = NSInsetRect([self pageBarRect],2,2);
         if (NSPointInRect(lensOldPoint, tempPageBarRect)) {
-            [self display];
+            [self setNeedsDisplay:YES];
         } else {
             if (!NSIsEmptyRect(pageBarStringRect)) {
-                [self display];
+                [self setNeedsDisplay:YES];
             }
         }
     }
-    NSEnableScreenUpdates();
+    //NSEnableScreenUpdates();
 }
 - (void)drawPageBarBubble
 {
@@ -653,7 +653,7 @@ NSRect COIntRect(NSRect aRect)
 	NSRect oldRect=NSUnionRect(infoStringRect,pageStringRect);
 	[infoString release];
 	infoString = nil;
-	[self displayRect:NSUnionRect(NSUnionRect([self infoStringRect],[self pageStringRect]),oldRect)];
+	[self setNeedsDisplayInRect:NSUnionRect(NSUnionRect([self infoStringRect],[self pageStringRect]),oldRect)];
 }
 
 -(void)setSlideshow:(BOOL)b
@@ -661,7 +661,7 @@ NSRect COIntRect(NSRect aRect)
 	slideshow = b;
 	if (slideshow == NO) {
 		[self setInfoString:@"stop slideshow"];
-		[self displayRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
+		[self setNeedsDisplayInRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
 		/*
 		NSRect temp = NSUnionRect(infoStringRect,[self pageStringRect]);
 		[infoString release];
@@ -671,7 +671,7 @@ NSRect COIntRect(NSRect aRect)
 		 */
 	} else {
 		[self setInfoString:@"start slideshow"];
-		[self displayRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
+		[self setNeedsDisplayInRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
 	}
 }
 
@@ -688,9 +688,9 @@ NSRect COIntRect(NSRect aRect)
 		[infoString initWithString:string attributes:pageStringAttr];
 	}
 	if (NSIsEmptyRect(oldRect)) {
-		[self displayRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
+		[self setNeedsDisplayInRect:NSUnionRect([self infoStringRect],[self pageStringRect])];
 	} else {
-		[self displayRect:NSUnionRect(NSUnionRect([self infoStringRect],[self pageStringRect]),oldRect)];
+		[self setNeedsDisplayInRect:NSUnionRect(NSUnionRect([self infoStringRect],[self pageStringRect]),oldRect)];
 	}
 }
 
@@ -750,7 +750,7 @@ NSRect COIntRect(NSRect aRect)
 	}
 	
 	if (!NSEqualRects(updateRect,NSZeroRect)) {
-		[self displayRect:updateRect];
+		[self setNeedsDisplayInRect:updateRect];
 	}
 }
 
@@ -895,7 +895,7 @@ NSRect COIntRect(NSRect aRect)
 	} else if (page == -2) {
 		tempPageNum = tempPageNum/10;
 	}
-	[self displayRect:pageMoverRect];
+	[self setNeedsDisplayInRect:pageMoverRect];
 }
 -(BOOL)pageMover
 {

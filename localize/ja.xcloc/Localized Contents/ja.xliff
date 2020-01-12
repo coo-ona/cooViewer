@@ -2449,10 +2449,20 @@ go to the last page always.</source>
         <target>Radio</target>
         <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
       </trans-unit>
+      <trans-unit id="EcN-5h-84Q.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>フィルター</target>
+        <note>Class = "NSWindow"; title = "Filter"; ObjectID = "EcN-5h-84Q";</note>
+      </trans-unit>
       <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
         <source>"Old" does not work properly on retina display</source>
         <target>"Old" はRetinaディスプレイでは正常に動作しません</target>
         <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
+      </trans-unit>
+      <trans-unit id="usF-pH-ycg.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>フィルター</target>
+        <note>Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg";</note>
       </trans-unit>
     </body>
   </file>
@@ -2828,7 +2838,7 @@ go to the last page always.</source>
       </trans-unit>
       <trans-unit id="Open '%@' in default browser?" xml:space="preserve">
         <source>Open '%@' in default browser?</source>
-        <target>Open '%@' in default browser?</target>
+        <target>'%@' をデフォルトブラウザで開きますか？</target>
         <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Open URL" xml:space="preserve">

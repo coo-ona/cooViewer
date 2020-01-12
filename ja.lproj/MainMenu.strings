@@ -1462,6 +1462,12 @@
 /* Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424"; */
 "4424.title" = "Radio";
 
+/* Class = "NSWindow"; title = "Filter"; ObjectID = "EcN-5h-84Q"; */
+"EcN-5h-84Q.title" = "フィルター";
+
 /* Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D"; */
 "Uaz-oE-D3D.title" = "\"Old\" はRetinaディスプレイでは正常に動作しません";
+
+/* Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg"; */
+"usF-pH-ycg.title" = "フィルター";
 

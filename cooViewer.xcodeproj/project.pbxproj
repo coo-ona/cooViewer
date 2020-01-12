@@ -113,6 +113,9 @@
 		76FE6988082E4C6E00283560 /* ThumbnailController.h in Headers */ = {isa = PBXBuildFile; fileRef = 76FE6986082E4C6E00283560 /* ThumbnailController.h */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */; };
+		A31C5A9A23CA3D6300DD4E70 /* FilterPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */; };
+		A397A3DE23C877FD009FE76D /* ja.xliff in Resources */ = {isa = PBXBuildFile; fileRef = A397A3DD23C877FD009FE76D /* ja.xliff */; };
 		A39D6C3323BEB590002FD912 /* LoupeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39D6C3223BEB590002FD912 /* LoupeView.h */; };
 		A39D6C3523BEB597002FD912 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D6C3423BEB597002FD912 /* LoupeView.m */; };
 		E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */; };
@@ -241,7 +244,10 @@
 		76FE6986082E4C6E00283560 /* ThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailController.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* cooViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterPanelController.h; sourceTree = "<group>"; };
+		A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterPanelController.m; sourceTree = "<group>"; };
 		A3582E2123BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A397A3DD23C877FD009FE76D /* ja.xliff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ja.xliff; path = "localize/ja.xcloc/Localized Contents/ja.xliff"; sourceTree = "<group>"; };
 		A39D6C3223BEB590002FD912 /* LoupeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeView.h; sourceTree = "<group>"; };
 		A39D6C3423BEB597002FD912 /* LoupeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeView.m; sourceTree = "<group>"; };
 		A39D6C8823BF85C4002FD912 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -271,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				7686266A09514775006BFAAC /* main */,
+				A31C5A9623CA3D4700DD4E70 /* filter */,
 				768626680951473B006BFAAC /* preference */,
 				7686266B09514777006BFAAC /* bookmark */,
 				7686266709514730006BFAAC /* thumbnail */,
@@ -332,6 +339,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A397A3DD23C877FD009FE76D /* ja.xliff */,
 				E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */,
 				76181B7D08BE17BC000A527E /* Credits.rtf */,
 				089C165DFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -570,6 +578,15 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		A31C5A9623CA3D4700DD4E70 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */,
+				A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */,
+			);
+			name = filter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -594,6 +611,7 @@
 				7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */,
 				766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */,
 				76B85F8D099BB20B0077A211 /* NSDictionary_Adding.h in Headers */,
+				A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */,
 				7696BFDD0C369D6F0081E12E /* COPopUpTextField.h in Headers */,
 				763759390C3913050047DF92 /* ThumbnailMatrix.h in Headers */,
 				762259630D426E3800161AC8 /* NSNumberFormatter_Adding.h in Headers */,
@@ -678,6 +696,7 @@
 				7621F56D08C571A1006A9301 /* Credits.rtf in Resources */,
 				7622420D095288F600C888E4 /* cross.tiff in Resources */,
 				76B8606B099BEF0F0077A211 /* coo_cbz.icns in Resources */,
+				A397A3DE23C877FD009FE76D /* ja.xliff in Resources */,
 				76B8606C099BEF0F0077A211 /* coo_zip.icns in Resources */,
 				76B8606D099BEF0F0077A211 /* coo_cbr.icns in Resources */,
 				E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */,
@@ -737,6 +756,7 @@
 				767EEA220D5F6C8800522A56 /* NSAttributedString_Adding.m in Sources */,
 				761B469F0D61E95D00667B2A /* AccessoryView.m in Sources */,
 				761B46A50D61E97900667B2A /* AccessoryWindow.m in Sources */,
+				A31C5A9A23CA3D6300DD4E70 /* FilterPanelController.m in Sources */,
 				769762A80D657268009CFDBE /* AccessorySettingView.m in Sources */,
 				76F2B6450D67329C003269BB /* COTextView.m in Sources */,
 				76D5AA450D69E41C0057EF7A /* RemoteControl.m in Sources */,

@@ -2452,10 +2452,20 @@ when the currently open book was moved:</target>
         <target>Radio</target>
         <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
       </trans-unit>
+      <trans-unit id="EcN-5h-84Q.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>Filter</target>
+        <note>Class = "NSWindow"; title = "Filter"; ObjectID = "EcN-5h-84Q";</note>
+      </trans-unit>
       <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
         <source>"Old" does not work properly on retina display</source>
         <target>"Old" does not work properly on retina display</target>
         <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
+      </trans-unit>
+      <trans-unit id="usF-pH-ycg.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>Filter</target>
+        <note>Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg";</note>
       </trans-unit>
     </body>
   </file>
