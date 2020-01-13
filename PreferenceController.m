@@ -1982,7 +1982,7 @@ static const int DIALOG_CANCEL	= 129;
 	[pageBarFontTextField setBackgroundColor:[sender currentColor]];
 }
 
-- (NSFontPanelModeMask) validModesForFontPanel : (NSFontPanel *) fontPanel
+- (NSUInteger) validModesForFontPanel : (NSFontPanel *) fontPanel
 {
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 1040
 	if([NSObject respondsToSelector:@selector(finalize)]){

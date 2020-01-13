@@ -11,7 +11,7 @@
 
 @implementation AccessoryWindow
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSWindowStyleMask)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
 {
 	self = [super initWithContentRect:contentRect
 							styleMask:NSBorderlessWindowMask
@@ -21,7 +21,7 @@
 	return self;
 }
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSWindowStyleMask)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
 {
 	self = [super initWithContentRect:contentRect
 							styleMask:NSBorderlessWindowMask

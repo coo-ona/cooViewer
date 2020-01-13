@@ -12,6 +12,7 @@
 @implementation CustomImageView
 -(void)awakeFromNib
 {
+    [self setWantsLayer:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(filterValueDidChange:)
                                                  name:@"FilterUIValueDidChange"
@@ -729,6 +730,7 @@ NSTimeInterval elapsed=0;
             [self setNeedsDisplayInRect:[self frame]];
         }
     } else {
+        [self setNeedsDisplay:YES];
     }
     if (images) {
         [self drawImages:[target image1] and:[target image2]];

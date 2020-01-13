@@ -28,6 +28,13 @@
 	NSRectFill(rect);
 	return [super drawInRect:rect];
 }
+- (BOOL)drawInRect:(NSRect)dstSpacePortionRect fromRect:(NSRect)srcSpacePortionRect operation:(NSCompositingOperation)op fraction:(CGFloat)requestedAlpha respectFlipped:(BOOL)respectContextIsFlipped hints:(nullable NSDictionary *)hints
+{
+    [[NSColor whiteColor] set];
+    NSRectFill(dstSpacePortionRect);
+    return [super drawInRect:dstSpacePortionRect fromRect:srcSpacePortionRect operation:NSCompositeSourceOver fraction:requestedAlpha respectFlipped:respectContextIsFlipped hints:hints];
+    
+}
 
 -(NSInteger)pixelsWide {return [self size].width;}
 -(NSInteger)pixelsHigh{return [self size].height;}

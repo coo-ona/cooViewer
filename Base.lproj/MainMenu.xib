@@ -1221,7 +1221,7 @@ go to the last page always.</string>
                                             <font key="font" metaFont="system"/>
                                             <tabViewItems>
                                                 <tabViewItem label="Keyboard &amp; AppleRemote" identifier="" id="2067">
-                                                    <view key="view" ambiguous="YES" id="2069">
+                                                    <view key="view" id="2069">
                                                         <rect key="frame" x="10" y="33" width="547" height="415"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
@@ -1230,7 +1230,7 @@ go to the last page always.</string>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <clipView key="contentView" ambiguous="YES" id="tU4-ZW-cwx">
                                                                     <rect key="frame" x="1" y="0.0" width="505" height="369"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="4433" id="1364">
                                                                             <rect key="frame" x="0.0" y="0.0" width="505" height="346"/>
@@ -1372,7 +1372,7 @@ go to the last page always.</string>
                                                     </view>
                                                 </tabViewItem>
                                                 <tabViewItem label="Mouse" identifier="" id="2068">
-                                                    <view key="view" id="2070">
+                                                    <view key="view" ambiguous="YES" id="2070">
                                                         <rect key="frame" x="10" y="33" width="547" height="415"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
@@ -1381,7 +1381,7 @@ go to the last page always.</string>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <clipView key="contentView" ambiguous="YES" id="dFS-QD-UCW">
                                                                     <rect key="frame" x="1" y="0.0" width="505" height="247"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="4436" id="1429">
                                                                             <rect key="frame" x="0.0" y="0.0" width="505" height="224"/>
@@ -1890,7 +1890,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="ftu-4p-hzE">
                             <rect key="frame" x="1" y="1" width="355" height="16"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" allowsDocumentBackgroundColorChange="YES" usesRuler="YES" quoteSubstitution="YES" dashSubstitution="YES" textReplacement="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2905" customClass="COTextView">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="16"/>
@@ -2227,7 +2227,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Bfm-Bs-9B9">
                             <rect key="frame" x="0.0" y="0.0" width="449" height="351"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="777" customClass="FullImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="234" height="223"/>
@@ -3416,9 +3416,8 @@ Gw
             <point key="canvasLocation" x="821" y="3309.5"/>
         </window>
         <window title="Filter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="EcN-5h-84Q" customClass="NSPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="90" y="125" width="294" height="280"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" texturedBackground="YES"/>
+            <rect key="contentRect" x="79" y="54" width="294" height="280"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="rHs-xr-KcK">
                 <rect key="frame" x="0.0" y="0.0" width="294" height="280"/>

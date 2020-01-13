@@ -114,7 +114,9 @@
 	NSImage *newImage = [[[NSImage alloc] initWithSize:NSMakeSize(newWidth,newHeight)] autorelease];
 	[newImage lockFocus];
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
-	[image drawInRect:NSMakeRect(0,0,(int)newWidth,(int)newHeight)];
+    [image drawInRect:NSMakeRect(0,0,(int)newWidth,(int)newHeight)
+              fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+             operation:NSCompositeSourceOver fraction:1.0];
 	
 	/*
 	if (b) {
@@ -222,11 +224,19 @@
 				[ newImage lockFocus ];
 				[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
 				if ([controller readMode] == 1) {
-					[image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1) ];
-					[image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2) ];
+                    [image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1)
+                             fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2)
+                              fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				} else if ([controller readMode] == 0) {
-					[image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2) ];
-					[image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1) ];
+                    [image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2)
+                             fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1)
+                              fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				}
 				[ newImage unlockFocus ];
 				[image release];
@@ -306,11 +316,19 @@
 				[ newImage lockFocus ];
 				[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
 				if ([controller readMode] == 1) {
-					[ image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2) ];
-					[ image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1) ];
+					[ image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2)
+                     fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                    operation:NSCompositeSourceOver fraction:1.0];
+					[ image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1)
+                     fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                    operation:NSCompositeSourceOver fraction:1.0];
 				} else if ([controller readMode] == 0) {
-					[ image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1) ];
-					[ image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2) ];
+                    [image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1)
+                             fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2)
+                              fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				}
 				[ newImage unlockFocus ];
 				[image release];
