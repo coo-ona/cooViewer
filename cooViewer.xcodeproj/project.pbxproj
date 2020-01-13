@@ -14,8 +14,8 @@
 		37AD8316131AA9E600F0123C /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AD8315131AA9E600F0123C /* Quartz.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		37BB532C1312C017001710B4 /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BB532B1312C017001710B4 /* UniversalDetector.framework */; };
 		37BB53461312C01C001710B4 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BB53451312C01C001710B4 /* XADMaster.framework */; };
-		37BB54D21312CADE001710B4 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37BB53451312C01C001710B4 /* XADMaster.framework */; };
-		37BB54D31312CADE001710B4 /* UniversalDetector.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37BB532B1312C017001710B4 /* UniversalDetector.framework */; };
+		37BB54D21312CADE001710B4 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37BB53451312C01C001710B4 /* XADMaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		37BB54D31312CADE001710B4 /* UniversalDetector.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37BB532B1312C017001710B4 /* UniversalDetector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7601F5F807D5508700457A5B /* CustomImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7601F5F607D5508700457A5B /* CustomImageView.h */; };
 		7601F5F907D5508700457A5B /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7601F5F707D5508700457A5B /* CustomImageView.m */; };
 		761B469E0D61E95D00667B2A /* AccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 761B469C0D61E95D00667B2A /* AccessoryView.h */; };
@@ -42,7 +42,7 @@
 		7644B3260D6EE322007C8AFD /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7644B3250D6EE322007C8AFD /* IOKit.framework */; };
 		7644B3370D6EE434007C8AFD /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7644B3360D6EE433007C8AFD /* Carbon.framework */; };
 		76494F9807F72BB400B932D2 /* HetimaUnZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76494F9707F72BB400B932D2 /* HetimaUnZip.framework */; };
-		76494FAE07F72C0F00B932D2 /* HetimaUnZip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76494F9707F72BB400B932D2 /* HetimaUnZip.framework */; };
+		76494FAE07F72C0F00B932D2 /* HetimaUnZip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76494F9707F72BB400B932D2 /* HetimaUnZip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 7655CDCD09806A8F00465FD1 /* COPDFImageRep.h */; };
 		7655CDD009806A8F00465FD1 /* COPDFImageRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7655CDCE09806A8F00465FD1 /* COPDFImageRep.m */; };
 		766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 766DE03609936CF4004DD915 /* COColorPopUpButton.h */; };
@@ -137,14 +137,12 @@
 		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* cooViewer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cooViewer_Prefix.pch; sourceTree = "<group>"; };
 		372911571316C60C0040B910 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		373D3537130F075E0037F8DD /* GlobalKeyboardDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalKeyboardDevice.h; sourceTree = "<group>"; };
 		373D3538130F075E0037F8DD /* GlobalKeyboardDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalKeyboardDevice.m; sourceTree = "<group>"; };
-		3740B932131170860084326B /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37AD8315131AA9E600F0123C /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		37BB532B1312C017001710B4 /* UniversalDetector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UniversalDetector.framework; sourceTree = "<group>"; };
 		37BB53451312C01C001710B4 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XADMaster.framework; sourceTree = "<group>"; };
@@ -245,6 +243,8 @@
 		76FE6986082E4C6E00283560 /* ThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailController.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* cooViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3582E2123BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3582E2223BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,10 +641,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = NO;
+				LastUpgradeCheck = 1130;
 			};
 			buildConfigurationList = 762F248E0899B2FD00419EAA /* Build configuration list for PBXProject "cooViewer" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* cooViewer */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -743,7 +749,7 @@
 		3740B9341311708D0084326B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3740B932131170860084326B /* English */,
+				A3582E2123BBB03500DCC566 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -751,7 +757,7 @@
 		76791EA9097909CE00AC8B41 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
+				A3582E2223BBB03500DCC566 /* en */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -762,17 +768,40 @@
 		374F3E7013156FB200A5F418 /* Development2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SYMROOT = build/;
 				ZERO_LINK = YES;
 			};
 			name = Development2;
@@ -780,8 +809,10 @@
 		374F3E7113156FB200A5F418 /* Development2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					/Library/Frameworks,
@@ -789,10 +820,8 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -803,13 +832,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.coo.cooViewer;
 				PRODUCT_NAME = cooViewer;
-				SDKROOT = macosx10.5;
 				ZERO_LINK = YES;
 			};
 			name = Development2;
@@ -817,12 +843,34 @@
 		37B6C4E21310189B00C624DE /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				FRAMEWORK_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SYMROOT = build/;
 				ZERO_LINK = YES;
 			};
 			name = Development;
@@ -830,17 +878,18 @@
 		37B6C4E31310189B00C624DE /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -850,13 +899,10 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.coo.cooViewer;
 				PRODUCT_NAME = cooViewer;
-				SDKROOT = "";
 				ZERO_LINK = YES;
 			};
 			name = Development;
@@ -864,19 +910,36 @@
 		37BB543D1312C431001710B4 /* Deployment2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				FRAMEWORK_SEARCH_PATHS = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
-				GCC_VERSION_i386 = 4.0;
-				GCC_VERSION_ppc = 4.0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.3;
-				MAXOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
-				PREBINDING = YES;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SYMROOT = build/;
 				ZERO_LINK = YES;
 			};
 			name = Deployment2;
@@ -884,22 +947,20 @@
 		37BB543E1312C431001710B4 /* Deployment2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					/Library/Frameworks,
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
-				GCC_VERSION_i386 = 4.0;
-				GCC_VERSION_ppc = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_LABEL = NO;
@@ -908,15 +969,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.coo.cooViewer;
 				PRODUCT_NAME = cooViewer;
-				SDKROOT = macosx10.5;
 				ZERO_LINK = NO;
 			};
 			name = Deployment2;
@@ -924,21 +980,20 @@
 		762F248C0899B2FD00419EAA /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
-				GCC_VERSION_i386 = 4.0;
-				GCC_VERSION_ppc = 3.3;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				GCC_WARN_UNUSED_LABEL = NO;
@@ -946,17 +1001,10 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.coo.cooViewer;
 				PRODUCT_NAME = cooViewer;
-				SDKROOT = "";
-				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
@@ -964,6 +1012,9 @@
 		762F248D0899B2FD00419EAA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -971,43 +1022,77 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
 				INFOPLIST_FILE = info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.coo.cooViewer;
 				PRODUCT_NAME = cooViewer;
-				SDKROOT = macosx10.4;
 			};
 			name = Default;
 		};
 		762F24900899B2FD00419EAA /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.3;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
-				"SDKROOT[arch=i386]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				"SDKROOT[arch=ppc]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.3.9.sdk";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SYMROOT = build/;
 			};
 			name = Deployment;
 		};
 		762F24910899B2FD00419EAA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				FRAMEWORK_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = "";
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SYMROOT = build/;
 			};
 			name = Default;
 		};

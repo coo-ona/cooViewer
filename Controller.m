@@ -1061,7 +1061,7 @@ static const int DIALOG_CANCEL	= 129;
 			[[NSWorkspace sharedWorkspace] noteFileSystemChanged:tempPath];
 		}
 	}*/
-	
+	/*
 	if ([defaults boolForKey:@"ChangeOpenWith"]) {
 		NSString *tempPath = currentBookPath;
 		if (fromFileName) tempPath = fromFileName;
@@ -1095,6 +1095,7 @@ static const int DIALOG_CANCEL	= 129;
 			[[NSWorkspace sharedWorkspace] noteFileSystemChanged:tempPath];
 		}
 	}
+    */
 	
 }
 - (void)askInArchivePassword:(COImageLoader*)loader
@@ -3168,16 +3169,21 @@ static const int DIALOG_CANCEL	= 129;
     if (data == NULL) {
         return NULL;
     }
-    
+    /*
     len = CFDataGetLength((CFDataRef)data);
     
     handle = NewHandle(len);
     
     if ((handle != NULL) && (len > 0)) {
         HLock(handle);
-        BlockMoveData(CFDataGetBytePtr((CFDataRef)data), *handle, len);
+        //BlockMoveData(CFDataGetBytePtr((CFDataRef)data), *handle, len);
+        memmove((void *)CFDataGetBytePtr((CFDataRef)data), (void *)*handle, len);
         HUnlock(handle);
     }
+    */
+    len = CFDataGetLength((CFDataRef)data);
+    
+    PtrToHand(CFDataGetBytePtr((CFDataRef)data), (Handle*)&handle, len);
     
     return (AliasHandle)handle;
 }

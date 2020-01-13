@@ -212,7 +212,7 @@ NSRect COIntRect(NSRect aRect)
 	[pageBarBezierPath closePath];
 }
 - (void)mouseMoved:(NSEvent *)theEvent
-{	
+{
 	NSDisableScreenUpdates();
 	//[[self window] disableFlushWindow];
 	NSPoint lensOldPoint;
@@ -302,7 +302,6 @@ NSRect COIntRect(NSRect aRect)
 				int heightValue = [rep pixelsHigh];
 				float imageRectWidth = 200;
 				float imageRectHeight = 200;
-				
 				float width,height;
 				float rate = imageRectWidth/widthValue;
 				

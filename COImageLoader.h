@@ -2,8 +2,6 @@
 #import "COPDFImage.h"
 #import "COPDFImageRep.h"
 
-@class HetimaUnZipContainer;
-
 @interface COImageLoader : NSObject {
 	BOOL inTempDir;
 	BOOL rightPassward;
