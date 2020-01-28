@@ -178,7 +178,8 @@ static const int DIALOG_CANCEL	= 129;
 		viewBackGround = [NSColor blackColor];
 	}
 	[window setBackgroundColor:viewBackGround];
-	
+    viewBackGround = [viewBackGround colorWithAlphaComponent:1];
+
 	fullscreen = [defaults boolForKey:@"Fullscreen"];
 	if (!fullscreen) {
 		[[[[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Window", @"")] submenu]  itemWithTitle:NSLocalizedString(@"Fullscreen", @"")] setState:NSOffState];
@@ -1859,11 +1860,12 @@ static const int DIALOG_CANCEL	= 129;
 	} else {
 		[window setHideMenuBar:YES];
 	}
-	
-	[window setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
-	if (fitScreenMode > 0) {
-		[[imageView enclosingScrollView] setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
-	}
+    
+    NSColor *viewBackGround = [[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]] colorWithAlphaComponent:1];
+    [window setBackgroundColor:viewBackGround];
+    if (fitScreenMode > 0) {
+        [[imageView enclosingScrollView] setBackgroundColor:viewBackGround];
+    }
 	
 	if (readMode != [defaults integerForKey:@"ReadMode"]) {
 		if ([imageView image]) {
