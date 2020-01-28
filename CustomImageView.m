@@ -754,9 +754,6 @@ NSTimeInterval elapsed=0;
 -(void)drawRect:(NSRect)frameRect
 {
     [super drawRect:frameRect];
-    if ([self inLiveResize]) {
-        [self imageDisplay];
-    }
     
 	if (lensWindow) [self drawLoupe];
 }

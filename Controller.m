@@ -177,7 +177,6 @@ static const int DIALOG_CANCEL	= 129;
 	} else {
 		viewBackGround = [NSColor blackColor];
 	}
-    viewBackGround = [viewBackGround colorWithAlphaComponent:1];
 	[window setBackgroundColor:viewBackGround];
 	
 	fullscreen = [defaults boolForKey:@"Fullscreen"];
@@ -1866,10 +1865,9 @@ static const int DIALOG_CANCEL	= 129;
 		[window setHideMenuBar:YES];
 	}
 	
-    NSColor *viewBackGround = [[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]] colorWithAlphaComponent:1];
-	[window setBackgroundColor:viewBackGround];
+	[window setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
 	if (fitScreenMode > 0) {
-		[[imageView enclosingScrollView] setBackgroundColor:viewBackGround];
+		[[imageView enclosingScrollView] setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
 	}
 	
 	if (readMode != [defaults integerForKey:@"ReadMode"]) {
