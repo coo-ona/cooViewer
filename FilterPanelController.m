@@ -71,8 +71,7 @@
             NSButton *closeBtn = [[[NSButton alloc] init] autorelease];
             [closeBtn setImage:[NSImage imageNamed:NSImageNameStopProgressFreestandingTemplate]];
             [closeBtn setBezelStyle:NSInlineBezelStyle];
-            [closeBtn setBordered:NO];
-            //[closeBtn setControlSize:NSControlSizeMini];
+            [closeBtn setControlSize:NSControlSizeMini];
             [closeBtn setFrameSize:NSMakeSize(15,16)];
             [closeBtn setTarget:self];
             [closeBtn setAction:@selector(deleteFilter:)];
@@ -113,12 +112,8 @@
             [label setFrameOrigin:NSMakePoint(0, contentHeight)];
             [baseView addSubview:closeBtn];
             [closeBtn setFrameOrigin:NSMakePoint([label frame].size.width, contentHeight-1)];
-            NSBox *boxView = [[[NSBox alloc] init] autorelease];
-            [boxView setTitle:@""];
-            [boxView addSubview:filterContentView];
-            [boxView sizeToFit];
-            [baseView addSubview:boxView];
-            [baseView setFrameOrigin:NSMakePoint(0, 0)];
+            [baseView addSubview:filterContentView];
+            [filterContentView setFrameOrigin:NSMakePoint(0, 0)];
             
             [contentsView addSubview:baseView];
             [baseView setFrame:NSMakeRect(0,([contentsView bounds].size.height-(contenntsHeight+labelHeight+contentHeight)),[contentsView bounds].size.width,labelHeight+contentHeight)];
