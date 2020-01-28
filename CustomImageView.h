@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Controller.h"
 #import "LoupeView.h"
+#import "COCALayer.h"
 
 @interface CustomImageView : NSImageView
 {
@@ -9,8 +10,8 @@
 	
 	BOOL needFirstScroll;
 	    
-    CALayer *fLayer;
-    CALayer *sLayer;
+    COCALayer *fLayer;
+    COCALayer *sLayer;
 	
 	BOOL didFirst;
 	NSWindow *lensWindow;

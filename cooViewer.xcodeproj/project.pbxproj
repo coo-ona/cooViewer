@@ -115,6 +115,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */; };
 		A31C5A9A23CA3D6300DD4E70 /* FilterPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */; };
+		A340AE2123CEFD8D007F319B /* COCALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A340AE2023CEFD8C007F319B /* COCALayer.m */; };
 		A397A3DE23C877FD009FE76D /* ja.xliff in Resources */ = {isa = PBXBuildFile; fileRef = A397A3DD23C877FD009FE76D /* ja.xliff */; };
 		A39D6C3323BEB590002FD912 /* LoupeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39D6C3223BEB590002FD912 /* LoupeView.h */; };
 		A39D6C3523BEB597002FD912 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D6C3423BEB597002FD912 /* LoupeView.m */; };
@@ -246,6 +247,8 @@
 		8D1107320486CEB800E47090 /* cooViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterPanelController.h; sourceTree = "<group>"; };
 		A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterPanelController.m; sourceTree = "<group>"; };
+		A340AE1F23CEFD8C007F319B /* COCALayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCALayer.h; sourceTree = "<group>"; };
+		A340AE2023CEFD8C007F319B /* COCALayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCALayer.m; sourceTree = "<group>"; };
 		A3582E2123BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A397A3DD23C877FD009FE76D /* ja.xliff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ja.xliff; path = "localize/ja.xcloc/Localized Contents/ja.xliff"; sourceTree = "<group>"; };
 		A39D6C3223BEB590002FD912 /* LoupeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeView.h; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				761B46A30D61E97900667B2A /* AccessoryWindow.m */,
 				761B469C0D61E95D00667B2A /* AccessoryView.h */,
 				761B469D0D61E95D00667B2A /* AccessoryView.m */,
+				A340AE1F23CEFD8C007F319B /* COCALayer.h */,
+				A340AE2023CEFD8C007F319B /* COCALayer.m */,
 				769762A50D657268009CFDBE /* AccessorySettingView.h */,
 				769762A60D657268009CFDBE /* AccessorySettingView.m */,
 				A39D6C3223BEB590002FD912 /* LoupeView.h */,
@@ -743,6 +748,7 @@
 				76344C0B09595C74003761DA /* COImageLoader.m in Sources */,
 				76CB9075097B9E110009A972 /* Controller_input.m in Sources */,
 				76B88ED2097FC1D8006DDB12 /* COPDFImage.m in Sources */,
+				A340AE2123CEFD8D007F319B /* COCALayer.m in Sources */,
 				7655CDD009806A8F00465FD1 /* COPDFImageRep.m in Sources */,
 				766DE03909936CF5004DD915 /* COColorPopUpButton.m in Sources */,
 				76B85F8E099BB20B0077A211 /* NSDictionary_Adding.m in Sources */,

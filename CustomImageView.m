@@ -680,40 +680,23 @@ NSTimeInterval elapsed=0;
 -(void)imageDisplay
 {
     if ([[[self layer] sublayers] count]==0) {
-        fLayer = [[CALayer alloc] init];
-        sLayer = [[CALayer alloc] init];
+        fLayer = [[COCALayer alloc] init];
+        sLayer = [[COCALayer alloc] init];
         [[self layer] addSublayer:fLayer];
         [[self layer] addSublayer:sLayer];
-        [fLayer setSpeed:1];
-        [sLayer setSpeed:1];
+        
         [fLayer setContentsScale:[[NSScreen mainScreen] backingScaleFactor]];
         [sLayer setContentsScale:[[NSScreen mainScreen] backingScaleFactor]];
-        [fLayer setShouldRasterize:YES];
-        [sLayer setShouldRasterize:YES];
-        [fLayer setRasterizationScale:2];
-        [sLayer setRasterizationScale:2];
-        [fLayer setMinificationFilter:kCAFilterLinear];
-        [sLayer setMinificationFilter:kCAFilterLinear];
-        [fLayer setMagnificationFilter:kCAFilterLinear];
-        [sLayer setMagnificationFilter:kCAFilterLinear];
-        [fLayer setContentsGravity:kCAGravityResize];
-        [sLayer setContentsGravity:kCAGravityResize];
-        
-        /*
-        //CoreImage Filterも使えるよ！
-        CIFilter *sepiaFilter = [CIFilter filterWithName:@"CISepiaTone"];
-        [sepiaFilter setValue:[NSNumber numberWithFloat:0.8] forKey:@"inputIntensity"];
-        [sLayer setFilters:[NSArray arrayWithObject:sepiaFilter]];
-        [fLayer setFilters:[NSArray arrayWithObject:sepiaFilter]];
-        */
-        
-        /*
-        [fLayer setBorderColor:CGColorCreateGenericRGB(1, 0, 0, 1)];
-        [fLayer setBorderWidth:3];
-        [sLayer setBorderColor:CGColorCreateGenericRGB(0, 1, 0, 1)];
-        [sLayer setBorderWidth:3];
-        */
+        [fLayer setRasterizationScale:[[NSScreen mainScreen] backingScaleFactor]];
+        [sLayer setRasterizationScale:[[NSScreen mainScreen] backingScaleFactor]];
+        [fLayer setContentsGravity:kCAGravityTopLeft];
+        [sLayer setContentsGravity:kCAGravityTopLeft];
+        [fLayer setDrawsAsynchronously:YES];
+        [sLayer setDrawsAsynchronously:YES];
     }
+    [fLayer setInterpolation:interpolation];
+    [sLayer setInterpolation:interpolation];
+
     if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
     if (fitScreenMode > 0) {
         if (images) {
@@ -738,6 +721,10 @@ NSTimeInterval elapsed=0;
         //single & oldscroll
         [self drawImage:_image];
     }
+    
+    [fLayer setNeedsDisplay];
+    [sLayer setNeedsDisplay];
+    
     [accessoryView drawAccessory];
 //    [self displayIfNeededInRect:[self visibleRect]];
 //    [accessoryView displayIfNeeded];
@@ -910,8 +897,7 @@ NSTimeInterval elapsed=0;
             cgtransform = CGAffineTransformRotate(cgtransform, 270 / 180.0 * M_PI);
             break;
         default:
-            cgtransform = CGAffineTransformMakeTranslation(0,0);
-            cgtransform = CGAffineTransformRotate(cgtransform, 360 / 180.0 * M_PI);
+            cgtransform = CGAffineTransformIdentity;
             break;
     }
     drawRect = COIntRect(CGRectApplyAffineTransform(drawRect, cgtransform));
@@ -1297,23 +1283,19 @@ NSTimeInterval elapsed=0;
             cgtransform = CGAffineTransformRotate(cgtransform, 270 / 180.0 * M_PI);
             break;
         default:
-            cgtransform = CGAffineTransformMakeTranslation(0,0);
-            cgtransform = CGAffineTransformRotate(cgtransform, 360 / 180.0 * M_PI);
+            cgtransform = CGAffineTransformIdentity;
             break;
     }
     drawRect1 = COIntRect(CGRectApplyAffineTransform(drawRect1, cgtransform));
     drawRect2 = COIntRect(CGRectApplyAffineTransform(drawRect2, cgtransform));
+    
     [fLayer setContents:image1];
-    [fLayer removeAllAnimations];
     [fLayer setAffineTransform:cgtransform];
     [fLayer setFrame:drawRect1];
-    [fLayer removeAllAnimations];
     [sLayer setHidden:NO];
     [sLayer setContents:image2];
-    [sLayer removeAllAnimations];
     [sLayer setAffineTransform:cgtransform];
     [sLayer setFrame:drawRect2];
-    [sLayer removeAllAnimations];
 
 }
 
