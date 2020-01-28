@@ -221,8 +221,6 @@
 - (IBAction)noScale:(id)sender;
 - (IBAction)rotateRight:(id)sender;
 - (IBAction)rotateLeft:(id)sender;
-- (IBAction)showFilterPanel:(id)sender;
-
 
 
 - (IBAction)fullscreen:(id)sender;

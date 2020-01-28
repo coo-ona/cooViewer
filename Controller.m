@@ -1638,9 +1638,9 @@ static const int DIALOG_CANCEL	= 129;
 	//[lock unlock];
 	//[window disableFlushWindow];
 	
-	//NSDisableScreenUpdates();
+	NSDisableScreenUpdates();
     [self lockedImageDisplay];
-    //NSEnableScreenUpdates();
+    NSEnableScreenUpdates();
 	
 	//[window enableFlushWindow];
 	//[window flushWindowIfNeeded];
@@ -1766,11 +1766,6 @@ static const int DIALOG_CANCEL	= 129;
 			}
 		}
 	}
-}
-
-- (void)addFilter:(CIFilter *)filter
-{
-    [imageView addFilter:filter];
 }
 
 
@@ -2230,7 +2225,7 @@ static const int DIALOG_CANCEL	= 129;
 			}
 		} else {
 			return NO;
-		}
+		} 
 	} else if ([[anItem title] isEqualToString:NSLocalizedString(@"Modification Date", @"")] == YES) {
 		if ([window isVisible]) {
 			if (sortMode == 3) {
@@ -2245,7 +2240,7 @@ static const int DIALOG_CANCEL	= 129;
 			}
 		} else {
 			return NO;
-		}
+		} 
 	} else {
 		/*contextMenu*/
 		NSRect left,right;
@@ -2766,11 +2761,6 @@ static const int DIALOG_CANCEL	= 129;
 		rotateMode = 0;
 	}
 	[imageView rotateLeft];
-}
-- (IBAction)showFilterPanel:(id)sender
-{
-    IKImageEditPanel *editor = [IKImageEditPanel sharedImageEditPanel];
-    [editor makeKeyAndOrderFront:nil];
 }
 
 #pragma mark -
