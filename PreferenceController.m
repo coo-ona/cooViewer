@@ -958,9 +958,11 @@ static const int DIALOG_CANCEL	= 129;
 	BOOL readSubFolder = [defaults boolForKey:@"ReadSubFolder"];
 	float wheelSensitivity = [defaults floatForKey:@"WheelSensitivity"];
 	BOOL openLastFolder = [defaults boolForKey:@"OpenLastFolder"];
+    BOOL useCalayer = [defaults boolForKey:@"UseCALayer"];
 	
 	int prevPageAction = (int)[defaults integerForKey:@"PrevPageMode"];
 	int canScrollAction = (int)[defaults integerForKey:@"CanScrollMode"];
+    
 	
 	[prevPageActionPopUpButton selectItemAtIndex:prevPageAction];
 	[canScrollActionPopUpButton selectItemAtIndex:canScrollAction];
@@ -1197,6 +1199,13 @@ static const int DIALOG_CANCEL	= 129;
 	} else {
 		[openLastFolderCheck setState:NSOffState];
 	}
+    
+    
+    if (useCalayer == YES) {
+        [useCalayerCheck setState:NSOnState];
+    } else {
+        [useCalayerCheck setState:NSOffState];
+    }
 	
 	
 
@@ -1270,7 +1279,6 @@ static const int DIALOG_CANCEL	= 129;
 	
 	[slideshowSlider setFloatValue:sliderValue];
 	[slideshowTextField setStringValue:[NSString stringWithFormat:@"%.1f", sliderValue]];
-	
 	
 	if ([window isVisible]) {
 		[preferences setLevel:NSModalPanelWindowLevel];
@@ -1347,6 +1355,13 @@ static const int DIALOG_CANCEL	= 129;
 			readSubFolder = NO;
 		}
 		[defaults setBool:readSubFolder forKey:@"ReadSubFolder"];
+        
+        if ([useCalayerCheck state] == NSOnState) {
+            useCalayer = YES;
+        } else {
+            useCalayer = NO;
+        }
+        [defaults setBool:useCalayer forKey:@"UseCALayer"];
 		
 		int loopIndex = (int)[loopPopUpButton indexOfSelectedItem];
 		if (loopIndex == 0){

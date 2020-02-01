@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -321,6 +321,16 @@
                                     <action selector="rotateRight:" target="484" id="1894"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="e0a-pk-KgN">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Filter" id="usF-pH-ycg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <accessibilityConnection property="link" destination="1666" id="IB4-9B-nE9"/>
+                                    <action selector="openFilterPanel:" target="7Ik-II-pge" id="MAU-Fs-HTe"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -358,7 +368,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="" id="850">
-                                <view key="view" ambiguous="YES" id="852">
+                                <view key="view" id="852">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1211,7 +1221,7 @@ go to the last page always.</string>
                                             <font key="font" metaFont="system"/>
                                             <tabViewItems>
                                                 <tabViewItem label="Keyboard &amp; AppleRemote" identifier="" id="2067">
-                                                    <view key="view" id="2069">
+                                                    <view key="view" ambiguous="YES" id="2069">
                                                         <rect key="frame" x="10" y="33" width="547" height="415"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
@@ -1220,7 +1230,7 @@ go to the last page always.</string>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <clipView key="contentView" ambiguous="YES" id="tU4-ZW-cwx">
                                                                     <rect key="frame" x="1" y="0.0" width="505" height="369"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="4433" id="1364">
                                                                             <rect key="frame" x="0.0" y="0.0" width="505" height="346"/>
@@ -1362,7 +1372,7 @@ go to the last page always.</string>
                                                     </view>
                                                 </tabViewItem>
                                                 <tabViewItem label="Mouse" identifier="" id="2068">
-                                                    <view key="view" ambiguous="YES" id="2070">
+                                                    <view key="view" id="2070">
                                                         <rect key="frame" x="10" y="33" width="547" height="415"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
@@ -1371,7 +1381,7 @@ go to the last page always.</string>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <clipView key="contentView" ambiguous="YES" id="dFS-QD-UCW">
                                                                     <rect key="frame" x="1" y="0.0" width="505" height="247"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="4436" id="1429">
                                                                             <rect key="frame" x="0.0" y="0.0" width="505" height="224"/>
@@ -1614,12 +1624,12 @@ go to the last page always.</string>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced" identifier="" id="1607">
-                                <view key="view" id="1608">
+                                <view key="view" ambiguous="YES" id="1608">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1610">
-                                            <rect key="frame" x="124" y="400" width="84" height="22"/>
+                                            <rect key="frame" x="124" y="377" width="84" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="Old" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1613" id="4298">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1636,9 +1646,18 @@ go to the last page always.</string>
                                             </connections>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1615">
-                                            <rect key="frame" x="17" y="404" width="105" height="17"/>
+                                            <rect key="frame" x="17" y="381" width="105" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Buffering mode:" id="4299">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5s-pD-la3">
+                                            <rect key="frame" x="17" y="427" width="105" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Use CALayer:" id="tyl-Re-5pI">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1670,7 +1689,7 @@ go to the last page always.</string>
                                             </popUpButtonCell>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2059">
-                                            <rect key="frame" x="280" y="403" width="33" height="19"/>
+                                            <rect key="frame" x="280" y="380" width="33" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="100" drawsBackground="YES" id="4306">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="0" localizesFormat="NO" hasThousandSeparators="NO" thousandSeparator="," id="2060">
@@ -1686,7 +1705,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2095">
-                                            <rect key="frame" x="213" y="406" width="61" height="13"/>
+                                            <rect key="frame" x="213" y="383" width="61" height="13"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Cache :" id="4307">
                                                 <font key="font" metaFont="label"/>
@@ -1695,7 +1714,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4255">
-                                            <rect key="frame" x="17" y="147" width="435" height="51"/>
+                                            <rect key="frame" x="17" y="124" width="435" height="51"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Change current folder when the currently open book was moved:" id="4313">
                                                 <font key="font" metaFont="system"/>
@@ -1704,7 +1723,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3292">
-                                            <rect key="frame" x="14" y="210" width="174" height="32"/>
+                                            <rect key="frame" x="14" y="187" width="174" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Disposing of settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4312">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1715,7 +1734,7 @@ go to the last page always.</string>
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4256">
-                                            <rect key="frame" x="14" y="154" width="98" height="22"/>
+                                            <rect key="frame" x="14" y="131" width="98" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="Ask" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="4260" id="4314">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1730,7 +1749,7 @@ go to the last page always.</string>
                                             </popUpButtonCell>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thn-mI-Kac">
-                                            <rect key="frame" x="29" y="384" width="535" height="14"/>
+                                            <rect key="frame" x="29" y="361" width="535" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" title="&quot;Old&quot; does not work properly on retina display" id="Uaz-oE-D3D">
                                                 <font key="font" metaFont="smallSystem"/>
@@ -1738,8 +1757,17 @@ go to the last page always.</string>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzl-Id-7yd">
+                                            <rect key="frame" x="29" y="407" width="535" height="14"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" title="Images are drawn by GPU, so they run faster, but it may be blurry" id="d2l-3m-4H7">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" red="0.49456518999999999" green="0.49456518999999999" blue="0.49456518999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2047">
-                                            <rect key="frame" x="17" y="358" width="105" height="17"/>
+                                            <rect key="frame" x="17" y="335" width="105" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Image cache:" id="4302">
                                                 <font key="font" metaFont="system"/>
@@ -1748,7 +1776,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2048">
-                                            <rect key="frame" x="119" y="357" width="33" height="19"/>
+                                            <rect key="frame" x="119" y="334" width="33" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="100" drawsBackground="YES" id="4303">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="0" localizesFormat="NO" hasThousandSeparators="NO" thousandSeparator="," id="2049">
@@ -1764,7 +1792,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2053">
-                                            <rect key="frame" x="17" y="331" width="167" height="17"/>
+                                            <rect key="frame" x="17" y="308" width="167" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Thumbnail cache:" id="4304">
                                                 <font key="font" metaFont="system"/>
@@ -1773,7 +1801,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2054">
-                                            <rect key="frame" x="158" y="330" width="33" height="19"/>
+                                            <rect key="frame" x="158" y="307" width="33" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="100" drawsBackground="YES" id="4305">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="0" localizesFormat="NO" hasThousandSeparators="NO" thousandSeparator="," id="2055">
@@ -1789,7 +1817,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3100">
-                                            <rect key="frame" x="17" y="293" width="263" height="17"/>
+                                            <rect key="frame" x="17" y="270" width="263" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Open link in pdf in default browser:" id="4310">
                                                 <font key="font" metaFont="system"/>
@@ -1798,7 +1826,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3101">
-                                            <rect key="frame" x="264" y="289" width="98" height="22"/>
+                                            <rect key="frame" x="264" y="266" width="98" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="Ask" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="3105" id="4311">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1812,6 +1840,14 @@ go to the last page always.</string>
                                                 </menu>
                                             </popUpButtonCell>
                                         </popUpButton>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-2q-BTd">
+                                            <rect key="frame" x="114" y="427" width="109" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ym1-NJ-Ohp">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -1880,7 +1916,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="ftu-4p-hzE">
                             <rect key="frame" x="1" y="1" width="355" height="16"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" allowsDocumentBackgroundColorChange="YES" usesRuler="YES" quoteSubstitution="YES" dashSubstitution="YES" textReplacement="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2905" customClass="COTextView">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="16"/>
@@ -1994,7 +2030,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="Cu5-Wy-5Gx">
                             <rect key="frame" x="1" y="0.0" width="539" height="278"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" headerView="4441" id="612">
                                     <rect key="frame" x="0.0" y="0.0" width="539" height="255"/>
@@ -2217,7 +2253,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Bfm-Bs-9B9">
                             <rect key="frame" x="0.0" y="0.0" width="449" height="351"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="777" customClass="FullImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="234" height="223"/>
@@ -2955,9 +2991,18 @@ Gw
                 <outlet property="thumbnailCacheTextField" destination="2054" id="2093"/>
                 <outlet property="thumbnailTextFieldCol" destination="1294" id="1715"/>
                 <outlet property="thumbnailTextFieldRow" destination="1291" id="1716"/>
+                <outlet property="useCalayerCheck" destination="M2u-2q-BTd" id="hFy-2q-JXp"/>
                 <outlet property="viewBackGroundColor" destination="2143" id="2168"/>
                 <outlet property="wheelSlider" destination="1074" id="1718"/>
                 <outlet property="window" destination="21" id="1676"/>
+            </connections>
+        </customObject>
+        <customObject id="7Ik-II-pge" customClass="FilterPanelController">
+            <connections>
+                <outlet property="contentsView" destination="1oQ-cG-8Uy" id="jcQ-9l-poF"/>
+                <outlet property="filterPanel" destination="EcN-5h-84Q" id="oAh-ao-fcl"/>
+                <outlet property="popupButton" destination="xTo-RC-5eC" id="kYz-xQ-6JN"/>
+                <outlet property="scrollView" destination="T7G-gM-l9s" id="clS-kK-aPT"/>
             </connections>
         </customObject>
         <menu title="Menu" id="2256" userLabel="ThumbnailMenu">
@@ -3395,6 +3440,56 @@ Gw
                 </subviews>
             </view>
             <point key="canvasLocation" x="821" y="3309.5"/>
+        </window>
+        <window title="Filter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="EcN-5h-84Q" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="90" y="125" width="290" height="280"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="rHs-xr-KcK">
+                <rect key="frame" x="0.0" y="0.0" width="290" height="280"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-RC-5eC">
+                        <rect key="frame" x="3" y="256" width="284" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vwO-sI-g9O">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="h66-z4-Wfq"/>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="filterSelected:" target="7Ik-II-pge" id="iCC-lV-ZLP"/>
+                        </connections>
+                    </popUpButton>
+                    <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-gM-l9s">
+                        <rect key="frame" x="5" y="7" width="279" height="244"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="RHv-Bg-9Br">
+                            <rect key="frame" x="0.0" y="0.0" width="279" height="244"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view ambiguous="YES" id="1oQ-cG-8Uy" customClass="NSStackView">
+                                    <rect key="frame" x="0.0" y="0.0" width="279" height="244"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="g84-jt-UhY">
+                            <rect key="frame" x="-100" y="-100" width="215" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ARX-10-Pr9">
+                            <rect key="frame" x="263" y="0.0" width="16" height="244"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="7Ik-II-pge" id="oNj-U9-alv"/>
+            </connections>
+            <point key="canvasLocation" x="581" y="57"/>
         </window>
     </objects>
     <resources>

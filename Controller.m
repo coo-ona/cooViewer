@@ -146,6 +146,9 @@ static const int DIALOG_CANCEL	= 129;
 	interpolation = (int)[defaults integerForKey:@"Interpolation"];
 	[imageView setInterpolation:interpolation];
 	[defaults setInteger:interpolation forKey:@"Interpolation"];
+    BOOL useCalayer = [defaults boolForKey:@"UseCALayer"];
+    [imageView setUseCalayer:useCalayer];
+    [defaults setBool:useCalayer forKey:@"UseCALayer"];
 	
 	
 	cacheSize = (int)[defaults integerForKey:@"ImageCache"];
@@ -277,9 +280,9 @@ static const int DIALOG_CANCEL	= 129;
 											 selector:@selector(viewDidEndLiveResize:) 
 												 name:@"ViewDidEndLiveResize"
 											   object:imageView];
-	
-	
-	openLinkMode = (int)[defaults integerForKey:@"OpenLinkMode"];
+    
+
+    openLinkMode = (int)[defaults integerForKey:@"OpenLinkMode"];
 	[defaults setInteger:openLinkMode forKey:@"OpenLinkMode"];
 
 	changeCurrentFolderMode = (int)[defaults integerForKey:@"ChangeCurrentFolder"];
@@ -1518,12 +1521,20 @@ static const int DIALOG_CANCEL	= 129;
 	switch (readMode) {
 		//2,3=only from singleModeKeyCode
 		case 0: case 2:
-			[image1 drawInRect:NSMakeRect(0,center1,widthValue1,heightValue1) ];
-			[image2 drawInRect:NSMakeRect(widthValue1,center2,widthValue2,heightValue2) ];
+            [image1 drawInRect:NSMakeRect(0,center1,widthValue1,heightValue1)
+                      fromRect:NSMakeRect(0, 0, [image1 size].width, [image1 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
+            [image2 drawInRect:NSMakeRect(widthValue1,center2,widthValue2,heightValue2)
+                      fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
 			break;
 		case 1: case 3:
-			[image2 drawInRect:NSMakeRect(0,center2,widthValue2,heightValue2) ];
-			[image1 drawInRect:NSMakeRect(widthValue2,center1,widthValue1,heightValue1) ];
+            [image2 drawInRect:NSMakeRect(0,center2,widthValue2,heightValue2)
+                      fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
+            [image1 drawInRect:NSMakeRect(widthValue2,center1,widthValue1,heightValue1)
+                      fromRect:NSMakeRect(0, 0, [image1 size].width, [image1 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
 			break;
 		default:
 			break;
@@ -1854,6 +1865,8 @@ static const int DIALOG_CANCEL	= 129;
 	
 	[window disableFlushWindow];
 	
+    BOOL useCalayer = [defaults boolForKey:@"UseCALayer"];
+    [imageView setUseCalayer:useCalayer];
 	
 	if ([defaults boolForKey:@"DontHideMenuBar"]) {
 		[window setHideMenuBar:NO];
@@ -2763,6 +2776,12 @@ static const int DIALOG_CANCEL	= 129;
 		rotateMode = 0;
 	}
 	[imageView rotateLeft];
+}
+
+- (IBAction)showFilterPanel:(id)sender
+{
+    IKImageEditPanel *editor = [IKImageEditPanel sharedImageEditPanel];
+    [editor makeKeyAndOrderFront:nil];
 }
 
 #pragma mark -

@@ -57,6 +57,9 @@
 	BOOL didDragScroll;
 	
 	BOOL startFromEnd;
+    
+    id filters;
+    BOOL useCalayer;
 	
 	@private
 	NSMutableArray *urlRectArray;
@@ -67,6 +70,7 @@
 
 -(void)setScreenFitMode:(int)mode;
 
+-(void)setUseCalayer:(BOOL)use;
 -(void)setInterpolation:(int)index;
 -(void)setImages:(NSImage *)image;
 

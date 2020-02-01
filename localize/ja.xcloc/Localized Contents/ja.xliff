@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="Base.lproj/MainMenu.xib" source-language="en" target-language="ja" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3" build-num="11C29"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
       <trans-unit id="19.title" xml:space="preserve">
@@ -2449,16 +2449,36 @@ go to the last page always.</source>
         <target>Radio</target>
         <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
       </trans-unit>
+      <trans-unit id="EcN-5h-84Q.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>フィルター</target>
+        <note>Class = "NSWindow"; title = "Filter"; ObjectID = "EcN-5h-84Q";</note>
+      </trans-unit>
       <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
         <source>"Old" does not work properly on retina display</source>
         <target>"Old" はRetinaディスプレイでは正常に動作しません</target>
         <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
       </trans-unit>
+      <trans-unit id="d2l-3m-4H7.title" xml:space="preserve">
+        <source>Images are drawn by GPU, so they run faster, but it may be blurry</source>
+        <target>GPUで描画されるため、より高速に実行されますが、ぼやける場合があります</target>
+        <note>Class = "NSTextFieldCell"; title = "Images are drawn by GPU, so they run faster, but it may be blurry"; ObjectID = "d2l-3m-4H7";</note>
+      </trans-unit>
+      <trans-unit id="tyl-Re-5pI.title" xml:space="preserve">
+        <source>Use CALayer:</source>
+        <target>CALayerを使用：</target>
+        <note>Class = "NSTextFieldCell"; title = "Use CALayer:"; ObjectID = "tyl-Re-5pI";</note>
+      </trans-unit>
+      <trans-unit id="usF-pH-ycg.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>フィルター</target>
+        <note>Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg";</note>
+      </trans-unit>
     </body>
   </file>
   <file original="en.lproj/Localizable.strings" source-language="en" target-language="ja" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3" build-num="11C29"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
       <trans-unit id="Add Bookmark" xml:space="preserve">
@@ -2828,7 +2848,7 @@ go to the last page always.</source>
       </trans-unit>
       <trans-unit id="Open '%@' in default browser?" xml:space="preserve">
         <source>Open '%@' in default browser?</source>
-        <target>Open '%@' in default browser?</target>
+        <target>'%@' をデフォルトブラウザで開きますか？</target>
         <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Open URL" xml:space="preserve">

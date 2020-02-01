@@ -10,10 +10,16 @@
 @end
 
 @implementation CustomImageView
-- (id)initWithFrame:(NSRect)frame {
+- (id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self setWantsLayer:YES];
+         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(filterValueDidChange:)
+                                                     name:@"FilterUIValueDidChange"
+                                                   object:nil];
     }
     return self;
 }
@@ -71,6 +77,10 @@
 	lensRate=[defaults floatForKey:@"LoupeRate"];
 	
 	[self display];
+}
+-(void)setUseCalayer:(BOOL)use
+{
+    useCalayer = use;
 }
 -(void)setInterpolation:(int)index
 {
@@ -678,6 +688,9 @@ NSTimeInterval elapsed=0;
 
 -(void)imageDisplay
 {
+    [[self layer] setDrawsAsynchronously:useCalayer];
+    [[self layer] setFilters:nil];
+    [[self layer] setFilters:filters];
     if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
     if (fitScreenMode > 0) {
         if (images) {
@@ -699,6 +712,17 @@ NSTimeInterval elapsed=0;
     [accessoryView drawAccessory];
 //    [self displayIfNeededInRect:[self visibleRect]];
 //    [accessoryView displayIfNeeded];
+}
+
+- (void)filterValueDidChange:(NSNotification *)aNotification
+{
+    [filters release];
+    filters = [[[[aNotification object] objectForKey:@"filters"] allValues] retain];
+    if ([self layer]) {
+        [[self layer] setFilters:nil];
+        [[self layer] setFilters:filters];
+        [[self layer] display];
+    }
 }
 
 #pragma mark draw
@@ -727,7 +751,7 @@ NSTimeInterval elapsed=0;
             [self drawImages:[target image1] and:[target image2]];
         } else {
             //single & oldscroll
-            [self drawImage:[target image1]];
+            [self drawImage:_image];
         }
     }
     

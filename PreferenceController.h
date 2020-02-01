@@ -109,6 +109,8 @@
     IBOutlet id disposeSettingProgress;
 	
     IBOutlet id changeCurrentFolderPopUpButton;
+    
+    IBOutlet id useCalayerCheck;
 }
 + (NSArray*)defaultKeyArray;
 + (NSArray*)defaultKeyArrayMode2;
