@@ -1,0 +1,296 @@
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>cooViewer</title>
+<link href="stylesheet.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<center>
+
+<table width="680" border="0" cellpadding="0" cellspacing="0" align="center">
+
+<tr><td  class="top" style="padding: 0px 0px 0px 15px;">
+<div class="title">cooViewer - 快適に漫画を見るために。</div>
+</td></tr>
+
+<tr><td colspan=3>
+<table cellspacing=0 id="headernav"><tr>
+<td style="border-right: 1px solid #bbb;"><a href="viewer.html">紹介</a></td>
+<td style="border-right: 1px solid #bbb;"><a href="manual.html">操作方法</a></td>
+<td id="selectednav">その他</td>
+</tr></table>
+</td></tr>
+
+<tr><td >
+
+<BR>
+●謝辞<BR>
+<small>
+<div style="margin-left:20;">
+新・mac板【大量】オナニー用画像ビューアー【放出】スレの皆様には0.1の使い物にならない頃からお付き合いいただきました。<BR>
+</div>
+<BR>
+<!--
+●既知のバグ等<BR>
+<div style="margin-left:20;">
+・DockのcooViewerにドロップするとDockやメニューバーがちらつく(諦め気味)<BR>
+Panther限定(放置かも)<BR>
+・フォルダの中にpdfファイルがあるとページめくりや一覧表示で落ちる<BR>
+・フルスクリーン時、実寸表示ウィンドウを動かすとメニューバーを避ける<BR>
+</div>
+<BR>
+●ToDo<BR>
+<div style="margin-left:20;">
+・Jaguar用(調査中)<BR>
+・見つけたとこからバグ修正<BR>
+以下そのうち<BR>
+・最適化・軽量化<BR>
+以下いつかそのうち<BR>
+・左右開きの時のキーの入れ替え(考え中)<BR>
+・出来ればマウスホイールの挙動修正<BR>
+・開いた時に一覧表示表示出来るように<BR>
+・他の圧縮形式対応(次はlzh?)<BR>
+・url指定するとイメージタグとかリンクタグ拾ってきて表示とか<BR>
+</div>
+くらい？<BR>
+<BR>
+<BR>
+
+●<a href="http://ch.kitaguni.tv/u/9276/">blog?</a><BR>-->
+<!--
+●<BR>
+<div style="margin-left:20;">
+・1.2<BR>
+<PRE>
+	・複数フォルダ/アーカイブを開けるように
+		出来ればFinderのコンテクストメニューから開けるようにしたい
+		Contextual Menu Plugin…作れるんだろうか
+	・ブックマークと見開きにする/しないを最小のフォルダ/アーカイブごとに保存
+		親フォルダから開いたり複数開いても問題なくなる
+		けどReadModeはどうしよう？複数開いた時に途中からReadMode変わるのも変だし…
+		複数開いたときだけそれぞれ保存/読み込みして親フォルダから開いたときは今まで通りにする？
+		中身変わっても知ったこっちゃねぇ？
+		本当はファイル名で指定した方が良いが…編集がめんどくさくなる
+			めんどくさいくらいなら良いがまたフォーマット変えるのもどうかと
+	・フォルダ内アーカイブを読み込めるように
+	・書庫内書庫
+	・回転
+</PRE>
+<BR><BR><BR>
+
+・AppleGlot<BR>
+慣れれば便利。<BR>
+日本語に差し替えて勝手にnibファイル作ってくれるし、一回部品の配置すれば次から同じように配置ずらしてnibファイル作ってくれる。<BR>
+すごいなぁ…どうやってんだこれ<BR>
+いやInterfaceBuilder作ってるんだから出来ないのも変だろうけど。ていうか他社でも作れるんだから出来ないと問題か<BR>
+<BR><BR><BR> 
+
+・<BR>
+<STRIKE>
+・フォルダや画像ファイルをドラドロしてリスト表示<BR>
+・リストで選択したファイルを横にサムネイル表示<BR>
+・ファイル名/作成日/更新日でソート、サムネイル見ながらドラドロで並べ替え<BR>
+・いらないファイルはゴミ箱ボタン<BR>
+・先頭と末尾に文字列をつけられるようにして連番でリネーム</STRIKE><BR>
+Shupapanにプレビュー機能付いてるようなので無し。<BR>
+<BR><BR><BR> 
+
+・<a href="http://pc7.2ch.net/test/read.cgi/mac/1123163068/">某スレ</a><BR>
+<small>
+<dl>
+<dt>531 ：<a href="mailto:sage"><b>名称未設定 </b></a>：2005/08/21(日) 20:03:52 ID:8Pbx+Gg9<dd>  今、コンビニに行ったら <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> 小学生がエロ本の表紙に向かって「エロスがたりんな、やっぱり縄だよ」とか言ってた <br> 日本の未来は大丈夫だろうか・・・ <br> (;´Д`) ﾊｧﾊｧ <br>
+</dl>
+</small>
+('A`)
+<BR><BR><BR> 
+
+・Xcode2.1<BR>
+cooViewer.xcodeproj<BR>
+cooViewer.xcode<BR>
+どっちが新しいやつか迷う
+<BR><BR><BR>
+
+・まっくら<BR>
+<IMG SRC = "weather.jpg"><BR>
+<STRIKE>規制に巻き込まれて2ch書けません</STRIKE><BR>
+<STRIKE>こんなの初めて…っ！</STRIKE><BR>
+18日で解除。長かった…
+<BR><BR><BR>
+
+・<a href="http://moemoe.homeip.net/view.php/2822">天狗</a><BR>
+ヤバいｶﾜｲｲ
+<BR><BR><BR>
+
+・CoreImage<BR>
+全然わかんねorz<BR>
+いやできたことは出来たけど(とりあえずCISharpenLuminance)<BR>
+重すぎて使い物にならないレベル　なんだこれ<BR>
+描画するときにやらずに読み込んだときにやっといた方が良いかなーこれは<BR>
+なんかイメージと違うけど…
+<BR><BR><BR>
+
+
+・<a href="http://pc8.2ch.net/test/read.cgi/tech/1106983092/">Objective-C</a><BR>
+<small>
+<dt>9 ：<a href="mailto:sage"><b>デフォルトの名無しさん </b></a>：05/01/29 16:44:08 <dd> int&#160;main(int&#160;argc,char*&#160;argv[]) <br> { <br> &#160;&#160;&#160;&#160;id&#160;myApp; <br>  <br> &#160;&#160;&#160;&#160;myApp&#160;=&#160;[[testApp&#160;alloc]&#160;initApp:&argc&#160;:&argv]; <br> &#160;&#160;&#160;&#160;[myApp&#160;run]; <br> &#160;&#160;&#160;&#160;return&#160;0; <br> } <br>  <br> 前スレの最後に載ってたけどgtk弄るだけでこんなかっこよくなる言語なんて初めて見たぜ  <br><br>
+<dt>11 ：<a href="mailto:sage"><b>デフォルトの名無しさん </b></a>：05/01/29 17:16:41 <dd> ×こんなかっこよくなる言語なんて初めて見たぜ  <br> ○こんな括弧よくでる言語なんて初めて見たぜ  <br> </dd>
+</small>
+至言だなぁある意味
+<BR><BR><BR>
+
+・<a href="http://ma-ru.sakura.ne.jp/mayutan.html">待てって何秒!!</a><BR>
+ワロス
+<BR><BR><BR>
+
+・ホイールスクロール<BR>
+Macの漫画ビューアではホイールスクロール対応してるの少ない(と言うか無い？)らしいんですが…<BR>
+たしかに対応したくないかも。<BR>
+加速つきまくるし下に回してもたまに上が混じるし<BR>
+うちのマウスホイールがおかしいだけかもしれないけど('A`)
+<BR><BR><BR>
+
+・setMenuBarVisible<BR>
+[NSMenu setMenuBarVisible:NO];の状態だと<BR>
+makeKeyAndOrderFront:というかorderFront:出来ない(？<BR>
+あとperformMiniaturizeもできない<BR>
+まぁ普通必要ないし<BR>
+でも
+<PRE>
+- (void)performMiniaturize:(id)sender
+{
+	[NSMenu setMenuBarVisible:YES];
+	[super performMiniaturize:sender];
+}
+</PRE>
+でいけたりする<BR>
+ようわからん
+<BR><BR><BR>
+
+・スレッド脱出<BR>
+setImageしたらその都度[imageView display];すれば新しいの読み終わらなくても表示される…orz<BR>
+あああああああｱﾎﾀﾞ<BR>
+これでlockとかややこしい事考えなくて済むぞー('A`)<BR>
+でも結局使う
+<BR><BR><BR>
+
+・欲しいもの<BR>
+サンプル動画のurl・パスワード管理アプリ
+<BR><BR><BR>
+
+・洞窟物語<BR>
+トロ子萌え<BR>
+ミザリー萌え<BR>
+聖域がクリア出来ません(´･ω･`)
+<BR><BR><BR>
+
+・Tiger<BR>
+4/29発売ですか<BR>
+iBookG3 800MHzでどの程度動くんだろうか<BR>
+ていうかいい加減買い替えた方が良いんだろうけど…ｶﾈﾈｰﾖ(´･ω･`)iMacG5ﾎｼｲ
+<BR><BR><BR>
+
+・OKAMA「華札」<BR>
+うへー　何これ　すげー<BR>
+普通に話として読めて面白いけど…使えないなぁ
+<BR><BR><BR>
+
+・最適化軽量化。(05/4/10)<BR>
+今までは単一のスレッドで「見開きなら合成→画像を表示→新しいのを読む」ってしてたわけだけど、新しいのを読み終わってからで無いと画面に表示されなかった。<BR>
+runloopとかの影響？何でも良いけど。<BR>
+で「画像を表示→別スレッド(新しいのを読む→見開きなら合成もする)」って感じに。<BR>
+これなら新しいのを読み終わる前に表示される。<BR>
+(読み終わってたら)キーを押せばすぐ切り替わるから、速くなったって言って良いのかな…<BR>
+でもこれですごく速くなったって感じるのはよっぽど大きい画像かHDDが酷く遅い場合くらいか<BR>
+それにキー押しっぱなしでどんどん切り替えてくときはほぼ意味ない。当たり前だけど。<BR>
+そこはどうしようもないなぁ…最初に一気に読んどくとかしないと…でもメモリ食うしな…今でも十分食ってるけど…<BR>
+ダイエット成功したら先読み2ページから4ページに増やしてみようかな<BR>
+あとNSMutableArrayは使っても使わなくても誤差以下しかかわりませんでした。まぁすごいループとかしてるわけではないしそりゃそうか
+
+<BR><BR><BR>
+・ゼロリンク(05/4/4)<BR>
+昔もやった事あるような気がするけどまたやってしまった…<BR>
+というか基本的に焦り過ぎ・小刻みすぎる希ガス。ちょっと機能追加してすぐ出したは良いけど直後にバグフィックスとか。<BR>
+普通もっとためるもんですよね<BR>
+ただ機能追加したらすぐ使ってもらいたいって言うのも事実<BR>
+なんだけどバグフィックスの嵐はちょっと我ながら酷い。nightlyですか？(もっと酷いか)漏れ必死だな(p<BR>
+一通り使ったらわかるバグとか少なくともゼロリンク位はちゃんと気をつけます。<BR>
+本スレも無駄に使う事になるしもっと落ち着いてやろう<BR>
+ごめんなさい。
+<BR><BR><BR>
+・マウス(4/3)<BR>
+ドラッグって何かを掴んでないとドラッグって言わないってイメージがあって、 何も掴んでなくてもドラッグって言って良いのか調べたらウィキペディアのマウスのページで<BR>
+
+<div style="margin-left:20;">
+<Q>…マウスの感度を示す単位はミッキーであり…命名者はマイクロソフトのプログラマーであったクリス・ピーターズであり、この単位名はミッキーマウスに由来する一種のジョークと思われる。彼はマイクロソフト社の105人目にあたる社員で…現在は米プロボウリング協会のチェアマンとなっている。</Q></div>
+ミッキーっすか…訴えられなかったっすか…ていうかボウリングっすか…何してんすか…<BR>
+コレでなんか萎えたのでドラッグって言って良いのかは調べられませんでした。まぁそれほど間違ってないだろうしわかりやすいから良いか<BR>
+それよりBackPageとかBackBookmarkの方が問題な気がする。さすが日本人<BR>
+
+<BR><BR><BR>
+・NSScrollViewに入ってるView(NSImageViewとか)をドラッグでスクロール<BR>
+autoscroll:eventだとviewの外までドラッグしないと動かないぽい<BR>
+こういうのよく見る割にｸﾞｸﾞﾙ様で見つけられなかったのでメモ<BR>
+入ってるViewで<BR>
+<BR>
+
+<PRE>
+- (BOOL)isFlipped { return YES; } /*これしてないと最初下から表示される('A`)*/
+
+- (void)mouseDragged:(NSEvent *)event
+{
+	NSClipView *clipView = [self superview];
+	NSScrollView *scrollView = [clipView superview];
+	
+	NSPoint visiblePoint = [clipView documentVisibleRect].origin;/*NSClipViewに今見えてる部分を聞いて始点を調べる*/
+	
+	float newY = visiblePoint.y + [event locationInWindow].y - oldPoint.y;/*今見えてる部分の始点+ドラッグの終点と始点の差*/
+	float newX = visiblePoint.x + oldPoint.x - [event locationInWindow].x;/*同上*/
+	
+	/*行き過ぎ戻り過ぎ防止ここから*/
+	if (newY < 0) {
+		newY = 0;
+	}
+	if (newX < 0) {
+		newX = 0;
+	}
+	if (newX > [self bounds].size.width - [clipView documentVisibleRect].size.width){
+		newX = [self bounds].size.width - [clipView documentVisibleRect].size.width;
+	}
+	if (newY > [self bounds].size.height - [clipView documentVisibleRect].size.height) {
+		newY = [self bounds].size.height - [clipView documentVisibleRect].size.height;
+	}
+	/*ここまで*/
+	
+	NSPoint newPoint = NSMakePoint(newX,newY);/*新しい始点*/
+	
+	[clipView scrollToPoint:newPoint];/*スクロールさせる*/
+	[scrollView reflectScrolledClipView:clipView];/*スクロールバーを合わせる*/
+	oldPoint=[event locationInWindow];/*これしなかったらブラウザでいうミドルクリックのオートスクロール(方向逆だけど)になる*/
+}
+
+- (void)mouseDown:(NSEvent *)event
+{
+	oldPoint=[event locationInWindow];/*ドラッグの始点を決める*/
+}
+</PRE>
+こんな感じで実装。無理矢理ぽ<BR>
+もっと良い方法ないかしら<BR>
+まぁ動けば良いという事で…<BR>
+
+</div>
+<BR>
+-->
+</td></tr>
+</table>
+<BR><BR>
+ <p style="font-size: 11px; font-family: 'Lucida Grande'; text-align:center">&copy; 2005- coo. All rights reserved.</p>
+</td></tr>
+</table>
+
+</center>
+
+</body>
+</BODY>
+</HTML>
+

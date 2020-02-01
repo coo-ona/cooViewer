@@ -1,12 +1,12 @@
-# cooViewer1.2b 64bit対応版
-https://web.archive.org/web/20190330084648/http://www.geocities.jp/coo_ona/viewer.html
+# cooViewer1.2b
+https://coo-ona.github.io/cooViewer/
 
 ## 開発環境
 MacBook Pro (2.3GHz/16GB)<br>
 MacOS X 10.14.5
 
 ## 操作方法
-https://web.archive.org/web/20190330084648/http://www.geocities.jp/coo_ona/manual.html
+https://coo-ona.github.io/cooViewer/manual.html
 
 ## アンインストール
 ・アプリ本体<br>
@@ -24,3 +24,6 @@ cooViewerはMITライセンスです。
 ライセンスについては添付のLicence_RemoteControlWrapper.txtを参照してください。
 
 デフォルトの書類アイコンは新・mac板 オナニー用画像ビューアー Part4の971さんに作成していただきました。
+
+64bit化対応にあたり、スレの皆様をはじめ、多くの方にご協力いただきました。ありがとうございます。
+また、nibをxibに変換いただいたkanjitalk755さんには特に感謝申し上げます。
