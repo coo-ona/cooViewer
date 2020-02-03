@@ -758,17 +758,50 @@ NSTimeInterval elapsed=0;
 	if (lensWindow) [self drawLoupe];
 }
 
+- (NSRect)cropRect
+{
+    CGFloat t = (CGFloat)self.cropTop / 100;
+    CGFloat r = (CGFloat)self.cropRight / 100;
+    CGFloat b = (CGFloat)self.cropBottom / 100;
+    CGFloat l = (CGFloat)self.cropLeft / 100;
+    return NSMakeRect(l, b, 1.0 - l - r, 1.0 - t - b);
+}
 - (NSMutableDictionary *)getDrawImageInfo:(NSImage*)image
 {
     NSMutableDictionary *infodic = [NSMutableDictionary dictionary];
     
-    int widthValue,heightValue;
+//    int widthValue,heightValue;
+//    if (rotateMode==1||rotateMode==3) {
+//        widthValue = [image size].height;
+//        heightValue = [image size].width;
+//    } else {
+//        widthValue = [image size].width;
+//        heightValue = [image size].height;
+//    }
+    
+    NSInteger widthValue = [image size].width;
+    NSInteger heightValue = [image size].height;
+    [infodic setObject:[NSValue valueWithRect:NSMakeRect(0, 0, widthValue, heightValue)] forKey:@"fromRect"];
+    if (self.wantsCrop) {
+        NSRect cropRect = self.cropRect;
+        NSRect fromRect = NSMakeRect(widthValue * cropRect.origin.x,
+                                     heightValue * cropRect.origin.y,
+                                     widthValue * cropRect.size.width,
+                                     heightValue * cropRect.size.height);
+        [infodic setObject:[NSValue valueWithRect:fromRect] forKey:@"fromRect"];
+        widthValue *= cropRect.size.width;
+        heightValue *= cropRect.size.height;
+    }
     if (rotateMode==1||rotateMode==3) {
-        widthValue = [image size].height;
-        heightValue = [image size].width;
-    } else {
-        widthValue = [image size].width;
-        heightValue = [image size].height;
+        //swap
+        widthValue -= heightValue;
+        heightValue += widthValue;
+        widthValue = heightValue - widthValue;
+    }
+    if (self.wantsScale) {
+        CGFloat scale = (CGFloat)self.scale / 100;
+        widthValue *= scale;
+        heightValue *= scale;
     }
 
     float screenWidthValue = NSWidth([[[self window] contentView] frame]);
@@ -913,8 +946,9 @@ NSTimeInterval elapsed=0;
 		default:
 			break;
 	}
+    NSRect fromRect = [[infodic objectForKey:@"fromRect"] rectValue];
     [image drawInRect:drawRect
-              fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
+              fromRect:fromRect //NSMakeRect(0,0,[image size].width,[image size].height)
              operation:NSCompositeSourceOver fraction:1.0];
 	if (rotateMode!=0) {
 		[transform invert];
@@ -954,6 +988,33 @@ NSTimeInterval elapsed=0;
     
     int widthValue02 = [image2 size].width;
     int heightValue02 = [image2 size].height;
+    
+    [infodic setObject:[NSValue valueWithRect:NSMakeRect(0, 0, widthValue01, heightValue01)] forKey:@"fromRect1"];
+    [infodic setObject:[NSValue valueWithRect:NSMakeRect(0, 0, widthValue02, heightValue02)] forKey:@"fromRect2"];
+    if (self.wantsCrop) {
+        NSRect cropRect = self.cropRect;
+        NSRect fromRect1 = NSMakeRect(widthValue01 * cropRect.origin.x,
+                                     heightValue01 * cropRect.origin.y,
+                                     widthValue01 * cropRect.size.width,
+                                     heightValue01 * cropRect.size.height);
+        [infodic setObject:[NSValue valueWithRect:fromRect1] forKey:@"fromRect1"];
+        widthValue01 *= cropRect.size.width;
+        heightValue01 *= cropRect.size.height;
+        NSRect fromRect2 = NSMakeRect(widthValue02 * cropRect.origin.x,
+                                     heightValue02 * cropRect.origin.y,
+                                     widthValue02 * cropRect.size.width,
+                                     heightValue02 * cropRect.size.height);
+        [infodic setObject:[NSValue valueWithRect:fromRect2] forKey:@"fromRect2"];
+        widthValue02 *= cropRect.size.width;
+        heightValue02 *= cropRect.size.height;
+    }
+    if (self.wantsScale) {
+        CGFloat scale = (CGFloat)self.scale / 100;
+        widthValue01 *= scale;
+        heightValue01 *= scale;
+        widthValue02 *= scale;
+        heightValue02 *= scale;
+    }
     
     int widthValue1 = widthValue01;
     int heightValue1 = heightValue01;
@@ -1299,11 +1360,13 @@ NSTimeInterval elapsed=0;
 		default:
 			break;
 	}
+    NSRect fromRect1 = [[infodic objectForKey:@"fromRect1"] rectValue];
+    NSRect fromRect2 = [[infodic objectForKey:@"fromRect2"] rectValue];
 	[image2 drawInRect:drawRect2
-			  fromRect:NSMakeRect(0,0,widthValue02,heightValue02)
+			  fromRect:fromRect2 //NSMakeRect(0,0,widthValue02,heightValue02)
 			 operation:NSCompositeSourceOver fraction:1.0];
 	[image1 drawInRect:drawRect1
-			  fromRect:NSMakeRect(0,0,widthValue01,heightValue01)
+			  fromRect:fromRect1 //NSMakeRect(0,0,widthValue01,heightValue01)
 			 operation:NSCompositeSourceOver fraction:1.0];
 	/*
 	if( [NSObject respondsToSelector:@selector(finalize)] ){
