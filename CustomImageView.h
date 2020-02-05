@@ -115,4 +115,13 @@
 
 -(id)accessoryView;
 -(void)setAccessoryWindowFrame;
+
+@property BOOL wantsScale;
+@property NSInteger scale;
+@property BOOL wantsCrop;
+@property NSInteger cropTop;
+@property NSInteger cropRight;
+@property NSInteger cropBottom;
+@property NSInteger cropLeft;
+- (NSRect)cropRect;
 @end
