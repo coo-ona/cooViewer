@@ -10,6 +10,8 @@
 @implementation FilterPanelController
 -(void)awakeFromNib
 {
+    [filterPanel setFrameAutosaveName:@"FilterPanel"];
+    
     filterDic = [[NSMutableDictionary alloc] init];
     selectedFilterUIViews = [[NSMutableDictionary alloc] init];
     [CIPlugIn loadAllPlugIns];
@@ -37,24 +39,26 @@
     }
     
     selectedFilters = [[NSMutableDictionary alloc] init];
+    selectedFilterKeys = [[NSMutableArray alloc] init];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults arrayForKey:@"CIFilterKeys"]) {
-        selectedFilterKeys = [[NSMutableArray arrayWithArray:[defaults arrayForKey:@"CIFilterKeys"]] retain];
+        NSArray *tmpSelectedFilterKeys = [defaults arrayForKey:@"CIFilterKeys"];
         NSMutableDictionary *dic;
         if (@available(macOS 10.13, *)) {
             dic = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSObject class] fromData:[defaults objectForKey:@"CIFilters"] error:nil];
         } else {
             dic = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"CIFilters"]];
         }
-        NSEnumerator *enu = [selectedFilterKeys objectEnumerator];
+        NSEnumerator *enu = [tmpSelectedFilterKeys objectEnumerator];
         NSString *filterKey;
         while (filterKey = [enu nextObject]) {
-            [selectedFilters setObject:[dic objectForKey:filterKey] forKey:filterKey];
+            if ([dic objectForKey:filterKey]) {
+                [selectedFilterKeys addObject:filterKey];
+                [selectedFilters setObject:[dic objectForKey:filterKey] forKey:filterKey];
+            }
         }
         [self drawFilterUIViews];
         [self sendNotification];
-    } else {
-        selectedFilterKeys = [[NSMutableArray alloc] init];
     }
 }
 - (IBAction)openFilterPanel:(id)sender

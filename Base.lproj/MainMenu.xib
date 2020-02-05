@@ -324,8 +324,8 @@
                             <menuItem isSeparatorItem="YES" id="e0a-pk-KgN">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Filter" id="usF-pH-ycg">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Filter" keyEquivalent="F" id="usF-pH-ycg">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <accessibilityConnection property="link" destination="1666" id="IB4-9B-nE9"/>
                                     <action selector="openFilterPanel:" target="7Ik-II-pge" id="MAU-Fs-HTe"/>
