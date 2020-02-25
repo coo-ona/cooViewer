@@ -3,6 +3,7 @@
 #import "BookmarkController.h"
 #import "CustomImageView.h"
 #import "FullImagePanel.h"
+#import "CustomIntegerTextField.h"
 
 @implementation Controller
 static const int DIALOG_OK		= 128;
@@ -30,7 +31,9 @@ static const int DIALOG_CANCEL	= 129;
  */
 
 -(void)awakeFromNib
-{	
+{
+    self.scale = 100;
+    
 	threadCount = 0;
 	imageLoader = nil;
 	wheelUpTimer = nil;
@@ -2165,7 +2168,7 @@ static const int DIALOG_CANCEL	= 129;
 		}
 	} else if ([[anItem title] isEqualToString:NSLocalizedString(@"No Scale", @"")] == YES) {
 		if ([window isVisible]) {
-			if (fitScreenMode == 2) {
+			if (fitScreenMode == 2 && !self.freeScaleMode) {
 				[anItem setState:NSOnState];
 			} else {
 				[anItem setState:NSOffState];
@@ -2174,7 +2177,18 @@ static const int DIALOG_CANCEL	= 129;
 		} else {
 			return NO;
 		}
-	} else if ([[anItem title] isEqualToString:NSLocalizedString(@"Fit to Screen Width(divide)", @"")] == YES) {
+	} else if ([[anItem title] isEqualToString:NSLocalizedString(@"Free Scale", @"")] == YES) {
+        if ([window isVisible]) {
+            if (fitScreenMode == 2 && self.freeScaleMode) {
+                [anItem setState:NSOnState];
+            } else {
+                [anItem setState:NSOffState];
+            }
+            return YES;
+        } else {
+            return NO;
+        }
+    } else if ([[anItem title] isEqualToString:NSLocalizedString(@"Fit to Screen Width(divide)", @"")] == YES) {
 		if ([window isVisible]) {
 			if (fitScreenMode == 3) {
 				[anItem setState:NSOnState];
@@ -2727,7 +2741,7 @@ static const int DIALOG_CANCEL	= 129;
 
 - (IBAction)noScale:(id)sender
 {
-	if (fitScreenMode == 2) {
+	if (fitScreenMode == 2 && !self.freeScaleMode) {
 		return;
 	} else if (fitScreenMode == 0) {
 		id scroll = [[NSScrollView alloc] init];		
@@ -2741,6 +2755,7 @@ static const int DIALOG_CANCEL	= 129;
 		//[scroll setDocumentCursor:[NSCursor openHandCursor]];
 	}
 	[window disableFlushWindow];
+    self.freeScaleMode = NO;
 	fitScreenMode = 2;
 	[imageView setScreenFitMode:fitScreenMode];
 	if (bufferingMode == 0) {
@@ -2759,6 +2774,84 @@ static const int DIALOG_CANCEL	= 129;
 	[window enableFlushWindow];
 	[window flushWindowIfNeeded];
 	[imageView setInfoString:[NSString stringWithFormat:@"No Scale"]];
+}
+
+- (IBAction)freeScale:(id)sender
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert autorelease];
+    [alert setMessageText:NSLocalizedString(@"Free Scale", @"")];
+    [alert setInformativeText:@"0 ~ 999 %"];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    //NSTextField *textField = [[NSTextField alloc] initWithFrame:NSZeroRect];
+    CustomIntegerTextField *textField;
+    textField = [[CustomIntegerTextField alloc] initWithFrame:NSZeroRect];
+    [textField autorelease];
+    [textField setStringValue:@"123456"];
+    [textField sizeToFit];
+    [textField setAlignment:NSTextAlignmentCenter];
+    NSTextField *percentLabel = [[NSTextField alloc] initWithFrame:NSZeroRect];
+    [percentLabel autorelease];
+    [percentLabel setStringValue:@" %"];
+    [percentLabel setSelectable:NO];
+    [percentLabel setBezeled:NO];
+    [percentLabel setDrawsBackground:NO];
+    [percentLabel sizeToFit];
+    NSInteger x = [textField frame].size.width;
+    NSInteger y = ([textField frame].size.height - [percentLabel frame].size.height) * 0.5;
+    [percentLabel setFrameOrigin:NSMakePoint(x, y)];
+    NSRect frame = NSUnionRect([textField frame], [percentLabel frame]);
+    NSView *acc = [[NSView alloc] initWithFrame:frame];
+    [acc autorelease];
+    [acc addSubview:textField];
+    [acc addSubview:percentLabel];
+    [alert setAccessoryView:acc];
+    [[alert window] setInitialFirstResponder:textField];
+    [textField setStringValue:[NSString stringWithFormat:@"%ld", self.scale]];
+    textField.maxValue = 999;
+    textField.minValue = 0;
+    
+    NSModalResponse res = [alert runModal];
+    if (res != NSAlertFirstButtonReturn) {
+        return;
+    }
+    NSInteger scale = [textField integerValue];
+    
+    if (fitScreenMode == 2 && self.freeScaleMode && self.scale == scale) {
+        return;
+    } else if (fitScreenMode == 0) {
+        id scroll = [[NSScrollView alloc] init];
+        [scroll setFrame:[[window contentView] frame]];
+        [(NSScrollView *)scroll setAutoresizingMask:[(CustomImageView *)imageView autoresizingMask]];
+        [scroll setBackgroundColor:[window backgroundColor]];
+        [imageView retain];
+        [[window contentView] replaceSubview:imageView with:scroll];
+        [scroll setDocumentView:imageView];
+        [imageView release];
+        //[scroll setDocumentCursor:[NSCursor openHandCursor]];
+    }
+    [window disableFlushWindow];
+    self.scale = scale;
+    self.freeScaleMode = YES;
+    fitScreenMode = 2;
+    [imageView setScreenFitMode:fitScreenMode];
+    if (bufferingMode == 0) {
+        if (secondImage) {
+            [self composeImage];
+            [self lookaheadAndCompose];
+        } else {
+            [imageView setImage:firstImage];
+            [self lookaheadAndCompose];
+        }
+    } else if (bufferingMode == 1 && secondImage) {
+        [imageView setImages:firstImage];
+    } else {
+        [imageView setImage:firstImage];
+    }
+    [window enableFlushWindow];
+    [window flushWindowIfNeeded];
+    [imageView setInfoString:[NSString stringWithFormat:@"Free Scale"]];
 }
 
 - (IBAction)rotateRight:(id)sender
