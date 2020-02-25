@@ -223,6 +223,9 @@
 - (IBAction)rotateLeft:(id)sender;
 - (IBAction)showFilterPanel:(id)sender;
 
+- (IBAction)freeScale:(id)sender;
+@property BOOL freeScaleMode;
+@property NSInteger scale;
 
 - (IBAction)fullscreen:(id)sender;
 - (void)viewSet;

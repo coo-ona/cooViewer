@@ -770,7 +770,13 @@ NSTimeInterval elapsed=0;
         widthValue = [image size].width;
         heightValue = [image size].height;
     }
-
+    
+    if (target.freeScaleMode && fitScreenMode == 2) {
+        CGFloat s = target.scale * 0.01;
+        widthValue *= s;
+        heightValue *= s;
+    }
+    
     float screenWidthValue = NSWidth([[[self window] contentView] frame]);
     float screenHeightValue = NSHeight([[[self window] contentView] frame]);
     
@@ -959,6 +965,14 @@ NSTimeInterval elapsed=0;
     int heightValue1 = heightValue01;
     int widthValue2 = widthValue02;
     int heightValue2 = heightValue02;
+    
+    if (target.freeScaleMode && fitScreenMode == 2) {
+        CGFloat s = target.scale * 0.01;
+        widthValue1 *= s;
+        heightValue1 *= s;
+        widthValue2 *= s;
+        heightValue2 *= s;
+    }
     
     float screenWidthValue = leftRect.size.width;
     float screenHeightValue = leftRect.size.height;

@@ -118,6 +118,8 @@
 		A397A3DE23C877FD009FE76D /* ja.xliff in Resources */ = {isa = PBXBuildFile; fileRef = A397A3DD23C877FD009FE76D /* ja.xliff */; };
 		A39D6C3323BEB590002FD912 /* LoupeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39D6C3223BEB590002FD912 /* LoupeView.h */; };
 		A39D6C3523BEB597002FD912 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D6C3423BEB597002FD912 /* LoupeView.m */; };
+		C3C0BF0F2403C21900022986 /* CustomIntegerTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C0BF0D2403C21900022986 /* CustomIntegerTextField.h */; };
+		C3C0BF102403C21900022986 /* CustomIntegerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0BF0E2403C21900022986 /* CustomIntegerTextField.m */; };
 		E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +255,8 @@
 		A39D6C8823BF85C4002FD912 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A39D6C8923BF85D6002FD912 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		A39D6C8A23BF8667002FD912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C3C0BF0D2403C21900022986 /* CustomIntegerTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomIntegerTextField.h; sourceTree = "<group>"; };
+		C3C0BF0E2403C21900022986 /* CustomIntegerTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomIntegerTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +288,8 @@
 				76344BB5095958E1003761DA /* item */,
 				76D5AA3B0D69E3D30057EF7A /* Remote Controll Wrapper */,
 				76EF34C70D4CE64900211B2E /* Category */,
+				C3C0BF0D2403C21900022986 /* CustomIntegerTextField.h */,
+				C3C0BF0E2403C21900022986 /* CustomIntegerTextField.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				76B88ED1097FC1D8006DDB12 /* COPDFImage.h in Headers */,
 				7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */,
 				766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */,
+				C3C0BF0F2403C21900022986 /* CustomIntegerTextField.h in Headers */,
 				76B85F8D099BB20B0077A211 /* NSDictionary_Adding.h in Headers */,
 				A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */,
 				7696BFDD0C369D6F0081E12E /* COPopUpTextField.h in Headers */,
@@ -765,6 +772,7 @@
 				76D5AA540D69E42D0057EF7A /* KeyspanFrontRowControl.m in Sources */,
 				76E56F530D74647400128802 /* MultiClickRemoteBehavior.m in Sources */,
 				373D353A130F075E0037F8DD /* GlobalKeyboardDevice.m in Sources */,
+				C3C0BF102403C21900022986 /* CustomIntegerTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

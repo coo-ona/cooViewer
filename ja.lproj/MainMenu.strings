@@ -1477,3 +1477,5 @@
 /* Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg"; */
 "usF-pH-ycg.title" = "フィルター";
 
+/* Class = "NSMenuItem"; title = "Free Scale"; ObjectID = "U1c-xw-Zza"; */
+"U1c-xw-Zza.title" = "フリースケール";
