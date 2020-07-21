@@ -267,6 +267,9 @@ NSRect COIntRect(NSRect aRect)
 			if (![controller readFromLeft]) {
 				temp = tempRect.size.width - temp-1;
 			}
+			if (temp < 0) {
+				temp = 0;
+			}
 			temp = temp/tempRect.size.width;
 			
 			float fPage = [(Controller *)controller pageCount]*temp;
