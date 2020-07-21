@@ -111,6 +111,7 @@
     IBOutlet id changeCurrentFolderPopUpButton;
     
     IBOutlet id useCalayerCheck;
+    IBOutlet id ignoreDpiCheck;
 }
 + (NSArray*)defaultKeyArray;
 + (NSArray*)defaultKeyArrayMode2;
