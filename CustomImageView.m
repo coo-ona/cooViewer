@@ -1,6 +1,7 @@
 #import "CustomImageView.h"
 #import "NSBezierPath_Adding.h"
 #import "NSAttributedString_Adding.h"
+#import "NSImage_Adding.h"
 #import "AccessoryView.h"
 //#import "QuartzCore/CIFilter.h"
 
@@ -85,6 +86,10 @@
 -(void)setInterpolation:(int)index
 {
 	interpolation = index;
+}
+-(void)setIgnoreImageDpi:(BOOL)ignoreDpi
+{
+	ignoreImageDpi = ignoreDpi;
 }
 -(void)setDragScroll:(NSArray*)array mode:(int)mode
 {
@@ -762,13 +767,14 @@ NSTimeInterval elapsed=0;
 {
     NSMutableDictionary *infodic = [NSMutableDictionary dictionary];
     
+    NSSize imageSize = ignoreImageDpi ? [image pixelsSize] : [image size];
     int widthValue,heightValue;
     if (rotateMode==1||rotateMode==3) {
-        widthValue = [image size].height;
-        heightValue = [image size].width;
+        widthValue = imageSize.height;
+        heightValue = imageSize.width;
     } else {
-        widthValue = [image size].width;
-        heightValue = [image size].height;
+        widthValue = imageSize.width;
+        heightValue = imageSize.height;
     }
 
     float screenWidthValue = NSWidth([[[self window] contentView] frame]);
@@ -949,11 +955,13 @@ NSTimeInterval elapsed=0;
     NSDivideRect (fullscreenRect, &leftRect, &rightRect, fullscreenRect.size.width/2, NSMinXEdge);
 
     
-    int widthValue01 = [image1 size].width;
-    int heightValue01 = [image1 size].height;
+    NSSize image1Size = ignoreImageDpi ? [image1 pixelsSize] : [image1 size];
+    int widthValue01 = image1Size.width;
+    int heightValue01 = image1Size.height;
     
-    int widthValue02 = [image2 size].width;
-    int heightValue02 = [image2 size].height;
+    NSSize image2Size = ignoreImageDpi ? [image2 pixelsSize] : [image2 size];
+    int widthValue02 = image2Size.width;
+    int heightValue02 = image2Size.height;
     
     int widthValue1 = widthValue01;
     int heightValue1 = heightValue01;
@@ -1256,10 +1264,10 @@ NSTimeInterval elapsed=0;
         drawRect2=NSMakeRect(x,center2,widthValue2,heightValue2);
     }
     
-    [infodic setObject:[NSString stringWithFormat:@"%i",widthValue01] forKey:@"widthValue01"];
-    [infodic setObject:[NSString stringWithFormat:@"%i",widthValue02] forKey:@"widthValue02"];
-    [infodic setObject:[NSString stringWithFormat:@"%i",heightValue01] forKey:@"heightValue01"];
-    [infodic setObject:[NSString stringWithFormat:@"%i",heightValue02] forKey:@"heightValue02"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",(int)[image1 size].width] forKey:@"widthValue01"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",(int)[image2 size].width] forKey:@"widthValue02"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",(int)[image1 size].height] forKey:@"heightValue01"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",(int)[image2 size].height] forKey:@"heightValue02"];
     [infodic setObject:NSStringFromRect(drawRect1) forKey:@"drawRect1"];
     [infodic setObject:NSStringFromRect(drawRect2) forKey:@"drawRect2"];
     [infodic setObject:NSStringFromRect(fullscreenRect) forKey:@"fullscreenRect"];
@@ -1395,6 +1403,7 @@ NSTimeInterval elapsed=0;
         [winContentView setLensSize:lensSize];
         [winContentView setRotateMode:rotateMode];
         [winContentView setInterpolation:interpolation];
+        [winContentView setIgnoreImageDpi:ignoreImageDpi];
         [winContentView setParentFrame:[self frame]];
         [winContentView display];
         

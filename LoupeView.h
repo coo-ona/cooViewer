@@ -24,6 +24,8 @@
     
     NSRect parentFrame;
     
+    BOOL ignoreImageDpi;
+
 }
 
 -(void)setTargetController:(Controller *)c;
@@ -34,6 +36,7 @@
 -(void)setLensSize:(int)ls;
 -(void)setRotateMode:(int)rm;
 -(void)setInterpolation:(int)index;
+-(void)setIgnoreImageDpi:(BOOL)ignoreImageDpi;
 -(void)setParentFrame:(NSRect)pf;
 
 @end

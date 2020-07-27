@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B13173F24CF1B0400A17553 /* NSImage_Adding.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B13173D24CF1B0400A17553 /* NSImage_Adding.h */; };
+		0B13174024CF1B0400A17553 /* NSImage_Adding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B13173E24CF1B0400A17553 /* NSImage_Adding.m */; };
 		372911581316C60C0040B910 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 372911571316C60C0040B910 /* empty.png */; };
 		373D3539130F075E0037F8DD /* GlobalKeyboardDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 373D3537130F075E0037F8DD /* GlobalKeyboardDevice.h */; };
 		373D353A130F075E0037F8DD /* GlobalKeyboardDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 373D3538130F075E0037F8DD /* GlobalKeyboardDevice.m */; };
@@ -137,6 +139,8 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		0B13173D24CF1B0400A17553 /* NSImage_Adding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSImage_Adding.h; sourceTree = "<group>"; };
+		0B13173E24CF1B0400A17553 /* NSImage_Adding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSImage_Adding.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -572,6 +576,8 @@
 			children = (
 				761C25AB0D5F4D9F0038687B /* NSBezierPath_Adding.h */,
 				761C25AC0D5F4D9F0038687B /* NSBezierPath_Adding.m */,
+				0B13173D24CF1B0400A17553 /* NSImage_Adding.h */,
+				0B13173E24CF1B0400A17553 /* NSImage_Adding.m */,
 				76705AE40885785900FEF4E2 /* NSString_Compare.h */,
 				76705AE50885785900FEF4E2 /* NSString_Compare.m */,
 			);
@@ -609,6 +615,7 @@
 				76344C0A09595C74003761DA /* COImageLoader.h in Headers */,
 				76B88ED1097FC1D8006DDB12 /* COPDFImage.h in Headers */,
 				7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */,
+				0B13173F24CF1B0400A17553 /* NSImage_Adding.h in Headers */,
 				766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */,
 				76B85F8D099BB20B0077A211 /* NSDictionary_Adding.h in Headers */,
 				A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */,
@@ -762,6 +769,7 @@
 				76D5AA450D69E41C0057EF7A /* RemoteControl.m in Sources */,
 				76D5AA470D69E41C0057EF7A /* HIDRemoteControlDevice.m in Sources */,
 				76D5AA520D69E42D0057EF7A /* AppleRemote.m in Sources */,
+				0B13174024CF1B0400A17553 /* NSImage_Adding.m in Sources */,
 				76D5AA540D69E42D0057EF7A /* KeyspanFrontRowControl.m in Sources */,
 				76E56F530D74647400128802 /* MultiClickRemoteBehavior.m in Sources */,
 				373D353A130F075E0037F8DD /* GlobalKeyboardDevice.m in Sources */,

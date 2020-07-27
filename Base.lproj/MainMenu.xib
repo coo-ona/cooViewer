@@ -1624,7 +1624,7 @@ go to the last page always.</string>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced" identifier="" id="1607">
-                                <view key="view" ambiguous="YES" id="1608">
+                                <view key="view" id="1608">
                                     <rect key="frame" x="10" y="33" width="587" height="488"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1714,7 +1714,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4255">
-                                            <rect key="frame" x="17" y="124" width="435" height="51"/>
+                                            <rect key="frame" x="17" y="97" width="435" height="51"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Change current folder when the currently open book was moved:" id="4313">
                                                 <font key="font" metaFont="system"/>
@@ -1723,7 +1723,7 @@ go to the last page always.</string>
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3292">
-                                            <rect key="frame" x="14" y="187" width="174" height="32"/>
+                                            <rect key="frame" x="14" y="160" width="174" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Disposing of settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4312">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1734,7 +1734,7 @@ go to the last page always.</string>
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4256">
-                                            <rect key="frame" x="14" y="131" width="98" height="22"/>
+                                            <rect key="frame" x="14" y="104" width="98" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="Ask" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="4260" id="4314">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1844,6 +1844,14 @@ go to the last page always.</string>
                                             <rect key="frame" x="114" y="427" width="109" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ym1-NJ-Ohp">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGQ-cy-3zK">
+                                            <rect key="frame" x="17" y="242" width="151" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Ignore image DPI:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="uSp-vs-7XI">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -2935,6 +2943,7 @@ Gw
                 <outlet property="fitOriginalCheck" destination="1627" id="1689"/>
                 <outlet property="fontTextField" destination="2769" id="2772"/>
                 <outlet property="goToLastPopUpButton" destination="2908" id="2913"/>
+                <outlet property="ignoreDpiCheck" destination="VGQ-cy-3zK" id="ya7-06-Ao7"/>
                 <outlet property="imageCacheTextField" destination="2048" id="2090"/>
                 <outlet property="inputTabView" destination="2066" id="2923"/>
                 <outlet property="inputTableView" destination="1364" id="1691"/>

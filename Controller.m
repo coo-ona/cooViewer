@@ -74,6 +74,8 @@ static const int DIALOG_CANCEL	= 129;
 	
 	[appDefault setObject:[NSNumber numberWithInt:10] forKey:@"OpenRecentLimit"];
 	
+	[appDefault setObject:[NSNumber numberWithInt:NO] forKey:@"IgnoreImageDpi"];
+
 	[defaults registerDefaults:appDefault];
 	
 	fitScreenMode = 0;
@@ -276,6 +278,12 @@ static const int DIALOG_CANCEL	= 129;
 	} else {
 		[window setHideMenuBar:YES];
 	}
+
+	BOOL ignoreImageDpi = [defaults boolForKey:@"IgnoreImageDpi"];
+	[fullImageView setIgnoreImageDpi:ignoreImageDpi];
+	[imageView setIgnoreImageDpi:ignoreImageDpi];
+	[defaults setBool:ignoreImageDpi forKey:@"IgnoreImageDpi"];
+
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(viewDidEndLiveResize:) 
 												 name:@"ViewDidEndLiveResize"
@@ -1874,6 +1882,10 @@ static const int DIALOG_CANCEL	= 129;
 		[window setHideMenuBar:YES];
 	}
     
+	BOOL ignoreImageDpi = [defaults boolForKey:@"IgnoreImageDpi"];
+	[fullImageView setIgnoreImageDpi:ignoreImageDpi];
+	[imageView setIgnoreImageDpi:ignoreImageDpi];
+
     NSColor *viewBackGround = [[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]] colorWithAlphaComponent:1];
     [window setBackgroundColor:viewBackGround];
     if (fitScreenMode > 0) {

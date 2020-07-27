@@ -6,6 +6,7 @@
 //
 
 #import "LoupeView.h"
+#import "NSImage_Adding.h"
 
 @implementation LoupeView
 
@@ -40,6 +41,10 @@
 -(void)setInterpolation:(int)index
 {
     interpolation = index;
+}
+-(void)setIgnoreImageDpi:(BOOL)ignoreDpi
+{
+    ignoreImageDpi = ignoreDpi;
 }
 -(void)setParentFrame:(NSRect)pf
 {
@@ -80,8 +85,9 @@
             NSAffineTransform *transform = [NSAffineTransform transform];
             NSRect tempRect = fRect;
             image = [targetController image1];
-            widthValue = [image size].width;
-            heightValue = [image size].height;
+            NSSize imageSize = ignoreImageDpi ? [image pixelsSize] : [image size];
+            widthValue = imageSize.width;
+            heightValue = imageSize.height;
             
             if (rotateMode==1) {
                 [transform translateXBy:lensSize yBy:0];
@@ -101,12 +107,12 @@
                 drawPoint.x = (parentFrame.size.height-mPoint.y);
                 drawPoint.y = mPoint.x;
             }
-            float x = [image size].width/tempRect.size.width;
+            float x = imageSize.width/tempRect.size.width;
             iPoint.x = (int)((drawPoint.x - tempRect.origin.x)*lensRate*x);
             iPoint.y = (int)((drawPoint.y - tempRect.origin.y)*lensRate*x);
             [transform concat];
             [image drawInRect:NSMakeRect((iPoint.x*-1+lensSize/2),(iPoint.y*-1+lensSize/2),widthValue*lensRate,heightValue*lensRate)
-                    fromRect:NSMakeRect(0,0,widthValue,heightValue)
+                     fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
                     operation:NSCompositeSourceOver fraction:1.0];
             [transform invert];
             [transform concat];
@@ -146,15 +152,16 @@
                 } else {
                     image = [targetController image2];
                 }
-                widthValue = [image size].width;
-                heightValue = [image size].height;
+                NSSize imageSize = ignoreImageDpi ? [image pixelsSize] : [image size];
+                widthValue = imageSize.width;
+                heightValue = imageSize.height;
                 
                 /*
-                float x = [image size].width/fTempRect.size.width;
+                float x = imageSize.width/fTempRect.size.width;
                 iPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*x);
                 iPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*x);
                 */
-                float x = [image size].width/fTempRect.size.width;
+                float x = imageSize.width/fTempRect.size.width;
                 iPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*lensRate*x);
                 iPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*lensRate*x);
                 if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),sRect)) {
@@ -164,14 +171,15 @@
                     } else {
                         sImage = [targetController image1];
                     }
-                    NSInteger sWidthValue = [sImage size].width;
-                    NSInteger sHeightValue = [sImage size].height;
-                    float sx = [sImage size].width/sTempRect.size.width;
+                    NSSize sImageSize = ignoreImageDpi ? [sImage pixelsSize] : [sImage size];
+                    NSInteger sWidthValue = sImageSize.width;
+                    NSInteger sHeightValue = sImageSize.height;
+                    float sx = sImageSize.width/sTempRect.size.width;
                     NSPoint sPoint;
                     sPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*lensRate*x);
                     sPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*lensRate*x);
                     [sImage drawInRect:NSMakeRect((sPoint.x*-1+lensSize/2),(sPoint.y*-1+lensSize/2),sWidthValue*lensRate,sHeightValue*lensRate)
-                            fromRect:NSMakeRect(0,0,sWidthValue,sHeightValue)
+                              fromRect:NSMakeRect(0,0,[sImage size].width,[sImage size].height)
                             operation:NSCompositeSourceOver fraction:1.0];
                 }
             } else /*if (NSPointInRect(mPoint,sRect))*/ {
@@ -180,15 +188,16 @@
                 } else {
                     image = [targetController image1];
                 }
-                widthValue = [image size].width;
-                heightValue = [image size].height;
+                NSSize imageSize = ignoreImageDpi ? [image pixelsSize] : [image size];
+                widthValue = imageSize.width;
+                heightValue = imageSize.height;
                 
                 /*
-                float x = [image size].width/sTempRect.size.width;
+                float x = imageSize.width/sTempRect.size.width;
                 iPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*x);
                 iPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*x);
                 */
-                float x = [image size].width/sTempRect.size.width;
+                float x = imageSize.width/sTempRect.size.width;
                 iPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*lensRate*x);
                 iPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*lensRate*x);
                 if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),fRect)) {
@@ -198,19 +207,20 @@
                     } else {
                         sImage = [targetController image2];
                     }
-                    NSInteger sWidthValue = [sImage size].width;
-                    NSInteger sHeightValue = [sImage size].height;
-                    float sx = [sImage size].width/fTempRect.size.width;
+                    NSSize sImageSize = ignoreImageDpi ? [sImage pixelsSize] : [sImage size];
+                    NSInteger sWidthValue = sImageSize.width;
+                    NSInteger sHeightValue = sImageSize.height;
+                    float sx = sImageSize.width/fTempRect.size.width;
                     NSPoint sPoint;
                     sPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*lensRate*x);
                     sPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*lensRate*x);
                     [sImage drawInRect:NSMakeRect((sPoint.x*-1+lensSize/2),(sPoint.y*-1+lensSize/2),sWidthValue*lensRate,sHeightValue*lensRate)
-                            fromRect:NSMakeRect(0,0,sWidthValue,sHeightValue)
+                              fromRect:NSMakeRect(0,0,[sImage size].width,[sImage size].height)
                             operation:NSCompositeSourceOver fraction:1.0];
                 }
             }
             [image drawInRect:NSMakeRect((iPoint.x*-1+lensSize/2),(iPoint.y*-1+lensSize/2),widthValue*lensRate,heightValue*lensRate)
-                    fromRect:NSMakeRect(0,0,widthValue,heightValue)
+                     fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
                     operation:NSCompositeSourceOver fraction:1.0];
             [transform invert];
             [transform concat];

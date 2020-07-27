@@ -13,6 +13,8 @@
 	BOOL didFirst;
 	NSWindow *lensWindow;
 	int maxEnlargement;
+
+	BOOL ignoreImageDpi;
 	//rotate
 	/*0=normal 1=left90 2=left180 3=left270(right90)*/
 	int rotateMode;
@@ -72,6 +74,7 @@
 
 -(void)setUseCalayer:(BOOL)use;
 -(void)setInterpolation:(int)index;
+-(void)setIgnoreImageDpi:(BOOL)ignoreDpi;
 -(void)setImages:(NSImage *)image;
 
 -(BOOL)pageMover;

@@ -1034,6 +1034,11 @@ static const int DIALOG_CANCEL	= 129;
 	} else {
 		[showThumbnailCheck setState:NSOffState];
 	}
+	if ([defaults boolForKey:@"IgnoreImageDpi"]) {
+		[ignoreDpiCheck setState:NSControlStateValueOn];
+	} else {
+		[ignoreDpiCheck setState:NSControlStateValueOff];
+	}
 	
 	/*history*/
 	if ([defaults boolForKey:@"AlwaysRememberLastPage"]) {
@@ -1553,6 +1558,11 @@ static const int DIALOG_CANCEL	= 129;
 			[defaults setBool:YES forKey:@"ShowThumbnailWhenOpen"];
 		} else {
 			[defaults setBool:NO forKey:@"ShowThumbnailWhenOpen"];
+		}
+		if ([ignoreDpiCheck state]==NSControlStateValueOn) {
+			[defaults setBool:YES forKey:@"IgnoreImageDpi"];
+		} else {
+			[defaults setBool:NO forKey:@"IgnoreImageDpi"];
 		}
 		
 		if ([alwaysRememberLastCheck state]==NSOnState) {

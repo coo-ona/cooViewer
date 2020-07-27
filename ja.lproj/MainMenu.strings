@@ -1477,3 +1477,5 @@
 /* Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg"; */
 "usF-pH-ycg.title" = "フィルター";
 
+/* Class = "NSButtonCell"; title = "Ignore image DPI:"; ObjectID = "uSp-vs-7XI"; */
+"uSp-vs-7XI.title" = "画像のDPIを無視する";

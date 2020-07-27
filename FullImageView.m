@@ -4,6 +4,7 @@
 //
 
 #import "FullImageView.h"
+#import "NSImage_Adding.h"
 
 
 @implementation FullImageView
@@ -13,8 +14,9 @@
 
 - (void)setImage:(NSImage *)im
 {
-	[self setFrameSize:[im size]];
-	//[self setFrame:NSMakeRect(0,0,[image size].width,[image size].height)];
+	NSSize imageSize = ignoreImageDpi ? [im pixelsSize] : [im size];
+	[self setFrameSize:imageSize];
+	//[self setFrame:NSMakeRect(0,0,imageSize.width,imageSize.height)];
 	[super setImage:im];
 	/*
 	[image autorelease];
@@ -22,9 +24,19 @@
 	 [[image bestRepresentationForDevice:nil] drawInRect:[self bounds]];*/
 	 /*
 	[image drawInRect:[self bounds]
-			  fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
+			  fromRect:NSMakeRect(0,0,imageSize.width,imageSize.height)
 			 operation:NSCompositeSourceOver fraction:1.0];*/
+}
 
+- (void)drawRect:(NSRect)dirtyRect {
+	//[super drawRect:dirtyRect];
+	NSImage *image = [self image];
+	[image drawInRect:[self bounds]
+			 fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
+			operation:NSCompositingOperationSourceOver
+			 fraction:1.0
+	   respectFlipped:self.isFlipped
+				hints:nil];
 }
 
 -(void)mouseDown:(NSEvent *)event
@@ -66,11 +78,12 @@
 		newY = [self bounds].size.height - [clipView documentVisibleRect].size.height;
 	}
 	
-	if ([[self image] size].width < [clipView documentVisibleRect].size.width) {
+	NSSize imageSize = ignoreImageDpi ? [[self image] pixelsSize] : [[self image] size];
+	if (imageSize.width < [clipView documentVisibleRect].size.width) {
 		newX = 0;
 	}
 	/*
-	if ([[self image] size].height == [self bounds].size.height) {
+	if (imageSize.height == [self bounds].size.height) {
 		newY = 0;
 	}
 	*/
@@ -86,6 +99,11 @@
 //	[[self superview] autoscroll:event];
 //	NSLog(@"Current mouse point:%@", NSStringFromPoint([event locationInWindow]));
 //	[self setNeedsDisplay:YES];
+}
+
+- (void)setIgnoreImageDpi:(BOOL)ignoreDpi
+{
+	ignoreImageDpi = ignoreDpi;
 }
 
 - (void)imageScroll:(NSPoint)point
@@ -112,7 +130,8 @@
 	if (newY > [self bounds].size.height - [clipView documentVisibleRect].size.height) {
 		newY = [self bounds].size.height - [clipView documentVisibleRect].size.height;
 	}
-	if ([[self image] size].width < [clipView documentVisibleRect].size.width) {
+	NSSize imageSize = ignoreImageDpi ? [[self image] pixelsSize] : [[self image] size];
+	if (imageSize.width < [clipView documentVisibleRect].size.width) {
 		newX = 0;
 	}
 	NSPoint newPoint = NSMakePoint(newX,newY);
