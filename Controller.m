@@ -94,7 +94,7 @@ static const int DIALOG_CANCEL	= 129;
 	mouseArrayMode3 = [[NSMutableArray alloc] initWithArray:[defaults arrayForKey:@"MouseArrayMode3"]];
 	
 	
-	int skipPage = [defaults integerForKey:@"SkipPage"];
+	int skipPage = (int)[defaults integerForKey:@"SkipPage"];
 	if (skipPage == 0) {
 		skipPage = 10;
 	}
@@ -143,28 +143,31 @@ static const int DIALOG_CANCEL	= 129;
 	 //recentItems = [[NSMutableArray arrayWithArray:[defaults arrayForKey:@"BookSettings"]] retain];
 		 
 	 
-	interpolation = [defaults integerForKey:@"Interpolation"];
+	interpolation = (int)[defaults integerForKey:@"Interpolation"];
 	[imageView setInterpolation:interpolation];
 	[defaults setInteger:interpolation forKey:@"Interpolation"];
+    BOOL useCalayer = [defaults boolForKey:@"UseCALayer"];
+    [imageView setUseCalayer:useCalayer];
+    [defaults setBool:useCalayer forKey:@"UseCALayer"];
 	
 	
-	cacheSize = [defaults integerForKey:@"ImageCache"];
+	cacheSize = (int)[defaults integerForKey:@"ImageCache"];
 	[defaults setInteger:cacheSize forKey:@"ImageCache"];
-	screenCache = [defaults integerForKey:@"ScreenCache"];
+	screenCache = (int)[defaults integerForKey:@"ScreenCache"];
 	[defaults setInteger:screenCache forKey:@"ScreenCache"];
-	int thumbnailCache = [defaults integerForKey:@"ThumbnailCache"];
+	int thumbnailCache = (int)[defaults integerForKey:@"ThumbnailCache"];
 	[defaults setInteger:thumbnailCache forKey:@"ThumbnailCache"];
 	
 	/*history*/
 	alwaysRememberLastPage = [defaults boolForKey:@"AlwaysRememberLastPage"];
 	[defaults setBool:alwaysRememberLastPage forKey:@"AlwaysRememberLastPage"];
 	
-	goToLastPageMode = [defaults integerForKey:@"GoToLastPage"];
+	goToLastPageMode = (int)[defaults integerForKey:@"GoToLastPage"];
 	[defaults setInteger:goToLastPageMode forKey:@"GoToLastPage"];
-	openRecentLimit = [defaults integerForKey:@"OpenRecentLimit"];
+	openRecentLimit = (int)[defaults integerForKey:@"OpenRecentLimit"];
 	
 	/*loupe*/
-	int loupeSize = [defaults integerForKey:@"LoupeSize"];
+	int loupeSize = (int)[defaults integerForKey:@"LoupeSize"];
 	if (!loupeSize) loupeSize = 150;
 	[defaults setInteger:loupeSize forKey:@"LoupeSize"];
 	float loupeRate = [defaults floatForKey:@"LoupeRate"];
@@ -178,7 +181,8 @@ static const int DIALOG_CANCEL	= 129;
 		viewBackGround = [NSColor blackColor];
 	}
 	[window setBackgroundColor:viewBackGround];
-	
+    viewBackGround = [viewBackGround colorWithAlphaComponent:1];
+
 	fullscreen = [defaults boolForKey:@"Fullscreen"];
 	if (!fullscreen) {
 		[[[[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Window", @"")] submenu]  itemWithTitle:NSLocalizedString(@"Fullscreen", @"")] setState:NSOffState];
@@ -187,7 +191,7 @@ static const int DIALOG_CANCEL	= 129;
 	
 	
 	
-	bufferingMode = [defaults integerForKey:@"BufferingMode"];
+	bufferingMode = (int)[defaults integerForKey:@"BufferingMode"];
 	[defaults setInteger:bufferingMode forKey:@"BufferingMode"];
 	
 	BOOL fitOriginal = [defaults boolForKey:@"FitOriginal"];
@@ -195,7 +199,7 @@ static const int DIALOG_CANCEL	= 129;
 	[defaults setBool:fitOriginal forKey:@"FitOriginal"];
 	
 	
-	readMode = [defaults integerForKey:@"ReadMode"];
+	readMode = (int)[defaults integerForKey:@"ReadMode"];
 	[defaults setInteger:readMode forKey:@"ReadMode"];
 	
 
@@ -216,7 +220,7 @@ static const int DIALOG_CANCEL	= 129;
 	
 	
 	sliderValue = [defaults floatForKey:@"SlideshowDelay"];
-	loopCheck = [defaults integerForKey:@"LoopCheck"];
+	loopCheck = (int)[defaults integerForKey:@"LoopCheck"];
 	
 	
 	pageBar = [defaults boolForKey:@"ShowPageBar"];
@@ -226,10 +230,10 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	
 	numberSwitch = [defaults boolForKey:@"ShowNumber"];
-	maxEnlargement = [defaults integerForKey:@"MaxEnlargement"];
+	maxEnlargement = (int)[defaults integerForKey:@"MaxEnlargement"];
 	
 	
-	singleSetting = [defaults integerForKey:@"SingleSetting"];
+	singleSetting = (int)[defaults integerForKey:@"SingleSetting"];
 	if (!singleSetting) {
 		singleSetting = 740;
 	}
@@ -242,8 +246,8 @@ static const int DIALOG_CANCEL	= 129;
 		[imageView wheelSetting:wheelSensitivity];
 		[thumController wheelSetting:wheelSensitivity];
 	
-	prevPageMode = [defaults integerForKey:@"PrevPageMode"];
-	canScrollMode = [defaults integerForKey:@"CanScrollMode"];
+	prevPageMode = (int)[defaults integerForKey:@"PrevPageMode"];
+	canScrollMode = (int)[defaults integerForKey:@"CanScrollMode"];
 
 	
 	[defaults setFloat:sliderValue forKey:@"SlideshowDelay"];
@@ -276,12 +280,12 @@ static const int DIALOG_CANCEL	= 129;
 											 selector:@selector(viewDidEndLiveResize:) 
 												 name:@"ViewDidEndLiveResize"
 											   object:imageView];
-	
-	
-	openLinkMode = [defaults integerForKey:@"OpenLinkMode"];
+    
+
+    openLinkMode = (int)[defaults integerForKey:@"OpenLinkMode"];
 	[defaults setInteger:openLinkMode forKey:@"OpenLinkMode"];
 
-	changeCurrentFolderMode = [defaults integerForKey:@"ChangeCurrentFolder"];
+	changeCurrentFolderMode = (int)[defaults integerForKey:@"ChangeCurrentFolder"];
 	[defaults setInteger:changeCurrentFolderMode forKey:@"ChangeCurrentFolder"];
 	
 	
@@ -310,7 +314,7 @@ static const int DIALOG_CANCEL	= 129;
 			NSEnumerator *enu = [[defaults arrayForKey:@"LastPages"] objectEnumerator];
 			id object;
 			while (object = [enu nextObject]) {
-				int index = [newLastPages indexOfObject:object];
+				int index = (int)[newLastPages indexOfObject:object];
 				if ([[object objectForKey:@"page"] intValue] == 0) {
 					[newLastPages removeObjectAtIndex:index];
 				} else {
@@ -330,7 +334,7 @@ static const int DIALOG_CANCEL	= 129;
 			id object;
 			while (object = [enu nextObject]) {
 				NSMutableDictionary *newInnerDic = [NSMutableDictionary dictionaryWithDictionary:object];
-				int index = [[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
+				int index = (int)[[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
 				[newRecentItems removeObjectAtIndex:index];
 				[newInnerDic setObject:[self pathFromAliasData:[object objectForKey:@"alias"]] forKey:@"temppath"];
 				[newRecentItems insertObject:newInnerDic atIndex:index];
@@ -642,8 +646,9 @@ static const int DIALOG_CANCEL	= 129;
 	int openPanelResult;
 	
 	[openPanel setCanChooseDirectories:YES];
-	NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[COImageLoader fileTypes]];
-	openPanelResult = [openPanel runModalForTypes:tempArray];
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[COImageLoader fileTypes]];
+    [openPanel setAllowedFileTypes:tempArray];
+	openPanelResult = (int)[openPanel runModal];
 	
 	if (openPanelResult == NSCancelButton) {
 		return;
@@ -653,7 +658,7 @@ static const int DIALOG_CANCEL	= 129;
 			[timer invalidate];
 			timerSwitch=NO;
 		}
-		[self setCurrentBookPathAndOldBookPath:[openPanel filename]];
+		[self setCurrentBookPathAndOldBookPath:[[openPanel URL] path]];
 		
 		[self openPage:0 last:NO];
 	}
@@ -690,6 +695,7 @@ static const int DIALOG_CANCEL	= 129;
 	[progressIndicator startAnimation:self];
 	[progressIndicator displayIfNeeded];
 	
+    /*
 	[imageView lockFocus];
 	NSRect rect = [[window contentView] convertRect:[progressIndicator frame] toView:imageView];
 	rect = NSMakeRect(rect.origin.x-2,rect.origin.y-2,rect.size.width+4,rect.size.height+4);
@@ -708,6 +714,7 @@ static const int DIALOG_CANCEL	= 129;
 	[bezier fill];
 	[imageView unlockFocus];
 	[imageView displayIfNeeded];
+    */
 	
 
 	NSString *fromFileName = nil;
@@ -745,7 +752,7 @@ static const int DIALOG_CANCEL	= 129;
 			[window performClose:self];
 		}
 		[progressIndicator stopAnimation:self];
-		[imageView displayRect:rect];
+		//[imageView displayRect:rect];
 		return;
 	} else if ([imageView image]) {
 		/*ウィンドウを開いてたら準備する*/
@@ -899,12 +906,11 @@ static const int DIALOG_CANCEL	= 129;
 			}
 		}
 		if (goToLastPageMode==0 && page) {
-			NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Do you want to go to %i page?",@""),page+1];
-			int result = NSRunAlertPanel(NSLocalizedString(@"Go to the last page",@""),
-										 message,
+			int result = (int)NSRunAlertPanel(NSLocalizedString(@"Go to the last page",@""),
+										 NSLocalizedString(@"Do you want to go to %i page?",@""),
 										 NSLocalizedString(@"OK",@""), 
 										 NSLocalizedString(@"Cancel",@""), 
-										 nil);
+										 nil,page+1);
 			
 			if(result == NSAlertDefaultReturn || result == NSAlertFirstButtonReturn) {			
 			} else {
@@ -949,7 +955,7 @@ static const int DIALOG_CANCEL	= 129;
 	if ([currentBookSetting objectForKey:@"sortMode"]) {
 		sortMode = [[currentBookSetting objectForKey:@"sortMode"] intValue];
 	} else {
-		sortMode = [defaults integerForKey:@"SortMode"];
+		sortMode = (int)[defaults integerForKey:@"SortMode"];
 	}
 	if (sortMode!=0) {
 		[self setSortMode:sortMode page:-1];
@@ -958,11 +964,11 @@ static const int DIALOG_CANCEL	= 129;
 
 	
 	if (fromFileName) {
-		page = [completeMutableArray indexOfObject:fromFileName];
+		page = (int)[completeMutableArray indexOfObject:fromFileName];
 		[fromFileName release];
 	}
 	if (last) {
-		int temp = [completeMutableArray count];
+		int temp = (int)[completeMutableArray count];
 		temp--;
 		if ([completeMutableArray count] > 1) {
 			temp--;
@@ -991,7 +997,7 @@ static const int DIALOG_CANCEL	= 129;
 			}
 		}
 	}
-	readMode = [defaults integerForKey:@"ReadMode"];
+	readMode = (int)[defaults integerForKey:@"ReadMode"];
 	[marksArray removeAllObjects];
 	
 	if (currentBookSetting) {
@@ -1020,11 +1026,11 @@ static const int DIALOG_CANCEL	= 129;
 	[self setBookmarkMenu];
 	
 	[thumController setImageLoader:imageLoader];
-	[thumController setmaxCacheCount:[defaults integerForKey:@"ThumbnailCache"]];
+	[thumController setmaxCacheCount:(int)[defaults integerForKey:@"ThumbnailCache"]];
 	
 	
 	[progressIndicator stopAnimation:self];
-	[imageView displayRect:rect];
+	//[imageView displayRect:rect];
 	[window updateTrackingRect];
 	[self viewSet];
 	[self imageDisplay];
@@ -1102,7 +1108,7 @@ static const int DIALOG_CANCEL	= 129;
 {
 	int passPanelResult;
 	[passPanel setTitle:[[loader displayPath] lastPathComponent]];
-	passPanelResult = [NSApp runModalForWindow:passPanel];
+	passPanelResult = (int)[NSApp runModalForWindow:passPanel];
 	[passPanel orderOut:self];
 	if (passPanelResult == DIALOG_CANCEL) {
 		[passPanel setTitle:@"Password"];
@@ -1197,21 +1203,23 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	
 	NSImage *image = [imageLoader itemAtIndex:index];	
-	int heightValue,widthValue,repi;
+    int heightValue = 0,widthValue = 0,repi = 0;
+    /*
 	NSImageRep*	rep;
 	NSArray *repArray=[image representations];
 	for(repi=0;repi<[repArray count];repi++){
 		rep =[repArray objectAtIndex:repi];
 		if(rep){
-			heightValue=[rep pixelsHigh];
-			widthValue=[rep pixelsWide];
+			heightValue=(int)[rep pixelsHigh];
+			widthValue=(int)[rep pixelsWide];
 			break;
 		}
 	}
 	if( (widthValue>0 && heightValue>0) && ([image size].width != widthValue || [image size].height != heightValue) ){
-		[image setScalesWhenResized:YES];
+		//[image setScalesWhenResized:YES];
 		[image setSize:NSMakeSize(widthValue,heightValue)];
 	}
+     */
 	if (cacheSize != 0) {
 		[cacheArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[completeMutableArray objectAtIndex:index],@"name",image,@"image",nil]];
 		//NSLog(@"load %@",[completeMutableArray objectAtIndex:index]);
@@ -1247,7 +1255,7 @@ static const int DIALOG_CANCEL	= 129;
 		}
 	} else if (nowPage == [completeMutableArray count]) {
 	} else if (nowPage > [completeMutableArray count]) {
-		nowPage = [completeMutableArray count];
+		nowPage = (int)[completeMutableArray count];
 	}
 	threadStop = NO;
 	threadCount--;
@@ -1283,7 +1291,7 @@ static const int DIALOG_CANCEL	= 129;
 		 }
 	} else if (nowPage == [completeMutableArray count]) {
 	} else if (nowPage > [completeMutableArray count]) {
-		nowPage = [completeMutableArray count];
+		nowPage = (int)[completeMutableArray count];
 	}
 	
 	[composedImage autorelease];
@@ -1411,12 +1419,10 @@ static const int DIALOG_CANCEL	= 129;
 	NSRect fullscreenRect;
 	fullscreenRect = [[NSScreen mainScreen] frame];
 	
-	NSImageRep* rep1 = [image1 bestRepresentationForDevice:nil];
-	int widthValue01 = [rep1 pixelsWide];
-	int heightValue01 = [rep1 pixelsHigh];
-	NSImageRep* rep2 = [image2 bestRepresentationForDevice:nil];
-	int widthValue02 = [rep2 pixelsWide];
-	int heightValue02 = [rep2 pixelsHigh];
+	int widthValue01 = (int)[image1 size].width;
+	int heightValue01 = (int)[image1 size].height;
+	int widthValue02 = (int)[image2 size].width;
+	int heightValue02 = (int)[image2 size].height;
 	
 	int widthValue1 = widthValue01;
 	int heightValue1 = heightValue01;
@@ -1515,12 +1521,20 @@ static const int DIALOG_CANCEL	= 129;
 	switch (readMode) {
 		//2,3=only from singleModeKeyCode
 		case 0: case 2:
-			[[image1 bestRepresentationForDevice:nil] drawInRect:NSMakeRect(0,center1,widthValue1,heightValue1) ];
-			[[image2 bestRepresentationForDevice:nil] drawInRect:NSMakeRect(widthValue1,center2,widthValue2,heightValue2) ];
+            [image1 drawInRect:NSMakeRect(0,center1,widthValue1,heightValue1)
+                      fromRect:NSMakeRect(0, 0, [image1 size].width, [image1 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
+            [image2 drawInRect:NSMakeRect(widthValue1,center2,widthValue2,heightValue2)
+                      fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
 			break;
 		case 1: case 3:
-			[[image2 bestRepresentationForDevice:nil] drawInRect:NSMakeRect(0,center2,widthValue2,heightValue2) ];
-			[[image1 bestRepresentationForDevice:nil] drawInRect:NSMakeRect(widthValue2,center1,widthValue1,heightValue1) ];
+            [image2 drawInRect:NSMakeRect(0,center2,widthValue2,heightValue2)
+                      fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
+            [image1 drawInRect:NSMakeRect(widthValue2,center1,widthValue1,heightValue1)
+                      fromRect:NSMakeRect(0, 0, [image1 size].width, [image1 size].height)
+                     operation:NSCompositeSourceOver fraction:1.0];
 			break;
 		default:
 			break;
@@ -1637,8 +1651,8 @@ static const int DIALOG_CANCEL	= 129;
 	//[window disableFlushWindow];
 	
 	NSDisableScreenUpdates();
-	 [self lockedImageDisplay];
-	 NSEnableScreenUpdates();
+    [self lockedImageDisplay];
+    NSEnableScreenUpdates();
 	
 	//[window enableFlushWindow];
 	//[window flushWindowIfNeeded];
@@ -1791,22 +1805,22 @@ static const int DIALOG_CANCEL	= 129;
 	
 	rememberBookSettings = [defaults boolForKey:@"RememberBookSettings"];
 	readSubFolder = [defaults boolForKey:@"ReadSubFolder"];
-	loopCheck = [defaults integerForKey:@"LoopCheck"];
+	loopCheck = (int)[defaults integerForKey:@"LoopCheck"];
 	sliderValue = [defaults floatForKey:@"SlideshowDelay"];
 	
-	prevPageMode = [defaults integerForKey:@"PrevPageMode"];
-	canScrollMode = [defaults integerForKey:@"CanScrollMode"];
+	prevPageMode = (int)[defaults integerForKey:@"PrevPageMode"];
+	canScrollMode = (int)[defaults integerForKey:@"CanScrollMode"];
 	
 	
 	alwaysRememberLastPage = [defaults boolForKey:@"AlwaysRememberLastPage"];
-	goToLastPageMode = [defaults integerForKey:@"GoToLastPage"];
+	goToLastPageMode = (int)[defaults integerForKey:@"GoToLastPage"];
 	
-	openLinkMode = [defaults integerForKey:@"OpenLinkMode"];
+	openLinkMode = (int)[defaults integerForKey:@"OpenLinkMode"];
 	
-	changeCurrentFolderMode = [defaults integerForKey:@"ChangeCurrentFolder"];
+	changeCurrentFolderMode = (int)[defaults integerForKey:@"ChangeCurrentFolder"];
 	
 	int oldOpenRecentLimit = openRecentLimit;
-	openRecentLimit = [defaults integerForKey:@"OpenRecentLimit"];
+	openRecentLimit = (int)[defaults integerForKey:@"OpenRecentLimit"];
 	if (oldOpenRecentLimit!=openRecentLimit) {
 		if (openRecentLimit>0) {
 			int tmpOpenRecentLimit = openRecentLimit;
@@ -1836,32 +1850,35 @@ static const int DIALOG_CANCEL	= 129;
 	}
 	
 	/*cache*/
-	cacheSize = [defaults integerForKey:@"ImageCache"];
+	cacheSize = (int)[defaults integerForKey:@"ImageCache"];
 	while ([cacheArray count] > cacheSize+4) [cacheArray removeObjectAtIndex:0];
-	screenCache = [defaults integerForKey:@"ScreenCache"];
+	screenCache = (int)[defaults integerForKey:@"ScreenCache"];
 	while ([screenCacheArray count] > screenCache+2) [screenCacheArray removeObjectAtIndex:0];
-	[thumController setmaxCacheCount:[defaults integerForKey:@"ThumbnailCache"]];
+	[thumController setmaxCacheCount:(int)[defaults integerForKey:@"ThumbnailCache"]];
 	
 	[fullImagePanel setFitMode:[defaults boolForKey:@"FitOriginal"]];
 	
-	bufferingMode = [defaults integerForKey:@"BufferingMode"];
+	bufferingMode = (int)[defaults integerForKey:@"BufferingMode"];
 	
 	
 
 	
 	[window disableFlushWindow];
 	
+    BOOL useCalayer = [defaults boolForKey:@"UseCALayer"];
+    [imageView setUseCalayer:useCalayer];
 	
 	if ([defaults boolForKey:@"DontHideMenuBar"]) {
 		[window setHideMenuBar:NO];
 	} else {
 		[window setHideMenuBar:YES];
 	}
-	
-	[window setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
-	if (fitScreenMode > 0) {
-		[[imageView enclosingScrollView] setBackgroundColor:[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]]];
-	}
+    
+    NSColor *viewBackGround = [[NSUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"ViewBackGroundColor"]] colorWithAlphaComponent:1];
+    [window setBackgroundColor:viewBackGround];
+    if (fitScreenMode > 0) {
+        [[imageView enclosingScrollView] setBackgroundColor:viewBackGround];
+    }
 	
 	if (readMode != [defaults integerForKey:@"ReadMode"]) {
 		if ([imageView image]) {
@@ -1872,7 +1889,7 @@ static const int DIALOG_CANCEL	= 129;
 				}
 			}
 			if (!readModeTemp) {
-				[self changeReadMode:[defaults integerForKey:@"ReadMode"]];
+				[self changeReadMode:(int)[defaults integerForKey:@"ReadMode"]];
 			}
 		}
 	}
@@ -1885,13 +1902,13 @@ static const int DIALOG_CANCEL	= 129;
 				}
 			}
 			if (!sortModeTemp) {
-				[self setSortMode:[defaults integerForKey:@"SortMode"] page:-1];
+				[self setSortMode:(int)[defaults integerForKey:@"SortMode"] page:-1];
 				[self goTo:0 array:nil];
 			}
 		}
 	}
 	if (singleSetting != [defaults integerForKey:@"SingleSetting"]) {
-		singleSetting = [defaults integerForKey:@"SingleSetting"];
+		singleSetting = (int)[defaults integerForKey:@"SingleSetting"];
 		if ([imageView image]) {
 			if (secondImage) {
 				if (![self isSmallImage:firstImage page:nowPage-2] || ![self isSmallImage:secondImage page:nowPage-1]) {
@@ -1916,9 +1933,9 @@ static const int DIALOG_CANCEL	= 129;
 	
 	if (interpolation != [defaults integerForKey:@"Interpolation"]) {
 		if (maxEnlargement != [defaults integerForKey:@"MaxEnlargement"] ){
-			maxEnlargement = [defaults integerForKey:@"MaxEnlargement"];
+			maxEnlargement = (int)[defaults integerForKey:@"MaxEnlargement"];
 		}
-		interpolation = [defaults integerForKey:@"Interpolation"];
+		interpolation = (int)[defaults integerForKey:@"Interpolation"];
 		[imageView setInterpolation:interpolation];
 		if ([imageView image]) {
 			if (secondImage) {
@@ -1929,7 +1946,7 @@ static const int DIALOG_CANCEL	= 129;
 			[self lookaheadAndCompose];
 		}
 	} else if (maxEnlargement != [defaults integerForKey:@"MaxEnlargement"]) {
-		maxEnlargement = [defaults integerForKey:@"MaxEnlargement"];
+		maxEnlargement = (int)[defaults integerForKey:@"MaxEnlargement"];
 		if ([imageView image]) {
 			if (secondImage) {
 				[self composeImage];
@@ -1948,12 +1965,12 @@ static const int DIALOG_CANCEL	= 129;
 		} else {
 			if (!secondImage) {
 				int i = nowPage - 1;
-				[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+				[imageView setPageString:[NSString stringWithFormat:@"#%d/%d (%@)",nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 				numberSwitch = YES;
 			} else if (secondImage) {
 				int i = nowPage - 1;
 				int iS = i - 1;
-				[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
+				[imageView setPageString:[NSString stringWithFormat:@"#%d-%d/%d (%@ / %@)",i,nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]]];
 				numberSwitch = YES;
 			}
 		}
@@ -2369,7 +2386,7 @@ static const int DIALOG_CANCEL	= 129;
 		updateMenu = YES;
 	}
 	if (updateMenu) {
-		NSMutableArray *superDirectoryArray = [NSMutableArray arrayWithArray:[[NSFileManager defaultManager] directoryContentsAtPath:superPath]];
+        NSMutableArray *superDirectoryArray = [NSMutableArray arrayWithArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:superPath error:nil]];
 		[superDirectoryArray sortUsingSelector:@selector(finderCompareS:)];
 		
 		NSMenu *menu = [[[NSMenu alloc] init] autorelease];
@@ -2518,14 +2535,14 @@ static const int DIALOG_CANCEL	= 129;
 	if (numberSwitch && nowPage >= 0) {
 		if (!secondImage) {
 			int i = nowPage - 1;
-			return [NSString stringWithFormat:@"#%d/%d (%@)",nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]];
+			return [NSString stringWithFormat:@"#%d/%d (%@)",nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent]];
 		} else if (secondImage) {
 			int i = nowPage - 1;
 			int iS = i - 1;
 			if (readMode == 1 || readMode == 3) {
-				return [NSString stringWithFormat:@"#%d-%d/%d (%@ | %@)",i,nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]];
+				return [NSString stringWithFormat:@"#%d-%d/%d (%@ | %@)",i,nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:iS] lastPathComponent],[[completeMutableArray objectAtIndex:i] lastPathComponent]];
 			} else {
-				return [NSString stringWithFormat:@"#%d-%d/%d (%@ | %@)",i,nowPage,[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent],[[completeMutableArray objectAtIndex:iS] lastPathComponent]];
+				return [NSString stringWithFormat:@"#%d-%d/%d (%@ | %@)",i,nowPage,(int)[completeMutableArray count],[[completeMutableArray objectAtIndex:i] lastPathComponent],[[completeMutableArray objectAtIndex:iS] lastPathComponent]];
 			}
 		}
 	}
@@ -2601,8 +2618,8 @@ static const int DIALOG_CANCEL	= 129;
 	[currentBookSetting removeObjectForKey:@"sortMode"];
 	[currentBookSetting removeObjectForKey:@"marks"];
 	
-	[self changeReadMode:[defaults integerForKey:@"ReadMode"]];
-	[self setSortMode:[defaults integerForKey:@"SortMode"] page:-1];
+	[self changeReadMode:(int)[defaults integerForKey:@"ReadMode"]];
+	[self setSortMode:(int)[defaults integerForKey:@"SortMode"] page:-1];
 }
 
 
@@ -2643,7 +2660,7 @@ static const int DIALOG_CANCEL	= 129;
 	} else if (fitScreenMode == 0) {
 		id scroll = [[NSScrollView alloc] init];
 		[scroll setFrame:[[window contentView] frame]];
-		[scroll setAutoresizingMask:[imageView autoresizingMask]];
+		[(NSScrollView *)scroll setAutoresizingMask:[(CustomImageView *)imageView autoresizingMask]];
 		[scroll setBackgroundColor:[window backgroundColor]];
 		[imageView retain];
 		[[window contentView] replaceSubview:imageView with:scroll];
@@ -2679,7 +2696,7 @@ static const int DIALOG_CANCEL	= 129;
 	} else if (fitScreenMode == 0) {
 		id scroll = [[NSScrollView alloc] init];
 		[scroll setFrame:[[window contentView] frame]];
-		[scroll setAutoresizingMask:[imageView autoresizingMask]];
+        [(NSScrollView *)scroll setAutoresizingMask:[(CustomImageView *)imageView autoresizingMask]];
 		[scroll setBackgroundColor:[window backgroundColor]];
 		[imageView retain];
 		[[window contentView] replaceSubview:imageView with:scroll];
@@ -2715,7 +2732,7 @@ static const int DIALOG_CANCEL	= 129;
 	} else if (fitScreenMode == 0) {
 		id scroll = [[NSScrollView alloc] init];		
 		[scroll setFrame:[[window contentView] frame]];
-		[scroll setAutoresizingMask:[imageView autoresizingMask]];
+        [(NSScrollView *)scroll setAutoresizingMask:[(CustomImageView *)imageView autoresizingMask]];
 		[scroll setBackgroundColor:[window backgroundColor]];
 		[imageView retain];
 		[[window contentView] replaceSubview:imageView with:scroll];
@@ -2761,6 +2778,12 @@ static const int DIALOG_CANCEL	= 129;
 	[imageView rotateLeft];
 }
 
+- (IBAction)showFilterPanel:(id)sender
+{
+    IKImageEditPanel *editor = [IKImageEditPanel sharedImageEditPanel];
+    [editor makeKeyAndOrderFront:nil];
+}
+
 #pragma mark -
 
 
@@ -2784,7 +2807,13 @@ static const int DIALOG_CANCEL	= 129;
 			[imageView setImage:firstImage];
 			[self lookaheadAndCompose];
 		}
-	}
+    } else {
+        if (secondImage) {
+            [imageView setImages:secondImage];
+        } else {
+            [imageView setImage:firstImage];
+        }
+    }
 }
 
 
@@ -2974,6 +3003,21 @@ static const int DIALOG_CANCEL	= 129;
 
 - (void)viewDidEndLiveResize:(NSNotification *)aNotification
 {
+    if (bufferingMode == 0) {
+        if (secondImage) {
+            [self composeImage];
+            [self lookaheadAndCompose];
+        } else {
+            [imageView setImage:firstImage];
+            [self lookaheadAndCompose];
+        }
+    } else {
+        if (secondImage) {
+            [imageView setImages:secondImage];
+        } else {
+            [imageView setImage:firstImage];
+        }
+    }
 }
 
 - (void)openLink:(NSURL *)url
@@ -2982,13 +3026,12 @@ static const int DIALOG_CANCEL	= 129;
 	
 	int result;
 	if (openLinkMode==0) {
-		NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Open '%@' in default browser?",@""), url];
-		
-		result = NSRunAlertPanel(NSLocalizedString(@"Open URL",@""),
-									 message,
+		result = (int)NSRunAlertPanel(NSLocalizedString(@"Open URL",@""),
+									 NSLocalizedString(@"Open '%@' in default browser?",@""),
 									 NSLocalizedString(@"OK",@""), 
 									 NSLocalizedString(@"Cancel",@""), 
-									 nil);
+									 nil,
+                                     url);
 	} else {
 		result = NSAlertDefaultReturn;
 	}
@@ -3067,7 +3110,7 @@ static const int DIALOG_CANCEL	= 129;
 
 -(int)pageCount
 {
-	return [completeMutableArray count];
+	return (int)[completeMutableArray count];
 }
 
 -(NSArray*)bookmarkArray
@@ -3290,7 +3333,7 @@ static const int DIALOG_CANCEL	= 129;
 			if ([[object objectForKey:@"temppath"] isEqualToString:path]) {
 				if ([[self pathFromAliasData:[object objectForKey:@"alias"]] isEqualToString:path]) {
 					if (index) {
-						*index = [[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
+						*index = (int)[[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
 					}
 					return [NSDictionary dictionaryWithDictionary:object];
 				}
@@ -3302,7 +3345,7 @@ static const int DIALOG_CANCEL	= 129;
 			if ([[self pathFromAliasData:[object objectForKey:@"alias"]] isEqualToString:path]) {
 				NSMutableArray *newArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"RecentItems"]];
 				NSMutableDictionary *newInnerDic = [NSMutableDictionary dictionaryWithDictionary:object];
-				int tempIndex = [[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
+				int tempIndex = (int)[[defaults arrayForKey:@"RecentItems"] indexOfObject:object];
 				[newArray removeObjectAtIndex:tempIndex];
 				[newInnerDic setObject:path forKey:@"temppath"];
 				[newArray insertObject:newInnerDic atIndex:tempIndex];
@@ -3330,7 +3373,7 @@ static const int DIALOG_CANCEL	= 129;
 			if ([[object objectForKey:@"temppath"] isEqualToString:path]) {
 				if ([[self pathFromAliasData:[object objectForKey:@"alias"]] isEqualToString:path]) {
 					if (index) {
-						*index = [[defaults arrayForKey:@"LastPages"] indexOfObject:object];
+						*index = (int)[[defaults arrayForKey:@"LastPages"] indexOfObject:object];
 					}
 					return [NSDictionary dictionaryWithDictionary:object];
 				}
@@ -3342,13 +3385,13 @@ static const int DIALOG_CANCEL	= 129;
 			if ([[self pathFromAliasData:[object objectForKey:@"alias"]] isEqualToString:path]) {
 				NSMutableArray *newArray = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"LastPages"]];
 				NSMutableDictionary *newInnerDic = [NSMutableDictionary dictionaryWithDictionary:object];
-				int tempIndex = [[defaults arrayForKey:@"LastPages"] indexOfObject:object];
+				int tempIndex = (int)[[defaults arrayForKey:@"LastPages"] indexOfObject:object];
 				[newArray removeObjectAtIndex:tempIndex];
 				[newInnerDic setObject:path forKey:@"temppath"];
 				[newArray insertObject:newInnerDic atIndex:tempIndex];
 				
 				if (index) {
-					*index = [[defaults arrayForKey:@"LastPages"] indexOfObject:object];
+					*index = (int)[[defaults arrayForKey:@"LastPages"] indexOfObject:object];
 				}
 				[defaults setObject:newArray forKey:@"LastPages"];
 				return [NSDictionary dictionaryWithDictionary:newInnerDic];
@@ -3376,14 +3419,12 @@ static const int DIALOG_CANCEL	= 129;
 			temp = [self pathFromAliasData:[[newDic objectForKey:tempKey] objectForKey:@"alias"]];
 			if ([[temp lastPathComponent] isEqualToString:[path lastPathComponent]] && ![[NSFileManager defaultManager] fileExistsAtPath:temp]) {
 				
-				NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Setting of %@ is not found.\nDo you want to use a setting of %@ ?",@""),
-					path,temp];
-				
-				int result = NSRunAlertPanel(NSLocalizedString(@"Setting is not found",@""),
-											 message,
+				int result = (int)NSRunAlertPanel(NSLocalizedString(@"Setting is not found",@""),
+											 NSLocalizedString(@"Setting of %@ is not found.\nDo you want to use a setting of %@ ?",@""),
 											 NSLocalizedString(@"OK",@""), 
 											 NSLocalizedString(@"Cancel",@""), 
-											 nil);
+											 nil,
+                                             path,temp);
 				
 				if(result == NSAlertDefaultReturn || result == NSAlertFirstButtonReturn) {
 					/*LastPagesの修正*/
@@ -3464,10 +3505,8 @@ static const int DIALOG_CANCEL	= 129;
 			
 			int result;
 			if (changeCurrentFolderMode==0) {
-				NSString *message = NSLocalizedString(@"The current opening book was moved. Are you sure you want to change current folder?",@"");
-				
-				result = NSRunAlertPanel(NSLocalizedString(@"Change current folder",@""),
-											 message,
+				result = (int)NSRunAlertPanel(NSLocalizedString(@"Change current folder",@""),
+											 NSLocalizedString(@"The current opening book was moved. Are you sure you want to change current folder?",@""),
 											 NSLocalizedString(@"OK",@""), 
 											 NSLocalizedString(@"Cancel",@""), 
 											 nil);
@@ -3488,7 +3527,7 @@ static const int DIALOG_CANCEL	= 129;
 				}
 			}
 		} else {
-			NSDate *updateDate = [[[NSFileManager defaultManager] fileAttributesAtPath:superPath traverseLink:YES] fileModificationDate];
+            NSDate *updateDate = [[[NSFileManager defaultManager] attributesOfItemAtPath:[superPath stringByResolvingSymlinksInPath] error:nil] fileModificationDate];
 			NSComparisonResult res = [lastSameFolderMenuUpdate compare:updateDate];
 			if (res == NSOrderedAscending) {
 				updateMenu = YES;

@@ -41,8 +41,6 @@
 		7644B3240D6EE315007C8AFD /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7644B3230D6EE315007C8AFD /* System.framework */; };
 		7644B3260D6EE322007C8AFD /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7644B3250D6EE322007C8AFD /* IOKit.framework */; };
 		7644B3370D6EE434007C8AFD /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7644B3360D6EE433007C8AFD /* Carbon.framework */; };
-		76494F9807F72BB400B932D2 /* HetimaUnZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76494F9707F72BB400B932D2 /* HetimaUnZip.framework */; };
-		76494FAE07F72C0F00B932D2 /* HetimaUnZip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76494F9707F72BB400B932D2 /* HetimaUnZip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 7655CDCD09806A8F00465FD1 /* COPDFImageRep.h */; };
 		7655CDD009806A8F00465FD1 /* COPDFImageRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7655CDCE09806A8F00465FD1 /* COPDFImageRep.m */; };
 		766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 766DE03609936CF4004DD915 /* COColorPopUpButton.h */; };
@@ -115,6 +113,11 @@
 		76FE6988082E4C6E00283560 /* ThumbnailController.h in Headers */ = {isa = PBXBuildFile; fileRef = 76FE6986082E4C6E00283560 /* ThumbnailController.h */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */; };
+		A31C5A9A23CA3D6300DD4E70 /* FilterPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */; };
+		A397A3DE23C877FD009FE76D /* ja.xliff in Resources */ = {isa = PBXBuildFile; fileRef = A397A3DD23C877FD009FE76D /* ja.xliff */; };
+		A39D6C3323BEB590002FD912 /* LoupeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39D6C3223BEB590002FD912 /* LoupeView.h */; };
+		A39D6C3523BEB597002FD912 /* LoupeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39D6C3423BEB597002FD912 /* LoupeView.m */; };
 		E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +130,6 @@
 			files = (
 				37BB54D21312CADE001710B4 /* XADMaster.framework in CopyFiles */,
 				37BB54D31312CADE001710B4 /* UniversalDetector.framework in CopyFiles */,
-				76494FAE07F72C0F00B932D2 /* HetimaUnZip.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +172,6 @@
 		7644B3230D6EE315007C8AFD /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
 		7644B3250D6EE322007C8AFD /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		7644B3360D6EE433007C8AFD /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		76494F9707F72BB400B932D2 /* HetimaUnZip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HetimaUnZip.framework; sourceTree = "<group>"; };
 		7655CDCD09806A8F00465FD1 /* COPDFImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPDFImageRep.h; sourceTree = "<group>"; };
 		7655CDCE09806A8F00465FD1 /* COPDFImageRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPDFImageRep.m; sourceTree = "<group>"; };
 		766DE03609936CF4004DD915 /* COColorPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COColorPopUpButton.h; sourceTree = "<group>"; };
@@ -243,8 +244,15 @@
 		76FE6986082E4C6E00283560 /* ThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailController.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* cooViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cooViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterPanelController.h; sourceTree = "<group>"; };
+		A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterPanelController.m; sourceTree = "<group>"; };
 		A3582E2123BBB03500DCC566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E412D4A123BE1A7400CDEAB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A397A3DD23C877FD009FE76D /* ja.xliff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ja.xliff; path = "localize/ja.xcloc/Localized Contents/ja.xliff"; sourceTree = "<group>"; };
+		A39D6C3223BEB590002FD912 /* LoupeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoupeView.h; sourceTree = "<group>"; };
+		A39D6C3423BEB597002FD912 /* LoupeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoupeView.m; sourceTree = "<group>"; };
+		A39D6C8823BF85C4002FD912 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A39D6C8923BF85D6002FD912 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		A39D6C8A23BF8667002FD912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +261,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				76494F9807F72BB400B932D2 /* HetimaUnZip.framework in Frameworks */,
 				7644B3240D6EE315007C8AFD /* System.framework in Frameworks */,
 				7644B3260D6EE322007C8AFD /* IOKit.framework in Frameworks */,
 				7644B3370D6EE434007C8AFD /* Carbon.framework in Frameworks */,
@@ -270,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				7686266A09514775006BFAAC /* main */,
+				A31C5A9623CA3D4700DD4E70 /* filter */,
 				768626680951473B006BFAAC /* preference */,
 				7686266B09514777006BFAAC /* bookmark */,
 				7686266709514730006BFAAC /* thumbnail */,
@@ -283,9 +291,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A397A3DD23C877FD009FE76D /* ja.xliff */,
 				37BB53451312C01C001710B4 /* XADMaster.framework */,
 				37BB532B1312C017001710B4 /* UniversalDetector.framework */,
-				76494F9707F72BB400B932D2 /* HetimaUnZip.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -477,6 +485,8 @@
 				761B469D0D61E95D00667B2A /* AccessoryView.m */,
 				769762A50D657268009CFDBE /* AccessorySettingView.h */,
 				769762A60D657268009CFDBE /* AccessorySettingView.m */,
+				A39D6C3223BEB590002FD912 /* LoupeView.h */,
+				A39D6C3423BEB597002FD912 /* LoupeView.m */,
 			);
 			name = mainWindow;
 			sourceTree = "<group>";
@@ -568,6 +578,15 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		A31C5A9623CA3D4700DD4E70 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				A31C5A9723CA3D6300DD4E70 /* FilterPanelController.h */,
+				A31C5A9823CA3D6300DD4E70 /* FilterPanelController.m */,
+			);
+			name = filter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -582,6 +601,7 @@
 				768E1DEC07CC6B740023AF61 /* CustomWindow.h in Headers */,
 				76EF3E3507FC11CB008D6B37 /* FullImageView.h in Headers */,
 				76EF3EF907FC33DB008D6B37 /* FullImagePanel.h in Headers */,
+				A39D6C3323BEB590002FD912 /* LoupeView.h in Headers */,
 				76FE6988082E4C6E00283560 /* ThumbnailController.h in Headers */,
 				76D3F8D2082F6A5100B9E97E /* ThumbnailPanel.h in Headers */,
 				76705AE60885785900FEF4E2 /* NSString_Compare.h in Headers */,
@@ -591,6 +611,7 @@
 				7655CDCF09806A8F00465FD1 /* COPDFImageRep.h in Headers */,
 				766DE03809936CF5004DD915 /* COColorPopUpButton.h in Headers */,
 				76B85F8D099BB20B0077A211 /* NSDictionary_Adding.h in Headers */,
+				A31C5A9923CA3D6300DD4E70 /* FilterPanelController.h in Headers */,
 				7696BFDD0C369D6F0081E12E /* COPopUpTextField.h in Headers */,
 				763759390C3913050047DF92 /* ThumbnailMatrix.h in Headers */,
 				762259630D426E3800161AC8 /* NSNumberFormatter_Adding.h in Headers */,
@@ -650,6 +671,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* cooViewer */;
 			projectDirPath = "";
@@ -674,6 +696,7 @@
 				7621F56D08C571A1006A9301 /* Credits.rtf in Resources */,
 				7622420D095288F600C888E4 /* cross.tiff in Resources */,
 				76B8606B099BEF0F0077A211 /* coo_cbz.icns in Resources */,
+				A397A3DE23C877FD009FE76D /* ja.xliff in Resources */,
 				76B8606C099BEF0F0077A211 /* coo_zip.icns in Resources */,
 				76B8606D099BEF0F0077A211 /* coo_cbr.icns in Resources */,
 				E412D4A223BE1A7400CDEAB5 /* MainMenu.xib in Resources */,
@@ -715,6 +738,7 @@
 				76EF3EFA07FC33DB008D6B37 /* FullImagePanel.m in Sources */,
 				76D3F8D1082F6A5100B9E97E /* ThumbnailPanel.m in Sources */,
 				76705AE70885785900FEF4E2 /* NSString_Compare.m in Sources */,
+				A39D6C3523BEB597002FD912 /* LoupeView.m in Sources */,
 				76C6BEA808C2927300377076 /* PreferenceController.m in Sources */,
 				76344C0B09595C74003761DA /* COImageLoader.m in Sources */,
 				76CB9075097B9E110009A972 /* Controller_input.m in Sources */,
@@ -732,6 +756,7 @@
 				767EEA220D5F6C8800522A56 /* NSAttributedString_Adding.m in Sources */,
 				761B469F0D61E95D00667B2A /* AccessoryView.m in Sources */,
 				761B46A50D61E97900667B2A /* AccessoryWindow.m in Sources */,
+				A31C5A9A23CA3D6300DD4E70 /* FilterPanelController.m in Sources */,
 				769762A80D657268009CFDBE /* AccessorySettingView.m in Sources */,
 				76F2B6450D67329C003269BB /* COTextView.m in Sources */,
 				76D5AA450D69E41C0057EF7A /* RemoteControl.m in Sources */,
@@ -750,6 +775,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A3582E2123BBB03500DCC566 /* en */,
+				A39D6C8823BF85C4002FD912 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -757,7 +783,8 @@
 		E412D4A023BE1A7400CDEAB5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E412D4A123BE1A7400CDEAB5 /* en */,
+				A39D6C8923BF85D6002FD912 /* ja */,
+				A39D6C8A23BF8667002FD912 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -768,6 +795,7 @@
 		374F3E7013156FB200A5F418 /* Development2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -799,7 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SYMROOT = build/;
 				ZERO_LINK = YES;
@@ -812,7 +840,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
+				CURRENT_PROJECT_VERSION = 1.2b25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					/Library/Frameworks,
@@ -843,6 +871,7 @@
 		37B6C4E21310189B00C624DE /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -864,11 +893,12 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SYMROOT = build/;
 				ZERO_LINK = YES;
@@ -880,16 +910,16 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
-				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2b25;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cooViewer_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -910,6 +940,7 @@
 		37BB543D1312C431001710B4 /* Deployment2 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -938,7 +969,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SYMROOT = build/;
 				ZERO_LINK = YES;
 			};
@@ -950,7 +981,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
+				CURRENT_PROJECT_VERSION = 1.2b25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					/Library/Frameworks,
@@ -983,9 +1014,8 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
+				CURRENT_PROJECT_VERSION = 1.2b25;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
@@ -1014,9 +1044,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1.2b24a1_for64;
+				CURRENT_PROJECT_VERSION = 1.2b25;
 				FRAMEWORK_SEARCH_PATHS = (
-					/Users/cookie,
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"\"$(SRCROOT)\"",
 				);
@@ -1035,6 +1064,7 @@
 		762F24900899B2FD00419EAA /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1059,7 +1089,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SYMROOT = build/;
 			};
 			name = Deployment;
@@ -1067,6 +1097,7 @@
 		762F24910899B2FD00419EAA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1091,7 +1122,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SYMROOT = build/;
 			};
 			name = Default;

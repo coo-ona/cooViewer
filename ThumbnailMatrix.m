@@ -68,18 +68,19 @@
 			[bezier fill];
 			
 			NSImage *image = [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bookmark_a" ofType:@"tiff"]] autorelease];
-			[image setFlipped:YES];
 			
 			imageRect.origin.y+=1;
 			[image drawInRect:imageRect
 					 fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
 					operation:NSCompositeSourceOver
-					 fraction:1.0];	
+					 fraction:1.0
+               respectFlipped:YES
+                        hints:nil];
 		}
 	}
 	
 	id lastCell;
-	int row,col;
+	NSInteger row,col;
 	if (!NSEqualPoints(lastPoint,NSZeroPoint)&&[self getRow:&row column:&col forPoint:lastPoint]) {
 		lastCell = [self cellAtRow:row column:col];
 		if ([[lastCell alternateTitle] isEqualToString:@""]) return;
@@ -107,13 +108,13 @@
 		return;
 	}
 	id lastCell;
-	int row,col;
+	NSInteger row,col;
 	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	if ([self getRow:&row column:&col forPoint:point]) {
 		lastCell = [self cellAtRow:row column:col];
 		NSRect imageRect =[lastCell imageRectForBounds:[self cellFrameAtRow:row column:col]];
 		if (NSPointInRect([self convertPoint:[theEvent locationInWindow] fromView:nil],imageRect)){
-			int rowS,colS;
+			NSInteger rowS,colS;
 			if ([self getRow:&rowS column:&colS forPoint:lastPoint] && rowS==row && colS==col) {
 				if (NSPointInRect(lastPoint,imageRect)) {
 					lastPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
@@ -156,7 +157,7 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
 	id lastCell;
-	int row,col;
+	NSInteger row,col;
 	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	mouseDownPoint = point;
 	if ([self getRow:&row column:&col forPoint:point]) {
@@ -171,7 +172,7 @@
 - (NSMenu *)menu
 {
 	id lastCell;
-	int row,col;
+	NSInteger row,col;
 	NSEvent *theEvent = [NSApp currentEvent];
 	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	if ([self getRow:&row column:&col forPoint:point]) {

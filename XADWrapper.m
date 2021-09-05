@@ -12,6 +12,28 @@
 
 @implementation XADWrapper
 
+-(id)initWithPath:(NSString*)path{
+    self = [super init];
+    if (self) {
+        archive = [[XADArchive alloc] initWithFile:path];
+        contentArray = [[NSMutableArray array] retain];
+        contentIndexArray = [[NSMutableArray array] retain];
+        filePath=[path retain];
+        
+        password=nil;
+        
+        int i;
+        for (i=0; i<[archive numberOfEntries]; i++) {
+            [contentIndexArray addObject:[archive nameOfEntry:i]];
+            if (![archive entryIsDirectory:i] && [archive sizeOfEntry:i] != 0) {
+                [contentArray addObject:[[XADItem alloc] initWithPath:[archive nameOfEntry:i] andWrapper:self]];
+            } else {
+                //NSLog(@"isdir %@",[archive nameOfEntry:i]);
+            }
+        }
+    }
+    return self;
+}
 -(id)initWithPath:(NSString*)path nameEncoding:(NSStringEncoding)enc{
     self = [super init];
     if (self) {
@@ -22,7 +44,6 @@
 		
 		if (enc) [archive setNameEncoding:enc];
 		password=nil;
-		nameEncoding=enc;
 		
 		if ([archive nameOfEntry:0] == nil) {
 			[archive setNameEncoding:nil];
@@ -61,7 +82,7 @@
 
 -(int)xadIndexOfName:(NSString *)name
 {
-	return [contentIndexArray indexOfObject:name];
+	return (int)[contentIndexArray indexOfObject:name];
 }
 
 

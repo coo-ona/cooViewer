@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
-#import <Controller.h>
+#import "Controller.h"
+#import "LoupeView.h"
 
 @interface CustomImageView : NSImageView
 {
@@ -56,6 +57,9 @@
 	BOOL didDragScroll;
 	
 	BOOL startFromEnd;
+    
+    id filters;
+    BOOL useCalayer;
 	
 	@private
 	NSMutableArray *urlRectArray;
@@ -66,6 +70,7 @@
 
 -(void)setScreenFitMode:(int)mode;
 
+-(void)setUseCalayer:(BOOL)use;
 -(void)setInterpolation:(int)index;
 -(void)setImages:(NSImage *)image;
 
@@ -109,4 +114,5 @@
 -(void)setInfoString:(NSString*)string;
 
 -(id)accessoryView;
+-(void)setAccessoryWindowFrame;
 @end

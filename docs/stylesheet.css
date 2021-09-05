@@ -1,0 +1,76 @@
+body {
+	margin:30px 30px 30px 30px;
+	padding:0px 0px 0px 0px;
+	color:#000;
+	font-size:13px;
+	background-color:white;
+	font-family:'Hiragino Kaku Gothic Pro';
+}
+
+th, td {
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	border: 0px;
+	color:#000;
+	font-size:13px;
+	font-family:'Hiragino Kaku Gothic Pro';
+}
+
+A:link { color: #333; }
+A:visited { color: #333; }
+A:active { color: #333; }
+A:hover { color: #aaa; }
+
+
+.top {
+	width: 100%;
+	background-color:#ccc;
+	font-family: 'Lucida Grande';
+}
+
+.title {
+	color: white;
+	font-size:14px;
+	font-weight: bold;
+	padding:10px 0px 10px 0px;
+	
+	text-shadow: 1px 1px 5px #999;
+}
+
+.main {
+	padding:15px 20px 15px 20px;
+	vertical-align: top;
+}
+
+
+
+#headernav {
+	width: 100%;
+	border: 1px solid #bbb;
+}
+
+#headernav td {
+	width: 25%;
+	text-align: center;
+	font-family: 'Lucida Grande';
+	font-size: 11px;
+}
+
+#headernav td a {
+	display: block;
+	color: #333;
+	padding: 3px 0px 3px 0px;
+	background-color: #fff;
+	text-decoration: none;
+}
+
+#headernav a:hover {
+	color: #000;
+	background-color: #eee;
+}
+
+#selectednav {
+	color: #000;
+	padding: 3px 0px 3px 0px;
+	background-color: #eee;
+}

@@ -1,0 +1,3171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Base.lproj/MainMenu.xib" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="19.title" xml:space="preserve">
+        <source>Window</source>
+        <target>Window</target>
+        <note>Class = "NSMenuItem"; title = "Window"; ObjectID = "19";</note>
+      </trans-unit>
+      <trans-unit id="21.title" xml:space="preserve">
+        <source>Viewer</source>
+        <target>Viewer</target>
+        <note>Class = "NSWindow"; title = "Viewer"; ObjectID = "21";</note>
+      </trans-unit>
+      <trans-unit id="23.title" xml:space="preserve">
+        <source>Minimize</source>
+        <target>Minimize</target>
+        <note>Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23";</note>
+      </trans-unit>
+      <trans-unit id="24.title" xml:space="preserve">
+        <source>Window</source>
+        <target>Window</target>
+        <note>Class = "NSMenu"; title = "Window"; ObjectID = "24";</note>
+      </trans-unit>
+      <trans-unit id="29.title" xml:space="preserve">
+        <source>MainMenu</source>
+        <target>MainMenu</target>
+        <note>Class = "NSMenu"; title = "MainMenu"; ObjectID = "29";</note>
+      </trans-unit>
+      <trans-unit id="56.title" xml:space="preserve">
+        <source>cooViewer</source>
+        <target>cooViewer</target>
+        <note>Class = "NSMenuItem"; title = "cooViewer"; ObjectID = "56";</note>
+      </trans-unit>
+      <trans-unit id="57.title" xml:space="preserve">
+        <source>cooViewer</source>
+        <target>cooViewer</target>
+        <note>Class = "NSMenu"; title = "cooViewer"; ObjectID = "57";</note>
+      </trans-unit>
+      <trans-unit id="58.title" xml:space="preserve">
+        <source>About cooViewer</source>
+        <target>About cooViewer</target>
+        <note>Class = "NSMenuItem"; title = "About cooViewer"; ObjectID = "58";</note>
+      </trans-unit>
+      <trans-unit id="72.title" xml:space="preserve">
+        <source>Open...</source>
+        <target>Open...</target>
+        <note>Class = "NSMenuItem"; title = "Open..."; ObjectID = "72";</note>
+      </trans-unit>
+      <trans-unit id="73.title" xml:space="preserve">
+        <source>Close</source>
+        <target>Close</target>
+        <note>Class = "NSMenuItem"; title = "Close"; ObjectID = "73";</note>
+      </trans-unit>
+      <trans-unit id="81.title" xml:space="preserve">
+        <source>File</source>
+        <target>File</target>
+        <note>Class = "NSMenu"; title = "File"; ObjectID = "81";</note>
+      </trans-unit>
+      <trans-unit id="83.title" xml:space="preserve">
+        <source>File</source>
+        <target>File</target>
+        <note>Class = "NSMenuItem"; title = "File"; ObjectID = "83";</note>
+      </trans-unit>
+      <trans-unit id="129.title" xml:space="preserve">
+        <source>Preferences…</source>
+        <target>Preferences…</target>
+        <note>Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129";</note>
+      </trans-unit>
+      <trans-unit id="130.title" xml:space="preserve">
+        <source>Services</source>
+        <target>Services</target>
+        <note>Class = "NSMenu"; title = "Services"; ObjectID = "130";</note>
+      </trans-unit>
+      <trans-unit id="131.title" xml:space="preserve">
+        <source>Services</source>
+        <target>Services</target>
+        <note>Class = "NSMenuItem"; title = "Services"; ObjectID = "131";</note>
+      </trans-unit>
+      <trans-unit id="134.title" xml:space="preserve">
+        <source>Hide cooViewer</source>
+        <target>Hide cooViewer</target>
+        <note>Class = "NSMenuItem"; title = "Hide cooViewer"; ObjectID = "134";</note>
+      </trans-unit>
+      <trans-unit id="136.title" xml:space="preserve">
+        <source>Quit cooViewer</source>
+        <target>Quit cooViewer</target>
+        <note>Class = "NSMenuItem"; title = "Quit cooViewer"; ObjectID = "136";</note>
+      </trans-unit>
+      <trans-unit id="145.title" xml:space="preserve">
+        <source>Hide Others</source>
+        <target>Hide Others</target>
+        <note>Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145";</note>
+      </trans-unit>
+      <trans-unit id="150.title" xml:space="preserve">
+        <source>Show All</source>
+        <target>Show All</target>
+        <note>Class = "NSMenuItem"; title = "Show All"; ObjectID = "150";</note>
+      </trans-unit>
+      <trans-unit id="274.title" xml:space="preserve">
+        <source>Slideshow</source>
+        <target>Slideshow</target>
+        <note>Class = "NSMenu"; title = "Slideshow"; ObjectID = "274";</note>
+      </trans-unit>
+      <trans-unit id="275.title" xml:space="preserve">
+        <source>Start/Stop</source>
+        <target>Start/Stop</target>
+        <note>Class = "NSMenuItem"; title = "Start/Stop"; ObjectID = "275";</note>
+      </trans-unit>
+      <trans-unit id="276.title" xml:space="preserve">
+        <source>Slideshow</source>
+        <target>Slideshow</target>
+        <note>Class = "NSMenuItem"; title = "Slideshow"; ObjectID = "276";</note>
+      </trans-unit>
+      <trans-unit id="448.title" xml:space="preserve">
+        <source>Preferences</source>
+        <target>Preferences</target>
+        <note>Class = "NSWindow"; title = "Preferences"; ObjectID = "448";</note>
+      </trans-unit>
+      <trans-unit id="471.title" xml:space="preserve">
+        <source>Default Book Setting</source>
+        <target>Default Book Setting</target>
+        <note>Class = "NSBox"; title = "Default Book Setting"; ObjectID = "471";</note>
+      </trans-unit>
+      <trans-unit id="478.title" xml:space="preserve">
+        <source>Slideshow Delay</source>
+        <target>Slideshow Delay</target>
+        <note>Class = "NSBox"; title = "Slideshow Delay"; ObjectID = "478";</note>
+      </trans-unit>
+      <trans-unit id="520.title" xml:space="preserve">
+        <source>keyPanel</source>
+        <target>keyPanel</target>
+        <note>Class = "NSWindow"; title = "keyPanel"; ObjectID = "520";</note>
+      </trans-unit>
+      <trans-unit id="561.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSWindow"; title = "Bookmark"; ObjectID = "561";</note>
+      </trans-unit>
+      <trans-unit id="564.title" xml:space="preserve">
+        <source>Edit</source>
+        <target>Edit</target>
+        <note>Class = "NSMenu"; title = "Edit"; ObjectID = "564";</note>
+      </trans-unit>
+      <trans-unit id="566.title" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>Class = "NSMenuItem"; title = "Delete"; ObjectID = "566";</note>
+      </trans-unit>
+      <trans-unit id="568.title" xml:space="preserve">
+        <source>Edit</source>
+        <target>Edit</target>
+        <note>Class = "NSMenuItem"; title = "Edit"; ObjectID = "568";</note>
+      </trans-unit>
+      <trans-unit id="570.title" xml:space="preserve">
+        <source>Select All</source>
+        <target>Select All</target>
+        <note>Class = "NSMenuItem"; title = "Select All"; ObjectID = "570";</note>
+      </trans-unit>
+      <trans-unit id="582.title" xml:space="preserve">
+        <source>Redo</source>
+        <target>Redo</target>
+        <note>Class = "NSMenuItem"; title = "Redo"; ObjectID = "582";</note>
+      </trans-unit>
+      <trans-unit id="583.title" xml:space="preserve">
+        <source>Copy</source>
+        <target>Copy</target>
+        <note>Class = "NSMenuItem"; title = "Copy"; ObjectID = "583";</note>
+      </trans-unit>
+      <trans-unit id="585.title" xml:space="preserve">
+        <source>Paste</source>
+        <target>Paste</target>
+        <note>Class = "NSMenuItem"; title = "Paste"; ObjectID = "585";</note>
+      </trans-unit>
+      <trans-unit id="587.title" xml:space="preserve">
+        <source>Undo</source>
+        <target>Undo</target>
+        <note>Class = "NSMenuItem"; title = "Undo"; ObjectID = "587";</note>
+      </trans-unit>
+      <trans-unit id="588.title" xml:space="preserve">
+        <source>Cut</source>
+        <target>Cut</target>
+        <note>Class = "NSMenuItem"; title = "Cut"; ObjectID = "588";</note>
+      </trans-unit>
+      <trans-unit id="607.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenu"; title = "Bookmark"; ObjectID = "607";</note>
+      </trans-unit>
+      <trans-unit id="608.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Bookmark"; ObjectID = "608";</note>
+      </trans-unit>
+      <trans-unit id="609.title" xml:space="preserve">
+        <source>Edit Bookmark...</source>
+        <target>Edit Bookmark...</target>
+        <note>Class = "NSMenuItem"; title = "Edit Bookmark..."; ObjectID = "609";</note>
+      </trans-unit>
+      <trans-unit id="610.headerCell.title" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "610";</note>
+      </trans-unit>
+      <trans-unit id="613.headerCell.title" xml:space="preserve">
+        <source>Page</source>
+        <target>Page</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Page"; ObjectID = "613";</note>
+      </trans-unit>
+      <trans-unit id="638.title" xml:space="preserve">
+        <source>Menu</source>
+        <target>Menu</target>
+        <note>Class = "NSMenu"; title = "Menu"; ObjectID = "638";</note>
+      </trans-unit>
+      <trans-unit id="640.title" xml:space="preserve">
+        <source>Delete this Bookmark</source>
+        <target>Delete this Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Delete this Bookmark"; ObjectID = "640";</note>
+      </trans-unit>
+      <trans-unit id="742.title" xml:space="preserve">
+        <source>Password</source>
+        <target>Password</target>
+        <note>Class = "NSWindow"; title = "Password"; ObjectID = "742";</note>
+      </trans-unit>
+      <trans-unit id="772.title" xml:space="preserve">
+        <source>Panel</source>
+        <target>Panel</target>
+        <note>Class = "NSWindow"; title = "Panel"; ObjectID = "772";</note>
+      </trans-unit>
+      <trans-unit id="791.title" xml:space="preserve">
+        <source>Menu</source>
+        <target>Menu</target>
+        <note>Class = "NSMenu"; title = "Menu"; ObjectID = "791";</note>
+      </trans-unit>
+      <trans-unit id="792.title" xml:space="preserve">
+        <source>View at Original Size</source>
+        <target>View at Original Size</target>
+        <note>Class = "NSMenuItem"; title = "View at Original Size"; ObjectID = "792";</note>
+      </trans-unit>
+      <trans-unit id="816.title" xml:space="preserve">
+        <source>Add Bookmark</source>
+        <target>Add Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Add Bookmark"; ObjectID = "816";</note>
+      </trans-unit>
+      <trans-unit id="818.title" xml:space="preserve">
+        <source>Go to FirstPage</source>
+        <target>Go to FirstPage</target>
+        <note>Class = "NSMenuItem"; title = "Go to FirstPage"; ObjectID = "818";</note>
+      </trans-unit>
+      <trans-unit id="822.title" xml:space="preserve">
+        <source>Previous Bookmark</source>
+        <target>Previous Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Previous Bookmark"; ObjectID = "822";</note>
+      </trans-unit>
+      <trans-unit id="832.title" xml:space="preserve">
+        <source>~100%</source>
+        <target>~100%</target>
+        <note>Class = "NSMenuItem"; title = "~100%"; ObjectID = "832";</note>
+      </trans-unit>
+      <trans-unit id="833.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "833";</note>
+      </trans-unit>
+      <trans-unit id="834.title" xml:space="preserve">
+        <source>~200%</source>
+        <target>~200%</target>
+        <note>Class = "NSMenuItem"; title = "~200%"; ObjectID = "834";</note>
+      </trans-unit>
+      <trans-unit id="835.title" xml:space="preserve">
+        <source>~300%</source>
+        <target>~300%</target>
+        <note>Class = "NSMenuItem"; title = "~300%"; ObjectID = "835";</note>
+      </trans-unit>
+      <trans-unit id="837.title" xml:space="preserve">
+        <source>~500%</source>
+        <target>~500%</target>
+        <note>Class = "NSMenuItem"; title = "~500%"; ObjectID = "837";</note>
+      </trans-unit>
+      <trans-unit id="838.title" xml:space="preserve">
+        <source>no limit</source>
+        <target>no limit</target>
+        <note>Class = "NSMenuItem"; title = "no limit"; ObjectID = "838";</note>
+      </trans-unit>
+      <trans-unit id="839.title" xml:space="preserve">
+        <source>~400%</source>
+        <target>~400%</target>
+        <note>Class = "NSMenuItem"; title = "~400%"; ObjectID = "839";</note>
+      </trans-unit>
+      <trans-unit id="845.title" xml:space="preserve">
+        <source>Open in Same Folder</source>
+        <target>Open in Same Folder</target>
+        <note>Class = "NSMenu"; title = "Open in Same Folder"; ObjectID = "845";</note>
+      </trans-unit>
+      <trans-unit id="846.title" xml:space="preserve">
+        <source>Open in Same Folder</source>
+        <target>Open in Same Folder</target>
+        <note>Class = "NSMenuItem"; title = "Open in Same Folder"; ObjectID = "846";</note>
+      </trans-unit>
+      <trans-unit id="850.label" xml:space="preserve">
+        <source>General</source>
+        <target>General</target>
+        <note>Class = "NSTabViewItem"; label = "General"; ObjectID = "850";</note>
+      </trans-unit>
+      <trans-unit id="851.label" xml:space="preserve">
+        <source>Input</source>
+        <target>Input</target>
+        <note>Class = "NSTabViewItem"; label = "Input"; ObjectID = "851";</note>
+      </trans-unit>
+      <trans-unit id="920.title" xml:space="preserve">
+        <source>Loop</source>
+        <target>Loop</target>
+        <note>Class = "NSMenuItem"; title = "Loop"; ObjectID = "920";</note>
+      </trans-unit>
+      <trans-unit id="921.title" xml:space="preserve">
+        <source>None</source>
+        <target>None</target>
+        <note>Class = "NSMenuItem"; title = "None"; ObjectID = "921";</note>
+      </trans-unit>
+      <trans-unit id="922.title" xml:space="preserve">
+        <source>Next/Previous Folder (FirstPage)</source>
+        <target>Next/Previous Folder (FirstPage)</target>
+        <note>Class = "NSMenuItem"; title = "Next/Previous Folder (FirstPage)"; ObjectID = "922";</note>
+      </trans-unit>
+      <trans-unit id="924.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "924";</note>
+      </trans-unit>
+      <trans-unit id="926.title" xml:space="preserve">
+        <source>Fullscreen</source>
+        <target>Fullscreen</target>
+        <note>Class = "NSMenuItem"; title = "Fullscreen"; ObjectID = "926";</note>
+      </trans-unit>
+      <trans-unit id="934.title" xml:space="preserve">
+        <source>Previous Folder</source>
+        <target>Previous Folder</target>
+        <note>Class = "NSMenuItem"; title = "Previous Folder"; ObjectID = "934";</note>
+      </trans-unit>
+      <trans-unit id="972.title" xml:space="preserve">
+        <source>Next/Previous Folder</source>
+        <target>Next/Previous Folder</target>
+        <note>Class = "NSMenuItem"; title = "Next/Previous Folder"; ObjectID = "972";</note>
+      </trans-unit>
+      <trans-unit id="983.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSWindow"; title = "Bookmark"; ObjectID = "983";</note>
+      </trans-unit>
+      <trans-unit id="986.headerCell.title" xml:space="preserve">
+        <source>Page</source>
+        <target>Page</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Page"; ObjectID = "986";</note>
+      </trans-unit>
+      <trans-unit id="993.headerCell.title" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "993";</note>
+      </trans-unit>
+      <trans-unit id="996.headerCell.title" xml:space="preserve">
+        <source>BookName</source>
+        <target>BookName</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "BookName"; ObjectID = "996";</note>
+      </trans-unit>
+      <trans-unit id="1084.title" xml:space="preserve">
+        <source>thumbnail</source>
+        <target>thumbnail</target>
+        <note>Class = "NSWindow"; title = "thumbnail"; ObjectID = "1084";</note>
+      </trans-unit>
+      <trans-unit id="1247.title" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "NSMenuItem"; title = "Name"; ObjectID = "1247";</note>
+      </trans-unit>
+      <trans-unit id="1248.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1248";</note>
+      </trans-unit>
+      <trans-unit id="1260.title" xml:space="preserve">
+        <source>Modification Date</source>
+        <target>Modification Date</target>
+        <note>Class = "NSMenuItem"; title = "Modification Date"; ObjectID = "1260";</note>
+      </trans-unit>
+      <trans-unit id="1261.title" xml:space="preserve">
+        <source>Creation Date</source>
+        <target>Creation Date</target>
+        <note>Class = "NSMenuItem"; title = "Creation Date"; ObjectID = "1261";</note>
+      </trans-unit>
+      <trans-unit id="1314.title" xml:space="preserve">
+        <source>Show Thumbnail</source>
+        <target>Show Thumbnail</target>
+        <note>Class = "NSMenuItem"; title = "Show Thumbnail"; ObjectID = "1314";</note>
+      </trans-unit>
+      <trans-unit id="1365.headerCell.title" xml:space="preserve">
+        <source>Key</source>
+        <target>Key</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Key"; ObjectID = "1365";</note>
+      </trans-unit>
+      <trans-unit id="1366.headerCell.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Action"; ObjectID = "1366";</note>
+      </trans-unit>
+      <trans-unit id="1381.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1381";</note>
+      </trans-unit>
+      <trans-unit id="1384.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSMenuItem"; title = "Action"; ObjectID = "1384";</note>
+      </trans-unit>
+      <trans-unit id="1411.title" xml:space="preserve">
+        <source>right to left</source>
+        <target>right to left</target>
+        <note>Class = "NSButtonCell"; title = "right to left"; ObjectID = "1411";</note>
+      </trans-unit>
+      <trans-unit id="1412.title" xml:space="preserve">
+        <source>left to right</source>
+        <target>left to right</target>
+        <note>Class = "NSButtonCell"; title = "left to right"; ObjectID = "1412";</note>
+      </trans-unit>
+      <trans-unit id="1430.headerCell.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Action"; ObjectID = "1430";</note>
+      </trans-unit>
+      <trans-unit id="1431.headerCell.title" xml:space="preserve">
+        <source>Mouse</source>
+        <target>Mouse</target>
+        <note>Class = "NSTableColumn"; headerCell.title = "Mouse"; ObjectID = "1431";</note>
+      </trans-unit>
+      <trans-unit id="1436.title" xml:space="preserve">
+        <source>MousePanel</source>
+        <target>MousePanel</target>
+        <note>Class = "NSWindow"; title = "MousePanel"; ObjectID = "1436";</note>
+      </trans-unit>
+      <trans-unit id="1440.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1440";</note>
+      </trans-unit>
+      <trans-unit id="1469.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1469";</note>
+      </trans-unit>
+      <trans-unit id="1472.title" xml:space="preserve">
+        <source>button0</source>
+        <target>button0</target>
+        <note>Class = "NSMenuItem"; title = "button0"; ObjectID = "1472";</note>
+      </trans-unit>
+      <trans-unit id="1481.title" xml:space="preserve">
+        <source>button1</source>
+        <target>button1</target>
+        <note>Class = "NSMenuItem"; title = "button1"; ObjectID = "1481";</note>
+      </trans-unit>
+      <trans-unit id="1482.title" xml:space="preserve">
+        <source>button2</source>
+        <target>button2</target>
+        <note>Class = "NSMenuItem"; title = "button2"; ObjectID = "1482";</note>
+      </trans-unit>
+      <trans-unit id="1483.title" xml:space="preserve">
+        <source>button3</source>
+        <target>button3</target>
+        <note>Class = "NSMenuItem"; title = "button3"; ObjectID = "1483";</note>
+      </trans-unit>
+      <trans-unit id="1484.title" xml:space="preserve">
+        <source>button4</source>
+        <target>button4</target>
+        <note>Class = "NSMenuItem"; title = "button4"; ObjectID = "1484";</note>
+      </trans-unit>
+      <trans-unit id="1485.title" xml:space="preserve">
+        <source>button5</source>
+        <target>button5</target>
+        <note>Class = "NSMenuItem"; title = "button5"; ObjectID = "1485";</note>
+      </trans-unit>
+      <trans-unit id="1486.title" xml:space="preserve">
+        <source>button6</source>
+        <target>button6</target>
+        <note>Class = "NSMenuItem"; title = "button6"; ObjectID = "1486";</note>
+      </trans-unit>
+      <trans-unit id="1487.title" xml:space="preserve">
+        <source>button7</source>
+        <target>button7</target>
+        <note>Class = "NSMenuItem"; title = "button7"; ObjectID = "1487";</note>
+      </trans-unit>
+      <trans-unit id="1488.title" xml:space="preserve">
+        <source>button8</source>
+        <target>button8</target>
+        <note>Class = "NSMenuItem"; title = "button8"; ObjectID = "1488";</note>
+      </trans-unit>
+      <trans-unit id="1489.title" xml:space="preserve">
+        <source>button9</source>
+        <target>button9</target>
+        <note>Class = "NSMenuItem"; title = "button9"; ObjectID = "1489";</note>
+      </trans-unit>
+      <trans-unit id="1490.title" xml:space="preserve">
+        <source>button10</source>
+        <target>button10</target>
+        <note>Class = "NSMenuItem"; title = "button10"; ObjectID = "1490";</note>
+      </trans-unit>
+      <trans-unit id="1513.title" xml:space="preserve">
+        <source>Open the last page</source>
+        <target>Open the last page</target>
+        <note>Class = "NSMenuItem"; title = "Open the last page"; ObjectID = "1513";</note>
+      </trans-unit>
+      <trans-unit id="1525.title" xml:space="preserve">
+        <source>Setting</source>
+        <target>Setting</target>
+        <note>Class = "NSMenuItem"; title = "Setting"; ObjectID = "1525";</note>
+      </trans-unit>
+      <trans-unit id="1526.title" xml:space="preserve">
+        <source>Setting</source>
+        <target>Setting</target>
+        <note>Class = "NSMenu"; title = "Setting"; ObjectID = "1526";</note>
+      </trans-unit>
+      <trans-unit id="1531.title" xml:space="preserve">
+        <source>Read from</source>
+        <target>Read from</target>
+        <note>Class = "NSMenuItem"; title = "Read from"; ObjectID = "1531";</note>
+      </trans-unit>
+      <trans-unit id="1532.title" xml:space="preserve">
+        <source>Read from</source>
+        <target>Read from</target>
+        <note>Class = "NSMenu"; title = "Read from"; ObjectID = "1532";</note>
+      </trans-unit>
+      <trans-unit id="1534.title" xml:space="preserve">
+        <source>Right to Left</source>
+        <target>Right to Left</target>
+        <note>Class = "NSMenuItem"; title = "Right to Left"; ObjectID = "1534";</note>
+      </trans-unit>
+      <trans-unit id="1535.title" xml:space="preserve">
+        <source>Left to Right</source>
+        <target>Left to Right</target>
+        <note>Class = "NSMenuItem"; title = "Left to Right"; ObjectID = "1535";</note>
+      </trans-unit>
+      <trans-unit id="1536.title" xml:space="preserve">
+        <source>Right to Left (single)</source>
+        <target>Right to Left (single)</target>
+        <note>Class = "NSMenuItem"; title = "Right to Left (single)"; ObjectID = "1536";</note>
+      </trans-unit>
+      <trans-unit id="1537.title" xml:space="preserve">
+        <source>Left to Right (single)</source>
+        <target>Left to Right (single)</target>
+        <note>Class = "NSMenuItem"; title = "Left to Right (single)"; ObjectID = "1537";</note>
+      </trans-unit>
+      <trans-unit id="1540.title" xml:space="preserve">
+        <source>Delete Settings</source>
+        <target>Delete Settings</target>
+        <note>Class = "NSMenuItem"; title = "Delete Settings"; ObjectID = "1540";</note>
+      </trans-unit>
+      <trans-unit id="1601.title" xml:space="preserve">
+        <source>Image</source>
+        <target>Image</target>
+        <note>Class = "NSBox"; title = "Image"; ObjectID = "1601";</note>
+      </trans-unit>
+      <trans-unit id="1607.label" xml:space="preserve">
+        <source>Advanced</source>
+        <target>Advanced</target>
+        <note>Class = "NSTabViewItem"; label = "Advanced"; ObjectID = "1607";</note>
+      </trans-unit>
+      <trans-unit id="1611.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1611";</note>
+      </trans-unit>
+      <trans-unit id="1613.title" xml:space="preserve">
+        <source>Old</source>
+        <target>Old</target>
+        <note>Class = "NSMenuItem"; title = "Old"; ObjectID = "1613";</note>
+      </trans-unit>
+      <trans-unit id="1614.title" xml:space="preserve">
+        <source>New</source>
+        <target>New</target>
+        <note>Class = "NSMenuItem"; title = "New"; ObjectID = "1614";</note>
+      </trans-unit>
+      <trans-unit id="1619.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1619";</note>
+      </trans-unit>
+      <trans-unit id="1620.title" xml:space="preserve">
+        <source>Low</source>
+        <target>Low</target>
+        <note>Class = "NSMenuItem"; title = "Low"; ObjectID = "1620";</note>
+      </trans-unit>
+      <trans-unit id="1621.title" xml:space="preserve">
+        <source>Default</source>
+        <target>Default</target>
+        <note>Class = "NSMenuItem"; title = "Default"; ObjectID = "1621";</note>
+      </trans-unit>
+      <trans-unit id="1622.title" xml:space="preserve">
+        <source>None</source>
+        <target>None</target>
+        <note>Class = "NSMenuItem"; title = "None"; ObjectID = "1622";</note>
+      </trans-unit>
+      <trans-unit id="1623.title" xml:space="preserve">
+        <source>High</source>
+        <target>High</target>
+        <note>Class = "NSMenuItem"; title = "High"; ObjectID = "1623";</note>
+      </trans-unit>
+      <trans-unit id="1648.title" xml:space="preserve">
+        <source>Show in Finder</source>
+        <target>Show in Finder</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "1648";</note>
+      </trans-unit>
+      <trans-unit id="1663.title" xml:space="preserve">
+        <source>Switch Single/Bind</source>
+        <target>Switch Single/Bind</target>
+        <note>Class = "NSMenuItem"; title = "Switch Single/Bind"; ObjectID = "1663";</note>
+      </trans-unit>
+      <trans-unit id="1665.title" xml:space="preserve">
+        <source>View</source>
+        <target>View</target>
+        <note>Class = "NSMenuItem"; title = "View"; ObjectID = "1665";</note>
+      </trans-unit>
+      <trans-unit id="1666.title" xml:space="preserve">
+        <source>View</source>
+        <target>View</target>
+        <note>Class = "NSMenu"; title = "View"; ObjectID = "1666";</note>
+      </trans-unit>
+      <trans-unit id="1667.title" xml:space="preserve">
+        <source>Fit to Screen</source>
+        <target>Fit to Screen</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen"; ObjectID = "1667";</note>
+      </trans-unit>
+      <trans-unit id="1668.title" xml:space="preserve">
+        <source>Fit to Screen Width</source>
+        <target>Fit to Screen Width</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen Width"; ObjectID = "1668";</note>
+      </trans-unit>
+      <trans-unit id="1746.title" xml:space="preserve">
+        <source>No Scale</source>
+        <target>No Scale</target>
+        <note>Class = "NSMenuItem"; title = "No Scale"; ObjectID = "1746";</note>
+      </trans-unit>
+      <trans-unit id="1749.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1749";</note>
+      </trans-unit>
+      <trans-unit id="1750.title" xml:space="preserve">
+        <source>drag up</source>
+        <target>drag up</target>
+        <note>Class = "NSMenuItem"; title = "drag up"; ObjectID = "1750";</note>
+      </trans-unit>
+      <trans-unit id="1751.title" xml:space="preserve">
+        <source>drag</source>
+        <target>drag</target>
+        <note>Class = "NSMenuItem"; title = "drag"; ObjectID = "1751";</note>
+      </trans-unit>
+      <trans-unit id="1752.title" xml:space="preserve">
+        <source>click</source>
+        <target>click</target>
+        <note>Class = "NSMenuItem"; title = "click"; ObjectID = "1752";</note>
+      </trans-unit>
+      <trans-unit id="1753.title" xml:space="preserve">
+        <source>drag down</source>
+        <target>drag down</target>
+        <note>Class = "NSMenuItem"; title = "drag down"; ObjectID = "1753";</note>
+      </trans-unit>
+      <trans-unit id="1754.title" xml:space="preserve">
+        <source>drag left</source>
+        <target>drag left</target>
+        <note>Class = "NSMenuItem"; title = "drag left"; ObjectID = "1754";</note>
+      </trans-unit>
+      <trans-unit id="1755.title" xml:space="preserve">
+        <source>drag right</source>
+        <target>drag right</target>
+        <note>Class = "NSMenuItem"; title = "drag right"; ObjectID = "1755";</note>
+      </trans-unit>
+      <trans-unit id="1800.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1800";</note>
+      </trans-unit>
+      <trans-unit id="1801.title" xml:space="preserve">
+        <source>No Scale</source>
+        <target>No Scale</target>
+        <note>Class = "NSMenuItem"; title = "No Scale"; ObjectID = "1801";</note>
+      </trans-unit>
+      <trans-unit id="1802.title" xml:space="preserve">
+        <source>Fit to Screen</source>
+        <target>Fit to Screen</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen"; ObjectID = "1802";</note>
+      </trans-unit>
+      <trans-unit id="1803.title" xml:space="preserve">
+        <source>Fit to Screen Width</source>
+        <target>Fit to Screen Width</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen Width"; ObjectID = "1803";</note>
+      </trans-unit>
+      <trans-unit id="1815.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1815";</note>
+      </trans-unit>
+      <trans-unit id="1816.title" xml:space="preserve">
+        <source>Fit to Screen Width</source>
+        <target>Fit to Screen Width</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen Width"; ObjectID = "1816";</note>
+      </trans-unit>
+      <trans-unit id="1817.title" xml:space="preserve">
+        <source>No Scale</source>
+        <target>No Scale</target>
+        <note>Class = "NSMenuItem"; title = "No Scale"; ObjectID = "1817";</note>
+      </trans-unit>
+      <trans-unit id="1818.title" xml:space="preserve">
+        <source>Fit to Screen</source>
+        <target>Fit to Screen</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen"; ObjectID = "1818";</note>
+      </trans-unit>
+      <trans-unit id="1863.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1863";</note>
+      </trans-unit>
+      <trans-unit id="1864.title" xml:space="preserve">
+        <source>Normal Scroll</source>
+        <target>Normal Scroll</target>
+        <note>Class = "NSMenuItem"; title = "Normal Scroll"; ObjectID = "1864";</note>
+      </trans-unit>
+      <trans-unit id="1866.title" xml:space="preserve">
+        <source>Scroll+TurnPage</source>
+        <target>Scroll+TurnPage</target>
+        <note>Class = "NSMenuItem"; title = "Scroll+TurnPage"; ObjectID = "1866";</note>
+      </trans-unit>
+      <trans-unit id="1869.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1869";</note>
+      </trans-unit>
+      <trans-unit id="1870.title" xml:space="preserve">
+        <source>Start from PageEnd</source>
+        <target>Start from PageEnd</target>
+        <note>Class = "NSMenuItem"; title = "Start from PageEnd"; ObjectID = "1870";</note>
+      </trans-unit>
+      <trans-unit id="1871.title" xml:space="preserve">
+        <source>Start from PageTop</source>
+        <target>Start from PageTop</target>
+        <note>Class = "NSMenuItem"; title = "Start from PageTop"; ObjectID = "1871";</note>
+      </trans-unit>
+      <trans-unit id="1875.title" xml:space="preserve">
+        <source>TurnPage</source>
+        <target>TurnPage</target>
+        <note>Class = "NSMenuItem"; title = "TurnPage"; ObjectID = "1875";</note>
+      </trans-unit>
+      <trans-unit id="1879.title" xml:space="preserve">
+        <source>Scroll</source>
+        <target>Scroll</target>
+        <note>Class = "NSMenuItem"; title = "Scroll"; ObjectID = "1879";</note>
+      </trans-unit>
+      <trans-unit id="1882.title" xml:space="preserve">
+        <source>MouseWheel</source>
+        <target>MouseWheel</target>
+        <note>Class = "NSBox"; title = "MouseWheel"; ObjectID = "1882";</note>
+      </trans-unit>
+      <trans-unit id="1892.title" xml:space="preserve">
+        <source>Rotate Right</source>
+        <target>Rotate Right</target>
+        <note>Class = "NSMenuItem"; title = "Rotate Right"; ObjectID = "1892";</note>
+      </trans-unit>
+      <trans-unit id="1893.title" xml:space="preserve">
+        <source>Rotate Left</source>
+        <target>Rotate Left</target>
+        <note>Class = "NSMenuItem"; title = "Rotate Left"; ObjectID = "1893";</note>
+      </trans-unit>
+      <trans-unit id="1964.label" xml:space="preserve">
+        <source>Appearance</source>
+        <target>Appearance</target>
+        <note>Class = "NSTabViewItem"; label = "Appearance"; ObjectID = "1964";</note>
+      </trans-unit>
+      <trans-unit id="1970.title" xml:space="preserve">
+        <source>Page Bar</source>
+        <target>Page Bar</target>
+        <note>Class = "NSBox"; title = "Page Bar"; ObjectID = "1970";</note>
+      </trans-unit>
+      <trans-unit id="1984.title" xml:space="preserve">
+        <source>Page Number</source>
+        <target>Page Number</target>
+        <note>Class = "NSBox"; title = "Page Number"; ObjectID = "1984";</note>
+      </trans-unit>
+      <trans-unit id="1987.title" xml:space="preserve">
+        <source>Thumbnail View</source>
+        <target>Thumbnail View</target>
+        <note>Class = "NSBox"; title = "Thumbnail View"; ObjectID = "1987";</note>
+      </trans-unit>
+      <trans-unit id="1989.title" xml:space="preserve">
+        <source>Loupe</source>
+        <target>Loupe</target>
+        <note>Class = "NSBox"; title = "Loupe"; ObjectID = "1989";</note>
+      </trans-unit>
+      <trans-unit id="2024.title" xml:space="preserve">
+        <source>Recent Books</source>
+        <target>Recent Books</target>
+        <note>Class = "NSMenuItem"; title = "Recent Books"; ObjectID = "2024";</note>
+      </trans-unit>
+      <trans-unit id="2025.title" xml:space="preserve">
+        <source>Recent Books</source>
+        <target>Recent Books</target>
+        <note>Class = "NSMenu"; title = "Recent Books"; ObjectID = "2025";</note>
+      </trans-unit>
+      <trans-unit id="2026.title" xml:space="preserve">
+        <source>Clear</source>
+        <target>Clear</target>
+        <note>Class = "NSMenuItem"; title = "Clear"; ObjectID = "2026";</note>
+      </trans-unit>
+      <trans-unit id="2037.title" xml:space="preserve">
+        <source>View</source>
+        <target>View</target>
+        <note>Class = "NSBox"; title = "View"; ObjectID = "2037";</note>
+      </trans-unit>
+      <trans-unit id="2067.label" xml:space="preserve">
+        <source>Keyboard &amp; AppleRemote</source>
+        <target>Keyboard &amp; AppleRemote</target>
+        <note>Class = "NSTabViewItem"; label = "Keyboard &amp; AppleRemote"; ObjectID = "2067";</note>
+      </trans-unit>
+      <trans-unit id="2068.label" xml:space="preserve">
+        <source>Mouse</source>
+        <target>Mouse</target>
+        <note>Class = "NSTabViewItem"; label = "Mouse"; ObjectID = "2068";</note>
+      </trans-unit>
+      <trans-unit id="2099.title" xml:space="preserve">
+        <source>Start Slideshow</source>
+        <target>Start Slideshow</target>
+        <note>Class = "NSMenuItem"; title = "Start Slideshow"; ObjectID = "2099";</note>
+      </trans-unit>
+      <trans-unit id="2139.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2139";</note>
+      </trans-unit>
+      <trans-unit id="2142.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2142";</note>
+      </trans-unit>
+      <trans-unit id="2144.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2144";</note>
+      </trans-unit>
+      <trans-unit id="2145.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2145";</note>
+      </trans-unit>
+      <trans-unit id="2149.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2149";</note>
+      </trans-unit>
+      <trans-unit id="2150.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2150";</note>
+      </trans-unit>
+      <trans-unit id="2153.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2153";</note>
+      </trans-unit>
+      <trans-unit id="2154.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2154";</note>
+      </trans-unit>
+      <trans-unit id="2157.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2157";</note>
+      </trans-unit>
+      <trans-unit id="2158.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2158";</note>
+      </trans-unit>
+      <trans-unit id="2235.title" xml:space="preserve">
+        <source>Sort</source>
+        <target>Sort</target>
+        <note>Class = "NSMenuItem"; title = "Sort"; ObjectID = "2235";</note>
+      </trans-unit>
+      <trans-unit id="2236.title" xml:space="preserve">
+        <source>Sort</source>
+        <target>Sort</target>
+        <note>Class = "NSMenu"; title = "Sort"; ObjectID = "2236";</note>
+      </trans-unit>
+      <trans-unit id="2237.title" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "NSMenuItem"; title = "Name"; ObjectID = "2237";</note>
+      </trans-unit>
+      <trans-unit id="2238.title" xml:space="preserve">
+        <source>Creation Date</source>
+        <target>Creation Date</target>
+        <note>Class = "NSMenuItem"; title = "Creation Date"; ObjectID = "2238";</note>
+      </trans-unit>
+      <trans-unit id="2239.title" xml:space="preserve">
+        <source>Modification Date</source>
+        <target>Modification Date</target>
+        <note>Class = "NSMenuItem"; title = "Modification Date"; ObjectID = "2239";</note>
+      </trans-unit>
+      <trans-unit id="2256.title" xml:space="preserve">
+        <source>Menu</source>
+        <target>Menu</target>
+        <note>Class = "NSMenu"; title = "Menu"; ObjectID = "2256";</note>
+      </trans-unit>
+      <trans-unit id="2257.title" xml:space="preserve">
+        <source>Add Bookmark</source>
+        <target>Add Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Add Bookmark"; ObjectID = "2257";</note>
+      </trans-unit>
+      <trans-unit id="2258.title" xml:space="preserve">
+        <source>Switch Single/Bind</source>
+        <target>Switch Single/Bind</target>
+        <note>Class = "NSMenuItem"; title = "Switch Single/Bind"; ObjectID = "2258";</note>
+      </trans-unit>
+      <trans-unit id="2260.title" xml:space="preserve">
+        <source>Show in Finder</source>
+        <target>Show in Finder</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "2260";</note>
+      </trans-unit>
+      <trans-unit id="2303.title" xml:space="preserve">
+        <source>Fit to Screen Width(divide)</source>
+        <target>Fit to Screen Width(divide)</target>
+        <note>Class = "NSMenuItem"; title = "Fit to Screen Width(divide)"; ObjectID = "2303";</note>
+      </trans-unit>
+      <trans-unit id="2363.title" xml:space="preserve">
+        <source>Menu</source>
+        <target>Menu</target>
+        <note>Class = "NSMenu"; title = "Menu"; ObjectID = "2363";</note>
+      </trans-unit>
+      <trans-unit id="2366.title" xml:space="preserve">
+        <source>Turn page</source>
+        <target>Turn page</target>
+        <note>Class = "NSMenuItem"; title = "Turn page"; ObjectID = "2366";</note>
+      </trans-unit>
+      <trans-unit id="2367.title" xml:space="preserve">
+        <source>Turn page</source>
+        <target>Turn page</target>
+        <note>Class = "NSMenu"; title = "Turn page"; ObjectID = "2367";</note>
+      </trans-unit>
+      <trans-unit id="2368.title" xml:space="preserve">
+        <source>NextPage</source>
+        <target>NextPage</target>
+        <note>Class = "NSMenuItem"; title = "NextPage"; ObjectID = "2368";</note>
+      </trans-unit>
+      <trans-unit id="2369.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Bookmark"; ObjectID = "2369";</note>
+      </trans-unit>
+      <trans-unit id="2370.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenu"; title = "Bookmark"; ObjectID = "2370";</note>
+      </trans-unit>
+      <trans-unit id="2371.title" xml:space="preserve">
+        <source>NextBookmark</source>
+        <target>NextBookmark</target>
+        <note>Class = "NSMenuItem"; title = "NextBookmark"; ObjectID = "2371";</note>
+      </trans-unit>
+      <trans-unit id="2372.title" xml:space="preserve">
+        <source>Scroll</source>
+        <target>Scroll</target>
+        <note>Class = "NSMenuItem"; title = "Scroll"; ObjectID = "2372";</note>
+      </trans-unit>
+      <trans-unit id="2373.title" xml:space="preserve">
+        <source>Scroll</source>
+        <target>Scroll</target>
+        <note>Class = "NSMenu"; title = "Scroll"; ObjectID = "2373";</note>
+      </trans-unit>
+      <trans-unit id="2375.title" xml:space="preserve">
+        <source>View setting</source>
+        <target>View setting</target>
+        <note>Class = "NSMenuItem"; title = "View setting"; ObjectID = "2375";</note>
+      </trans-unit>
+      <trans-unit id="2376.title" xml:space="preserve">
+        <source>View setting</source>
+        <target>View setting</target>
+        <note>Class = "NSMenu"; title = "View setting"; ObjectID = "2376";</note>
+      </trans-unit>
+      <trans-unit id="2384.title" xml:space="preserve">
+        <source>PreviousPage</source>
+        <target>PreviousPage</target>
+        <note>Class = "NSMenuItem"; title = "PreviousPage"; ObjectID = "2384";</note>
+      </trans-unit>
+      <trans-unit id="2385.title" xml:space="preserve">
+        <source>HalfNextPage</source>
+        <target>HalfNextPage</target>
+        <note>Class = "NSMenuItem"; title = "HalfNextPage"; ObjectID = "2385";</note>
+      </trans-unit>
+      <trans-unit id="2386.title" xml:space="preserve">
+        <source>HalfPreviousPage</source>
+        <target>HalfPreviousPage</target>
+        <note>Class = "NSMenuItem"; title = "HalfPreviousPage"; ObjectID = "2386";</note>
+      </trans-unit>
+      <trans-unit id="2387.title" xml:space="preserve">
+        <source>LastPage</source>
+        <target>LastPage</target>
+        <note>Class = "NSMenuItem"; title = "LastPage"; ObjectID = "2387";</note>
+      </trans-unit>
+      <trans-unit id="2388.title" xml:space="preserve">
+        <source>FirstPage</source>
+        <target>FirstPage</target>
+        <note>Class = "NSMenuItem"; title = "FirstPage"; ObjectID = "2388";</note>
+      </trans-unit>
+      <trans-unit id="2389.title" xml:space="preserve">
+        <source>Skip</source>
+        <target>Skip</target>
+        <note>Class = "NSMenuItem"; title = "Skip"; ObjectID = "2389";</note>
+      </trans-unit>
+      <trans-unit id="2390.title" xml:space="preserve">
+        <source>BackSkip</source>
+        <target>BackSkip</target>
+        <note>Class = "NSMenuItem"; title = "BackSkip"; ObjectID = "2390";</note>
+      </trans-unit>
+      <trans-unit id="2391.title" xml:space="preserve">
+        <source>Go to Page</source>
+        <target>Go to Page</target>
+        <note>Class = "NSMenuItem"; title = "Go to Page"; ObjectID = "2391";</note>
+      </trans-unit>
+      <trans-unit id="2392.title" xml:space="preserve">
+        <source>Go to %</source>
+        <target>Go to %</target>
+        <note>Class = "NSMenuItem"; title = "Go to %"; ObjectID = "2392";</note>
+      </trans-unit>
+      <trans-unit id="2394.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2394";</note>
+      </trans-unit>
+      <trans-unit id="2395.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenu"; title = "Other"; ObjectID = "2395";</note>
+      </trans-unit>
+      <trans-unit id="2398.title" xml:space="preserve">
+        <source>PreviousBookmark</source>
+        <target>PreviousBookmark</target>
+        <note>Class = "NSMenuItem"; title = "PreviousBookmark"; ObjectID = "2398";</note>
+      </trans-unit>
+      <trans-unit id="2399.title" xml:space="preserve">
+        <source>Add/RemoveBookmark</source>
+        <target>Add/RemoveBookmark</target>
+        <note>Class = "NSMenuItem"; title = "Add/RemoveBookmark"; ObjectID = "2399";</note>
+      </trans-unit>
+      <trans-unit id="2400.title" xml:space="preserve">
+        <source>File navigation</source>
+        <target>File navigation</target>
+        <note>Class = "NSMenuItem"; title = "File navigation"; ObjectID = "2400";</note>
+      </trans-unit>
+      <trans-unit id="2401.title" xml:space="preserve">
+        <source>File navigation</source>
+        <target>File navigation</target>
+        <note>Class = "NSMenu"; title = "File navigation"; ObjectID = "2401";</note>
+      </trans-unit>
+      <trans-unit id="2402.title" xml:space="preserve">
+        <source>NextFolder(Archive)</source>
+        <target>NextFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "NextFolder(Archive)"; ObjectID = "2402";</note>
+      </trans-unit>
+      <trans-unit id="2403.title" xml:space="preserve">
+        <source>PreviousFolder(Archive)</source>
+        <target>PreviousFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "PreviousFolder(Archive)"; ObjectID = "2403";</note>
+      </trans-unit>
+      <trans-unit id="2404.title" xml:space="preserve">
+        <source>NextSubFolder(Archive)</source>
+        <target>NextSubFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "NextSubFolder(Archive)"; ObjectID = "2404";</note>
+      </trans-unit>
+      <trans-unit id="2405.title" xml:space="preserve">
+        <source>PreviousSubFolder(Archive)</source>
+        <target>PreviousSubFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "PreviousSubFolder(Archive)"; ObjectID = "2405";</note>
+      </trans-unit>
+      <trans-unit id="2409.title" xml:space="preserve">
+        <source>Show in Finder(right)</source>
+        <target>Show in Finder(right)</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder(right)"; ObjectID = "2409";</note>
+      </trans-unit>
+      <trans-unit id="2411.title" xml:space="preserve">
+        <source>Show in Finder(left)</source>
+        <target>Show in Finder(left)</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder(left)"; ObjectID = "2411";</note>
+      </trans-unit>
+      <trans-unit id="2414.title" xml:space="preserve">
+        <source>Book setting</source>
+        <target>Book setting</target>
+        <note>Class = "NSMenuItem"; title = "Book setting"; ObjectID = "2414";</note>
+      </trans-unit>
+      <trans-unit id="2415.title" xml:space="preserve">
+        <source>Book setting</source>
+        <target>Book setting</target>
+        <note>Class = "NSMenu"; title = "Book setting"; ObjectID = "2415";</note>
+      </trans-unit>
+      <trans-unit id="2417.title" xml:space="preserve">
+        <source>Switch Single/Bind</source>
+        <target>Switch Single/Bind</target>
+        <note>Class = "NSMenuItem"; title = "Switch Single/Bind"; ObjectID = "2417";</note>
+      </trans-unit>
+      <trans-unit id="2418.title" xml:space="preserve">
+        <source>ChangeReadMode</source>
+        <target>ChangeReadMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeReadMode"; ObjectID = "2418";</note>
+      </trans-unit>
+      <trans-unit id="2423.title" xml:space="preserve">
+        <source>ShowNumber</source>
+        <target>ShowNumber</target>
+        <note>Class = "NSMenuItem"; title = "ShowNumber"; ObjectID = "2423";</note>
+      </trans-unit>
+      <trans-unit id="2424.title" xml:space="preserve">
+        <source>ShowPageBar</source>
+        <target>ShowPageBar</target>
+        <note>Class = "NSMenuItem"; title = "ShowPageBar"; ObjectID = "2424";</note>
+      </trans-unit>
+      <trans-unit id="2425.title" xml:space="preserve">
+        <source>ShowLoupe</source>
+        <target>ShowLoupe</target>
+        <note>Class = "NSMenuItem"; title = "ShowLoupe"; ObjectID = "2425";</note>
+      </trans-unit>
+      <trans-unit id="2426.title" xml:space="preserve">
+        <source>LoupePower+</source>
+        <target>LoupePower+</target>
+        <note>Class = "NSMenuItem"; title = "LoupePower+"; ObjectID = "2426";</note>
+      </trans-unit>
+      <trans-unit id="2427.title" xml:space="preserve">
+        <source>LoupePower-</source>
+        <target>LoupePower-</target>
+        <note>Class = "NSMenuItem"; title = "LoupePower-"; ObjectID = "2427";</note>
+      </trans-unit>
+      <trans-unit id="2428.title" xml:space="preserve">
+        <source>PageUp</source>
+        <target>PageUp</target>
+        <note>Class = "NSMenuItem"; title = "PageUp"; ObjectID = "2428";</note>
+      </trans-unit>
+      <trans-unit id="2429.title" xml:space="preserve">
+        <source>PageDown</source>
+        <target>PageDown</target>
+        <note>Class = "NSMenuItem"; title = "PageDown"; ObjectID = "2429";</note>
+      </trans-unit>
+      <trans-unit id="2430.title" xml:space="preserve">
+        <source>PageUp + PrevPage</source>
+        <target>PageUp + PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp + PrevPage"; ObjectID = "2430";</note>
+      </trans-unit>
+      <trans-unit id="2431.title" xml:space="preserve">
+        <source>PageDown + NextPage</source>
+        <target>PageDown + NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageDown + NextPage"; ObjectID = "2431";</note>
+      </trans-unit>
+      <trans-unit id="2432.title" xml:space="preserve">
+        <source>ScrollToTop</source>
+        <target>ScrollToTop</target>
+        <note>Class = "NSMenuItem"; title = "ScrollToTop"; ObjectID = "2432";</note>
+      </trans-unit>
+      <trans-unit id="2433.title" xml:space="preserve">
+        <source>ScrollToEnd</source>
+        <target>ScrollToEnd</target>
+        <note>Class = "NSMenuItem"; title = "ScrollToEnd"; ObjectID = "2433";</note>
+      </trans-unit>
+      <trans-unit id="2434.title" xml:space="preserve">
+        <source>ScrollUp</source>
+        <target>ScrollUp</target>
+        <note>Class = "NSMenuItem"; title = "ScrollUp"; ObjectID = "2434";</note>
+      </trans-unit>
+      <trans-unit id="2435.title" xml:space="preserve">
+        <source>ScrollDown</source>
+        <target>ScrollDown</target>
+        <note>Class = "NSMenuItem"; title = "ScrollDown"; ObjectID = "2435";</note>
+      </trans-unit>
+      <trans-unit id="2436.title" xml:space="preserve">
+        <source>ScrollLeft</source>
+        <target>ScrollLeft</target>
+        <note>Class = "NSMenuItem"; title = "ScrollLeft"; ObjectID = "2436";</note>
+      </trans-unit>
+      <trans-unit id="2437.title" xml:space="preserve">
+        <source>ScrollRight</source>
+        <target>ScrollRight</target>
+        <note>Class = "NSMenuItem"; title = "ScrollRight"; ObjectID = "2437";</note>
+      </trans-unit>
+      <trans-unit id="2439.title" xml:space="preserve">
+        <source>Move to Trash(right)</source>
+        <target>Move to Trash(right)</target>
+        <note>Class = "NSMenuItem"; title = "Move to Trash(right)"; ObjectID = "2439";</note>
+      </trans-unit>
+      <trans-unit id="2440.title" xml:space="preserve">
+        <source>Move to Trash(left)</source>
+        <target>Move to Trash(left)</target>
+        <note>Class = "NSMenuItem"; title = "Move to Trash(left)"; ObjectID = "2440";</note>
+      </trans-unit>
+      <trans-unit id="2441.title" xml:space="preserve">
+        <source>RotateRight</source>
+        <target>RotateRight</target>
+        <note>Class = "NSMenuItem"; title = "RotateRight"; ObjectID = "2441";</note>
+      </trans-unit>
+      <trans-unit id="2442.title" xml:space="preserve">
+        <source>RotateLeft</source>
+        <target>RotateLeft</target>
+        <note>Class = "NSMenuItem"; title = "RotateLeft"; ObjectID = "2442";</note>
+      </trans-unit>
+      <trans-unit id="2443.title" xml:space="preserve">
+        <source>ChangeViewMode</source>
+        <target>ChangeViewMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeViewMode"; ObjectID = "2443";</note>
+      </trans-unit>
+      <trans-unit id="2444.title" xml:space="preserve">
+        <source>ChangeSortMode</source>
+        <target>ChangeSortMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeSortMode"; ObjectID = "2444";</note>
+      </trans-unit>
+      <trans-unit id="2445.title" xml:space="preserve">
+        <source>Slideshow</source>
+        <target>Slideshow</target>
+        <note>Class = "NSMenuItem"; title = "Slideshow"; ObjectID = "2445";</note>
+      </trans-unit>
+      <trans-unit id="2446.title" xml:space="preserve">
+        <source>ShowThumbnail</source>
+        <target>ShowThumbnail</target>
+        <note>Class = "NSMenuItem"; title = "ShowThumbnail"; ObjectID = "2446";</note>
+      </trans-unit>
+      <trans-unit id="2447.title" xml:space="preserve">
+        <source>ViewOriginal(right)</source>
+        <target>ViewOriginal(right)</target>
+        <note>Class = "NSMenuItem"; title = "ViewOriginal(right)"; ObjectID = "2447";</note>
+      </trans-unit>
+      <trans-unit id="2448.title" xml:space="preserve">
+        <source>ViewOriginal(left)</source>
+        <target>ViewOriginal(left)</target>
+        <note>Class = "NSMenuItem"; title = "ViewOriginal(left)"; ObjectID = "2448";</note>
+      </trans-unit>
+      <trans-unit id="2456.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSMenuItem"; title = "Action"; ObjectID = "2456";</note>
+      </trans-unit>
+      <trans-unit id="2507.title" xml:space="preserve">
+        <source>Menu</source>
+        <target>Menu</target>
+        <note>Class = "NSMenu"; title = "Menu"; ObjectID = "2507";</note>
+      </trans-unit>
+      <trans-unit id="2513.title" xml:space="preserve">
+        <source>Turn page</source>
+        <target>Turn page</target>
+        <note>Class = "NSMenuItem"; title = "Turn page"; ObjectID = "2513";</note>
+      </trans-unit>
+      <trans-unit id="2514.title" xml:space="preserve">
+        <source>Turn page</source>
+        <target>Turn page</target>
+        <note>Class = "NSMenu"; title = "Turn page"; ObjectID = "2514";</note>
+      </trans-unit>
+      <trans-unit id="2515.title" xml:space="preserve">
+        <source>Next/PrevPage</source>
+        <target>Next/PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "Next/PrevPage"; ObjectID = "2515";</note>
+      </trans-unit>
+      <trans-unit id="2516.title" xml:space="preserve">
+        <source>File navigation</source>
+        <target>File navigation</target>
+        <note>Class = "NSMenuItem"; title = "File navigation"; ObjectID = "2516";</note>
+      </trans-unit>
+      <trans-unit id="2517.title" xml:space="preserve">
+        <source>File navigation</source>
+        <target>File navigation</target>
+        <note>Class = "NSMenu"; title = "File navigation"; ObjectID = "2517";</note>
+      </trans-unit>
+      <trans-unit id="2519.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2519";</note>
+      </trans-unit>
+      <trans-unit id="2520.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenu"; title = "Other"; ObjectID = "2520";</note>
+      </trans-unit>
+      <trans-unit id="2522.title" xml:space="preserve">
+        <source>View setting</source>
+        <target>View setting</target>
+        <note>Class = "NSMenuItem"; title = "View setting"; ObjectID = "2522";</note>
+      </trans-unit>
+      <trans-unit id="2523.title" xml:space="preserve">
+        <source>View setting</source>
+        <target>View setting</target>
+        <note>Class = "NSMenu"; title = "View setting"; ObjectID = "2523";</note>
+      </trans-unit>
+      <trans-unit id="2525.title" xml:space="preserve">
+        <source>Book setting</source>
+        <target>Book setting</target>
+        <note>Class = "NSMenuItem"; title = "Book setting"; ObjectID = "2525";</note>
+      </trans-unit>
+      <trans-unit id="2526.title" xml:space="preserve">
+        <source>Book setting</source>
+        <target>Book setting</target>
+        <note>Class = "NSMenu"; title = "Book setting"; ObjectID = "2526";</note>
+      </trans-unit>
+      <trans-unit id="2528.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenuItem"; title = "Bookmark"; ObjectID = "2528";</note>
+      </trans-unit>
+      <trans-unit id="2529.title" xml:space="preserve">
+        <source>Bookmark</source>
+        <target>Bookmark</target>
+        <note>Class = "NSMenu"; title = "Bookmark"; ObjectID = "2529";</note>
+      </trans-unit>
+      <trans-unit id="2531.title" xml:space="preserve">
+        <source>Scroll</source>
+        <target>Scroll</target>
+        <note>Class = "NSMenuItem"; title = "Scroll"; ObjectID = "2531";</note>
+      </trans-unit>
+      <trans-unit id="2532.title" xml:space="preserve">
+        <source>Scroll</source>
+        <target>Scroll</target>
+        <note>Class = "NSMenu"; title = "Scroll"; ObjectID = "2532";</note>
+      </trans-unit>
+      <trans-unit id="2534.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSMenuItem"; title = "Action"; ObjectID = "2534";</note>
+      </trans-unit>
+      <trans-unit id="2536.title" xml:space="preserve">
+        <source>HalfNext/PrevPage</source>
+        <target>HalfNext/PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "HalfNext/PrevPage"; ObjectID = "2536";</note>
+      </trans-unit>
+      <trans-unit id="2537.title" xml:space="preserve">
+        <source>Last/TopPage</source>
+        <target>Last/TopPage</target>
+        <note>Class = "NSMenuItem"; title = "Last/TopPage"; ObjectID = "2537";</note>
+      </trans-unit>
+      <trans-unit id="2539.title" xml:space="preserve">
+        <source>Skip/BackSkip</source>
+        <target>Skip/BackSkip</target>
+        <note>Class = "NSMenuItem"; title = "Skip/BackSkip"; ObjectID = "2539";</note>
+      </trans-unit>
+      <trans-unit id="2545.title" xml:space="preserve">
+        <source>PageUp/Down + Prev/NextPage</source>
+        <target>PageUp/Down + Prev/NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp/Down + Prev/NextPage"; ObjectID = "2545";</note>
+      </trans-unit>
+      <trans-unit id="2547.title" xml:space="preserve">
+        <source>NextPage</source>
+        <target>NextPage</target>
+        <note>Class = "NSMenuItem"; title = "NextPage"; ObjectID = "2547";</note>
+      </trans-unit>
+      <trans-unit id="2548.title" xml:space="preserve">
+        <source>PreviousPage</source>
+        <target>PreviousPage</target>
+        <note>Class = "NSMenuItem"; title = "PreviousPage"; ObjectID = "2548";</note>
+      </trans-unit>
+      <trans-unit id="2550.title" xml:space="preserve">
+        <source>HalfNextPage</source>
+        <target>HalfNextPage</target>
+        <note>Class = "NSMenuItem"; title = "HalfNextPage"; ObjectID = "2550";</note>
+      </trans-unit>
+      <trans-unit id="2563.title" xml:space="preserve">
+        <source>HalfPreviousPage</source>
+        <target>HalfPreviousPage</target>
+        <note>Class = "NSMenuItem"; title = "HalfPreviousPage"; ObjectID = "2563";</note>
+      </trans-unit>
+      <trans-unit id="2565.title" xml:space="preserve">
+        <source>LastPage</source>
+        <target>LastPage</target>
+        <note>Class = "NSMenuItem"; title = "LastPage"; ObjectID = "2565";</note>
+      </trans-unit>
+      <trans-unit id="2567.title" xml:space="preserve">
+        <source>Skip</source>
+        <target>Skip</target>
+        <note>Class = "NSMenuItem"; title = "Skip"; ObjectID = "2567";</note>
+      </trans-unit>
+      <trans-unit id="2569.title" xml:space="preserve">
+        <source>BackSkip</source>
+        <target>BackSkip</target>
+        <note>Class = "NSMenuItem"; title = "BackSkip"; ObjectID = "2569";</note>
+      </trans-unit>
+      <trans-unit id="2571.title" xml:space="preserve">
+        <source>TopPage</source>
+        <target>TopPage</target>
+        <note>Class = "NSMenuItem"; title = "TopPage"; ObjectID = "2571";</note>
+      </trans-unit>
+      <trans-unit id="2573.title" xml:space="preserve">
+        <source>Slideshow</source>
+        <target>Slideshow</target>
+        <note>Class = "NSMenuItem"; title = "Slideshow"; ObjectID = "2573";</note>
+      </trans-unit>
+      <trans-unit id="2600.title" xml:space="preserve">
+        <source>NextBookmark</source>
+        <target>NextBookmark</target>
+        <note>Class = "NSMenuItem"; title = "NextBookmark"; ObjectID = "2600";</note>
+      </trans-unit>
+      <trans-unit id="2601.title" xml:space="preserve">
+        <source>PreviousBookmark</source>
+        <target>PreviousBookmark</target>
+        <note>Class = "NSMenuItem"; title = "PreviousBookmark"; ObjectID = "2601";</note>
+      </trans-unit>
+      <trans-unit id="2602.title" xml:space="preserve">
+        <source>Add/RemoveBookmark</source>
+        <target>Add/RemoveBookmark</target>
+        <note>Class = "NSMenuItem"; title = "Add/RemoveBookmark"; ObjectID = "2602";</note>
+      </trans-unit>
+      <trans-unit id="2614.title" xml:space="preserve">
+        <source>NextFolder(Archive)</source>
+        <target>NextFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "NextFolder(Archive)"; ObjectID = "2614";</note>
+      </trans-unit>
+      <trans-unit id="2615.title" xml:space="preserve">
+        <source>PreviousFolder(Archive)</source>
+        <target>PreviousFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "PreviousFolder(Archive)"; ObjectID = "2615";</note>
+      </trans-unit>
+      <trans-unit id="2616.title" xml:space="preserve">
+        <source>NextSubFolder(Archive)</source>
+        <target>NextSubFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "NextSubFolder(Archive)"; ObjectID = "2616";</note>
+      </trans-unit>
+      <trans-unit id="2617.title" xml:space="preserve">
+        <source>PreviousSubFolder(Archive)</source>
+        <target>PreviousSubFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "PreviousSubFolder(Archive)"; ObjectID = "2617";</note>
+      </trans-unit>
+      <trans-unit id="2618.title" xml:space="preserve">
+        <source>Show in Finder(right)</source>
+        <target>Show in Finder(right)</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder(right)"; ObjectID = "2618";</note>
+      </trans-unit>
+      <trans-unit id="2619.title" xml:space="preserve">
+        <source>Show in Finder(left)</source>
+        <target>Show in Finder(left)</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder(left)"; ObjectID = "2619";</note>
+      </trans-unit>
+      <trans-unit id="2637.title" xml:space="preserve">
+        <source>DragScroll</source>
+        <target>DragScroll</target>
+        <note>Class = "NSMenuItem"; title = "DragScroll"; ObjectID = "2637";</note>
+      </trans-unit>
+      <trans-unit id="2638.title" xml:space="preserve">
+        <source>PageUp</source>
+        <target>PageUp</target>
+        <note>Class = "NSMenuItem"; title = "PageUp"; ObjectID = "2638";</note>
+      </trans-unit>
+      <trans-unit id="2639.title" xml:space="preserve">
+        <source>PageDown</source>
+        <target>PageDown</target>
+        <note>Class = "NSMenuItem"; title = "PageDown"; ObjectID = "2639";</note>
+      </trans-unit>
+      <trans-unit id="2640.title" xml:space="preserve">
+        <source>PageUp + PrevPage</source>
+        <target>PageUp + PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp + PrevPage"; ObjectID = "2640";</note>
+      </trans-unit>
+      <trans-unit id="2641.title" xml:space="preserve">
+        <source>PageDown + NextPage</source>
+        <target>PageDown + NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageDown + NextPage"; ObjectID = "2641";</note>
+      </trans-unit>
+      <trans-unit id="2642.title" xml:space="preserve">
+        <source>ScrollToTop</source>
+        <target>ScrollToTop</target>
+        <note>Class = "NSMenuItem"; title = "ScrollToTop"; ObjectID = "2642";</note>
+      </trans-unit>
+      <trans-unit id="2643.title" xml:space="preserve">
+        <source>ScrollToEnd</source>
+        <target>ScrollToEnd</target>
+        <note>Class = "NSMenuItem"; title = "ScrollToEnd"; ObjectID = "2643";</note>
+      </trans-unit>
+      <trans-unit id="2644.title" xml:space="preserve">
+        <source>ScrollUp</source>
+        <target>ScrollUp</target>
+        <note>Class = "NSMenuItem"; title = "ScrollUp"; ObjectID = "2644";</note>
+      </trans-unit>
+      <trans-unit id="2645.title" xml:space="preserve">
+        <source>ScrollDown</source>
+        <target>ScrollDown</target>
+        <note>Class = "NSMenuItem"; title = "ScrollDown"; ObjectID = "2645";</note>
+      </trans-unit>
+      <trans-unit id="2646.title" xml:space="preserve">
+        <source>ScrollLeft</source>
+        <target>ScrollLeft</target>
+        <note>Class = "NSMenuItem"; title = "ScrollLeft"; ObjectID = "2646";</note>
+      </trans-unit>
+      <trans-unit id="2647.title" xml:space="preserve">
+        <source>ScrollRight</source>
+        <target>ScrollRight</target>
+        <note>Class = "NSMenuItem"; title = "ScrollRight"; ObjectID = "2647";</note>
+      </trans-unit>
+      <trans-unit id="2648.title" xml:space="preserve">
+        <source>Action</source>
+        <target>Action</target>
+        <note>Class = "NSMenuItem"; title = "Action"; ObjectID = "2648";</note>
+      </trans-unit>
+      <trans-unit id="2649.title" xml:space="preserve">
+        <source>Next/PrevBookmark</source>
+        <target>Next/PrevBookmark</target>
+        <note>Class = "NSMenuItem"; title = "Next/PrevBookmark"; ObjectID = "2649";</note>
+      </trans-unit>
+      <trans-unit id="2650.title" xml:space="preserve">
+        <source>Next/PrevFolder(Archive)</source>
+        <target>Next/PrevFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "Next/PrevFolder(Archive)"; ObjectID = "2650";</note>
+      </trans-unit>
+      <trans-unit id="2651.title" xml:space="preserve">
+        <source>Next/PrevSubFolder(Archive)</source>
+        <target>Next/PrevSubFolder(Archive)</target>
+        <note>Class = "NSMenuItem"; title = "Next/PrevSubFolder(Archive)"; ObjectID = "2651";</note>
+      </trans-unit>
+      <trans-unit id="2655.title" xml:space="preserve">
+        <source>ViewOriginal(L/R)</source>
+        <target>ViewOriginal(L/R)</target>
+        <note>Class = "NSMenuItem"; title = "ViewOriginal(L/R)"; ObjectID = "2655";</note>
+      </trans-unit>
+      <trans-unit id="2656.title" xml:space="preserve">
+        <source>ViewOriginal(right)</source>
+        <target>ViewOriginal(right)</target>
+        <note>Class = "NSMenuItem"; title = "ViewOriginal(right)"; ObjectID = "2656";</note>
+      </trans-unit>
+      <trans-unit id="2657.title" xml:space="preserve">
+        <source>ViewOriginal(left)</source>
+        <target>ViewOriginal(left)</target>
+        <note>Class = "NSMenuItem"; title = "ViewOriginal(left)"; ObjectID = "2657";</note>
+      </trans-unit>
+      <trans-unit id="2658.title" xml:space="preserve">
+        <source>ShowNumber</source>
+        <target>ShowNumber</target>
+        <note>Class = "NSMenuItem"; title = "ShowNumber"; ObjectID = "2658";</note>
+      </trans-unit>
+      <trans-unit id="2659.title" xml:space="preserve">
+        <source>ShowPageBar</source>
+        <target>ShowPageBar</target>
+        <note>Class = "NSMenuItem"; title = "ShowPageBar"; ObjectID = "2659";</note>
+      </trans-unit>
+      <trans-unit id="2660.title" xml:space="preserve">
+        <source>ShowLoupe</source>
+        <target>ShowLoupe</target>
+        <note>Class = "NSMenuItem"; title = "ShowLoupe"; ObjectID = "2660";</note>
+      </trans-unit>
+      <trans-unit id="2661.title" xml:space="preserve">
+        <source>LoupeRate+</source>
+        <target>LoupeRate+</target>
+        <note>Class = "NSMenuItem"; title = "LoupeRate+"; ObjectID = "2661";</note>
+      </trans-unit>
+      <trans-unit id="2662.title" xml:space="preserve">
+        <source>LoupeRate-</source>
+        <target>LoupeRate-</target>
+        <note>Class = "NSMenuItem"; title = "LoupeRate-"; ObjectID = "2662";</note>
+      </trans-unit>
+      <trans-unit id="2668.title" xml:space="preserve">
+        <source>Show in Finder(L/R)</source>
+        <target>Show in Finder(L/R)</target>
+        <note>Class = "NSMenuItem"; title = "Show in Finder(L/R)"; ObjectID = "2668";</note>
+      </trans-unit>
+      <trans-unit id="2669.title" xml:space="preserve">
+        <source>SwitchSingle/Bind</source>
+        <target>SwitchSingle/Bind</target>
+        <note>Class = "NSMenuItem"; title = "SwitchSingle/Bind"; ObjectID = "2669";</note>
+      </trans-unit>
+      <trans-unit id="2670.title" xml:space="preserve">
+        <source>ChangeReadMode</source>
+        <target>ChangeReadMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeReadMode"; ObjectID = "2670";</note>
+      </trans-unit>
+      <trans-unit id="2671.title" xml:space="preserve">
+        <source>PageUp + PrevPage</source>
+        <target>PageUp + PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp + PrevPage"; ObjectID = "2671";</note>
+      </trans-unit>
+      <trans-unit id="2672.title" xml:space="preserve">
+        <source>PageDown + NextPage</source>
+        <target>PageDown + NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageDown + NextPage"; ObjectID = "2672";</note>
+      </trans-unit>
+      <trans-unit id="2673.title" xml:space="preserve">
+        <source>PageUp/Down + Prev/NextPage</source>
+        <target>PageUp/Down + Prev/NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp/Down + Prev/NextPage"; ObjectID = "2673";</note>
+      </trans-unit>
+      <trans-unit id="2676.title" xml:space="preserve">
+        <source>PageUp + PrevPage</source>
+        <target>PageUp + PrevPage</target>
+        <note>Class = "NSMenuItem"; title = "PageUp + PrevPage"; ObjectID = "2676";</note>
+      </trans-unit>
+      <trans-unit id="2677.title" xml:space="preserve">
+        <source>PageDown + NextPage</source>
+        <target>PageDown + NextPage</target>
+        <note>Class = "NSMenuItem"; title = "PageDown + NextPage"; ObjectID = "2677";</note>
+      </trans-unit>
+      <trans-unit id="2685.title" xml:space="preserve">
+        <source>ShowThumbnail</source>
+        <target>ShowThumbnail</target>
+        <note>Class = "NSMenuItem"; title = "ShowThumbnail"; ObjectID = "2685";</note>
+      </trans-unit>
+      <trans-unit id="2751.title" xml:space="preserve">
+        <source>RotateRight</source>
+        <target>RotateRight</target>
+        <note>Class = "NSMenuItem"; title = "RotateRight"; ObjectID = "2751";</note>
+      </trans-unit>
+      <trans-unit id="2752.title" xml:space="preserve">
+        <source>RotateLeft</source>
+        <target>RotateLeft</target>
+        <note>Class = "NSMenuItem"; title = "RotateLeft"; ObjectID = "2752";</note>
+      </trans-unit>
+      <trans-unit id="2753.title" xml:space="preserve">
+        <source>ChangeViewMode</source>
+        <target>ChangeViewMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeViewMode"; ObjectID = "2753";</note>
+      </trans-unit>
+      <trans-unit id="2755.title" xml:space="preserve">
+        <source>Move to Trash(right)</source>
+        <target>Move to Trash(right)</target>
+        <note>Class = "NSMenuItem"; title = "Move to Trash(right)"; ObjectID = "2755";</note>
+      </trans-unit>
+      <trans-unit id="2756.title" xml:space="preserve">
+        <source>Move to Trash(left)</source>
+        <target>Move to Trash(left)</target>
+        <note>Class = "NSMenuItem"; title = "Move to Trash(left)"; ObjectID = "2756";</note>
+      </trans-unit>
+      <trans-unit id="2757.title" xml:space="preserve">
+        <source>Move to Trash(L/R)</source>
+        <target>Move to Trash(L/R)</target>
+        <note>Class = "NSMenuItem"; title = "Move to Trash(L/R)"; ObjectID = "2757";</note>
+      </trans-unit>
+      <trans-unit id="2758.title" xml:space="preserve">
+        <source>Rotate(L/R)</source>
+        <target>Rotate(L/R)</target>
+        <note>Class = "NSMenuItem"; title = "Rotate(L/R)"; ObjectID = "2758";</note>
+      </trans-unit>
+      <trans-unit id="2763.title" xml:space="preserve">
+        <source>ChangeSortMode</source>
+        <target>ChangeSortMode</target>
+        <note>Class = "NSMenuItem"; title = "ChangeSortMode"; ObjectID = "2763";</note>
+      </trans-unit>
+      <trans-unit id="2787.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2787";</note>
+      </trans-unit>
+      <trans-unit id="2788.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2788";</note>
+      </trans-unit>
+      <trans-unit id="2792.title" xml:space="preserve">
+        <source>Close</source>
+        <target>Close</target>
+        <note>Class = "NSMenuItem"; title = "Close"; ObjectID = "2792";</note>
+      </trans-unit>
+      <trans-unit id="2795.title" xml:space="preserve">
+        <source>Close</source>
+        <target>Close</target>
+        <note>Class = "NSMenuItem"; title = "Close"; ObjectID = "2795";</note>
+      </trans-unit>
+      <trans-unit id="2800.title" xml:space="preserve">
+        <source>Shuffle</source>
+        <target>Shuffle</target>
+        <note>Class = "NSMenuItem"; title = "Shuffle"; ObjectID = "2800";</note>
+      </trans-unit>
+      <trans-unit id="2809.title" xml:space="preserve">
+        <source>AccessoryWindow</source>
+        <target>AccessoryWindow</target>
+        <note>Class = "NSWindow"; title = "AccessoryWindow"; ObjectID = "2809";</note>
+      </trans-unit>
+      <trans-unit id="2818.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2818";</note>
+      </trans-unit>
+      <trans-unit id="2819.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2819";</note>
+      </trans-unit>
+      <trans-unit id="2825.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2825";</note>
+      </trans-unit>
+      <trans-unit id="2826.title" xml:space="preserve">
+        <source>Other</source>
+        <target>Other</target>
+        <note>Class = "NSMenuItem"; title = "Other"; ObjectID = "2826";</note>
+      </trans-unit>
+      <trans-unit id="2842.title" xml:space="preserve">
+        <source>Shuffle</source>
+        <target>Shuffle</target>
+        <note>Class = "NSMenuItem"; title = "Shuffle"; ObjectID = "2842";</note>
+      </trans-unit>
+      <trans-unit id="2843.title" xml:space="preserve">
+        <source>Shuffle</source>
+        <target>Shuffle</target>
+        <note>Class = "NSMenuItem"; title = "Shuffle"; ObjectID = "2843";</note>
+      </trans-unit>
+      <trans-unit id="2845.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2845";</note>
+      </trans-unit>
+      <trans-unit id="2846.title" xml:space="preserve">
+        <source>Creation date</source>
+        <target>Creation date</target>
+        <note>Class = "NSMenuItem"; title = "Creation date"; ObjectID = "2846";</note>
+      </trans-unit>
+      <trans-unit id="2847.title" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Class = "NSMenuItem"; title = "Name"; ObjectID = "2847";</note>
+      </trans-unit>
+      <trans-unit id="2848.title" xml:space="preserve">
+        <source>Modification date</source>
+        <target>Modification date</target>
+        <note>Class = "NSMenuItem"; title = "Modification date"; ObjectID = "2848";</note>
+      </trans-unit>
+      <trans-unit id="2853.title" xml:space="preserve">
+        <source>Shuffle</source>
+        <target>Shuffle</target>
+        <note>Class = "NSMenuItem"; title = "Shuffle"; ObjectID = "2853";</note>
+      </trans-unit>
+      <trans-unit id="2863.title" xml:space="preserve">
+        <source>Position and Size</source>
+        <target>Position and Size</target>
+        <note>Class = "NSWindow"; title = "Position and Size"; ObjectID = "2863";</note>
+      </trans-unit>
+      <trans-unit id="2909.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "2909";</note>
+      </trans-unit>
+      <trans-unit id="2910.title" xml:space="preserve">
+        <source>Always</source>
+        <target>Always</target>
+        <note>Class = "NSMenuItem"; title = "Always"; ObjectID = "2910";</note>
+      </trans-unit>
+      <trans-unit id="2911.title" xml:space="preserve">
+        <source>Ask</source>
+        <target>Ask</target>
+        <note>Class = "NSMenuItem"; title = "Ask"; ObjectID = "2911";</note>
+      </trans-unit>
+      <trans-unit id="2912.title" xml:space="preserve">
+        <source>Never</source>
+        <target>Never</target>
+        <note>Class = "NSMenuItem"; title = "Never"; ObjectID = "2912";</note>
+      </trans-unit>
+      <trans-unit id="2928.title" xml:space="preserve">
+        <source>ContextualMenu</source>
+        <target>ContextualMenu</target>
+        <note>Class = "NSMenuItem"; title = "ContextualMenu"; ObjectID = "2928";</note>
+      </trans-unit>
+      <trans-unit id="3103.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "3103";</note>
+      </trans-unit>
+      <trans-unit id="3104.title" xml:space="preserve">
+        <source>Always</source>
+        <target>Always</target>
+        <note>Class = "NSMenuItem"; title = "Always"; ObjectID = "3104";</note>
+      </trans-unit>
+      <trans-unit id="3105.title" xml:space="preserve">
+        <source>Ask</source>
+        <target>Ask</target>
+        <note>Class = "NSMenuItem"; title = "Ask"; ObjectID = "3105";</note>
+      </trans-unit>
+      <trans-unit id="3106.title" xml:space="preserve">
+        <source>Never</source>
+        <target>Never</target>
+        <note>Class = "NSMenuItem"; title = "Never"; ObjectID = "3106";</note>
+      </trans-unit>
+      <trans-unit id="3296.title" xml:space="preserve">
+        <source>disposing of settings</source>
+        <target>disposing of settings</target>
+        <note>Class = "NSWindow"; title = "disposing of settings"; ObjectID = "3296";</note>
+      </trans-unit>
+      <trans-unit id="3494.title" xml:space="preserve">
+        <source>SwitchFullscreen</source>
+        <target>SwitchFullscreen</target>
+        <note>Class = "NSMenuItem"; title = "SwitchFullscreen"; ObjectID = "3494";</note>
+      </trans-unit>
+      <trans-unit id="3495.title" xml:space="preserve">
+        <source>MinimizeWindow</source>
+        <target>MinimizeWindow</target>
+        <note>Class = "NSMenuItem"; title = "MinimizeWindow"; ObjectID = "3495";</note>
+      </trans-unit>
+      <trans-unit id="3497.title" xml:space="preserve">
+        <source>SwitchFullscreen</source>
+        <target>SwitchFullscreen</target>
+        <note>Class = "NSMenuItem"; title = "SwitchFullscreen"; ObjectID = "3497";</note>
+      </trans-unit>
+      <trans-unit id="3498.title" xml:space="preserve">
+        <source>MinimizeWindow</source>
+        <target>MinimizeWindow</target>
+        <note>Class = "NSMenuItem"; title = "MinimizeWindow"; ObjectID = "3498";</note>
+      </trans-unit>
+      <trans-unit id="3506.title" xml:space="preserve">
+        <source>Open the last page</source>
+        <target>Open the last page</target>
+        <note>Class = "NSMenuItem"; title = "Open the last page"; ObjectID = "3506";</note>
+      </trans-unit>
+      <trans-unit id="3510.title" xml:space="preserve">
+        <source>Open the last page</source>
+        <target>Open the last page</target>
+        <note>Class = "NSMenuItem"; title = "Open the last page"; ObjectID = "3510";</note>
+      </trans-unit>
+      <trans-unit id="3694.title" xml:space="preserve">
+        <source>swipe right</source>
+        <target>swipe right</target>
+        <note>Class = "NSMenuItem"; title = "swipe right"; ObjectID = "3694";</note>
+      </trans-unit>
+      <trans-unit id="3695.title" xml:space="preserve">
+        <source>swipe left</source>
+        <target>swipe left</target>
+        <note>Class = "NSMenuItem"; title = "swipe left"; ObjectID = "3695";</note>
+      </trans-unit>
+      <trans-unit id="3696.title" xml:space="preserve">
+        <source>swipe up</source>
+        <target>swipe up</target>
+        <note>Class = "NSMenuItem"; title = "swipe up"; ObjectID = "3696";</note>
+      </trans-unit>
+      <trans-unit id="3697.title" xml:space="preserve">
+        <source>swipe down</source>
+        <target>swipe down</target>
+        <note>Class = "NSMenuItem"; title = "swipe down"; ObjectID = "3697";</note>
+      </trans-unit>
+      <trans-unit id="3698.title" xml:space="preserve">
+        <source>pinch in</source>
+        <target>pinch in</target>
+        <note>Class = "NSMenuItem"; title = "pinch in"; ObjectID = "3698";</note>
+      </trans-unit>
+      <trans-unit id="3699.title" xml:space="preserve">
+        <source>pinch out</source>
+        <target>pinch out</target>
+        <note>Class = "NSMenuItem"; title = "pinch out"; ObjectID = "3699";</note>
+      </trans-unit>
+      <trans-unit id="3700.title" xml:space="preserve">
+        <source>rotate right</source>
+        <target>rotate right</target>
+        <note>Class = "NSMenuItem"; title = "rotate right"; ObjectID = "3700";</note>
+      </trans-unit>
+      <trans-unit id="3701.title" xml:space="preserve">
+        <source>rotate left</source>
+        <target>rotate left</target>
+        <note>Class = "NSMenuItem"; title = "rotate left"; ObjectID = "3701";</note>
+      </trans-unit>
+      <trans-unit id="3703.title" xml:space="preserve">
+        <source>EnlargeViewMode</source>
+        <target>EnlargeViewMode</target>
+        <note>Class = "NSMenuItem"; title = "EnlargeViewMode"; ObjectID = "3703";</note>
+      </trans-unit>
+      <trans-unit id="3704.title" xml:space="preserve">
+        <source>ReduceViewMode</source>
+        <target>ReduceViewMode</target>
+        <note>Class = "NSMenuItem"; title = "ReduceViewMode"; ObjectID = "3704";</note>
+      </trans-unit>
+      <trans-unit id="3888.title" xml:space="preserve">
+        <source>EnlargeViewMode</source>
+        <target>EnlargeViewMode</target>
+        <note>Class = "NSMenuItem"; title = "EnlargeViewMode"; ObjectID = "3888";</note>
+      </trans-unit>
+      <trans-unit id="3889.title" xml:space="preserve">
+        <source>ReduceViewMode</source>
+        <target>ReduceViewMode</target>
+        <note>Class = "NSMenuItem"; title = "ReduceViewMode"; ObjectID = "3889";</note>
+      </trans-unit>
+      <trans-unit id="4066.title" xml:space="preserve">
+        <source>Text Cell</source>
+        <target>Text Cell</target>
+        <note>Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "4066";</note>
+      </trans-unit>
+      <trans-unit id="4258.title" xml:space="preserve">
+        <source>OtherViews</source>
+        <target>OtherViews</target>
+        <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "4258";</note>
+      </trans-unit>
+      <trans-unit id="4259.title" xml:space="preserve">
+        <source>Always</source>
+        <target>Always</target>
+        <note>Class = "NSMenuItem"; title = "Always"; ObjectID = "4259";</note>
+      </trans-unit>
+      <trans-unit id="4260.title" xml:space="preserve">
+        <source>Ask</source>
+        <target>Ask</target>
+        <note>Class = "NSMenuItem"; title = "Ask"; ObjectID = "4260";</note>
+      </trans-unit>
+      <trans-unit id="4261.title" xml:space="preserve">
+        <source>Never</source>
+        <target>Never</target>
+        <note>Class = "NSMenuItem"; title = "Never"; ObjectID = "4261";</note>
+      </trans-unit>
+      <trans-unit id="4275.title" xml:space="preserve">
+        <source>Loop :</source>
+        <target>Loop :</target>
+        <note>Class = "NSTextFieldCell"; title = "Loop :"; ObjectID = "4275";</note>
+      </trans-unit>
+      <trans-unit id="4277.title" xml:space="preserve">
+        <source>Read nested folders</source>
+        <target>Read nested folders</target>
+        <note>Class = "NSButtonCell"; title = "Read nested folders"; ObjectID = "4277";</note>
+      </trans-unit>
+      <trans-unit id="4278.title" xml:space="preserve">
+        <source>Open the last book on launch</source>
+        <target>Open the last book on launch</target>
+        <note>Class = "NSButtonCell"; title = "Open the last book on launch"; ObjectID = "4278";</note>
+      </trans-unit>
+      <trans-unit id="4279.title" xml:space="preserve">
+        <source>Number of items in the Open Recent menu:</source>
+        <target>Number of items in the Open Recent menu:</target>
+        <note>Class = "NSTextFieldCell"; title = "Number of items in the Open Recent menu:"; ObjectID = "4279";</note>
+      </trans-unit>
+      <trans-unit id="4280.title" xml:space="preserve">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "NSTextFieldCell"; title = "0"; ObjectID = "4280";</note>
+      </trans-unit>
+      <trans-unit id="4281.title" xml:space="preserve">
+        <source>Remember the last page of all books</source>
+        <target>Remember the last page of all books</target>
+        <note>Class = "NSButtonCell"; title = "Remember the last page of all books"; ObjectID = "4281";</note>
+      </trans-unit>
+      <trans-unit id="4282.title" xml:space="preserve">
+        <source>Go to the last page when open if remembered:</source>
+        <target>Go to the last page when open if remembered:</target>
+        <note>Class = "NSTextFieldCell"; title = "Go to the last page when open if remembered:"; ObjectID = "4282";</note>
+      </trans-unit>
+      <trans-unit id="4284.title" xml:space="preserve">
+        <source>If you open from "Open the last page" or "Recent Books",
+go to the last page always.</source>
+        <target>If you open from "Open the last page" or "Recent Books",
+go to the last page always.</target>
+        <note>Class = "NSTextFieldCell"; title = "If you open from \"Open the last page\" or \"Recent Books\",\ngo to the last page always."; ObjectID = "4284";</note>
+      </trans-unit>
+      <trans-unit id="4285.title" xml:space="preserve">
+        <source>Action when PrevPage with "PageUp + PrevPage" :</source>
+        <target>Action when PrevPage with "PageUp + PrevPage" :</target>
+        <note>Class = "NSTextFieldCell"; title = "Action when PrevPage with \"PageUp + PrevPage\" :"; ObjectID = "4285";</note>
+      </trans-unit>
+      <trans-unit id="4287.title" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>Class = "NSButtonCell"; title = "Delete"; ObjectID = "4287";</note>
+      </trans-unit>
+      <trans-unit id="4288.title" xml:space="preserve">
+        <source>Add...</source>
+        <target>Add...</target>
+        <note>Class = "NSButtonCell"; title = "Add..."; ObjectID = "4288";</note>
+      </trans-unit>
+      <trans-unit id="4290.title" xml:space="preserve">
+        <source>Reset...</source>
+        <target>Reset...</target>
+        <note>Class = "NSButtonCell"; title = "Reset..."; ObjectID = "4290";</note>
+      </trans-unit>
+      <trans-unit id="4291.title" xml:space="preserve">
+        <source>*Switch to the reverse action in "read from left to right".</source>
+        <target>*Switch to the reverse action in "read from left to right".</target>
+        <note>Class = "NSTextFieldCell"; title = "*Switch to the reverse action in \"read from left to right\"."; ObjectID = "4291";</note>
+      </trans-unit>
+      <trans-unit id="4292.title" xml:space="preserve">
+        <source>Add...</source>
+        <target>Add...</target>
+        <note>Class = "NSButtonCell"; title = "Add..."; ObjectID = "4292";</note>
+      </trans-unit>
+      <trans-unit id="4293.title" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>Class = "NSButtonCell"; title = "Delete"; ObjectID = "4293";</note>
+      </trans-unit>
+      <trans-unit id="4295.title" xml:space="preserve">
+        <source>Reset...</source>
+        <target>Reset...</target>
+        <note>Class = "NSButtonCell"; title = "Reset..."; ObjectID = "4295";</note>
+      </trans-unit>
+      <trans-unit id="4296.title" xml:space="preserve">
+        <source>**Action will change according to operation in right side or left side.</source>
+        <target>**Action will change according to operation in right side or left side.</target>
+        <note>Class = "NSTextFieldCell"; title = "**Action will change according to operation in right side or left side."; ObjectID = "4296";</note>
+      </trans-unit>
+      <trans-unit id="4297.title" xml:space="preserve">
+        <source>*Switch to the reverse action in "read from left to right".</source>
+        <target>*Switch to the reverse action in "read from left to right".</target>
+        <note>Class = "NSTextFieldCell"; title = "*Switch to the reverse action in \"read from left to right\"."; ObjectID = "4297";</note>
+      </trans-unit>
+      <trans-unit id="4299.title" xml:space="preserve">
+        <source>Buffering mode:</source>
+        <target>Buffering mode:</target>
+        <note>Class = "NSTextFieldCell"; title = "Buffering mode:"; ObjectID = "4299";</note>
+      </trans-unit>
+      <trans-unit id="4300.title" xml:space="preserve">
+        <source>Image Interpolation:</source>
+        <target>Image Interpolation:</target>
+        <note>Class = "NSTextFieldCell"; title = "Image Interpolation:"; ObjectID = "4300";</note>
+      </trans-unit>
+      <trans-unit id="4302.title" xml:space="preserve">
+        <source>Image cache:</source>
+        <target>Image cache:</target>
+        <note>Class = "NSTextFieldCell"; title = "Image cache:"; ObjectID = "4302";</note>
+      </trans-unit>
+      <trans-unit id="4303.title" xml:space="preserve">
+        <source>100</source>
+        <target>100</target>
+        <note>Class = "NSTextFieldCell"; title = "100"; ObjectID = "4303";</note>
+      </trans-unit>
+      <trans-unit id="4304.title" xml:space="preserve">
+        <source>Thumbnail cache:</source>
+        <target>Thumbnail cache:</target>
+        <note>Class = "NSTextFieldCell"; title = "Thumbnail cache:"; ObjectID = "4304";</note>
+      </trans-unit>
+      <trans-unit id="4305.title" xml:space="preserve">
+        <source>100</source>
+        <target>100</target>
+        <note>Class = "NSTextFieldCell"; title = "100"; ObjectID = "4305";</note>
+      </trans-unit>
+      <trans-unit id="4306.title" xml:space="preserve">
+        <source>100</source>
+        <target>100</target>
+        <note>Class = "NSTextFieldCell"; title = "100"; ObjectID = "4306";</note>
+      </trans-unit>
+      <trans-unit id="4307.title" xml:space="preserve">
+        <source>Cache :</source>
+        <target>Cache :</target>
+        <note>Class = "NSTextFieldCell"; title = "Cache :"; ObjectID = "4307";</note>
+      </trans-unit>
+      <trans-unit id="4310.title" xml:space="preserve">
+        <source>Open link in pdf in default browser:</source>
+        <target>Open link in pdf in default browser:</target>
+        <note>Class = "NSTextFieldCell"; title = "Open link in pdf in default browser:"; ObjectID = "4310";</note>
+      </trans-unit>
+      <trans-unit id="4312.title" xml:space="preserve">
+        <source>Disposing of settings</source>
+        <target>Disposing of settings</target>
+        <note>Class = "NSButtonCell"; title = "Disposing of settings"; ObjectID = "4312";</note>
+      </trans-unit>
+      <trans-unit id="4313.title" xml:space="preserve">
+        <source>Change current folder when the currently open book was moved:</source>
+        <target>Change current folder 
+when the currently open book was moved:</target>
+        <note>Class = "NSTextFieldCell"; title = "Change current folder when the currently open book was moved:"; ObjectID = "4313";</note>
+      </trans-unit>
+      <trans-unit id="4315.title" xml:space="preserve">
+        <source>Fit original size window to image size</source>
+        <target>Fit original size window to image size</target>
+        <note>Class = "NSButtonCell"; title = "Fit original size window to image size"; ObjectID = "4315";</note>
+      </trans-unit>
+      <trans-unit id="4316.title" xml:space="preserve">
+        <source>Don't hide menu bar</source>
+        <target>Don't hide menu bar</target>
+        <note>Class = "NSButtonCell"; title = "Don't hide menu bar"; ObjectID = "4316";</note>
+      </trans-unit>
+      <trans-unit id="4317.title" xml:space="preserve">
+        <source>Show thumbnail view on open</source>
+        <target>Show thumbnail view on open</target>
+        <note>Class = "NSButtonCell"; title = "Show thumbnail view on open"; ObjectID = "4317";</note>
+      </trans-unit>
+      <trans-unit id="4318.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4318";</note>
+      </trans-unit>
+      <trans-unit id="4319.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4319";</note>
+      </trans-unit>
+      <trans-unit id="4320.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4320";</note>
+      </trans-unit>
+      <trans-unit id="4321.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4321";</note>
+      </trans-unit>
+      <trans-unit id="4323.title" xml:space="preserve">
+        <source>10</source>
+        <target>10</target>
+        <note>Class = "NSTextFieldCell"; title = "10"; ObjectID = "4323";</note>
+      </trans-unit>
+      <trans-unit id="4324.title" xml:space="preserve">
+        <source>Switch to the reverse action in "read from left to right"</source>
+        <target>Switch to the reverse action in "read from left to right"</target>
+        <note>Class = "NSButtonCell"; title = "Switch to the reverse action in \"read from left to right\""; ObjectID = "4324";</note>
+      </trans-unit>
+      <trans-unit id="4325.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4325";</note>
+      </trans-unit>
+      <trans-unit id="4326.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4326";</note>
+      </trans-unit>
+      <trans-unit id="4327.title" xml:space="preserve">
+        <source>Add New Bookmark</source>
+        <target>Add New Bookmark</target>
+        <note>Class = "NSButtonCell"; title = "Add New Bookmark"; ObjectID = "4327";</note>
+      </trans-unit>
+      <trans-unit id="4328.title" xml:space="preserve">
+        <source>1</source>
+        <target>1</target>
+        <note>Class = "NSTextFieldCell"; title = "1"; ObjectID = "4328";</note>
+      </trans-unit>
+      <trans-unit id="4329.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4329";</note>
+      </trans-unit>
+      <trans-unit id="4330.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4330";</note>
+      </trans-unit>
+      <trans-unit id="4332.title" xml:space="preserve">
+        <source>Password:</source>
+        <target>Password:</target>
+        <note>Class = "NSTextFieldCell"; title = "Password:"; ObjectID = "4332";</note>
+      </trans-unit>
+      <trans-unit id="4334.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4334";</note>
+      </trans-unit>
+      <trans-unit id="4335.title" xml:space="preserve">
+        <source>1</source>
+        <target>1</target>
+        <note>Class = "NSTextFieldCell"; title = "1"; ObjectID = "4335";</note>
+      </trans-unit>
+      <trans-unit id="4336.title" xml:space="preserve">
+        <source>Add New Bookmark</source>
+        <target>Add New Bookmark</target>
+        <note>Class = "NSButtonCell"; title = "Add New Bookmark"; ObjectID = "4336";</note>
+      </trans-unit>
+      <trans-unit id="4337.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4337";</note>
+      </trans-unit>
+      <trans-unit id="4338.title" xml:space="preserve">
+        <source>Show in Finder</source>
+        <target>Show in Finder</target>
+        <note>Class = "NSButtonCell"; title = "Show in Finder"; ObjectID = "4338";</note>
+      </trans-unit>
+      <trans-unit id="4339.title" xml:space="preserve">
+        <source>Open</source>
+        <target>Open</target>
+        <note>Class = "NSButtonCell"; title = "Open"; ObjectID = "4339";</note>
+      </trans-unit>
+      <trans-unit id="4341.title" xml:space="preserve">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "NSTextFieldCell"; title = "0"; ObjectID = "4341";</note>
+      </trans-unit>
+      <trans-unit id="4343.title" xml:space="preserve">
+        <source>sort :</source>
+        <target>sort :</target>
+        <note>Class = "NSTextFieldCell"; title = "sort :"; ObjectID = "4343";</note>
+      </trans-unit>
+      <trans-unit id="4347.title" xml:space="preserve">
+        <source>0</source>
+        <target>0</target>
+        <note>Class = "NSTextFieldCell"; title = "0"; ObjectID = "4347";</note>
+      </trans-unit>
+      <trans-unit id="4351.title" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "4351";</note>
+      </trans-unit>
+      <trans-unit id="4353.title" xml:space="preserve">
+        <source>+</source>
+        <target>+</target>
+        <note>Class = "NSTextFieldCell"; title = "+"; ObjectID = "4353";</note>
+      </trans-unit>
+      <trans-unit id="4354.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4354";</note>
+      </trans-unit>
+      <trans-unit id="4356.title" xml:space="preserve">
+        <source>shift</source>
+        <target>shift</target>
+        <note>Class = "NSButtonCell"; title = "shift"; ObjectID = "4356";</note>
+      </trans-unit>
+      <trans-unit id="4357.title" xml:space="preserve">
+        <source>control</source>
+        <target>control</target>
+        <note>Class = "NSButtonCell"; title = "control"; ObjectID = "4357";</note>
+      </trans-unit>
+      <trans-unit id="4358.title" xml:space="preserve">
+        <source>option</source>
+        <target>option</target>
+        <note>Class = "NSButtonCell"; title = "option"; ObjectID = "4358";</note>
+      </trans-unit>
+      <trans-unit id="4360.title" xml:space="preserve">
+        <source>10</source>
+        <target>10</target>
+        <note>Class = "NSTextFieldCell"; title = "10"; ObjectID = "4360";</note>
+      </trans-unit>
+      <trans-unit id="4361.title" xml:space="preserve">
+        <source>*Action will change according to operation in right side or left side.</source>
+        <target>*Action will change according to operation in right side or left side.</target>
+        <note>Class = "NSTextFieldCell"; title = "*Action will change according to operation in right side or left side."; ObjectID = "4361";</note>
+      </trans-unit>
+      <trans-unit id="4362.title" xml:space="preserve">
+        <source>Switch to the reverse action in "read from left to right"</source>
+        <target>Switch to the reverse action in "read from left to right"</target>
+        <note>Class = "NSButtonCell"; title = "Switch to the reverse action in \"read from left to right\""; ObjectID = "4362";</note>
+      </trans-unit>
+      <trans-unit id="4363.title" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Class = "NSButtonCell"; title = "Cancel"; ObjectID = "4363";</note>
+      </trans-unit>
+      <trans-unit id="4364.title" xml:space="preserve">
+        <source>Disposing of settings...</source>
+        <target>Disposing of settings...</target>
+        <note>Class = "NSTextFieldCell"; title = "Disposing of settings..."; ObjectID = "4364";</note>
+      </trans-unit>
+      <trans-unit id="4365.title" xml:space="preserve">
+        <source>Single</source>
+        <target>Single</target>
+        <note>Class = "NSButtonCell"; title = "Single"; ObjectID = "4365";</note>
+      </trans-unit>
+      <trans-unit id="4367.title" xml:space="preserve">
+        <source>Sort:</source>
+        <target>Sort:</target>
+        <note>Class = "NSTextFieldCell"; title = "Sort:"; ObjectID = "4367";</note>
+      </trans-unit>
+      <trans-unit id="4368.title" xml:space="preserve">
+        <source>Remember chenged book setting of all books</source>
+        <target>Remember chenged book setting of all books</target>
+        <note>Class = "NSButtonCell"; title = "Remember chenged book setting of all books"; ObjectID = "4368";</note>
+      </trans-unit>
+      <trans-unit id="4369.title" xml:space="preserve">
+        <source>Read from:</source>
+        <target>Read from:</target>
+        <note>Class = "NSTextFieldCell"; title = "Read from:"; ObjectID = "4369";</note>
+      </trans-unit>
+      <trans-unit id="4371.title" xml:space="preserve">
+        <source>0.0</source>
+        <target>0.0</target>
+        <note>Class = "NSTextFieldCell"; title = "0.0"; ObjectID = "4371";</note>
+      </trans-unit>
+      <trans-unit id="4372.title" xml:space="preserve">
+        <source>0sec
+</source>
+        <target>0sec
+</target>
+        <note>Class = "NSTextFieldCell"; title = "0sec\n"; ObjectID = "4372";</note>
+      </trans-unit>
+      <trans-unit id="4373.title" xml:space="preserve">
+        <source>300sec
+</source>
+        <target>300sec
+</target>
+        <note>Class = "NSTextFieldCell"; title = "300sec\n"; ObjectID = "4373";</note>
+      </trans-unit>
+      <trans-unit id="4374.title" xml:space="preserve">
+        <source>Max enlargement:</source>
+        <target>Max enlargement:</target>
+        <note>Class = "NSTextFieldCell"; title = "Max enlargement:"; ObjectID = "4374";</note>
+      </trans-unit>
+      <trans-unit id="4376.title" xml:space="preserve">
+        <source>Single page:</source>
+        <target>Single page:</target>
+        <note>Class = "NSTextFieldCell"; title = "Single page:"; ObjectID = "4376";</note>
+      </trans-unit>
+      <trans-unit id="4377.title" xml:space="preserve">
+        <source>740</source>
+        <target>740</target>
+        <note>Class = "NSTextFieldCell"; title = "740"; ObjectID = "4377";</note>
+      </trans-unit>
+      <trans-unit id="4378.title" xml:space="preserve">
+        <source>width=</source>
+        <target>width=</target>
+        <note>Class = "NSTextFieldCell"; title = "width="; ObjectID = "4378";</note>
+      </trans-unit>
+      <trans-unit id="4379.title" xml:space="preserve">
+        <source>pixels over (when height=1000pixels)</source>
+        <target>pixels over (when height=1000pixels)</target>
+        <note>Class = "NSTextFieldCell"; title = "pixels over (when height=1000pixels)"; ObjectID = "4379";</note>
+      </trans-unit>
+      <trans-unit id="4380.title" xml:space="preserve">
+        <source>Sensitivity :</source>
+        <target>Sensitivity :</target>
+        <note>Class = "NSTextFieldCell"; title = "Sensitivity :"; ObjectID = "4380";</note>
+      </trans-unit>
+      <trans-unit id="4382.title" xml:space="preserve">
+        <source>low</source>
+        <target>low</target>
+        <note>Class = "NSTextFieldCell"; title = "low"; ObjectID = "4382";</note>
+      </trans-unit>
+      <trans-unit id="4383.title" xml:space="preserve">
+        <source>high</source>
+        <target>high</target>
+        <note>Class = "NSTextFieldCell"; title = "high"; ObjectID = "4383";</note>
+      </trans-unit>
+      <trans-unit id="4385.title" xml:space="preserve">
+        <source>When you can scroll :</source>
+        <target>When you can scroll :</target>
+        <note>Class = "NSTextFieldCell"; title = "When you can scroll :"; ObjectID = "4385";</note>
+      </trans-unit>
+      <trans-unit id="4386.title" xml:space="preserve">
+        <source>off</source>
+        <target>off</target>
+        <note>Class = "NSTextFieldCell"; title = "off"; ObjectID = "4386";</note>
+      </trans-unit>
+      <trans-unit id="4387.title" xml:space="preserve">
+        <source>default</source>
+        <target>default</target>
+        <note>Class = "NSTextFieldCell"; title = "default"; ObjectID = "4387";</note>
+      </trans-unit>
+      <trans-unit id="4388.title" xml:space="preserve">
+        <source>Background:</source>
+        <target>Background:</target>
+        <note>Class = "NSTextFieldCell"; title = "Background:"; ObjectID = "4388";</note>
+      </trans-unit>
+      <trans-unit id="4389.title" xml:space="preserve">
+        <source>Read:</source>
+        <target>Read:</target>
+        <note>Class = "NSTextFieldCell"; title = "Read:"; ObjectID = "4389";</note>
+      </trans-unit>
+      <trans-unit id="4390.title" xml:space="preserve">
+        <source>Border:</source>
+        <target>Border:</target>
+        <note>Class = "NSTextFieldCell"; title = "Border:"; ObjectID = "4390";</note>
+      </trans-unit>
+      <trans-unit id="4394.title" xml:space="preserve">
+        <source>Show thumbnail</source>
+        <target>Show thumbnail</target>
+        <note>Class = "NSButtonCell"; title = "Show thumbnail"; ObjectID = "4394";</note>
+      </trans-unit>
+      <trans-unit id="4395.title" xml:space="preserve">
+        <source>Auto hide</source>
+        <target>Auto hide</target>
+        <note>Class = "NSButtonCell"; title = "Auto hide"; ObjectID = "4395";</note>
+      </trans-unit>
+      <trans-unit id="4397.title" xml:space="preserve">
+        <source>Font:</source>
+        <target>Font:</target>
+        <note>Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "4397";</note>
+      </trans-unit>
+      <trans-unit id="4398.title" xml:space="preserve">
+        <source>270</source>
+        <target>270</target>
+        <note>Class = "NSTextFieldCell"; title = "270"; ObjectID = "4398";</note>
+      </trans-unit>
+      <trans-unit id="4399.title" xml:space="preserve">
+        <source>Select...</source>
+        <target>Select...</target>
+        <note>Class = "NSButtonCell"; title = "Select..."; ObjectID = "4399";</note>
+      </trans-unit>
+      <trans-unit id="4400.title" xml:space="preserve">
+        <source>Show</source>
+        <target>Show</target>
+        <note>Class = "NSButtonCell"; title = "Show"; ObjectID = "4400";</note>
+      </trans-unit>
+      <trans-unit id="4401.title" xml:space="preserve">
+        <source>Set position and size...</source>
+        <target>Set position and size...</target>
+        <note>Class = "NSButtonCell"; title = "Set position and size..."; ObjectID = "4401";</note>
+      </trans-unit>
+      <trans-unit id="4403.title" xml:space="preserve">
+        <source>#1-2/345 (67.jpg | 89.jpg)</source>
+        <target>#1-2/345 (67.jpg | 89.jpg)</target>
+        <note>Class = "NSTextFieldCell"; title = "#1-2/345 (67.jpg | 89.jpg)"; ObjectID = "4403";</note>
+      </trans-unit>
+      <trans-unit id="4404.title" xml:space="preserve">
+        <source>Select...</source>
+        <target>Select...</target>
+        <note>Class = "NSButtonCell"; title = "Select..."; ObjectID = "4404";</note>
+      </trans-unit>
+      <trans-unit id="4405.title" xml:space="preserve">
+        <source>Font:</source>
+        <target>Font:</target>
+        <note>Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "4405";</note>
+      </trans-unit>
+      <trans-unit id="4406.title" xml:space="preserve">
+        <source>Background:</source>
+        <target>Background:</target>
+        <note>Class = "NSTextFieldCell"; title = "Background:"; ObjectID = "4406";</note>
+      </trans-unit>
+      <trans-unit id="4408.title" xml:space="preserve">
+        <source>Auto hide</source>
+        <target>Auto hide</target>
+        <note>Class = "NSButtonCell"; title = "Auto hide"; ObjectID = "4408";</note>
+      </trans-unit>
+      <trans-unit id="4409.title" xml:space="preserve">
+        <source>Border:</source>
+        <target>Border:</target>
+        <note>Class = "NSTextFieldCell"; title = "Border:"; ObjectID = "4409";</note>
+      </trans-unit>
+      <trans-unit id="4411.title" xml:space="preserve">
+        <source>Show</source>
+        <target>Show</target>
+        <note>Class = "NSButtonCell"; title = "Show"; ObjectID = "4411";</note>
+      </trans-unit>
+      <trans-unit id="4412.title" xml:space="preserve">
+        <source>Set position...</source>
+        <target>Set position...</target>
+        <note>Class = "NSButtonCell"; title = "Set position..."; ObjectID = "4412";</note>
+      </trans-unit>
+      <trans-unit id="4413.title" xml:space="preserve">
+        <source>10</source>
+        <target>10</target>
+        <note>Class = "NSTextFieldCell"; title = "10"; ObjectID = "4413";</note>
+      </trans-unit>
+      <trans-unit id="4414.title" xml:space="preserve">
+        <source>10</source>
+        <target>10</target>
+        <note>Class = "NSTextFieldCell"; title = "10"; ObjectID = "4414";</note>
+      </trans-unit>
+      <trans-unit id="4415.title" xml:space="preserve">
+        <source>rows=</source>
+        <target>rows=</target>
+        <note>Class = "NSTextFieldCell"; title = "rows="; ObjectID = "4415";</note>
+      </trans-unit>
+      <trans-unit id="4416.title" xml:space="preserve">
+        <source>columns=</source>
+        <target>columns=</target>
+        <note>Class = "NSTextFieldCell"; title = "columns="; ObjectID = "4416";</note>
+      </trans-unit>
+      <trans-unit id="4417.title" xml:space="preserve">
+        <source>150</source>
+        <target>150</target>
+        <note>Class = "NSTextFieldCell"; title = "150"; ObjectID = "4417";</note>
+      </trans-unit>
+      <trans-unit id="4418.title" xml:space="preserve">
+        <source>Size:</source>
+        <target>Size:</target>
+        <note>Class = "NSTextFieldCell"; title = "Size:"; ObjectID = "4418";</note>
+      </trans-unit>
+      <trans-unit id="4419.title" xml:space="preserve">
+        <source>1.50</source>
+        <target>1.50</target>
+        <note>Class = "NSTextFieldCell"; title = "1.50"; ObjectID = "4419";</note>
+      </trans-unit>
+      <trans-unit id="4420.title" xml:space="preserve">
+        <source>Power:</source>
+        <target>Power:</target>
+        <note>Class = "NSTextFieldCell"; title = "Power:"; ObjectID = "4420";</note>
+      </trans-unit>
+      <trans-unit id="4421.title" xml:space="preserve">
+        <source>Background:</source>
+        <target>Background:</target>
+        <note>Class = "NSTextFieldCell"; title = "Background:"; ObjectID = "4421";</note>
+      </trans-unit>
+      <trans-unit id="4424.title" xml:space="preserve">
+        <source>Radio</source>
+        <target>Radio</target>
+        <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "4424";</note>
+      </trans-unit>
+      <trans-unit id="EcN-5h-84Q.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>Filter</target>
+        <note>Class = "NSWindow"; title = "Filter"; ObjectID = "EcN-5h-84Q";</note>
+      </trans-unit>
+      <trans-unit id="Uaz-oE-D3D.title" xml:space="preserve">
+        <source>"Old" does not work properly on retina display</source>
+        <target>"Old" does not work properly on retina display</target>
+        <note>Class = "NSTextFieldCell"; title = "\"Old\" does not work properly on retina display"; ObjectID = "Uaz-oE-D3D";</note>
+      </trans-unit>
+      <trans-unit id="d2l-3m-4H7.title" xml:space="preserve">
+        <source>Images are drawn by GPU, so they run faster, but it may be blurry</source>
+        <target>Images are drawn by GPU, so they run faster, but it may be blurry</target>
+        <note>Class = "NSTextFieldCell"; title = "Images are drawn by GPU, so they run faster, but it may be blurry"; ObjectID = "d2l-3m-4H7";</note>
+      </trans-unit>
+      <trans-unit id="tyl-Re-5pI.title" xml:space="preserve">
+        <source>Use CALayer:</source>
+        <target>Use CALayer:</target>
+        <note>Class = "NSTextFieldCell"; title = "Use CALayer:"; ObjectID = "tyl-Re-5pI";</note>
+      </trans-unit>
+      <trans-unit id="usF-pH-ycg.title" xml:space="preserve">
+        <source>Filter</source>
+        <target>Filter</target>
+        <note>Class = "NSMenuItem"; title = "Filter"; ObjectID = "usF-pH-ycg";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="Add Bookmark" xml:space="preserve">
+        <source>Add Bookmark</source>
+        <target>Add Bookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add/RemoveBookmark" xml:space="preserve">
+        <source>Add/RemoveBookmark</source>
+        <target>Add/RemoveBookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Advanced" xml:space="preserve">
+        <source>Advanced</source>
+        <target>Advanced</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Appearance" xml:space="preserve">
+        <source>Appearance</source>
+        <target>Appearance</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to delete the setting which file is not found?" xml:space="preserve">
+        <source>Are you sure you want to delete the setting which file is not found?</source>
+        <target>Are you sure you want to delete the setting which file is not found?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to reset the %@ mode key setting?" xml:space="preserve">
+        <source>Are you sure you want to reset the %@ mode key setting?</source>
+        <target>Are you sure you want to reset the %@ mode key setting?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to reset the %@ mode mouse setting?" xml:space="preserve">
+        <source>Are you sure you want to reset the %@ mode mouse setting?</source>
+        <target>Are you sure you want to reset the %@ mode mouse setting?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="BackSkip" xml:space="preserve">
+        <source>BackSkip</source>
+        <target>BackSkip</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Change current folder" xml:space="preserve">
+        <source>Change current folder</source>
+        <target>Change current folder</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ChangeReadMode" xml:space="preserve">
+        <source>ChangeReadMode</source>
+        <target>ChangeReadMode</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ChangeSortMode" xml:space="preserve">
+        <source>ChangeSortMode</source>
+        <target>ChangeSortMode</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ChangeViewMode" xml:space="preserve">
+        <source>ChangeViewMode</source>
+        <target>ChangeViewMode</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Close" xml:space="preserve">
+        <source>Close</source>
+        <target>Close</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ContextualMenu" xml:space="preserve">
+        <source>ContextualMenu</source>
+        <target>ContextualMenu</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Creation Date" xml:space="preserve">
+        <source>Creation Date</source>
+        <target>Creation Date</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete Settings" xml:space="preserve">
+        <source>Delete Settings</source>
+        <target>Delete Settings</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete this Bookmark" xml:space="preserve">
+        <source>Delete this Bookmark</source>
+        <target>Delete this Bookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Disposing of settings" xml:space="preserve">
+        <source>Disposing of settings</source>
+        <target>Disposing of settings</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Disposing of settings was canceled" xml:space="preserve">
+        <source>Disposing of settings was canceled</source>
+        <target>Disposing of settings was canceled</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Disposing of settings was completed" xml:space="preserve">
+        <source>Disposing of settings was completed</source>
+        <target>Disposing of settings was completed</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Do you really want to move %@ to the trash?" xml:space="preserve">
+        <source>Do you really want to move %@ to the trash?</source>
+        <target>Do you really want to move %@ to the trash?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Do you want to go to %i page?" xml:space="preserve">
+        <source>Do you want to go to %i page?</source>
+        <target>Do you want to go to %i page?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="DragScroll" xml:space="preserve">
+        <source>DragScroll</source>
+        <target>DragScroll</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit Bookmark..." xml:space="preserve">
+        <source>Edit Bookmark...</source>
+        <target>Edit Bookmark...</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="EnlargeViewMode" xml:space="preserve">
+        <source>EnlargeViewMode</source>
+        <target>EnlargeViewMode</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="File" xml:space="preserve">
+        <source>File</source>
+        <target>File</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fit to Screen" xml:space="preserve">
+        <source>Fit to Screen</source>
+        <target>Fit to Screen</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fit to Screen Width" xml:space="preserve">
+        <source>Fit to Screen Width</source>
+        <target>Fit to Screen Width</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fit to Screen Width(divide)" xml:space="preserve">
+        <source>Fit to Screen Width(divide)</source>
+        <target>Fit to Screen Width(divide)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fullscreen" xml:space="preserve">
+        <source>Fullscreen</source>
+        <target>Fullscreen</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="General" xml:space="preserve">
+        <source>General</source>
+        <target>General</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to %" xml:space="preserve">
+        <source>Go to %</source>
+        <target>Go to %</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to FirstPage" xml:space="preserve">
+        <source>Go to FirstPage</source>
+        <target>Go to FirstPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to LastPage" xml:space="preserve">
+        <source>Go to LastPage</source>
+        <target>Go to LastPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to Page" xml:space="preserve">
+        <source>Go to Page</source>
+        <target>Go to Page</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to the last page" xml:space="preserve">
+        <source>Go to the last page</source>
+        <target>Go to the last page</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="HalfNext/PrevPage*" xml:space="preserve">
+        <source>HalfNext/PrevPage*</source>
+        <target>HalfNext/PrevPage*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="HalfNext/PrevPage**" xml:space="preserve">
+        <source>HalfNext/PrevPage**</source>
+        <target>HalfNext/PrevPage**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="HalfNextPage" xml:space="preserve">
+        <source>HalfNextPage</source>
+        <target>HalfNextPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="HalfPreviousPage" xml:space="preserve">
+        <source>HalfPreviousPage</source>
+        <target>HalfPreviousPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Input" xml:space="preserve">
+        <source>Input</source>
+        <target>Input</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Last/TopPage*" xml:space="preserve">
+        <source>Last/TopPage*</source>
+        <target>Last/TopPage*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Last/TopPage**" xml:space="preserve">
+        <source>Last/TopPage**</source>
+        <target>Last/TopPage**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Left to Right" xml:space="preserve">
+        <source>Left to Right</source>
+        <target>Left to Right</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Left to Right (single)" xml:space="preserve">
+        <source>Left to Right (single)</source>
+        <target>Left to Right (single)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="LoupePower+" xml:space="preserve">
+        <source>LoupePower+</source>
+        <target>LoupePower+</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="LoupePower-" xml:space="preserve">
+        <source>LoupePower-</source>
+        <target>LoupePower-</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Minimize" xml:space="preserve">
+        <source>Minimize</source>
+        <target>Minimize</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="MinimizeWindow" xml:space="preserve">
+        <source>MinimizeWindow</source>
+        <target>MinimizeWindow</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Modification Date" xml:space="preserve">
+        <source>Modification Date</source>
+        <target>Modification Date</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Move to Trash" xml:space="preserve">
+        <source>Move to Trash</source>
+        <target>Move to Trash</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Move to Trash(L/R)*" xml:space="preserve">
+        <source>Move to Trash(L/R)*</source>
+        <target>Move to Trash(L/R)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Move to Trash(L/R)**" xml:space="preserve">
+        <source>Move to Trash(L/R)**</source>
+        <target>Move to Trash(L/R)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Move to Trash(left)" xml:space="preserve">
+        <source>Move to Trash(left)</source>
+        <target>Move to Trash(left)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Move to Trash(right)" xml:space="preserve">
+        <source>Move to Trash(right)</source>
+        <target>Move to Trash(right)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next Bookmark" xml:space="preserve">
+        <source>Next Bookmark</source>
+        <target>Next Bookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next Folder" xml:space="preserve">
+        <source>Next Folder</source>
+        <target>Next Folder</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevBookmark*" xml:space="preserve">
+        <source>Next/PrevBookmark*</source>
+        <target>Next/PrevBookmark*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevBookmark**" xml:space="preserve">
+        <source>Next/PrevBookmark**</source>
+        <target>Next/PrevBookmark**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevFolder(Archive)*" xml:space="preserve">
+        <source>Next/PrevFolder(Archive)*</source>
+        <target>Next/PrevFolder(Archive)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevFolder(Archive)**" xml:space="preserve">
+        <source>Next/PrevFolder(Archive)**</source>
+        <target>Next/PrevFolder(Archive)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevPage*" xml:space="preserve">
+        <source>Next/PrevPage*</source>
+        <target>Next/PrevPage*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevPage**" xml:space="preserve">
+        <source>Next/PrevPage**</source>
+        <target>Next/PrevPage**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevSubFolder(Archive)*" xml:space="preserve">
+        <source>Next/PrevSubFolder(Archive)*</source>
+        <target>Next/PrevSubFolder(Archive)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next/PrevSubFolder(Archive)**" xml:space="preserve">
+        <source>Next/PrevSubFolder(Archive)**</source>
+        <target>Next/PrevSubFolder(Archive)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="NextBookmark" xml:space="preserve">
+        <source>NextBookmark</source>
+        <target>NextBookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="NextFolder(Archive)" xml:space="preserve">
+        <source>NextFolder(Archive)</source>
+        <target>NextFolder(Archive)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="NextPage" xml:space="preserve">
+        <source>NextPage</source>
+        <target>NextPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="NextSubFolder(Archive)" xml:space="preserve">
+        <source>NextSubFolder(Archive)</source>
+        <target>NextSubFolder(Archive)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No Scale" xml:space="preserve">
+        <source>No Scale</source>
+        <target>No Scale</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Open '%@' in default browser?" xml:space="preserve">
+        <source>Open '%@' in default browser?</source>
+        <target>Open '%@' in default browser?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Open URL" xml:space="preserve">
+        <source>Open URL</source>
+        <target>Open URL</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Open the last page" xml:space="preserve">
+        <source>Open the last page</source>
+        <target>Open the last page</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageDown" xml:space="preserve">
+        <source>PageDown</source>
+        <target>PageDown</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageDown + NextPage" xml:space="preserve">
+        <source>PageDown + NextPage</source>
+        <target>PageDown + NextPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageUp" xml:space="preserve">
+        <source>PageUp</source>
+        <target>PageUp</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageUp + PrevPage" xml:space="preserve">
+        <source>PageUp + PrevPage</source>
+        <target>PageUp + PrevPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageUp/Down + Prev/NextPage" xml:space="preserve">
+        <source>PageUp/Down + Prev/NextPage</source>
+        <target>PageUp/Down + Prev/NextPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageUp/Down + Prev/NextPage*" xml:space="preserve">
+        <source>PageUp/Down + Prev/NextPage*</source>
+        <target>PageUp/Down + Prev/NextPage*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PageUp/Down + Prev/NextPage**" xml:space="preserve">
+        <source>PageUp/Down + Prev/NextPage**</source>
+        <target>PageUp/Down + Prev/NextPage**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Previous Bookmark" xml:space="preserve">
+        <source>Previous Bookmark</source>
+        <target>Previous Bookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Previous Folder" xml:space="preserve">
+        <source>Previous Folder</source>
+        <target>Previous Folder</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PreviousBookmark" xml:space="preserve">
+        <source>PreviousBookmark</source>
+        <target>PreviousBookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PreviousFolder(Archive)" xml:space="preserve">
+        <source>PreviousFolder(Archive)</source>
+        <target>PreviousFolder(Archive)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PreviousPage" xml:space="preserve">
+        <source>PreviousPage</source>
+        <target>PreviousPage</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="PreviousSubFolder(Archive)" xml:space="preserve">
+        <source>PreviousSubFolder(Archive)</source>
+        <target>PreviousSubFolder(Archive)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ReduceViewMode" xml:space="preserve">
+        <source>ReduceViewMode</source>
+        <target>ReduceViewMode</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Remove Bookmark" xml:space="preserve">
+        <source>Remove Bookmark</source>
+        <target>Remove Bookmark</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Reset key setting" xml:space="preserve">
+        <source>Reset key setting</source>
+        <target>Reset key setting</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Reset mouse setting" xml:space="preserve">
+        <source>Reset mouse setting</source>
+        <target>Reset mouse setting</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Right to Left" xml:space="preserve">
+        <source>Right to Left</source>
+        <target>Right to Left</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Right to Left (single)" xml:space="preserve">
+        <source>Right to Left (single)</source>
+        <target>Right to Left (single)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rotate Left" xml:space="preserve">
+        <source>Rotate Left</source>
+        <target>Rotate Left</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rotate Right" xml:space="preserve">
+        <source>Rotate Right</source>
+        <target>Rotate Right</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rotate(L/R)*" xml:space="preserve">
+        <source>Rotate(L/R)*</source>
+        <target>Rotate(L/R)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rotate(L/R)**" xml:space="preserve">
+        <source>Rotate(L/R)**</source>
+        <target>Rotate(L/R)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollDown" xml:space="preserve">
+        <source>ScrollDown</source>
+        <target>ScrollDown</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollLeft" xml:space="preserve">
+        <source>ScrollLeft</source>
+        <target>ScrollLeft</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollRight" xml:space="preserve">
+        <source>ScrollRight</source>
+        <target>ScrollRight</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollToEnd" xml:space="preserve">
+        <source>ScrollToEnd</source>
+        <target>ScrollToEnd</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollToTop" xml:space="preserve">
+        <source>ScrollToTop</source>
+        <target>ScrollToTop</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ScrollUp" xml:space="preserve">
+        <source>ScrollUp</source>
+        <target>ScrollUp</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Setting is not found" xml:space="preserve">
+        <source>Setting is not found</source>
+        <target>Setting is not found</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Setting of %@ is not found.&#10;Do you want to use a setting of %@ ?" xml:space="preserve">
+        <source>Setting of %1$@ is not found.
+Do you want to use a setting of %2$@ ?</source>
+        <target>Setting of %1$@ is not found.
+Do you want to use a setting of %2$@ ?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show Thumbnail" xml:space="preserve">
+        <source>Show Thumbnail</source>
+        <target>Show Thumbnail</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show in Finder" xml:space="preserve">
+        <source>Show in Finder</source>
+        <target>Show in Finder</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show in Finder(L/R)*" xml:space="preserve">
+        <source>Show in Finder(L/R)*</source>
+        <target>Show in Finder(L/R)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show in Finder(L/R)**" xml:space="preserve">
+        <source>Show in Finder(L/R)**</source>
+        <target>Show in Finder(L/R)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show in Finder(left)" xml:space="preserve">
+        <source>Show in Finder(left)</source>
+        <target>Show in Finder(left)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show in Finder(right)" xml:space="preserve">
+        <source>Show in Finder(right)</source>
+        <target>Show in Finder(right)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ShowLoupe" xml:space="preserve">
+        <source>ShowLoupe</source>
+        <target>ShowLoupe</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ShowNumber" xml:space="preserve">
+        <source>ShowNumber</source>
+        <target>ShowNumber</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ShowPageBar" xml:space="preserve">
+        <source>ShowPageBar</source>
+        <target>ShowPageBar</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Shuffle" xml:space="preserve">
+        <source>Shuffle</source>
+        <target>Shuffle</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Skip" xml:space="preserve">
+        <source>Skip</source>
+        <target>Skip</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Skip/BackSkip*" xml:space="preserve">
+        <source>Skip/BackSkip*</source>
+        <target>Skip/BackSkip*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Skip/BackSkip**" xml:space="preserve">
+        <source>Skip/BackSkip**</source>
+        <target>Skip/BackSkip**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Slideshow" xml:space="preserve">
+        <source>Slideshow</source>
+        <target>Slideshow</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Start Slideshow" xml:space="preserve">
+        <source>Start Slideshow</source>
+        <target>Start Slideshow</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Start/Stop" xml:space="preserve">
+        <source>Start/Stop</source>
+        <target>Start/Stop</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Stop Slideshow" xml:space="preserve">
+        <source>Stop Slideshow</source>
+        <target>Stop Slideshow</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Switch Single/Bind" xml:space="preserve">
+        <source>Switch Single/Bind</source>
+        <target>Switch Single/Bind</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="SwitchFullscreen" xml:space="preserve">
+        <source>SwitchFullscreen</source>
+        <target>SwitchFullscreen</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="SwitchSingle/Bind" xml:space="preserve">
+        <source>SwitchSingle/Bind</source>
+        <target>SwitchSingle/Bind</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="The current opening book was moved. Are you sure you want to change current folder?" xml:space="preserve">
+        <source>The current opening book was moved. Are you sure you want to change current folder?</source>
+        <target>The current opening book was moved. Are you sure you want to change current folder?</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="The parent folder of current book was changed. Do you want to follow?" xml:space="preserve">
+        <source>The parent folder of current book was changed. Do you want to follow?</source>
+        <target>The parent folder of current book was changed. Do you want to follow?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="View at Original Size" xml:space="preserve">
+        <source>View at Original Size</source>
+        <target>View at Original Size</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ViewOriginal(L/R)*" xml:space="preserve">
+        <source>ViewOriginal(L/R)*</source>
+        <target>ViewOriginal(L/R)*</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ViewOriginal(L/R)**" xml:space="preserve">
+        <source>ViewOriginal(L/R)**</source>
+        <target>ViewOriginal(L/R)**</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ViewOriginal(left)" xml:space="preserve">
+        <source>ViewOriginal(left)</source>
+        <target>ViewOriginal(left)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="ViewOriginal(right)" xml:space="preserve">
+        <source>ViewOriginal(right)</source>
+        <target>ViewOriginal(right)</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Window" xml:space="preserve">
+        <source>Window</source>
+        <target>Window</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="unknown" xml:space="preserve">
+        <source>unknown</source>
+        <target>unknown</target>
+        <note>No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

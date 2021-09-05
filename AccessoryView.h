@@ -83,6 +83,7 @@ NSRect COIntRect(NSRect aRect);
 -(NSString*)pageString;
 -(NSRect)pageStringRect;
 
+-(void)drawPageBarBubble;
 -(void)drawPageBar;
 -(NSRect)pageBarRect;
 -(NSRect)pageMoverRect;

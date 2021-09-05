@@ -10,6 +10,19 @@
 @end
 
 @implementation CustomImageView
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setWantsLayer:YES];
+         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(filterValueDidChange:)
+                                                     name:@"FilterUIValueDidChange"
+                                                   object:nil];
+    }
+    return self;
+}
 - (void)setTarget:(id)tar
 {
 	target = tar;
@@ -60,10 +73,14 @@
 	maxEnlargement = [target maxEnlargement];
 	
 	
-	lensSize=[defaults integerForKey:@"LoupeSize"];
+	lensSize=(int)[defaults integerForKey:@"LoupeSize"];
 	lensRate=[defaults floatForKey:@"LoupeRate"];
 	
 	[self display];
+}
+-(void)setUseCalayer:(BOOL)use
+{
+    useCalayer = use;
 }
 -(void)setInterpolation:(int)index
 {
@@ -127,7 +144,7 @@
 	cursorMoved = NSMakePoint(0,0);
 	oldPoint=[event locationInWindow];
 	
-	int button = [event buttonNumber];
+	int button = (int)[event buttonNumber];
 	
 	unsigned int cMod = 100;
 	if (([event modifierFlags] & NSShiftKeyMask))
@@ -265,7 +282,7 @@
 
 - (void)beginGestureWithEvent:(NSEvent *)event
 {
-//	NSLog(@"beginGestureWithEvent %@",event);
+//  NSLog(@"beginGestureWithEvent %@",event);
 	mt_rotation = 0;
 	mt_deltaZ = 0;
 	mt_didAction = NO;
@@ -279,13 +296,18 @@
 
 - (void)magnifyWithEvent:(NSEvent *)event
 {
-//	NSLog(@"deltaZ=%f",[event deltaZ]);
+//  NSLog(@"magnification=%f",[event magnification]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if (mt_didAction == NO) {
-		mt_deltaZ += [event deltaZ];
-		if (mt_deltaZ<-100) {
+		mt_deltaZ += [event magnification];
+		if (mt_deltaZ<-0.2) {
 			[target multiTouchAction:event action:4];
 			mt_didAction = YES;
-		} else if (mt_deltaZ>100) {
+		} else if (mt_deltaZ>0.2) {
 			[target multiTouchAction:event action:5];
 			mt_didAction = YES;
 		}
@@ -294,7 +316,12 @@
 
 - (void)rotateWithEvent:(NSEvent *)event
 {
-//	NSLog(@"rotation=%f",[event rotation]);
+//  NSLog(@"rotation=%f",[event rotation]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if (mt_didAction == NO) {
 		mt_rotation += [event rotation];
 		if (mt_rotation<-15) {
@@ -310,7 +337,12 @@
 
 - (void)swipeWithEvent:(NSEvent *)event
 {
-//	NSLog(@"deltaX=%f,deltaY=%f",[event deltaX],[event deltaY]);
+//  NSLog(@"deltaX=%f,deltaY=%f",[event deltaX],[event deltaY]);
+    if ([event phase] == NSEventPhaseBegan) {
+        mt_rotation = 0;
+        mt_deltaZ = 0;
+        mt_didAction = NO;
+    }
 	if ([event deltaX]<0) {
 		[target multiTouchAction:event action:0];
 	} else if ([event deltaX]>0) {
@@ -321,7 +353,6 @@
 		[target multiTouchAction:event action:3];
 	}
 }
-
 
 #pragma mark scroll
 
@@ -633,210 +664,231 @@ NSTimeInterval elapsed=0;
 
 -(void)setImage:(NSImage *)image
 {		
-	if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
-	needFirstScroll = NO;
 	images = NO;
 	[_image autorelease];
 	_image = [image retain];
-	[accessoryView drawAccessory];
-	
-	if (fitScreenMode > 0) {
-		if (image == nil) {
-			[super setImage:_image];
-		} else {
-			needFirstScroll = YES;
-			[self setNeedsDisplayInRect:[self visibleRect]];
-		}
-	} else {
-		if (image == nil) {
-			[super setImage:_image];
-		} else {
-			[self setNeedsDisplayInRect:[self visibleRect]];
-		}
-	}
-	[self displayIfNeededInRect:[self visibleRect]];
-	[accessoryView displayIfNeeded];
+    if (image == nil) {
+        [super setImage:_image];
+        return;
+    }
+    [self imageDisplay];
 }
 
 -(void)setImages:(NSImage *)image
 {
-	if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
-	
-	needFirstScroll = NO;
 	images = YES;
 	[_image autorelease];
 	_image = [image retain];
-	[accessoryView drawAccessory];
-	if (fitScreenMode > 0) {
-		if (image == nil) {
-			[super setImage:_image];
-		} else {
-			needFirstScroll = YES;
-			[self setNeedsDisplayInRect:[self visibleRect]];
-		}
-	} else {
-		if (image == nil) {
-			[super setImage:_image];
-		} else {
-			[self setNeedsDisplayInRect:[self visibleRect]];
-		}
-	}
-	[self displayIfNeededInRect:[self visibleRect]];
-	[accessoryView displayIfNeeded];
+    if (image == nil) {
+        [super setImage:_image];
+        return;
+    }
+    [self imageDisplay];
 }
 
+-(void)imageDisplay
+{
+    [[self layer] setDrawsAsynchronously:useCalayer];
+    [[self layer] setFilters:nil];
+    [[self layer] setFilters:filters];
+    if (![accessoryWindow isVisible]) [accessoryWindow orderFront:self];
+    if (fitScreenMode > 0) {
+        if (images) {
+            NSDictionary *infodic = [self getDrawImagesInfo:[target image1] and:[target image2]];
+            NSSize frameSize = NSSizeFromString([infodic objectForKey:@"frameSize"]);
+            [self setFrameSize:frameSize];
+            [self firstScroll];
+            [self setNeedsDisplayInRect:[self frame]];
+        } else {
+            NSDictionary *infodic = [self getDrawImageInfo:_image];
+            NSSize frameSize = NSSizeFromString([infodic objectForKey:@"frameSize"]);
+            [self setFrameSize:frameSize];
+            [self firstScroll];
+            [self setNeedsDisplayInRect:[self frame]];
+        }
+    } else {
+        [self setNeedsDisplayInRect:[self visibleRect]];
+    }
+    [accessoryView drawAccessory];
+//    [self displayIfNeededInRect:[self visibleRect]];
+//    [accessoryView displayIfNeeded];
+}
+
+- (void)filterValueDidChange:(NSNotification *)aNotification
+{
+    [filters release];
+    filters = [[[[aNotification object] objectForKey:@"filters"] allValues] retain];
+    if ([self layer]) {
+        [[self layer] setFilters:nil];
+        [[self layer] setFilters:filters];
+        [[self layer] display];
+    }
+}
 
 #pragma mark draw
 
 -(void)drawRect:(NSRect)frameRect
 {
-	NSGraphicsContext *gc = [NSGraphicsContext currentContext];
-	switch (interpolation) {
-		case 1:
-			[gc setImageInterpolation:NSImageInterpolationNone];
-			break;
-		case 2:
-			[gc setImageInterpolation:NSImageInterpolationLow];
-			break;
-		case 3:
-			[gc setImageInterpolation:NSImageInterpolationHigh];
-			break;
-		default:
-			[gc setImageInterpolation:NSImageInterpolationDefault];
-			break;
-	}
-	if (_image == nil) {
-		[super drawRect:frameRect];
-	} else if ([target firstImage] && images) {
-		[self drawImages:[target image1] and:[target image2]];
-	} else {
-		//single & oldscroll
-		[self drawImage:_image];
-	}
-	if (needFirstScroll) {
-		needFirstScroll = NO;
-		if ([self firstScroll]) return;
-	}
-	
+    if (_image == nil) {
+        [super drawRect:frameRect];
+    } else {
+        NSGraphicsContext *gc = [NSGraphicsContext currentContext];
+        switch (interpolation) {
+            case 1:
+                [gc setImageInterpolation:NSImageInterpolationNone];
+                break;
+            case 2:
+                [gc setImageInterpolation:NSImageInterpolationLow];
+                break;
+            case 3:
+                [gc setImageInterpolation:NSImageInterpolationHigh];
+                break;
+            default:
+                [gc setImageInterpolation:NSImageInterpolationDefault];
+                break;
+        }
+        if ([target firstImage] && images) {
+            [self drawImages:[target image1] and:[target image2]];
+        } else {
+            //single & oldscroll
+            [self drawImage:_image];
+        }
+    }
+    
 	if (lensWindow) [self drawLoupe];
 }
 
-- (void)drawImage:(NSImage*)image
-{	
-	NSImageRep *rep;
-	rep = [image bestRepresentationForDevice:nil];
-		
-	int widthValue,heightValue;
-	if (rotateMode==1||rotateMode==3) {
-		widthValue = [rep pixelsHigh];
-		heightValue = [rep pixelsWide];
-	} else {
-		widthValue = [rep pixelsWide];
-		heightValue = [rep pixelsHigh];
-	}
+- (NSMutableDictionary *)getDrawImageInfo:(NSImage*)image
+{
+    NSMutableDictionary *infodic = [NSMutableDictionary dictionary];
+    
+    int widthValue,heightValue;
+    if (rotateMode==1||rotateMode==3) {
+        widthValue = [image size].height;
+        heightValue = [image size].width;
+    } else {
+        widthValue = [image size].width;
+        heightValue = [image size].height;
+    }
 
-	float screenWidthValue = NSWidth([[[self window] contentView] frame]);
-	float screenHeightValue = NSHeight([[[self window] contentView] frame]);
-	
-	float x,y,width,height;
-	if (fitScreenMode == 1) {
-		float rate = screenWidthValue/widthValue;
-		if (maxEnlargement != 0 && rate > maxEnlargement) {
-			rate = maxEnlargement;
-		}
-		width = widthValue*rate;
-		height = heightValue*rate;
-		x = screenWidthValue-width;
-		x = x/2;
-		y = screenHeightValue-height;
-		y = y/2;
-		if (height < screenHeightValue) {
-			[self setFrameSize:NSMakeSize(screenWidthValue,screenHeightValue)];
-		} else {
-			[self setFrameSize:NSMakeSize(screenWidthValue,(int)height)];
-			y = 0;
-		}
-	} else if (fitScreenMode == 2) {
-		width = widthValue;
-		height = heightValue;
-		x = screenWidthValue-width;
-		x = x/2;
-		y = screenHeightValue-height;
-		y = y/2;
-		
-		if (height < screenHeightValue) {
-			if (width < screenWidthValue) {
-				[self setFrameSize:NSMakeSize(screenWidthValue,screenHeightValue)];
-			} else {
-				[self setFrameSize:NSMakeSize((int)width,screenHeightValue)];
-				x = 0;
-			}
-			//y = 0;
-		} else {
-			if (width < screenWidthValue) {
-				[self setFrameSize:NSMakeSize((int)screenWidthValue,(int)height)];
-			} else {
-				[self setFrameSize:NSMakeSize((int)width,(int)height)];
-				x = 0;
-			}
-			y = 0;
-		}
-	} else if (fitScreenMode == 3) {
-		if ([target isSmallImage:image page:-1] || (rotateMode==1||rotateMode==3)) {
-			//(readmode:single && smallImage) || (90回転)
-			//とりあえずfitScreenMode==1と同じ
-			float rate = screenWidthValue/widthValue;
-			if (maxEnlargement != 0 && rate > maxEnlargement) {
-				rate = maxEnlargement;
-			}
-			width = widthValue*rate;
-			height = heightValue*rate;
-			x = screenWidthValue-width;
-			x = x/2;
-			y = screenHeightValue-height;
-			y = y/2;
-			if (height < screenHeightValue) {
-				[self setFrameSize:NSMakeSize(screenWidthValue,screenHeightValue)];
-			} else {
-				[self setFrameSize:NSMakeSize(screenWidthValue,(int)height)];
-				y = 0;
-			}
-		} else {
-			float rate = screenWidthValue/(widthValue/2);
-			if (maxEnlargement != 0 && rate > maxEnlargement) {
-				rate = maxEnlargement;
-			}
-			width = widthValue*rate;
-			height = heightValue*rate;
-			x = screenWidthValue*2-width;
-			x = x/2;
-			y = screenHeightValue-height;
-			y = y/2;
-			if (height < screenHeightValue) {
-				[self setFrameSize:NSMakeSize(screenWidthValue*2,screenHeightValue)];
-			} else {
-				[self setFrameSize:NSMakeSize(screenWidthValue*2,(int)height)];
-				y = 0;
-				x = 0;
-			}
-		}
-	} else {
-		float rate = screenWidthValue/widthValue;
-		float sRate = screenHeightValue/heightValue;
-		if (rate > sRate) {
-			rate = sRate;
-		}
-		if (maxEnlargement != 0 && rate > maxEnlargement) {
-			rate = maxEnlargement;
-		}
-		width = widthValue*rate;
-		height = heightValue*rate;
-		x = screenWidthValue-width;
-		x = x/2;
-		y = screenHeightValue-height;
-		y = y/2;
-	}
-	
+    float screenWidthValue = NSWidth([[[self window] contentView] frame]);
+    float screenHeightValue = NSHeight([[[self window] contentView] frame]);
+    
+    float x,y,width,height;
+    if (fitScreenMode == 1) {
+        float rate = screenWidthValue/widthValue;
+        if (maxEnlargement != 0 && rate > maxEnlargement) {
+            rate = maxEnlargement;
+        }
+        width = widthValue*rate;
+        height = heightValue*rate;
+        x = screenWidthValue-width;
+        x = x/2;
+        y = screenHeightValue-height;
+        y = y/2;
+        if (height < screenHeightValue) {
+            [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue,screenHeightValue)) forKey:@"frameSize"];
+        } else {
+            [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue,(int)height)) forKey:@"frameSize"];
+            y = 0;
+        }
+    } else if (fitScreenMode == 2) {
+        width = widthValue;
+        height = heightValue;
+        x = screenWidthValue-width;
+        x = x/2;
+        y = screenHeightValue-height;
+        y = y/2;
+        
+        if (height < screenHeightValue) {
+            if (width < screenWidthValue) {
+                [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue,screenHeightValue)) forKey:@"frameSize"];
+            } else {
+                [infodic setObject:NSStringFromSize(NSMakeSize((int)width,screenHeightValue)) forKey:@"frameSize"];
+                x = 0;
+            }
+            //y = 0;
+        } else {
+            if (width < screenWidthValue) {
+                [infodic setObject:NSStringFromSize(NSMakeSize((int)screenWidthValue,(int)height)) forKey:@"frameSize"];
+            } else {
+                [infodic setObject:NSStringFromSize(NSMakeSize((int)width,(int)height)) forKey:@"frameSize"];
+                x = 0;
+            }
+            y = 0;
+        }
+    } else if (fitScreenMode == 3) {
+        if ([target isSmallImage:image page:-1] || (rotateMode==1||rotateMode==3)) {
+            //(readmode:single && smallImage) || (90回転)
+            //とりあえずfitScreenMode==1と同じ
+            float rate = screenWidthValue/widthValue;
+            if (maxEnlargement != 0 && rate > maxEnlargement) {
+                rate = maxEnlargement;
+            }
+            width = widthValue*rate;
+            height = heightValue*rate;
+            x = screenWidthValue-width;
+            x = x/2;
+            y = screenHeightValue-height;
+            y = y/2;
+            if (height < screenHeightValue) {
+                [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue,screenHeightValue)) forKey:@"frameSize"];
+            } else {
+                [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue,(int)height)) forKey:@"frameSize"];
+                y = 0;
+            }
+        } else {
+            float rate = screenWidthValue/(widthValue/2);
+            if (maxEnlargement != 0 && rate > maxEnlargement) {
+                rate = maxEnlargement;
+            }
+            width = widthValue*rate;
+            height = heightValue*rate;
+            x = screenWidthValue*2-width;
+            x = x/2;
+            y = screenHeightValue-height;
+            y = y/2;
+            if (height < screenHeightValue) {
+                [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue*2,screenHeightValue)) forKey:@"frameSize"];
+            } else {
+                [infodic setObject:NSStringFromSize(NSMakeSize(screenWidthValue*2,(int)height)) forKey:@"frameSize"];
+                y = 0;
+                x = 0;
+            }
+        }
+    } else {
+        float rate = screenWidthValue/widthValue;
+        float sRate = screenHeightValue/heightValue;
+        if (rate > sRate) {
+            rate = sRate;
+        }
+        if (maxEnlargement != 0 && rate > maxEnlargement) {
+            rate = maxEnlargement;
+        }
+        width = widthValue*rate;
+        height = heightValue*rate;
+        x = screenWidthValue-width;
+        x = x/2;
+        y = screenHeightValue-height;
+        y = y/2;
+    }
+    NSRect drawRect;
+    if (rotateMode==1||rotateMode==3) {
+        drawRect = NSMakeRect((int)y,(int)x,(int)height,(int)width);
+    } else {
+        drawRect = NSMakeRect((int)x,(int)y,(int)width,(int)height);
+    }
+    [infodic setObject:[NSString stringWithFormat:@"%f",x] forKey:@"x"];
+    [infodic setObject:[NSString stringWithFormat:@"%f",y] forKey:@"y"];
+    [infodic setObject:[NSString stringWithFormat:@"%f",width] forKey:@"width"];
+    [infodic setObject:[NSString stringWithFormat:@"%f",height] forKey:@"height"];
+    [infodic setObject:NSStringFromRect(drawRect) forKey:@"drawRect"];
+    return infodic;
+}
+- (void)drawImage:(NSImage*)image
+{
+    NSDictionary *infodic = [self getDrawImageInfo:image];
+    NSRect drawRect = NSRectFromString([infodic objectForKey:@"drawRect"]);
 		
 	NSAffineTransform *transform;
 	switch (rotateMode) {
@@ -861,308 +913,368 @@ NSTimeInterval elapsed=0;
 		default:
 			break;
 	}
-	NSRect drawRect;
-	if (rotateMode==1||rotateMode==3) {
-		drawRect = NSMakeRect((int)y,(int)x,(int)height,(int)width);
-	} else {
-		drawRect = NSMakeRect((int)x,(int)y,(int)width,(int)height);
-	}
-	[image drawInRect:drawRect
-			 fromRect:NSMakeRect(0,0,[rep pixelsWide],[rep pixelsHigh])
-			operation:NSCompositeSourceOver fraction:1.0];
+    [image drawInRect:drawRect
+              fromRect:NSMakeRect(0,0,[image size].width,[image size].height)
+             operation:NSCompositeSourceOver fraction:1.0];
 	if (rotateMode!=0) {
 		[transform invert];
 		[transform concat];
 	}
+    float x = [[infodic objectForKey:@"x"] floatValue];
+    float y = [[infodic objectForKey:@"y"] floatValue];
+    float width = [[infodic objectForKey:@"width"] floatValue];
+    float height = [[infodic objectForKey:@"height"] floatValue];
 	fRect = NSMakeRect((int)x,(int)y,(int)width,(int)height);
 	sRect = NSZeroRect;
 }
 
+- (NSMutableDictionary *)getDrawImagesInfo:(NSImage*)image1 and:(NSImage*)image2
+{
+    NSMutableDictionary *infodic = [NSMutableDictionary dictionary];
+    
+    NSRect fullscreenRect,leftRect,rightRect;
+    fullscreenRect = [[[self window] contentView] frame];
+    if (rotateMode==1||rotateMode==3) {
+        fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
+    }
+    
+    int w = fullscreenRect.size.width;
+    if (w%2) {
+        fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.width-1,fullscreenRect.size.height);
+    }
+    int h = fullscreenRect.size.height;
+    if (h%2) {
+        fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.width,fullscreenRect.size.height-1);
+    }
+    NSDivideRect (fullscreenRect, &leftRect, &rightRect, fullscreenRect.size.width/2, NSMinXEdge);
+
+    
+    int widthValue01 = [image1 size].width;
+    int heightValue01 = [image1 size].height;
+    
+    int widthValue02 = [image2 size].width;
+    int heightValue02 = [image2 size].height;
+    
+    int widthValue1 = widthValue01;
+    int heightValue1 = heightValue01;
+    int widthValue2 = widthValue02;
+    int heightValue2 = heightValue02;
+    
+    float screenWidthValue = leftRect.size.width;
+    float screenHeightValue = leftRect.size.height;
+    
+    if (fitScreenMode == 2) {
+        float highest = heightValue1;
+        if (heightValue2 > heightValue1) highest=heightValue2;
+        
+        if (rotateMode==1||rotateMode==3) {
+            if (((int)widthValue1+(int)widthValue2) < fullscreenRect.size.width) {
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.height,(int)fullscreenRect.size.width)) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)highest,(int)fullscreenRect.size.width)) forKey:@"frameSize"];
+                }
+            } else {
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.height,((int)widthValue1+(int)widthValue2))) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)highest,((int)widthValue1+(int)widthValue2))) forKey:@"frameSize"];
+                }
+            }
+            fullscreenRect = [self frame];
+            fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
+        } else {
+            if (((int)widthValue1+(int)widthValue2) < fullscreenRect.size.width) {
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width,(int)fullscreenRect.size.height)) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width,(int)highest)) forKey:@"frameSize"];
+                }
+            } else {
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize(((int)widthValue1+(int)widthValue2),(int)fullscreenRect.size.height)) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize(((int)widthValue1+(int)widthValue2),(int)highest)) forKey:@"frameSize"];
+                }
+            }
+            fullscreenRect = [self frame];
+        }
+    } else {
+        float rate1 = screenWidthValue/widthValue01;
+        float rate2 = screenWidthValue/widthValue02;
+        float sRate1 = screenHeightValue/heightValue01;
+        float sRate2 = screenHeightValue/heightValue02;
+        
+        if (rate1 > sRate1) rate1 = sRate1;
+        if (rate2 > sRate2) rate2 = sRate2;
+        if (maxEnlargement != 0 && rate1 > maxEnlargement) rate1 = maxEnlargement;
+        if (maxEnlargement != 0 && rate2 > maxEnlargement) rate2 = maxEnlargement;
+        
+        widthValue1 = widthValue01*rate1;
+        heightValue1 = heightValue01*rate1;
+        widthValue2 = widthValue02*rate2;
+        heightValue2 = heightValue02*rate2;
+        //NSLog(@"%i,%f",widthValue2,widthValue02*rate2);
+            
+        if (rotateMode==1||rotateMode==3) {
+            //90,270度回転
+            if (fitScreenMode == 0){
+                if (heightValue1 != screenHeightValue) {
+                    rate1 = screenHeightValue/heightValue01;
+                    if (maxEnlargement != 0 && rate1 > maxEnlargement) {
+                        rate1 = maxEnlargement;
+                    }
+                    widthValue1 = widthValue01*rate1;
+                    heightValue1 = heightValue01*rate1;
+                }
+                if (heightValue2 != screenHeightValue) {
+                    rate2 = screenHeightValue/heightValue02;
+                    if (maxEnlargement != 0 && rate2 > maxEnlargement) {
+                        rate2 = maxEnlargement;
+                    }
+                    widthValue2 = widthValue02*rate2;
+                    heightValue2 = heightValue02*rate2;
+                }
+                if (widthValue1+widthValue2 > fullscreenRect.size.width){
+                    float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
+                    
+                    widthValue1 = widthValue1*rates;
+                    heightValue1 = heightValue1*rates;
+                    widthValue2 = widthValue2*rates;
+                    heightValue2 = heightValue2*rates;
+                }
+            } else if (fitScreenMode == 1) {
+                widthValue1 = widthValue01*sRate1;
+                heightValue1 = heightValue01*sRate1;
+                widthValue2 = widthValue02*sRate2;
+                heightValue2 = heightValue02*sRate2;
+                if (maxEnlargement != 0) {
+                    if (widthValue1 > (widthValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (heightValue1 > (heightValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (widthValue2 > (widthValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                    if (heightValue2 > (heightValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                }
+                
+                [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.height,(int)(widthValue1+widthValue2))) forKey:@"frameSize"];
+                fullscreenRect = [self frame];
+                fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
+            } else if (fitScreenMode == 3) {
+                //とりあえずfitScreenMode==1と同じ
+                widthValue1 = widthValue01*sRate1;
+                heightValue1 = heightValue01*sRate1;
+                widthValue2 = widthValue02*sRate2;
+                heightValue2 = heightValue02*sRate2;
+                if (maxEnlargement != 0) {
+                    if (widthValue1 > (widthValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (heightValue1 > (heightValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (widthValue2 > (widthValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                    if (heightValue2 > (heightValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                }
+                
+                [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.height,(int)(widthValue1+widthValue2))) forKey:@"frameSize"];
+                fullscreenRect = [self frame];
+                fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
+            }
+        } else {
+            //0,180度回転
+            if (heightValue1 != screenHeightValue) {
+                rate1 = screenHeightValue/heightValue01;
+                if (maxEnlargement != 0 && rate1 > maxEnlargement) {
+                    rate1 = maxEnlargement;
+                }
+                widthValue1 = widthValue01*rate1;
+                heightValue1 = heightValue01*rate1;
+            }
+            if (heightValue2 != screenHeightValue) {
+                rate2 = screenHeightValue/heightValue02;
+                if (maxEnlargement != 0 && rate2 > maxEnlargement) {
+                    rate2 = maxEnlargement;
+                }
+                widthValue2 = widthValue02*rate2;
+                heightValue2 = heightValue02*rate2;
+            }
+            if (widthValue1+widthValue2 > fullscreenRect.size.width){
+                float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
+                
+                widthValue1 = widthValue1*rates;
+                heightValue1 = heightValue1*rates;
+                widthValue2 = widthValue2*rates;
+                heightValue2 = heightValue2*rates;
+            }
+            if (fitScreenMode == 1) {
+                float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
+                widthValue1 = widthValue1*rates;
+                heightValue1 = heightValue1*rates;
+                widthValue2 = widthValue2*rates;
+                heightValue2 = heightValue2*rates;
+                if (maxEnlargement != 0) {
+                    if (widthValue1 > (widthValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (heightValue1 > (heightValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (widthValue2 > (widthValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                    if (heightValue2 > (heightValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                }
+                float highest = heightValue1;
+                if (heightValue2 > heightValue1) highest=heightValue2;
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width,(int)fullscreenRect.size.height)) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width,(int)highest)) forKey:@"frameSize"];
+                }
+                fullscreenRect = [self frame];
+            } else if (fitScreenMode == 3) {
+                float rates = fullscreenRect.size.width/((widthValue1+widthValue2)/2);
+                widthValue1 = widthValue1*rates;
+                heightValue1 = heightValue1*rates;
+                widthValue2 = widthValue2*rates;
+                heightValue2 = heightValue2*rates;
+                if (maxEnlargement != 0) {
+                    if (widthValue1 > (widthValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (heightValue1 > (heightValue01*maxEnlargement)) {
+                        widthValue1 = widthValue01;
+                        heightValue1 = heightValue01;
+                    }
+                    if (widthValue2 > (widthValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                    if (heightValue2 > (heightValue02*maxEnlargement)) {
+                        widthValue2 = widthValue02;
+                        heightValue2 = heightValue02;
+                    }
+                }
+                float highest = heightValue1;
+                if (heightValue2 > heightValue1) highest=heightValue2;
+                if (highest < screenHeightValue) {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width*2,(int)fullscreenRect.size.height)) forKey:@"frameSize"];
+                } else {
+                    [infodic setObject:NSStringFromSize(NSMakeSize((int)fullscreenRect.size.width*2,(int)highest)) forKey:@"frameSize"];
+                }
+                fullscreenRect = [self frame];
+            }
+            
+        }
+    }
+    
+    int height = fullscreenRect.size.height;
+    int center1,center2;
+    center1 = (height-heightValue1);
+    center2 = (height-heightValue2);
+    if (center1 >= 0) {
+        center1 = center1 / 2;
+    } else {
+        center1 = 0;
+    }
+    if (center2 >= 0) {
+        center2 = center2 / 2;
+    } else {
+        center2 = 0;
+    }
+    
+    
+    int x = fullscreenRect.size.width-widthValue1-widthValue2;
+    x = x/2;
+    
+    if (rotateMode==1) {
+        if ([target readFromLeft]) {
+            fRect = NSMakeRect(center1,x,heightValue1,widthValue1);
+            sRect = NSMakeRect(center2,x+widthValue1,heightValue2,widthValue2);
+        } else {
+            fRect = NSMakeRect(center2,x,heightValue2,widthValue2);
+            sRect = NSMakeRect(center1,x+widthValue2,heightValue1,widthValue1);
+        }
+    } else if (rotateMode==3) {
+        if ([target readFromLeft]) {
+            sRect = NSMakeRect(center2,x,heightValue2,widthValue2);
+            fRect = NSMakeRect(center1,x+widthValue2,heightValue1,widthValue1);
+        } else {
+            sRect = NSMakeRect(center1,x,heightValue1,widthValue1);
+            fRect = NSMakeRect(center2,x+widthValue1,heightValue2,widthValue2);
+        }
+    } else if (rotateMode==2) {
+        if ([target readFromLeft]) {
+            fRect = NSMakeRect(x,center2,widthValue2,heightValue2);
+            sRect = NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
+        } else {
+            sRect = NSMakeRect(x,center1,widthValue1,heightValue1);
+            fRect = NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
+        }
+    } else {
+        if ([target readFromLeft]) {
+            fRect = NSMakeRect(x,center1,widthValue1,heightValue1);
+            sRect = NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
+        } else {
+            fRect = NSMakeRect(x,center2,widthValue2,heightValue2);
+            sRect = NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
+        }
+    }
+    NSRect drawRect1;
+    NSRect drawRect2;
+    if ([target readFromLeft]) {
+        drawRect1=NSMakeRect(x,center1,widthValue1,heightValue1);
+        drawRect2=NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
+    } else {
+        drawRect1=NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
+        drawRect2=NSMakeRect(x,center2,widthValue2,heightValue2);
+    }
+    
+    [infodic setObject:[NSString stringWithFormat:@"%i",widthValue01] forKey:@"widthValue01"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",widthValue02] forKey:@"widthValue02"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",heightValue01] forKey:@"heightValue01"];
+    [infodic setObject:[NSString stringWithFormat:@"%i",heightValue02] forKey:@"heightValue02"];
+    [infodic setObject:NSStringFromRect(drawRect1) forKey:@"drawRect1"];
+    [infodic setObject:NSStringFromRect(drawRect2) forKey:@"drawRect2"];
+    [infodic setObject:NSStringFromRect(fullscreenRect) forKey:@"fullscreenRect"];
+    return infodic;
+}
 - (void)drawImages:(NSImage*)image1 and:(NSImage*)image2
 {
-	NSRect fullscreenRect,leftRect,rightRect;
-	fullscreenRect = [[[self window] contentView] frame];
-	if (rotateMode==1||rotateMode==3) {
-		fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
-	}
-	
-	int w = fullscreenRect.size.width;
-	if (w%2) {
-		fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.width-1,fullscreenRect.size.height);
-	}
-	int h = fullscreenRect.size.height;
-	if (h%2) {
-		fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.width,fullscreenRect.size.height-1);
-	}
-	NSDivideRect (fullscreenRect, &leftRect, &rightRect, fullscreenRect.size.width/2, NSMinXEdge);
-
-	
-	NSImageRep* rep1 = [image1 bestRepresentationForDevice:nil];
-	int widthValue01 = [rep1 pixelsWide];
-	int heightValue01 = [rep1 pixelsHigh];
-	
-	NSImageRep* rep2 = [image2 bestRepresentationForDevice:nil];
-	int widthValue02 = [rep2 pixelsWide];
-	int heightValue02 = [rep2 pixelsHigh];
-	
-	int widthValue1 = widthValue01;
-	int heightValue1 = heightValue01;
-	int widthValue2 = widthValue02;
-	int heightValue2 = heightValue02;
-	
-	float screenWidthValue = leftRect.size.width;
-	float screenHeightValue = leftRect.size.height;
-	
-	if (fitScreenMode == 2) {
-		float highest = heightValue1;
-		if (heightValue2 > heightValue1) highest=heightValue2;
-		
-		if (rotateMode==1||rotateMode==3) {
-			if (((int)widthValue1+(int)widthValue2) < fullscreenRect.size.width) {
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.height,(int)fullscreenRect.size.width)];
-				} else {
-					[self setFrameSize:NSMakeSize((int)highest,(int)fullscreenRect.size.width)];
-				}
-			} else {
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.height,((int)widthValue1+(int)widthValue2))];
-				} else {
-					[self setFrameSize:NSMakeSize((int)highest,((int)widthValue1+(int)widthValue2))];
-				}
-			}
-			fullscreenRect = [self frame];
-			fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
-		} else {
-			if (((int)widthValue1+(int)widthValue2) < fullscreenRect.size.width) {
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width,(int)fullscreenRect.size.height)];
-				} else {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width,(int)highest)];
-				}
-			} else {
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize(((int)widthValue1+(int)widthValue2),(int)fullscreenRect.size.height)];
-				} else {
-					[self setFrameSize:NSMakeSize(((int)widthValue1+(int)widthValue2),(int)highest)];
-				}
-			}
-			fullscreenRect = [self frame];
-		}
-	} else {
-		float rate1 = screenWidthValue/widthValue01;
-		float rate2 = screenWidthValue/widthValue02;
-		float sRate1 = screenHeightValue/heightValue01;
-		float sRate2 = screenHeightValue/heightValue02;
-		
-		if (rate1 > sRate1) rate1 = sRate1;
-		if (rate2 > sRate2) rate2 = sRate2;
-		if (maxEnlargement != 0 && rate1 > maxEnlargement) rate1 = maxEnlargement;
-		if (maxEnlargement != 0 && rate2 > maxEnlargement) rate2 = maxEnlargement;
-		
-		widthValue1 = widthValue01*rate1;
-		heightValue1 = heightValue01*rate1;
-		widthValue2 = widthValue02*rate2;
-		heightValue2 = heightValue02*rate2;
-		//NSLog(@"%i,%f",widthValue2,widthValue02*rate2);
-			
-		if (rotateMode==1||rotateMode==3) {
-			//90,270度回転
-			if (fitScreenMode == 0){
-				if (heightValue1 != screenHeightValue) {
-					rate1 = screenHeightValue/heightValue01;
-					if (maxEnlargement != 0 && rate1 > maxEnlargement) {
-						rate1 = maxEnlargement;
-					}
-					widthValue1 = widthValue01*rate1;
-					heightValue1 = heightValue01*rate1;
-				}
-				if (heightValue2 != screenHeightValue) {
-					rate2 = screenHeightValue/heightValue02;
-					if (maxEnlargement != 0 && rate2 > maxEnlargement) {
-						rate2 = maxEnlargement;
-					}
-					widthValue2 = widthValue02*rate2;
-					heightValue2 = heightValue02*rate2;
-				}
-				if (widthValue1+widthValue2 > fullscreenRect.size.width){
-					float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
-					
-					widthValue1 = widthValue1*rates;
-					heightValue1 = heightValue1*rates;
-					widthValue2 = widthValue2*rates;
-					heightValue2 = heightValue2*rates;
-				}
-			} else if (fitScreenMode == 1) {
-				widthValue1 = widthValue01*sRate1;
-				heightValue1 = heightValue01*sRate1;
-				widthValue2 = widthValue02*sRate2;
-				heightValue2 = heightValue02*sRate2;
-				if (maxEnlargement != 0) {
-					if (widthValue1 > (widthValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (heightValue1 > (heightValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (widthValue2 > (widthValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-					if (heightValue2 > (heightValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-				}
-				
-				[self setFrameSize:NSMakeSize((int)fullscreenRect.size.height,(int)(widthValue1+widthValue2))];
-				fullscreenRect = [self frame];
-				fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
-			} else if (fitScreenMode == 3) {
-				//とりあえずfitScreenMode==1と同じ
-				widthValue1 = widthValue01*sRate1;
-				heightValue1 = heightValue01*sRate1;
-				widthValue2 = widthValue02*sRate2;
-				heightValue2 = heightValue02*sRate2;
-				if (maxEnlargement != 0) {
-					if (widthValue1 > (widthValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (heightValue1 > (heightValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (widthValue2 > (widthValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-					if (heightValue2 > (heightValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-				}
-				
-				[self setFrameSize:NSMakeSize((int)fullscreenRect.size.height,(int)(widthValue1+widthValue2))];
-				fullscreenRect = [self frame];
-				fullscreenRect = NSMakeRect(fullscreenRect.origin.x,fullscreenRect.origin.y,fullscreenRect.size.height,fullscreenRect.size.width);
-			}
-		} else {
-			//0,180度回転
-			if (heightValue1 != screenHeightValue) {
-				rate1 = screenHeightValue/heightValue01;
-				if (maxEnlargement != 0 && rate1 > maxEnlargement) {
-					rate1 = maxEnlargement;
-				}
-				widthValue1 = widthValue01*rate1;
-				heightValue1 = heightValue01*rate1;
-			}
-			if (heightValue2 != screenHeightValue) {
-				rate2 = screenHeightValue/heightValue02;
-				if (maxEnlargement != 0 && rate2 > maxEnlargement) {
-					rate2 = maxEnlargement;
-				}
-				widthValue2 = widthValue02*rate2;
-				heightValue2 = heightValue02*rate2;
-			}
-			if (widthValue1+widthValue2 > fullscreenRect.size.width){
-				float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
-				
-				widthValue1 = widthValue1*rates;
-				heightValue1 = heightValue1*rates;
-				widthValue2 = widthValue2*rates;
-				heightValue2 = heightValue2*rates;
-			}
-			if (fitScreenMode == 1) {
-				float rates = fullscreenRect.size.width/(widthValue1+widthValue2);
-				widthValue1 = widthValue1*rates;
-				heightValue1 = heightValue1*rates;
-				widthValue2 = widthValue2*rates;
-				heightValue2 = heightValue2*rates;
-				if (maxEnlargement != 0) {
-					if (widthValue1 > (widthValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (heightValue1 > (heightValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (widthValue2 > (widthValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-					if (heightValue2 > (heightValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-				}
-				float highest = heightValue1;
-				if (heightValue2 > heightValue1) highest=heightValue2;
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width,(int)fullscreenRect.size.height)];
-				} else {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width,(int)highest)];
-				}
-				fullscreenRect = [self frame];
-			} else if (fitScreenMode == 3) {
-				float rates = fullscreenRect.size.width/((widthValue1+widthValue2)/2);
-				widthValue1 = widthValue1*rates;
-				heightValue1 = heightValue1*rates;
-				widthValue2 = widthValue2*rates;
-				heightValue2 = heightValue2*rates;
-				if (maxEnlargement != 0) {
-					if (widthValue1 > (widthValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (heightValue1 > (heightValue01*maxEnlargement)) {
-						widthValue1 = widthValue01;
-						heightValue1 = heightValue01;
-					}
-					if (widthValue2 > (widthValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-					if (heightValue2 > (heightValue02*maxEnlargement)) {
-						widthValue2 = widthValue02;
-						heightValue2 = heightValue02;
-					}
-				}
-				float highest = heightValue1;
-				if (heightValue2 > heightValue1) highest=heightValue2;
-				if (highest < screenHeightValue) {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width*2,(int)fullscreenRect.size.height)];
-				} else {
-					[self setFrameSize:NSMakeSize((int)fullscreenRect.size.width*2,(int)highest)];
-				}
-				fullscreenRect = [self frame];
-			}
-			
-		}
-	}
-	
-	int height = fullscreenRect.size.height;
-	int center1,center2;
-	center1 = (height-heightValue1);
-	center2 = (height-heightValue2);
-	if (center1 >= 0) {
-		center1 = center1 / 2;
-	} else {
-		center1 = 0;
-	}
-	if (center2 >= 0) {
-		center2 = center2 / 2;
-	} else {
-		center2 = 0;
-	}
-	
-	
-	int x = fullscreenRect.size.width-widthValue1-widthValue2;
-	x = x/2;
-	
+    NSDictionary *infodic = [self getDrawImagesInfo:image1 and:image2];
+    int widthValue01 = [[infodic objectForKey:@"widthValue01"] intValue];
+    int widthValue02 = [[infodic objectForKey:@"widthValue02"] intValue];
+    int heightValue01 = [[infodic objectForKey:@"heightValue01"] intValue];
+    int heightValue02 = [[infodic objectForKey:@"heightValue02"] intValue];
+    NSRect drawRect1 = NSRectFromString([infodic objectForKey:@"drawRect1"]);
+    NSRect drawRect2 = NSRectFromString([infodic objectForKey:@"drawRect2"]);
+    NSRect fullscreenRect = NSRectFromString([infodic objectForKey:@"fullscreenRect"]);
 	
 	NSAffineTransform *transform;
 	switch (rotateMode) {
@@ -1170,64 +1282,22 @@ NSTimeInterval elapsed=0;
 			transform = [NSAffineTransform transform];
 			[transform translateXBy:NSWidth([self bounds]) yBy:0];
 			[transform rotateByDegrees:90];
+            [transform concat];
 			break;
 		case 2:
 			transform = [NSAffineTransform transform];
 			[transform translateXBy:NSWidth([self bounds]) yBy:NSHeight([self bounds])];
 			[transform rotateByDegrees:180];
+            [transform concat];
 			break;
 		case 3:
 			transform = [NSAffineTransform transform];
 			[transform translateXBy:0 yBy:NSHeight([self bounds])];
 			[transform rotateByDegrees:270];
+            [transform concat];
 			break;
 		default:
 			break;
-	}
-	if (rotateMode==1) {
-		[transform concat];
-		if ([target readFromLeft]) {
-			fRect = NSMakeRect(center1,x,heightValue1,widthValue1);
-			sRect = NSMakeRect(center2,x+widthValue1,heightValue2,widthValue2);
-		} else {
-			fRect = NSMakeRect(center2,x,heightValue2,widthValue2);
-			sRect = NSMakeRect(center1,x+widthValue2,heightValue1,widthValue1);
-		}
-	} else if (rotateMode==3) {
-		[transform concat];
-		if ([target readFromLeft]) {
-			sRect = NSMakeRect(center2,x,heightValue2,widthValue2);
-			fRect = NSMakeRect(center1,x+widthValue2,heightValue1,widthValue1);
-		} else {
-			sRect = NSMakeRect(center1,x,heightValue1,widthValue1);
-			fRect = NSMakeRect(center2,x+widthValue1,heightValue2,widthValue2);
-		}
-	} else if (rotateMode==2) {
-		[transform concat];
-		if ([target readFromLeft]) {
-			fRect = NSMakeRect(x,center2,widthValue2,heightValue2);
-			sRect = NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
-		} else {
-			sRect = NSMakeRect(x,center1,widthValue1,heightValue1);
-			fRect = NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
-		}
-	} else {
-		if ([target readFromLeft]) {
-			fRect = NSMakeRect(x,center1,widthValue1,heightValue1);
-			sRect = NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
-		} else {
-			fRect = NSMakeRect(x,center2,widthValue2,heightValue2);
-			sRect = NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
-		}
-	}
-	NSRect drawRect1;
-	NSRect drawRect2;
-	if ([target readFromLeft]) {
-		drawRect1=NSMakeRect(x,center1,widthValue1,heightValue1);
-		drawRect2=NSMakeRect(x+widthValue1,center2,widthValue2,heightValue2);
-	} else {
-		drawRect1=NSMakeRect(x+widthValue2,center1,widthValue1,heightValue1);
-		drawRect2=NSMakeRect(x,center2,widthValue2,heightValue2);
 	}
 	[image2 drawInRect:drawRect2
 			  fromRect:NSMakeRect(0,0,widthValue02,heightValue02)
@@ -1291,9 +1361,7 @@ NSTimeInterval elapsed=0;
 -(void)drawLoupe
 {
 	if (lensWindow) {
-		int fromLensSize = lensSize;
-		
-		NSView *winContentView = [lensWindow contentView];
+		LoupeView *winContentView = [lensWindow contentView];
 		lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
 		if (!NSPointInRect([[[self window] contentView] convertPoint:lensOldPoint toView:self],[self visibleRect])) {
 			[winContentView setHidden:YES];
@@ -1310,7 +1378,7 @@ NSTimeInterval elapsed=0;
 		
 		NSRect lensWindowRect = NSMakeRect((int)(lensOldPoint.x-lensSize/2),(int)(lensOldPoint.y-lensSize/2),lensSize,lensSize);
 		
-		NSPoint mPoint,iPoint;
+		NSPoint mPoint;
 		mPoint = [[[self window] contentView] convertPoint:[[self window] mouseLocationOutsideOfEventStream] toView:self];
 		if (NSPointInRect(mPoint,fRect) || NSPointInRect(mPoint,sRect)) {
 			[winContentView setHidden:NO];
@@ -1318,160 +1386,20 @@ NSTimeInterval elapsed=0;
 			[winContentView setHidden:YES];
 			return;
 		}
-		
-		[winContentView lockFocus];
-		
-		NSGraphicsContext *gc = [NSGraphicsContext currentContext];
-		[gc saveGraphicsState];
-		//[gc setShouldAntialias:NO];
-		switch (interpolation) {
-			case 1:
-				[gc setImageInterpolation:NSImageInterpolationNone];
-				break;
-			case 2:
-				[gc setImageInterpolation:NSImageInterpolationLow];
-				break;
-			case 3:
-				[gc setImageInterpolation:NSImageInterpolationHigh];
-				break;
-			default:
-				[gc setImageInterpolation:NSImageInterpolationDefault];
-				break;
-		}
-		
-		[[NSColor blackColor] set];
-		NSRectFill(NSMakeRect(0,0,lensSize+2,lensSize+2));
-		if (NSPointInRect(mPoint,fRect) || NSPointInRect(mPoint,sRect)) {
-			if (NSIsEmptyRect(sRect)) {
-				NSPoint drawPoint = mPoint;
-				NSAffineTransform *transform = [NSAffineTransform transform];
-				NSRect tempRect = fRect;
-				if (rotateMode==1) {
-					[transform translateXBy:lensSize yBy:0];
-					[transform rotateByDegrees:90];
-					tempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					drawPoint.x = mPoint.y;
-					drawPoint.y = [self frame].size.width-mPoint.x;
-				} else if (rotateMode==2) {
-					[transform translateXBy:lensSize yBy:lensSize];
-					[transform rotateByDegrees:180];
-					drawPoint.x = [self frame].size.width-mPoint.x;
-					drawPoint.y = [self frame].size.height-mPoint.y;
-				} else if (rotateMode==3) {
-					[transform translateXBy:0 yBy:lensSize];
-					[transform rotateByDegrees:270];
-					tempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					drawPoint.x = [self frame].size.height-mPoint.y;
-					drawPoint.y = mPoint.x;
-				}
-				float x = [_image size].width/tempRect.size.width;
-				iPoint.x = (int)((drawPoint.x - tempRect.origin.x)*x);
-				iPoint.y = (int)((drawPoint.y - tempRect.origin.y)*x);
-				if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				[transform concat];
-				[_image drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-						  fromRect:NSMakeRect(iPoint.x-fromLensSize/2,iPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-						 operation:NSCompositeSourceOver fraction:1.0];
-				[transform invert];
-				[transform concat];
-			} else {
-				//!NSIsEmptyRect(sRect)
-				NSImage *image;
-				NSAffineTransform *transform = [NSAffineTransform transform];
-				NSRect fTempRect = fRect;
-				NSRect sTempRect = sRect;
-				NSPoint drawPoint = mPoint;
-				if (rotateMode==1) {
-					[transform translateXBy:lensSize yBy:0];
-					[transform rotateByDegrees:90];
-					fTempRect = NSMakeRect(fRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					sTempRect = NSMakeRect(sRect.origin.y,sRect.origin.x,sRect.size.height,sRect.size.width);
-					drawPoint.x = mPoint.y;
-					drawPoint.y = [self frame].size.width-mPoint.x;
-				} else if (rotateMode==2) {
-					[transform translateXBy:lensSize yBy:lensSize];
-					[transform rotateByDegrees:180];
-					fTempRect = NSMakeRect(sRect.origin.x,fRect.origin.y,fRect.size.width,fRect.size.height);
-					sTempRect = NSMakeRect(fRect.size.width+sRect.origin.x,sRect.origin.y,sRect.size.width,sRect.size.height);
-					drawPoint.x = [self frame].size.width-mPoint.x;
-					drawPoint.y = [self frame].size.height-mPoint.y;
-				} else if (rotateMode==3) {
-					[transform translateXBy:0 yBy:lensSize];
-					[transform rotateByDegrees:270];
-					fTempRect = NSMakeRect(sRect.origin.y,fRect.origin.x,fRect.size.height,fRect.size.width);
-					sTempRect = NSMakeRect(fRect.size.height,sRect.origin.x,sRect.size.height,sRect.size.width);
-					drawPoint.x = [self frame].size.height-mPoint.y;
-					drawPoint.y = mPoint.x;
-				}
-				[transform concat];
-				if (NSPointInRect(mPoint,fRect)) {
-					if ([target readFromLeft]) {
-						image = [target image1];
-					} else {
-						image = [target image2];
-					}
-					float x = [image size].width/fTempRect.size.width;
-					iPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*x);
-					iPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*x);
-					if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),sRect)) {
-						NSImage *sImage;
-						if ([target readFromLeft]) {
-							sImage = [target image2];
-						} else {
-							sImage = [target image1];
-						}
-						float sx = [sImage size].width/sTempRect.size.width;
-						NSPoint sPoint;
-						sPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*sx);
-						sPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*sx);
-						if (lensRate != 1.0) fromLensSize = lensSize*(sx/lensRate);
-						[sImage drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-								  fromRect:NSMakeRect(sPoint.x-fromLensSize/2,sPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-								 operation:NSCompositeSourceOver fraction:1.0];
-					}
-					if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				} else if (NSPointInRect(mPoint,sRect)) {
-					if ([target readFromLeft]) {
-						image = [target image2];
-					} else {
-						image = [target image1];
-					}
-					float x = [image size].width/sTempRect.size.width;
-					iPoint.x = (int)((drawPoint.x - sTempRect.origin.x)*x);
-					iPoint.y = (int)((drawPoint.y - sTempRect.origin.y)*x);
-					if (NSIntersectsRect(NSMakeRect(mPoint.x-lensSize/2,mPoint.y-lensSize/2,lensSize,lensSize),fRect)) {
-						NSImage *sImage;
-						if ([target readFromLeft]) {
-							sImage = [target image1];
-						} else {
-							sImage = [target image2];
-						}
-						float sx = [sImage size].width/fTempRect.size.width;
-						NSPoint sPoint;
-						sPoint.x = (int)((drawPoint.x - fTempRect.origin.x)*sx);
-						sPoint.y = (int)((drawPoint.y - fTempRect.origin.y)*sx);
-						if (lensRate != 1.0) fromLensSize = lensSize*(sx/lensRate);
-						[sImage drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-								  fromRect:NSMakeRect(sPoint.x-fromLensSize/2,sPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-								 operation:NSCompositeSourceOver fraction:1.0];
-					}
-					if (lensRate != 1.0) fromLensSize = lensSize*(x/lensRate);
-				}
-				[image drawInRect:NSMakeRect(0,0,lensSize,lensSize)
-						  fromRect:NSMakeRect(iPoint.x-fromLensSize/2,iPoint.y-fromLensSize/2,fromLensSize,fromLensSize)
-						 operation:NSCompositeSourceOver fraction:1.0];
-				[transform invert];
-				[transform concat];
-			}
-		}
-		[[NSColor lightGrayColor] set];
-		NSFrameRectWithWidth(NSMakeRect(0,0,lensSize,lensSize),1.0);
-		[winContentView unlockFocus];
-		[lensWindow setFrameOrigin:lensWindowRect.origin];
-		[winContentView displayIfNeeded];
-		[lensWindow displayIfNeeded];
-		[gc restoreGraphicsState];
-	}
+        
+        [winContentView setTargetController:target];
+        [winContentView setMPoint:mPoint];
+        [winContentView setFRect:fRect];
+        [winContentView setSRect:sRect];
+        [winContentView setLensRate:lensRate];
+        [winContentView setLensSize:lensSize];
+        [winContentView setRotateMode:rotateMode];
+        [winContentView setInterpolation:interpolation];
+        [winContentView setParentFrame:[self frame]];
+        [winContentView display];
+        
+        [lensWindow setFrame:lensWindowRect display:true];
+    }
 	
 }
 
@@ -1488,11 +1416,14 @@ NSTimeInterval elapsed=0;
 - (void)setFrame:(NSRect)frameRect
 {
 	[super setFrame:frameRect];
-	NSRect temp = [[[self window] contentView] frame];
-	temp.origin = [[self window] frame].origin;
-	[accessoryWindow setFrame:temp display:YES];
-	//[self displayIfNeededInRect:[self visibleRect]];
-	//[self setNeedsDisplayInRect:[self visibleRect]];
+}
+- (void)setAccessoryWindowFrame
+{
+    NSRect temp = [[[self window] contentView] frame];
+    temp.origin = [[self window] frame].origin;
+    [accessoryWindow setFrame:temp display:YES];
+    //[self displayIfNeededInRect:[self visibleRect]];
+    //[self setNeedsDisplayInRect:[self visibleRect]];
 }
 -(void)setLoupe
 {
@@ -1511,6 +1442,7 @@ NSTimeInterval elapsed=0;
 		[lensWindow setBackgroundColor:[NSColor clearColor]];
 		[lensWindow setOpaque:NO];
 		[lensWindow setIgnoresMouseEvents:YES];
+        [lensWindow setContentView:[[[LoupeView alloc] init] autorelease]];
 		lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
 		lensOldPoint.x += [[self window] frame].origin.x;
 		lensOldPoint.y += [[self window] frame].origin.y;
@@ -1529,6 +1461,7 @@ NSTimeInterval elapsed=0;
 		lensRate = [defaults floatForKey:@"LoupeRate"];
 		
 		[self drawLoupe];
+        /*
 		NSMutableDictionary* attr = [NSMutableDictionary dictionary];
 		[attr setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 		[attr setObject:[NSColor darkGrayColor] forKey:NSBackgroundColorAttributeName];
@@ -1547,6 +1480,7 @@ NSTimeInterval elapsed=0;
 		
 		[winContentView displayIfNeeded];
 		[lensWindow displayIfNeeded];
+        */
 	} else {
 		lensRate = [defaults floatForKey:@"LoupeRate"];
 	}
@@ -1562,7 +1496,7 @@ NSTimeInterval elapsed=0;
 	if (rotateMode < 0) {
 		rotateMode = 3;
 	}
-	[self setNeedsDisplayInRect:[self visibleRect]];
+	[self imageDisplay];
 	//[self display];
 }
 
@@ -1572,7 +1506,7 @@ NSTimeInterval elapsed=0;
 	if (rotateMode > 3) {
 		rotateMode = 0;
 	}
-	[self setNeedsDisplayInRect:[self visibleRect]];
+    [self imageDisplay];
 	//[self display];
 }
 

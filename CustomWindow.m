@@ -29,6 +29,7 @@
 		return;
 	} else {
 		[super setFrame:windowFrame display:displayViews];
+        [view setAccessoryWindowFrame];
 	}	
 }
 - (void)setFullScreen:(BOOL)b
@@ -215,7 +216,7 @@
 													 userInfo:NULL
 													  repeats:NO];
 	}
-	[view mouseMoved:theEvent];	 
+	[view mouseMoved:theEvent];
 }
 
 -(void)becomeKeyWindow

@@ -8,7 +8,7 @@
 	[self makeFirstResponder:matrix];
 }
 
-- (void)setTarget:(id)tar
+- (void)setTarget:(ThumbnailController *)tar
 {
 	target = tar;
 }

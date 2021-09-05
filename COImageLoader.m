@@ -21,7 +21,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		NSMutableArray *array = [NSMutableArray array];
 		NSEnumerator *enu = [types objectEnumerator];
 		while (object=[enu nextObject]) {
-			if (inner = [object objectForKey:@"CFBundleTypeExtensions"]) {
+            if ((inner = [object objectForKey:@"CFBundleTypeExtensions"])) {
 				[array addObjectsFromArray:inner];
 			}
 		}
@@ -95,7 +95,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 - (void)dealloc
 {
 	if(tempDir) {
-		[[NSFileManager defaultManager] removeFileAtPath:tempDir handler:nil];
+        [[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:tempDir] error:nil];
 		[tempDir release];
 	}
 	
@@ -123,7 +123,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 
 - (int)itemCount
 {
-	if(contentPathArray)	return [contentPathArray count];
+	if(contentPathArray)	return (int)[contentPathArray count];
 	return 0;
 }
 - (int)mode
@@ -185,7 +185,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		for (i=0; i<[inArchiveArray count]; i++) {
 			COImageLoader *inLoader = [inArchiveArray objectAtIndex:i];
 			if ([[inLoader pathArray] indexOfObject:fileName] != NSNotFound) {
-				return [inLoader itemAtIndex:[[inLoader pathArray] indexOfObject:fileName]];
+				return [inLoader itemAtIndex:(int)[[inLoader pathArray] indexOfObject:fileName]];
 			}
 		}
 	}
@@ -203,25 +203,13 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		
 		if(data && [data length]>0){
 			image = [[[NSImage allocWithZone:NULL] initWithData:data] autorelease];	
-			if(image && [image isValid] && [image bestRepresentationForDevice:nil]) {
+			if(image && [image isValid] && [image representations]) {
 				return image;
-			}
-		}
-		if (mode == 1) {
-			if (!subArchiveContainer) {
-				subArchiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-			}
-			data =[[[subArchiveContainer contents] objectAtIndex:[rawContentPathArray indexOfObject:rawName]] data];
-			if(data && [data length]>0){
-				image = [[[NSImage allocWithZone:NULL] initWithData:data] autorelease];
-				if(image && [image isValid]){
-					return image;
-				}
 			}
 		}
 	} else {
 		NSImage *image = [[[NSImage allocWithZone:NULL] initWithContentsOfFile:[contentPathArray objectAtIndex:index]] autorelease];
-		if(image && [image isValid] && [image bestRepresentationForDevice:nil]){
+		if(image && [image isValid] && [image representations]){
 			return image;
 		}
 	}
@@ -293,7 +281,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 				}
 			}
 		}
-		i=[contentPathArray count]-1;
+		i=(int)[contentPathArray count]-1;
 		for (i;i>=0;i--) {
 			if (i==now) {
 				//NSLog(@"notFound");
@@ -347,23 +335,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 	NSData *tempData = [[[archiveContainer contents] objectAtIndex:0] data];
 	//tempData = nil;
 	if (!tempData || [tempData length]<=0 || [[[archiveContainer contents] objectAtIndex:0] path]==nil) {
-		if (mode == 1) {
-			//NSLog(@"pass_useXADWrapper");
-			if (!subArchiveContainer) {
-				subArchiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-			}
-			if ([subArchiveContainer checkAndSetPassword:password]) {
-				[archiveContainer release];
-				archiveContainer = subArchiveContainer;
-				subArchiveContainer = nil;
-				mode = 2;
-				rightPassward = YES;
-				return YES;
-			} else {
-				[subArchiveContainer release];
-				subArchiveContainer = nil;
-			}
-		} else if (mode == 2) {
+		if (mode == 2) {
 			if (![[archiveContainer archive] describeLastError]) {
 				rightPassward = YES;
 				return YES;
@@ -402,8 +374,8 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 	NSMutableArray *pathArray = [NSMutableArray array];
 	if ([[filePath pathExtension] compare:@"pdf" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
 		mode=4;
-		pdfRep = [[COPDFImageRep imageRepWithContentsOfFile:filePath] retain];
-		int pages = [pdfRep pageCount];
+		pdfRep = [(COPDFImageRep *)[COPDFImageRep imageRepWithContentsOfFile:filePath] retain];
+		int pages = (int)[pdfRep pageCount];
 		
 		int i;
 		for (i=0;pages>i;i++) {
@@ -413,7 +385,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		
 	} else if([[COImageLoader archiveTypes] containsObject:[[filePath pathExtension] lowercaseString]]) {
 		mode=2;
-		archiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
+        archiveContainer=[[XADWrapper alloc] initWithPath:filePath];
 		[self checkArchiveContainer:0];
 		return;
 		
@@ -478,7 +450,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 			if (readSubFolder) {
 				completeArray = [NSArray arrayWithArray:[[NSFileManager defaultManager] subpathsAtPath:filePath]];
 			} else {
-				completeArray = [NSArray arrayWithArray:[[NSFileManager defaultManager] directoryContentsAtPath:filePath]];
+                completeArray = [NSArray arrayWithArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:nil]];
 			}
 			completeArray = [completeArray pathsMatchingExtensions:filterArray];
 			
@@ -518,23 +490,7 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		NSData* tempData = [[[archiveContainer contents] objectAtIndex:index] data];
 		//tempData = nil;
 		if (!tempData || [tempData length]<=0 || [[[archiveContainer contents] objectAtIndex:0] path]==nil) {
-			if (mode == 1) {
-				//NSLog(@"noppass_useXADWrapper");		
-				if (!subArchiveContainer) {
-					subArchiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-				}
-				if ([subArchiveContainer checkAndSetPassword:password]) {
-					[archiveContainer release];
-					archiveContainer = subArchiveContainer;
-					subArchiveContainer = nil;
-					mode = 2;
-					rightPassward = YES;
-					return YES;
-				} else {
-					[subArchiveContainer release];
-					subArchiveContainer = nil;
-				}
-			} else if (mode == 2) {
+			if (mode == 2) {
 				if (![[archiveContainer archive] describeLastError]) {
 					rightPassward = YES;
 				}
@@ -578,18 +534,6 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 				[contentPathDic setObject:path forKey:inPath];
 			}
 		} else {
-			if (mode == 1) {
-				//NSLog(@"passnull_useXADWrapper");
-				if (!subArchiveContainer) {
-					subArchiveContainer=[[XADWrapper alloc] initWithPath:filePath nameEncoding:nil];
-				}
-				[archiveContainer release];
-				archiveContainer = subArchiveContainer;		
-				subArchiveContainer = nil;	
-				mode = 2;	
-				if (password) [archiveContainer setPassword:password];
-				return [self checkArchiveContainer:index];
-			}
 		}
 	}
 	
@@ -608,16 +552,16 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 		if (![manager fileExistsAtPath:[dir stringByDeletingLastPathComponent]]) {
 			[self createDir:[dir stringByDeletingLastPathComponent]];
 		}
-		[manager createDirectoryAtPath:dir attributes:nil];
+        [manager createDirectoryAtPath:dir withIntermediateDirectories:NO attributes:nil error:nil];
 	}
 }
 
 - (BOOL)uncompressToTempDir:(NSString*)fileName
 {
 	if (!tempDir) {
-		const char *buffer = [[NSString stringWithFormat:@"%@/%@",NSTemporaryDirectory(),@"cooViewer.XXXXXX"] fileSystemRepresentation];
-		mkdtemp(buffer);
-		tempDir = [[NSString stringWithFormat:@"%s", buffer] retain];
+        const char *buffer = [[NSString stringWithFormat:@"%@/%@",NSTemporaryDirectory(),@"cooViewer.XXXXXX"] fileSystemRepresentation];
+        mkdtemp((char *)buffer);
+        tempDir = [[NSString stringWithFormat:@"%s", buffer] retain];
 	}
 	
 	NSArray* items=[archiveContainer contents];
@@ -625,12 +569,8 @@ static NSArray *_COImageLoader_archiveTypes=nil;
 	if ([rawContentPathArray indexOfObject:fileName] != NSNotFound) {
 		[self createDir:[[tempDir stringByAppendingPathComponent:fileName] stringByDeletingLastPathComponent]];
 		
-		if (mode == 1) {
-			NSFileManager *manager = [NSFileManager defaultManager];
-			data =[[items objectAtIndex:[rawContentPathArray indexOfObject:fileName]] data];
-			return [manager createFileAtPath:[tempDir stringByAppendingPathComponent:fileName] contents:data attributes:nil];
-		} else if (mode == 2) {
-			return [archiveContainer uncompress:[rawContentPathArray indexOfObject:fileName] as:[tempDir stringByAppendingPathComponent:fileName]];			
+		if (mode == 2) {
+			return [archiveContainer uncompress:(int)[rawContentPathArray indexOfObject:fileName] as:[tempDir stringByAppendingPathComponent:fileName]];
 		}
 	} else {
 		//NSLog(@"notFound");

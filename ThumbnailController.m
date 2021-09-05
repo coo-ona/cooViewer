@@ -89,9 +89,8 @@
 	NSImage *image;
 	image = [[controller loadImage:index] retain];
 	
-	NSImageRep *rep = [image bestRepresentationForDevice:nil];
-	int widthValue = [rep pixelsWide];
-	int heightValue = [rep pixelsHigh];
+	int widthValue = [image size].width;
+	int heightValue = [image size].height;
 	float wRate = widthValue/[matrix cellSize].width;
 	float hRate = heightValue/[matrix cellSize].height;
 	float newWidth;
@@ -115,7 +114,9 @@
 	NSImage *newImage = [[[NSImage alloc] initWithSize:NSMakeSize(newWidth,newHeight)] autorelease];
 	[newImage lockFocus];
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
-	[rep drawInRect:NSMakeRect(0,0,(int)newWidth,(int)newHeight)];
+    [image drawInRect:NSMakeRect(0,0,(int)newWidth,(int)newHeight)
+             fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+            operation:NSCompositeSourceOver fraction:1.0];
 	
 	/*
 	if (b) {
@@ -164,12 +165,10 @@
 		} else {
 			image2 = [[self loadImage:index+1] retain];
 			if ([controller isSmallImage:image page:index+1] && [controller isSmallImage:image2 page:index+2]) {
-				NSImageRep *rep1 = [image bestRepresentationForDevice:nil];
-				int widthValue1 = [rep1 pixelsWide];
-				int heightValue1 = [rep1 pixelsHigh];
-				NSImageRep *rep2 = [image2 bestRepresentationForDevice:nil];
-				int widthValue2 = [rep2 pixelsWide];
-				int heightValue2 = [rep2 pixelsHigh];
+				int widthValue1 = [image size].width;
+				int heightValue1 = [image size].height;
+				int widthValue2 = [image2 size].width;
+				int heightValue2 = [image2 size].height;
 				float screenWidthValue = [matrix cellSize].width;
 				float screenHeightValue = [matrix cellSize].height;
 				screenWidthValue /= 2;
@@ -194,14 +193,14 @@
 				
 				if (widthValue1+widthValue2 < [matrix cellSize].width){
 					if (heightValue1 != screenHeightValue) {
-						rate1 = screenHeightValue/[rep1 pixelsHigh];
-						widthValue1 = [rep1 pixelsWide]*rate1;
-						heightValue1 = [rep1 pixelsHigh]*rate1;
+						rate1 = screenHeightValue/[image size].height;
+						widthValue1 = [image size].width*rate1;
+						heightValue1 = [image size].height*rate1;
 					}
 					if (heightValue2 != screenHeightValue) {
-						rate2 = screenHeightValue/[rep2 pixelsHigh];
-						widthValue2 = [rep2 pixelsWide]*rate2;
-						heightValue2 = [rep2 pixelsHigh]*rate2;
+						rate2 = screenHeightValue/[image2 size].height;
+						widthValue2 = [image2 size].width*rate2;
+						heightValue2 = [image2 size].height*rate2;
 					}
 					if (widthValue1+widthValue2 > [matrix cellSize].width){
 						float rates = [matrix cellSize].width/(widthValue1+widthValue2);
@@ -225,15 +224,19 @@
 				[ newImage lockFocus ];
 				[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
 				if ([controller readMode] == 1) {
-					rep1 = [image bestRepresentationForDevice:nil];
-					[rep1 drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1) ];
-					rep2 = [image2 bestRepresentationForDevice:nil];
-					[rep2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2) ];
+                    [image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1)
+                             fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2)
+                              fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				} else if ([controller readMode] == 0) {
-					rep2 = [image2 bestRepresentationForDevice:nil];
-					[rep2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2) ];
-					rep1 = [image bestRepresentationForDevice:nil];
-					[rep1 drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1) ];
+                    [image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2)
+                             fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1)
+                              fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				}
 				[ newImage unlockFocus ];
 				[image release];
@@ -254,12 +257,10 @@
 		} else {
 			image2 = [[self loadImage:index-1] retain];
 			if ([controller isSmallImage:image page:index+1] && [controller isSmallImage:image2 page:index]) {
-				NSImageRep *rep1 = [image bestRepresentationForDevice:nil];				
-				int widthValue1 = [rep1 pixelsWide];
-				int heightValue1 = [rep1 pixelsHigh];
-				NSImageRep *rep2 = [image2 bestRepresentationForDevice:nil];
-				int widthValue2 = [rep2 pixelsWide];
-				int heightValue2 = [rep2 pixelsHigh];
+                int widthValue1 = [image size].width;
+                int heightValue1 = [image size].height;
+                int widthValue2 = [image2 size].width;
+                int heightValue2 = [image2 size].height;
 				float screenWidthValue = [matrix cellSize].width;
 				float screenHeightValue = [matrix cellSize].height;
 				screenWidthValue /= 2;
@@ -284,14 +285,14 @@
 				
 				if (widthValue1+widthValue2 < [matrix cellSize].width){
 					if (heightValue1 != screenHeightValue) {
-						rate1 = screenHeightValue/[rep1 pixelsHigh];
-						widthValue1 = [rep1 pixelsWide]*rate1;
-						heightValue1 = [rep1 pixelsHigh]*rate1;
+						rate1 = screenHeightValue/[image size].height;
+						widthValue1 = [image size].width*rate1;
+						heightValue1 = [image size].height*rate1;
 					}
 					if (heightValue2 != screenHeightValue) {
-						rate2 = screenHeightValue/[rep2 pixelsHigh];
-						widthValue2 = [rep2 pixelsWide]*rate2;
-						heightValue2 = [rep2 pixelsHigh]*rate2;
+						rate2 = screenHeightValue/[image2 size].height;
+						widthValue2 = [image2 size].width*rate2;
+						heightValue2 = [image2 size].height*rate2;
 					}
 					if (widthValue1+widthValue2 > [matrix cellSize].width){
 						float rates = [matrix cellSize].width/(widthValue1+widthValue2);
@@ -315,15 +316,19 @@
 				[ newImage lockFocus ];
 				[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
 				if ([controller readMode] == 1) {
-					rep2 = [image2 bestRepresentationForDevice:nil];	
-					[ rep2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2) ];
-					rep1 = [image bestRepresentationForDevice:nil];	
-					[ rep1 drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1) ];
+                    [ image2 drawInRect:NSMakeRect(0,(int)center2,(int)widthValue2,(int)heightValue2)
+                               fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                              operation:NSCompositeSourceOver fraction:1.0];
+                    [ image drawInRect:NSMakeRect((int)widthValue2,(int)center1,(int)widthValue1,(int)heightValue1)
+                              fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				} else if ([controller readMode] == 0) {
-					rep1 = [image bestRepresentationForDevice:nil];
-					[ rep1 drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1) ];
-					rep2 = [image2 bestRepresentationForDevice:nil];
-					[ rep2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2) ];
+                    [image drawInRect:NSMakeRect(0,(int)center1,(int)widthValue1,(int)heightValue1)
+                             fromRect:NSMakeRect(0, 0, [image size].width, [image size].height)
+                            operation:NSCompositeSourceOver fraction:1.0];
+                    [image2 drawInRect:NSMakeRect((int)widthValue1,(int)center2,(int)widthValue2,(int)heightValue2)
+                              fromRect:NSMakeRect(0, 0, [image2 size].width, [image2 size].height)
+                             operation:NSCompositeSourceOver fraction:1.0];
 				}
 				[ newImage unlockFocus ];
 				[image release];
@@ -379,14 +384,14 @@
 	id object;
 	while (object = [enu nextObject]) {
 		[object setImage:nil];
-		[object setAlternateTitle:nil];
+		[object setAlternateTitle:@""];
 		[object setRepresentedObject:nil];
 	}
 	[matrix resetBookMarkIcon];
 	if (![panel isVisible]) [panel makeKeyAndOrderFront:self];
 	
-	int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
-	int maxPage = [bookmarkArray count]/all;
+	int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
+	int maxPage = (int)[bookmarkArray count]/all;
 	if ([bookmarkArray count]%all != 0) {
 		maxPage++;
 	}
@@ -396,7 +401,7 @@
 	int colCount = 0;
 	
 	if (![controller readFromLeft]) {
-		colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+		colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 	}
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -423,7 +428,7 @@
 	int colCount = [[infoDic objectForKey:@"colCount"] intValue];
 	int rowCount = [[infoDic objectForKey:@"rowCount"] intValue];
 	//BOOL back = [[infoDic objectForKey:@"back"] boolValue];
-	int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+	int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 	int max = all*nowBookmarkPage;
 	int start = max-all;
 	
@@ -439,7 +444,7 @@
 		cellCount++;
 		if (colCount < 0) {
 			rowCount++;
-			colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+			colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 			if (rowCount == [matrix numberOfRows]) {
 				doCount--;
 				return;
@@ -493,7 +498,7 @@
 	if (mangaMode) {
 		now = nowPage-1;
 	} else {
-		int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+		int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 		int temp = 0;
 		int i;
 		for (i = 0; i < [pathArray count]; i++) {
@@ -535,7 +540,7 @@
 	id object;
 	while (object = [enu nextObject]) {
 		[object setImage:nil];
-		[object setAlternateTitle:nil];
+		[object setAlternateTitle:@""];
 		[object setRepresentedObject:nil];
 	}
 	[matrix resetBookMarkIcon];
@@ -544,18 +549,18 @@
     int rowCount = 0;
 	int colCount = 0;
 	
-	int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+	int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 	int last = now+all;
 	if (last > [pathArray count]) {
-		last = [pathArray count];
+		last = (int)[pathArray count];
 	}
 
 	if (mangaMode) {
 		if (!back) {
-			[stateTextField setStringValue:[NSString stringWithFormat:@"%i-",now+1,[pathArray count]]];
+			[stateTextField setStringValue:[NSString stringWithFormat:@"%i-",now+1]];
 			//[stateTextField display];
 			if (![controller readFromLeft]) {
-				colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+				colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 			}
 			NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:all],@"all",
@@ -566,14 +571,14 @@
 				nil];
 			[self setImageCellWithInfo:info];
 		} else {
-			[stateTextField setStringValue:[NSString stringWithFormat:@"-%i/%i",now,[pathArray count]]];
+			[stateTextField setStringValue:[NSString stringWithFormat:@"-%i/%i",now,(int)[pathArray count]]];
 			//[stateTextField display];
 			int oldNow = now;
 			if (![controller readFromLeft]) {
-				rowCount = [matrix numberOfRows]-1;
+				rowCount = (int)[matrix numberOfRows]-1;
 			} else {
-				rowCount = [matrix numberOfRows]-1;
-				colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+				rowCount = (int)[matrix numberOfRows]-1;
+				colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 			}
 			NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithInt:all],@"all",
@@ -587,9 +592,9 @@
 		}
 	} else {
 		if (![controller readFromLeft]) {
-			colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+			colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 		}
-		[stateTextField setStringValue:[NSString stringWithFormat:@"%i-%i/%i",now+1,last,[pathArray count]]];
+		[stateTextField setStringValue:[NSString stringWithFormat:@"%i-%i/%i",now+1,last,(int)[pathArray count]]];
 		//[stateTextField display];
 		NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
 			[NSNumber numberWithInt:all],@"all",
@@ -625,15 +630,15 @@
 			now++;
 			cellCount++;
 			if (now == [pathArray count]) {
-				if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,[pathArray count]]];
+				if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,(int)[pathArray count]]];
 				doCount--;
 				return;
 			}
 			if (colCount < 0) {
 				rowCount++;
-				colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+				colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 				if (rowCount == [matrix numberOfRows]) {
-					if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,[pathArray count]]];
+					if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,(int)[pathArray count]]];
 					doCount--;
 					return;
 				}
@@ -655,7 +660,7 @@
 			now++;
 			cellCount++;
 			if (now == [pathArray count]) {
-				if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,[pathArray count]]];
+				if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,(int)[pathArray count]]];
 				doCount--;
 				return;
 			}
@@ -663,7 +668,7 @@
 				rowCount++;
 				colCount=0;
 				if (rowCount == [matrix numberOfRows]) {
-					if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,[pathArray count]]];
+					if (mangaMode) [stateTextField setStringValue:[NSString stringWithFormat:@"%@%i/%i",[stateTextField stringValue],now,(int)[pathArray count]]];
 					doCount--;
 					return;
 				}
@@ -730,7 +735,7 @@
 			
 			if (colCount < 0) {
 				rowCount--;
-				colCount = [(NSMatrix*)matrix numberOfColumns]-1;
+				colCount = (int)[(NSMatrix*)matrix numberOfColumns]-1;
 				if (rowCount < 0) {
 					[stateTextField setStringValue:[NSString stringWithFormat:@"%i%@",now+1,[stateTextField stringValue]]];
 					doCount--;
@@ -803,7 +808,7 @@
 	}
 	if (bookmarkMode) {
 		int index = nowBookmarkPage-1;
-		index = index*[(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+		index = index*(int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 		index = index+cellCount;
 		id object = [[controller bookmarkArray] objectAtIndex:index];
 		string = [NSString stringWithFormat:@"%@\n%@",[object objectForKey:@"name"],string];
@@ -902,13 +907,13 @@
 	id object;
 	while (object = [enu nextObject]) {
 		[object setImage:nil];
-		[object setAlternateTitle:nil];
+		[object setAlternateTitle:@""];
 		[object setRepresentedObject:nil];
 	}
 	
-	int colCount = [(NSMatrix*)matrix numberOfColumns];
-	int rowCount = [matrix numberOfRows];
-	int num = [matrix numberOfRows];
+	int colCount = (int)[(NSMatrix*)matrix numberOfColumns];
+	int rowCount = (int)[matrix numberOfRows];
+	int num = (int)[matrix numberOfRows];
     while (num--) {
         [matrix removeRow:0];
     }
@@ -930,7 +935,7 @@
 
 -(void)setCellRow:(int)rowI column:(int)columnI
 {	
-	int num = [matrix numberOfRows];
+	int num = (int)[matrix numberOfRows];
     while (num--) {
         [matrix removeRow:0];
     }
@@ -995,12 +1000,15 @@
 -(IBAction)contextAction:(id)sender
 {
 	id lastCell;
-	int row,col;
+    int row,col;
+	NSInteger tmprow,tmpcol;
 	NSEvent *theEvent = [NSApp currentEvent];
 	NSPoint point = [matrix convertPoint:[theEvent locationInWindow] fromView:nil];
-	if ([matrix getRow:&row column:&col forPoint:point]) {
-		lastCell = [matrix cellAtRow:row column:col];
+	if ([matrix getRow:&tmprow column:&tmpcol forPoint:point]) {
+		lastCell = [matrix cellAtRow:tmprow column:tmpcol];
 	}
+    row = (int)tmprow;
+    col = (int)tmpcol;
 	
 	if ([[sender title] isEqualToString:NSLocalizedString(@"Remove Bookmark", @"")]){
 		if (bookmarkMode) {
@@ -1061,7 +1069,7 @@
 		[self showThumbnail:page];
 	} else if ([[sender title] isEqualToString:NSLocalizedString(@"Show in Finder", @"")]){
 		int page = [[lastCell alternateTitle] intValue];
-		[[NSWorkspace sharedWorkspace] selectFile:[imageLoader itemPathAtIndex:page] inFileViewerRootedAtPath:nil];
+		[[NSWorkspace sharedWorkspace] selectFile:[imageLoader itemPathAtIndex:page] inFileViewerRootedAtPath:@""];
 		[panel performClose:self];
 	}
 }
@@ -1073,8 +1081,8 @@
 	if (bookmarkMode) {
 		nowBookmarkPage++;
 		
-		int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
-		int maxPage = [[controller bookmarkArray] count]/all;
+		int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
+		int maxPage = (int)[[controller bookmarkArray] count]/all;
 		if ([[controller bookmarkArray] count]%all != 0) maxPage++;
 		
 		if (nowBookmarkPage > maxPage) {
@@ -1086,7 +1094,7 @@
 		return;
 	}
 	
-	int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+	int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 	if ([pathArray count] <= all) return;
 	
 	if (mangaMode) {
@@ -1095,7 +1103,7 @@
 			return;
 		}
 	} else {
-		now = now-cellCount+[(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+		now = now-cellCount+(int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 	}
 	
 	if (now >= [pathArray count]) now = 0;
@@ -1109,8 +1117,8 @@
 	if (bookmarkMode) {
 		nowBookmarkPage--;
 		if (nowBookmarkPage == 0) {
-			int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
-			int maxPage = [[controller bookmarkArray] count]/all;
+			int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
+			int maxPage = (int)[[controller bookmarkArray] count]/all;
 			if ([[controller bookmarkArray] count]%all != 0) maxPage++;
 			
 			nowBookmarkPage = maxPage;
@@ -1123,13 +1131,13 @@
 		[self mangaModePrev];
 		return;
 	}	
-	int all = [(NSMatrix*)matrix numberOfColumns]*[matrix numberOfRows];
+	int all = (int)[(NSMatrix*)matrix numberOfColumns]*(int)[matrix numberOfRows];
 	
 	if ([pathArray count] <= all) return;
 	
 	now -= cellCount;
 	if (now == 0) {
-		now = [pathArray count];
+		now = (int)[pathArray count];
 		if (now%all > 0) {
 			now -= now%all;
 		} else {
@@ -1158,7 +1166,7 @@
 	id object;
 	while (object = [enu nextObject]) {
 		if ([[object alternateTitle] isEqualToString:@"0"]) {
-			now = [pathArray count];
+			now = (int)[pathArray count];
 			[self setImageCells:YES];
 			
 			return;
@@ -1279,12 +1287,12 @@
 		
 	} else if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:character]){
 		int page = [string intValue];
-		int all = [matrix numberOfRows]*[(NSMatrix*)matrix numberOfColumns];
+		int all = (int)[matrix numberOfRows]*(int)[(NSMatrix*)matrix numberOfColumns];
 		now = page*all;
 		if (now < 1) {
 			now = 0;
 		} else if (now >= [pathArray count]) {
-			now = [pathArray count];
+			now = (int)[pathArray count];
 			if (now%all == 0) {
 				now -=all;
 			}else {
@@ -1460,7 +1468,7 @@
 -(IBAction)sort:(id)sender
 {
 	int oldSortMode = sortMode;
-	sortMode = [sortPopUpButton indexOfItem:sender];
+	sortMode = (int)[sortPopUpButton indexOfItem:sender];
 	if (oldSortMode!=sortMode) {
 		[thumImageArray removeAllObjects];
 	} else {

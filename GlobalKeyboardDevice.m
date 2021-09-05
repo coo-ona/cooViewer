@@ -81,7 +81,7 @@
 }
 
 - (void) mapRemoteButton: (RemoteControlEventIdentifier) remoteButtonIdentifier defaultKeycode: (unsigned int) defaultKeycode defaultModifiers: (unsigned int) defaultModifiers {
-	NSString* defaultsKey;	
+    NSString* defaultsKey = nil;	
 	
 	switch(remoteButtonIdentifier) {
 		case kRemoteButtonPlus:

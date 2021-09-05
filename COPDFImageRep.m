@@ -29,8 +29,15 @@
 	return [super drawInRect:rect];
 }
 
--(int)pixelsWide {return [self size].width;}
--(int)pixelsHigh{return [self size].height;}
+- (BOOL)drawInRect:(NSRect)dstSpacePortionRect fromRect:(NSRect)srcSpacePortionRect operation:(NSCompositingOperation)op fraction:(CGFloat)requestedAlpha respectFlipped:(BOOL)respectContextIsFlipped hints:(nullable NSDictionary *)hints
+{
+    [[NSColor whiteColor] set];
+    NSRectFill(dstSpacePortionRect);
+    return [super drawInRect:dstSpacePortionRect fromRect:srcSpacePortionRect operation:NSCompositeSourceOver fraction:requestedAlpha respectFlipped:respectContextIsFlipped hints:hints];
+}
+
+-(NSInteger)pixelsWide {return [self size].width;}
+-(NSInteger)pixelsHigh{return [self size].height;}
 
 + (id)imageRepWithContentsOfFile:(NSString *)filename
 {
@@ -57,7 +64,7 @@
 				unsigned int	i;
 				
 				// Walk annotations looking for links.
-				count = [annotations count];
+				count = (int)[annotations count];
 				for (i = 0; i < count; i++)
 				{
 					PDFAnnotation	*oneAnnotation;
@@ -92,7 +99,11 @@
 
 -(NSArray*)linkListAtPage:(int) p
 {
-	
+    if (p<0) {
+        p = 0;
+    } else if (p>=[linkList count]) {
+        p = (int)[linkList count]-1;
+    }
 	return [linkList objectAtIndex:p];
 }
 @end

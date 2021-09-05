@@ -1,0 +1,520 @@
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>cooViewer</title>
+<link href="stylesheet.css" type="text/css" rel="stylesheet">
+<style TYPE="text/css">
+<!--
+
+#keytable{
+	width: 100%;
+	border: 1px solid #bbb;
+}
+
+#keytable th{
+text-align:right;
+font-family: 'Lucida Grande';
+font-size: 11px;
+}
+
+#keytable td{
+width:20%;
+background-color: #eee;
+border: 1px solid #bbb;
+text-align: center;
+font-family: 'Lucida Grande';
+font-size: 11px;
+}
+
+#othertable{
+	width: 100%;
+	border: 1px solid #bbb;
+}
+
+
+#othertable th{
+text-align:right;
+font-family: 'Lucida Grande';
+font-size: 11px;
+}
+
+#othertable td{
+background-color: #fff;
+padding:0px 2px 0px 3px;
+border: 1px solid #bbb;
+font-family: 'Lucida Grande';
+font-size: 11px;
+}
+
+-->
+</style>
+</head>
+
+<body>
+<a name="top">
+<center>
+
+<table width="680" border="0" cellpadding="0" cellspacing="0" align="center">
+
+<tr><td  class="top" style="padding: 0px 0px 0px 15px;">
+<div class="title">cooViewer - 快適に漫画を見るために。</div>
+</td></tr>
+
+<tr><td colspan=3>
+<table cellspacing=0 id="headernav"><tr>
+<td style="border-right: 1px solid #bbb;"><a href="index.html">紹介</a></td>
+<td id="selectednav" style="border-right: 1px solid #bbb;">操作方法</td>
+<td><a href="other.html">その他</a></td>
+</tr></table>
+
+
+</td></tr>
+
+
+<tr><td>
+<BR>
+画像の入ったフォルダかzip・rarアーカイブファイルをファイルメニューの「開く...」で選択するか、cooViewerのアイコンにドロップすると画像が表示されます。<BR>
+<small>(以下、「本」と書いてある場合、画像の入ったフォルダかアーカイブファイルのことを指します。)</small><BR>
+<BR>
+<small>
+画面別説明<BR>
+<div style="margin-left:20;font-size:11px;">
+	・<A HREF="#view">ビューウィンドウ</A><BR>
+		<div style="margin-left:20;font-size:11px;">
+		・<A HREF="#key">キー操作</A><BR>
+		・<A HREF="#mouse">マウス操作</A><BR>
+		・<A HREF="#menu">メニュー説明</A><BR>
+		</div>
+	・<A HREF="#thumb">一覧表示画面</A><BR>
+	・<A HREF="#original">実寸表示ウィンドウ</A><BR>
+	・<A HREF="#editbook">ブックマーク編集シート</A><BR>
+	・<A HREF="#editall">全ブックマーク編集ウィンドウ</A><BR>
+	・<A HREF="#pref">環境設定ウィンドウ</A><BR>
+		<div style="margin-left:20;font-size:11px;">
+		・<A HREF="#keyset">キー設定の仕方</A><BR>
+		・<A HREF="#mouseset">マウス設定の仕方</A><BR>
+		・<A HREF="#keyaction">キー動作説明</A><BR>
+		・<A HREF="#mouseaction">マウス動作説明</A><BR>
+		</div>
+</div>
+</small>
+
+
+
+<BR>
+<hr>
+<A name="view"></a>
+<BR>
+●ビューウィンドウ<small>(画像が表示されるウィンドウです)</small><BR><BR>
+
+
+<A name="key"></a>
+<center>キー操作<BR><small>(初期設定です。表に色がついている部分は環境設定で変更が出来ます。それぞれの説明や標準では設定されていない動作は<a href="#keyaction">こちら</a>)</small></center> 
+
+<table id="keytable" cellspacing="5" >
+<tr><td style="background-color: #fff;">特殊なキー</td></tr>
+<tr><th>開く</th><td style="background-color: #fff;">command+o</td></tr>
+<tr><th>前回開いた本・ページを開く</th><td style="background-color: #fff;">command+shift+o</td></tr>
+<tr><th>フルクスリーン・<BR>ウィンドウモードの切替</th><td style="background-color: #fff;">command+f</td></tr>
+<tr><th>画面内に収める</th><td style="background-color: #fff;">command+1</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">ノーマルモード-画像を画面に合うように拡大縮小して表示します。</td></tr>
+<tr><th>画面の横幅に合わせる</th><td style="background-color: #fff;">command+2</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">横幅フィットモード-画像を画面の横幅に合うように拡大縮小して表示します。</td></tr>
+<tr><th>画面に合わせない</th><td style="background-color: #fff;">command+3</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">ノースケールモード-画像を拡大縮小しないで表示します。</td></tr>
+
+<tr><th>閉じる</th><td style="background-color: #fff;">esc/command+w</td></tr>
+<tr><td colspan="4"></td></tr>
+
+<tr><td style="background-color: #fff;">ノーマルモード中</td></tr>
+<tr><th>次のページへ</th><td>z</td><td>left arrow</td><td>spacebar</td></tr>
+<tr><th>前のページへ</th><td>x</td><td>right arrow</td><td>shift+spacebar</td></tr>
+<tr><th>１ページだけ次へ</th><td>shift+次ページキー</td></tr>
+<tr><th>１ページだけ前へ</th><td>shift+前ページキー</td></tr>
+<tr><th>10ページ進む</th><td>tab</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">(キー設定でスキップするページ数を設定します。)</td></tr>
+<tr><th>10ページ戻る</th><td>shift+tab</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">(キー設定でスキップするページ数を設定します。)</td></tr>
+<tr><th>0〜90%のページへ</th><td style="background-color: #fff;">0〜9</td></tr>
+<tr><th>最初のページへ</th><td>option+前ページキー</td></tr>
+<tr><th>最後のページへ</th><td>option+次ページキー</td></tr>
+<!--
+<tr><th>指定のページへ</th><td>(初期設定無し)</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">(キーを押した後0‾9とdeleteで指定しもう一度キーを押す。escでキャンセル)</td></tr>-->
+
+<tr><th>次のブックマークへ</th><td>c</td><td>down arrow</td></tr>
+<tr><th>前のブックマークへ</th><td>d</td><td>up arrow</td></tr>
+<tr><th>ブックマークを追加</th><td>a</td></tr>
+
+<tr><th>左ページを本来のサイズで表示</th><td>q</td></tr>
+<tr><th>右ページを本来のサイズで表示</th><td>w</td></tr>
+<tr><th>一覧表示</th><td>t</td></tr>
+
+<tr><th>見開き/単頁の切替</th><td>s</td><!--<td colspan="3" style="border:none; background-color: #fff; text-align:left ;">見開きなら最初の方のページを単頁に、単頁ならそのページと次のページで見開きにします。</td>--></tr>
+
+<tr><th>ページ数を表示</th><td>p</td></tr>
+<tr><th>ページバーを表示</th><td>o</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">1.0b5以前に起動したことがある場合は@</td></tr>
+
+<tr><th>スライドショーを開始/停止</th><td>g</td></tr>
+<tr><th>ページ方向の切替</th><td>r</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">右から左→左から右→右から左(単頁)→左から右(単頁)</td></tr>
+<tr><th>次の本へ</th><td>control+次ブックマークキー</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">環境設定のループ設定にかかわらず最初のページに行きます</td></tr>
+<tr><th>前の本へ</th><td>control+前ブックマークキー</td><td colspan="2" style="border:none; background-color: #fff; text-align:left ;">環境設定 のループ設定にかかわらず最初のページに行きます</td></tr>
+
+
+<tr><td colspan="4"></td></tr>
+<tr><td style="background-color: #fff;">横幅フィットモード中</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">ノーマルモードと重なっているキーはこちらが優先されます。その他はノーマルモード通りです。</td></tr>
+<tr><th>1画面分下へ+次のページ</th><td>space</td></tr>
+<tr><th>1画面分上へ+前のページ</th><td>shift+space</td></tr>
+
+<tr><th>1画面分下へ</th><td>page up</td></tr>
+<tr><th>1画面分上へ</th><td>page down</td></tr>
+<tr><th>最初へスクロール</th><td>home</td></tr>
+<tr><th>最後へスクロール</th><td>end</td></tr>
+<tr><th>上へスクロール</th><td>up arrow</td></tr>
+<tr><th>下へスクロール</th><td>down arrow</td></tr>
+
+<tr><td colspan="4"></td></tr>
+<tr><td style="background-color: #fff;">ノースケールモード中</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">ノーマルモードと重なっているキーはこちらが優先されます。その他はノーマルモード通りです。</td></tr>
+<tr><th>1画面分下へ+次のページ</th><td>space</td></tr>
+<tr><th>1画面分上へ+前のページ</th><td>shift+space</td></tr>
+
+<tr><th>1画面分下へ</th><td>page up</td></tr>
+<tr><th>1画面分上へ</th><td>page down</td></tr>
+<tr><th>最初へスクロール</th><td>home</td></tr>
+<tr><th>最後へスクロール</th><td>end</td></tr>
+<tr><th>上へスクロール</th><td>up arrow</td></tr>
+<tr><th>下へスクロール</th><td>down arrow</td></tr>
+<tr><th>左へスクロール</th><td>left arrow</td></tr>
+<tr><th>右へスクロール</th><td>right arrow</td></tr>
+ 
+</table>
+<BR><BR>
+<A name="mouse"></a>
+<center>マウス操作<BR><small>マウスを数秒動かさなかった場合カーソルが消えますが、動かせば再び現れます。<BR>
+(初期設定です。表に色がついている部分は環境設定で変更が出来ます。それぞれの説明や標準では設定されていない動作は<a href="#keyaction">こちら</a>)</small></center> 
+<table id="keytable" cellspacing="4">
+<tr><td style="background-color: #fff;">特殊な操作</td></tr>
+<tr><th>ページを飛ばす</th><td style="background-color: #fff;" colspan="3">ページバーの任意の場所をクリック</td></tr>
+<tr><th>メニューバーを表示</th><td style="background-color: #fff;" colspan="3">画面上部にカーソルを移動</td></tr>
+<tr><th>コンテクストメニューを表示</th><td style="background-color: #fff;" colspan="3">画面の左半分/右半分で右クリックかcontrol+クリック</td></tr>
+<tr><td colspan="4"></td></tr>
+<tr><th></th><th style="text-align:center;">右開きの場合</th><th style="text-align:center;">左開きの場合</th><th style="text-align:center;">共通</th></tr>
+<tr><td style="background-color: #fff;">ノーマルモード中</td></tr>
+
+<tr><th>次のページへ </th><td>画面の左半分をクリック</td><td>画面の右半分をクリック</td><td style="background-color: #fff;">ホイールダウン</td></tr>
+<tr><th>前のページへ</th><td>画面の右半分をクリック</td><td>画面の左半分をクリック</td><td style="background-color: #fff;">ホイールアップ</td></tr>
+<tr><th>１ページだけ次へ </th><td>shift+画面の左をクリック</td><td>shift+画面の右をクリック</td></tr>
+<tr><th>１ページだけ前へ</th><td>shift+画面の右をクリック</td><td>shift+画面の左をクリック</td></tr>
+<tr><th>最初のページへ </th><td>option+画面の右をクリック</td><td>option+画面の左をクリック</td></tr>
+<tr><th>最後のページへ</th><td>option+画面の左をクリック</td><td>option+画面の右をクリック</td></tr>
+<tr><td colspan="4"></td></tr>
+<tr><td style="background-color: #fff;">横幅フィットモード中</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">ノーマルモードと重なっている操作はこちらが優先されます。その他はノーマルモード通りです。</td></tr>
+<tr><th>ドラッグスクロール</th><th></th><th></th><td>ドラッグ</td></tr>
+<tr><td colspan="4"></td></tr>
+<tr><td style="background-color: #fff;">ノースケールモード中</td><td colspan="3" style="border:none; background-color: #fff; text-align:left ;">ノーマルモードと重なっている操作はこちらが優先されます。その他はノーマルモード通りです。</td></tr>
+<tr><th>ドラッグスクロール</th><th></th><th></th><td>ドラッグ</td></tr>
+<tr><th>一画面分下へ+次のページ</th><td>画面の左をクリック</td><td>画面の右をクリック</td></tr>
+<tr><th>一画面分上へ+前のページ</th><td>画面の右をクリック</td><td>画面の左をクリック</td></tr>
+</table>
+<BR><BR>
+
+<A name="menu"></a>
+<center>メニュー<BR><small>フルスクリーンの場合、マウスカーソルを画面上部に移動させると現れます。</small></center> 
+<table id="othertable" cellspacing="5"> 
+<tr><th>ファイル</th><td >
+最後に開いたページを開く：<BR>
+　　　　前回開いていた本のページを開く<BR>
+同じフォルダのフォルダ・アーカイブ：<BR>
+　　　　今見てる本と同じフォルダにある本を名前順でソートして表示。選択するとその本を開く<BR>
+</td></tr>
+<tr><th>スライドショー</th><td >開始/停止：<BR>　　　　スライドショー開始/停止</td></tr>
+<tr><th>ブックマーク</th><td >ブックマークを編集...：<BR>　　　　ブックマーク編集シートか全ブックマーク編集ウィンドウを表示</td></tr>
+<tr><th>設定</th><td >ページ方向：<BR>　　　　ページ方向の切り替え<BR>単ページ・見開きを切り替え：<BR>　　　　今見ているページの単ページ・見開きを切り替え<BR>設定を削除：<BR>　　　　今見ている本の設定を消す</td></tr>
+<tr><th>表示</th><td >画面内に収める：<BR>　　　　ノーマルモード-画像を画面に合うように拡大縮小して表示<BR>画面の横幅に合わせる：<BR>　　　　横幅フィットモード-画像を画面の横幅に合うように拡大縮小して表示<BR>画面に合わせない：<BR>　　　　ノースケールモード-画像を拡大縮小しないで表示します。</td></tr>
+<tr><th>ウィンドウ</th><td >フルスクリーン：<BR>　　　　フルスクリーン/ノーマルウィンドウモード切り替え</td></tr>
+</table> 
+<BR><BR><BR>
+
+<hr>
+<A name="thumb"></a>
+<BR>
+●一覧表示画面<BR>
+<small style="margin:20px;">tキー(初期設定)かコンテクストメニューから「サムネイルを表示 」を選択すると現れます。</small><BR>
+<table id="othertable" cellspacing="5"> 
+<tr><th>ソート</th><td>名前順/作成日順/変更日順/コミックモード(名前順・見開き)<BR>
+切り替えるとメイン画面もソートされます。</td></tr>
+
+<tr><th></th></tr>
+<tr><th>次の一覧へ</th><td>次ページキー/ホイールダウン/←ボタン</td></tr>
+<tr><th>前の一覧へ</th><td>前ページキー/ホイールアップ/→ボタン</td></tr>
+<tr><th>1‾10番目の一覧へ</th><td>0‾9キー</td></tr>
+<tr><th>そのページへ</th><td>クリック</td></tr>
+<tr><th>閉じる</th><td>esc/command+w/×ボタン</td></tr>
+</table> 
+<BR><BR><BR>
+
+<hr>
+<A name="original"></a>
+<BR>
+●実寸表示ウィンドウ<BR>
+<small style="margin:20px;">q/wキー(初期設定)かコンテクストメニューから「実際のサイズで表示 」を選択すると現れます。</small><BR>
+<table id="othertable" cellspacing="5"> 
+<tr><th>次のページへ</th><td>次ページキー</td><td rowspan="2">矢印キーは無効</td></tr>
+<tr><th>前のページへ</th><td>前ページキー</td></tr>
+<tr><th>一画面分下へ+次のページ</th><td>space</td></tr>
+<tr><th>一画面分上へ+前のページ</th><td>shift+space</td></tr>
+<tr><th>上下左右移動</th><td>up/down/right/left arrow・画像上でドラッグ</td><!--<td rowspan="4">一番下でspaceを押すと次のページへ<BR>一番上でshift+spaceを押すと前のページへ</td>--></tr>
+<tr><th>一番左上へ</th><td>home</td></tr>
+<tr><th>一番右下へ</th><td>end</td></tr>
+<tr><th>上へ</th><td>page up</td></tr>
+<tr><th>下へ</th><td>page down</td></tr>
+<tr><th>閉じる</th><td>esc/command+w/close button/背面のウィンドウをクリック</td></tr>
+</table> 
+<BR><BR><BR>
+
+<hr>
+<A name="editbook"></a>
+<BR>
+●ブックマーク編集シート<BR>
+<small style="margin:20px;">本を開いている時にメニューバーのブックマークメニューから「ブックマークを編集...」を選択すると現れます。</small><BR>
+<table id="othertable" cellspacing="5"> 
+<tr><th>ブックマークの削除</th><td>ブックマークを選択しdeleteキーを押すか、コンテクストメニューから「このブックマークを削除」を選択</td></tr>
+<tr><th>ブックマーク名の変更</th><td>ブックマーク名をダブルクリック</td></tr>
+<tr><th>ブックマークの追加</th><td>左下の欄にブックマークしたいページ数を入れ、「新しいブックマークを追加」ボタンを押す</td></tr>
+</table>
+<BR><BR><BR>
+
+<hr>
+<A name="editall"></a>
+<BR>
+●全ブックマーク編集ウィンドウ<BR>
+<small style="margin:20px;">本を開いていないときにメニューバーのブックマークメニューから「ブックマークを編集...」を選択すると現れます。</small><BR>
+<table id="othertable" cellspacing="5"> 
+<tr><th>本をcooViewerで開く</th><td>「本の名前」欄から開きたい本の名前を選択し、ダブルクリックするか、「開く」ボタンを押す</td></tr>
+<tr><th>本をFinderに表示</th><td>「本の名前」欄から開きたい本の名前を選択し、「Finderに表示」ボタンを押す</td></tr>
+<tr><th>その本のブックマークを全て削除</th><td>「本の名前」欄から消したい本の名前を選択し、deleteキーを押す</td></tr>
+<tr><th>ブックマークの削除</th><td>ブックマークを選択し、deleteキーを押す</td></tr>
+<tr><th>ブックマーク名の変更</th><td>ブックマーク名をダブルクリック</td></tr>
+<tr><th>ブックマークの追加</th><td>左下の欄にブックマークしたいページ数を入れ、「新しいブックマークを追加」ボタンを押す</td></tr>
+</table>
+<BR><BR><BR>
+
+<hr>
+<A name="pref"></a>
+<BR>
+●環境設定ウィンドウ<BR>
+<small style="margin:20px;">command+,　もしくはメニューバーのファイルメニューから「環境設定...」を選択すると現れます。</small><BR>
+<table id="othertable" cellspacing="5"> 
+
+
+<tr><th style="text-align:center;" colspan="2">一般タブ</th></tr>
+<tr><th>標準のページ方向</th><td>右開き/左開き+シングルモードの設定<BR>(シングルモードでの左右開きの違いは次/前頁のマウスクリックの位置です)</td></tr>
+<tr><th>単ページ自動判定</th><td>単ページ自動判定の調節(1‾1000)<BR>縦を1000ピクセルとして、横が何ピクセル以上の時単ページと判定するか</td></tr>
+<tr><th>最大拡大率</th><td>画像が画面より小さい場合、画面に合わせるために何%まで拡大するかの設定</td></tr>
+
+<tr><th>スライドショーの間隔</th><td>スライドショー時のめくる間隔の設定(0.0‾60.0秒)</td></tr>
+<tr><th>サブフォルダを読み込む</th><td>サブフォルダの中まで読み込むかどうかの設定</td></tr>
+<tr><th>ループ</th><td>最初/最後のページを超えた場合の動作<BR>[ループする][次/前の本の最初のページに行く][次/前の本に行く][何もしない]</td></tr>
+
+<tr><th>サムネイル</th><td>一覧表示の縦と横の数の設定(1‾100)</td></tr>
+<tr><th>ページ数</th><td>ページナンバー表示の位置・文字色設定</td></tr>
+<tr><th>ページバー</th><td>ページバーの位置設定</td></tr>
+<tr><th>実寸表示ウィンドウのサイズを<BR>内容に合わせる</th><td>実寸表示中にページめくりした時、ウィンドウを画像サイズにあわせるかの設定</td></tr>
+
+<tr><th>最後に開いたページを記憶する</th><td>最後に開いていた本・ページを記憶するか</td></tr>
+<tr><th>設定を記憶する</th><td>本の設定(左右開き、見開き/単頁設定)を記憶するか</td></tr>
+
+
+<tr><th>起動時</th><td>起動時の動作<BR>フルスクリーン:起動時にフルスクリーンモードにする<BR>最後に開いたページを開く:起動時に自動的に前回読んだページを開く</td></tr>
+
+<tr><th></th></tr>
+
+
+<tr><th style="text-align:center;" colspan="2">入力タブ</th></tr>
+<tr><th>上の表</th><td>キー設定</td></tr>
+<tr><th>下の表</th><td>マウス設定</td></tr>
+
+<tr><th>"1画面分上へ+前のページへ"で<BR>前のページに戻ったときの動作</th><td>"1画面分上へ+前のページへ"で前のページへ戻った時、<BR>ページの最後から表示するかページの先頭から表示するかを設定</td></tr>
+
+<tr><th>感度</th><td>マウスホイールの感度</td></tr>
+<tr><th>スクロールできる時</th><td>ホイールでスクロールできる時の動作<BR>
+ノーマルスクロール：<BR>　　　　上下スクロール・shift+で左右スクロール<BR>
+スクロール：<BR>　　　　上下スクロール・一番下までスクロールしたら一画面分横の一番上へ<BR>
+スクロール+ページめくり：<BR>　　　　スクロール+ページの一番最後までスクロールしたらページめくり<BR>
+ページめくり：<BR>　　　　スクロールせず、ページめくりのみ<BR>
+</td></tr>
+
+<tr><th></th></tr>
+
+<tr><th style="text-align:center;" colspan="2">高度な設定タブ</th></tr>
+<tr><th>先読みモード</th><td>先読みキャッシュの方法<BR>Tigerで十分にMacのスペックが高ければ、Newの方が早くなります。<BR>Pantherやスペックが低い場合はほとんど変わらないか、Oldの方が早くなるはずです。</td></tr>
+<tr><th>画像拡大縮小時の補間設定</th><td>画像を拡大縮小した時のなめらかさ。<BR>Highが一番スムースですが、多少重くなります。<BR>Defaultはシステムデフォルトで、多くの場合Lowと同じです。</td></tr>
+
+
+
+</table> 
+ <BR>
+<BR>
+<A name="keyset"></a>
+<center>キー設定の仕方</center> 
+<table id="othertable" cellspacing="5"> 
+
+<tr><th width="10%">追加する</th><td style="text-align:left;padding:5px 5px 5px 5px;">
+1.表の右下にあるメニューから、設定したいモードを選択します。<BR>
+2.追加ボタンを押し、シートが出てきたら(必要なら修飾キーを押しながら)キーを押します。<BR>
+3.Push any key...の部分が変わったら確認し、左下のメニューから設定したい操作を選びます。<BR>
+4.「指定ページ進む」や「上へスクロール」等で、進むページ数やスクロール量を変えたい場合、メニューの横の欄に数字を入れます。<BR>
+5.全てを確認し、良ければOKボタンを押します。<BR><BR>
+
+使える修飾キーはshift/option/control・使えないキーは0‾9等です。<BR>
+既に登録されてるキーかどうかチェックしていませんのでご注意ください。<BR><BR><BR>
+
+ノーマルモード(画面内に収める)のキー設定が基本になり、他のモード中もノーマルモードの設定を引き継ぎます。<BR>
+ただし、他のモード中は他のモード用のキー設定があればそちらが優先です。<BR>
+　例：spaceキーの設定が<BR>
+　　・画面内に収める　　　　　　　　　「次のページ」<BR>
+　　・画面の横幅に合わせる　　　　　　「1画面分下へ+次のページ」<BR>
+　　・画面に合わせない　　　　　　　　「設定なし」<BR>
+　の場合、spaceを押した時の動作は<BR>
+　　・画面内に収めるモード中　　　　　「次のページ」<BR>
+　　・画面の横幅に合わせるモード中　　「1画面分下へ+次のページ」<BR>
+　　・画面に合わせないモード中　　　　「次のページ」<BR>
+　になります。 <BR>
+</td></tr>
+<tr><th>削除する</th><td>削除したい操作の行を選択し、削除ボタンを押します。<BR>
+</td></tr>
+
+
+</table> 
+ <BR>
+<A name="mouseset"></a>
+<center> マウス設定の仕方</center> 
+<table id="othertable" cellspacing="5"> 
+
+<tr><th width="10%">追加する</th><td style="text-align:left;padding:5px 5px 5px 5px;">
+1.表の右下にあるメニューから、設定したいモードを選択します。<BR>
+2.追加ボタンを押し、シートが出てきたら左下のメニューから設定したい操作を選びます。<BR>
+3.必要な修飾キーにチェックを入れます。<BR>
+4.buttonをメニューから選択し、「click」や「drag」などから設定したい操作を選択します。<BR>
+5.全てを確認し、良ければOKボタンを押します。<BR><BR>
+
+3ボタンマウス(2ボタン+ホイール)ならbutton0が左クリック、button1が右クリック、button2がホイールクリックになっているようです。<BR>
+既に登録されてる組み合わせかどうかチェックしていませんのでご注意ください。<BR><BR><BR>
+
+ノーマルモード(画面内に収める)のマウス設定が基本になり、他のモード中もノーマルモードの設定を引き継ぎます。<BR>
+ただし、他のモード中は他のモード用のマウス設定があればそちらが優先です。<BR>
+　例：button2+click(ホイールクリック)の設定が<BR>
+　　・画面内に収める　　　　　　　　　「次のページ」<BR>
+　　・画面の横幅に合わせる　　　　　　「1画面分下へ+次のページ」<BR>
+　　・画面に合わせない　　　　　　　　「設定なし」<BR>
+　の場合、ホイールクリックした時の動作は<BR>
+　　・画面内に収めるモード中　　　　　「次のページ」<BR>
+　　・画面の横幅に合わせるモード中　　「1画面分下へ+次のページ」<BR>
+　　・画面に合わせないモード中　　　　「次のページ」<BR>
+　になります。 <BR>
+</td></tr>
+<tr><th>削除する</th><td>削除したい操作の行を選択し、削除ボタンを押します。<BR>
+</td></tr>
+
+</table> 
+ <BR><BR><BR>
+
+<A name="keyaction"></a>
+<center>設定可能なキー動作説明</center> 
+
+<table id="othertable" cellspacing="5" >
+<tr><td colspan="4" style="background-color: #fff;">共通</td></tr>
+<tr><th width="25%">次のページへ</th><td>次のページへ進む</td></tr>
+<tr><th>前のページへ</th><td>前のページへ戻る</td></tr>
+<tr><th>１ページだけ次へ</th><td>1ページだけ次のページへ進む(ずらす)　例:3‾4→4‾5</td></tr>
+<tr><th>１ページだけ前へ</th><td>1ページだけ前のページへ戻る(ずらす)　例:4‾5→3‾4</td></tr>
+<tr><th>最初のページへ</th><td>最初のページへ戻る</td></tr>
+<tr><th>最後のページへ</th><td>最後のページへ進む</td></tr>
+<tr><th>指定ページ進む</th><td>設定したページ分飛ばして進む</td><td>初期値10</td></tr>
+<tr><th>指定ページ戻る</th><td>設定したページ分飛ばして戻る</td><td>初期値10</td></tr>
+<tr><th>指定ページへ</th><td>設定したページ分飛ばして進む<BR>キーを押した後0‾9とdeleteで指定しもう一度キーを押す。escでキャンセル</td></tr>
+<tr><th>スライドショー</th><td>環境設定で指定した間隔で自動でめくる</td></tr>
+
+<tr><td ></td></tr>
+<tr><th>次のブックマークへ</th><td>今のページより後の一番近いページのブックマークへ進む</td></tr>
+<tr><th>前のブックマークへ</th><td>今のページより前の一番近いページのブックマークへ戻る</td></tr>
+<tr><th>ブックマークを追加</th><td>ブックマークを追加</td></tr>
+
+<tr><td ></td></tr>
+<tr><th>次のフォルダ・アーカイブへ</th><td>今見てる本と同じフォルダにある本で、名前順で見た次の本を開く<BR>環境設定のループ設定にかかわらず最初へ</td></tr>
+<tr><th>前のフォルダ・アーカイブへ</th><td>今見てる本と同じフォルダにある本で、名前順で見た前の本を開く<BR>環境設定のループ設定にかかわらず最初へ</td></tr>
+
+<tr><td ></td></tr>
+<tr><th>サムネイルを表示</th><td>一覧表示画面を表示</td></tr>
+<tr><th>左の画像を本来のサイズで表示</th><td>ページ方向には関わらず、左にある画像を実寸表示</td></tr>
+<tr><th>右の画像を本来のサイズで表示</th><td>ページ方向には関わらず、右にある画像を実寸表示</td></tr>
+<tr><th>左の画像をFinderに表示</th><td>ページ方向には関わらず、左にある画像をFinderに表示。<BR>アーカイブの場合はアーカイブファイルを表示。</td></tr>
+<tr><th>右の画像をFinderに表示</th><td>ページ方向には関わらず、左にある画像をFinderに表示。<BR>アーカイブの場合はアーカイブファイルを表示。</td></tr>
+
+<tr><td ></td></tr>
+<tr><th>単ページ・見開きを切り替え</th><td>見開きなら最初の方のページを単頁に、単頁ならそのページと次のページで見開きに。<BR>「設定を記憶する」にチェックが入っていれば保存される。</td></tr>
+<tr><th>ページ方向を切り替え</th><td>右から左→左から右→右から左(単頁)→左から右(単頁)でループ<BR>「設定を記憶する」にチェックが入っていれば保存される。</td></tr>
+
+<tr><td ></td></tr>
+<tr><th>ページ数を表示</th><td>現在のページ数/全体のページ数(ファイル名1|ファイル名2)　を表示</td></tr>
+<tr><th>ページバーを表示</th><td>ページバー(全体のうちどこまで読んでいるか・クリックでその辺りまで飛ばす)を表示</td></tr>
+<tr><td ></td></tr>
+
+
+<tr><td colspan="4" style="background-color: #fff;">横幅フィットモード・ノースケールモード用</td></tr>
+<tr><th>1画面分上へ</th><td>1画面分上へスクロール</td></tr>
+<tr><th>1画面分下へ</th><td>1画面分下へスクロール</td></tr>
+<tr><th>1画面分上へ+前のページ</th><td>・1画面分上へスクロール<BR>・一番上だったら1画面分横の一番下へスクロール<BR>・ページの先頭だったら前のページへ戻る</td></tr>
+<tr><th>1画面分下へ+次のページ</th><td>・1画面分下へスクロール<BR>・一番下だったら1画面分横の一番上へスクロール<BR>・ページの最後だったら次のページへ進む</td></tr>
+<tr><th>最初へスクロール</th><td>ページの先頭へスクロール。ページ方向により右上か左上か変わる </td></tr>
+<tr><th>最後へスクロール</th><td>ページの最後へスクロール。ページ方向により左下か右下か変わる </td></tr>
+<tr><th>上へスクロール</th><td>画像を上へスクロール</td><td>初期値20</td></tr>
+<tr><th>下へスクロール</th><td>画像を下へスクロール</td><td>初期値20</td></tr>
+
+<tr><td colspan="4" style="background-color: #fff;">ノースケールモード用</td></tr>
+<tr><th>左へスクロール</th><td>画像を左へスクロール</td><td>初期値20</td></tr>
+<tr><th>右へスクロール</th><td>画像を右へスクロール</td><td>初期値20</td></tr>
+ 
+</table>
+<BR>
+
+<A name="mouseaction"></a>
+<center>設定可能なマウス動作説明<BR><small>(ほとんどはキー動作と同じです。マウス動作用の物のみ説明します。)</small></center> 
+
+<table id="othertable" cellspacing="5" >
+<tr><td colspan="4" style="background-color: #fff;">共通</td></tr>
+<tr><th width="30%">次/前のページへ</th><td rowspan="9">
+これらはクリックやドラッグを画面の左右どちらでするかによって動作が変わります。<BR>
+また、ページ方向によっても変わります。<BR>
+　例：「次/前のページへ」の場合<BR>
+　　・ページ方向が「右から左」の時<BR>
+　　　　右側をクリック　　　　　　　　　前のページへ<BR>
+　　　　左側をクリック　　　　　　　　　次のページへ<BR>
+　　・ページ方向が「左から右」<BR>
+　　　　左側をクリック　　　　　　　　　前のページへ<BR>
+　　　　右側をクリック　　　　　　　　　次のページへ<BR>
+　のようになります。 <BR>
+<tr><th >1ページだけ次/前のページへ</th></tr>
+<tr><th >最初/最後のページへ</th></tr>
+<tr><th >次/前のブックマークへ</th></tr>
+<tr><th >次/前のフォルダ・アーカイブへ</th></tr>
+<tr><th >指定ページ進む/戻る</th></tr>
+<tr><th >左/右の画像を実際のサイズで表示</th></tr>
+<tr><th >左/右の画像をFinderに表示</th></tr>
+
+<tr><th >一画面分上へ/下へ+前/次のページへ</th></tr>
+
+<tr><td colspan="4" style="background-color: #fff;">横幅フィットモード・ノースケールモード用</td></tr>
+<tr><th>ドラッグスクロール</th><td>「drag」を選択したときだけ選択出来るようになります。<BR>マウスをクリックしたまま動かすと、画像がスクロールします。</td></tr>
+ 
+</table>
+<BR>
+
+
+</td></tr>
+</table>
+<BR><BR>
+ <p style="font-size: 11px; font-family: 'Lucida Grande'; text-align:center">&copy; 2005- coo. All rights reserved.</p>
+</td></tr>
+</table>
+
+</center>
+
+</body>
+</BODY>
+</HTML>
+

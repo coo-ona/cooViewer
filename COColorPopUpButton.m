@@ -69,7 +69,7 @@
 		[panel setColor:currentColor];
 		[panel setLevel:NSMainMenuWindowLevel];
 		[panel setContinuous:NO];
-		[panel setDelegate:self];
+		[panel setDelegate:(id)self];
 		[panel makeKeyAndOrderFront:self];
 	} else {
 		[self setCurrentColor:[sender representedObject]];

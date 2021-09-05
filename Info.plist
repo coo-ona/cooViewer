@@ -1459,6 +1459,10 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.directory</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
 		</dict>

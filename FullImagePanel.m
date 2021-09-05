@@ -8,7 +8,7 @@
 {
 	keyArray = nil;
 }
--(void)setTarget:(id)tar
+-(void)setTarget:(Controller *)tar
 {
 	target = tar;
 }
@@ -152,13 +152,15 @@
 	id view = [[[[self contentView] subviews] objectAtIndex:0] documentView];
 	
 	NSScrollView *scrollView = [view enclosingScrollView];
-	NSSize theScrollViewSize = [NSScrollView
-				  frameSizeForContentSize:[view frame].size
-					hasHorizontalScroller:[scrollView hasHorizontalScroller]
-					  hasVerticalScroller:[scrollView hasVerticalScroller]
-							   borderType:[scrollView borderType]
-		];
-	NSRect theScrollViewRect;
+    NSSize theScrollViewSize = [NSScrollView
+                                frameSizeForContentSize:[view frame].size
+                                horizontalScrollerClass:nil
+                                  verticalScrollerClass:nil
+                                             borderType:[scrollView borderType]
+                                            controlSize:NSRegularControlSize
+                                          scrollerStyle:[scrollView scrollerStyle]
+    ];
+    NSRect theScrollViewRect;
 	theScrollViewRect.origin = NSZeroPoint;
 	theScrollViewRect.size = theScrollViewSize;
 	NSRect theWindowMaxRect = [ NSWindow

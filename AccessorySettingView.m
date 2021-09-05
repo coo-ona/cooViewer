@@ -131,7 +131,7 @@
 				break;
 		}
 		[[[NSColor grayColor] colorWithAlphaComponent:0.8] set];
-		float array[2];
+		CGFloat array[2];
 		array[0] = 3.0;
 		array[1] = 5.0;
 		[path setLineDash:array count:2 phase:0.0];
@@ -222,7 +222,7 @@
 	[pageStringAttr release];
 	if ([textBGColor isEqualTo:[NSColor clearColor]]) {
 		NSColor *shadowColor = [textFontColor colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
-		float white,alpha;
+		CGFloat white,alpha;
 		[shadowColor getWhite:&white alpha:&alpha];
 		NSShadow *shadow = [[NSShadow alloc] init];
 		[shadow setShadowBlurRadius:white];

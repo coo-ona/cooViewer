@@ -82,8 +82,8 @@ NSRect COIntRect(NSRect aRect)
 	
 	autoHidePageBar = [defaults boolForKey:@"PageBarAutoHide"];
 	autoHidePageString = [defaults boolForKey:@"PageNumAutoHide"];
-	pageBarShowThumbnail = [defaults integerForKey:@"PageBarShowThumbnail"];
-	pageBarPosition = [defaults integerForKey:@"PageBarPosition"];
+	pageBarShowThumbnail = (int)[defaults integerForKey:@"PageBarShowThumbnail"];
+	pageBarPosition = (int)[defaults integerForKey:@"PageBarPosition"];
 	
 	
 	NSDictionary *dic = [defaults dictionaryForKey:@"PageBarSize"];
@@ -140,7 +140,7 @@ NSRect COIntRect(NSRect aRect)
 	}
 	
 	
-	pageStringPosition = [defaults integerForKey:@"PageNumPosition"];
+	pageStringPosition = (int)[defaults integerForKey:@"PageNumPosition"];
 	
 	pageMargin = NSZeroPoint;
 	if ([defaults dictionaryForKey:@"Margin_Page"]) {
@@ -167,7 +167,7 @@ NSRect COIntRect(NSRect aRect)
 	
 	if ([textBGColor isEqualTo:[NSColor clearColor]]) {
 		NSColor *shadowColor = [textFontColor colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
-		float white,alpha;
+		CGFloat white,alpha;
 		[shadowColor getWhite:&white alpha:&alpha];
 		NSShadow *shadow = [[NSShadow alloc] init];
 		[shadow setShadowBlurRadius:white];
@@ -213,35 +213,50 @@ NSRect COIntRect(NSRect aRect)
 }
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-	NSDisableScreenUpdates();
-	//[[self window] disableFlushWindow];
+    NSDisableScreenUpdates();
+    NSPoint lensOldPoint;
+    if ([controller indicator] && ![imageView loupeIsVisible]) {
+        lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
+        
+        if (autoHidedPageBar) {
+            autoHidedPageBar = NO;
+            [self displayRect:[self pageBarRect]];
+        }
+    
+        if (autoHidedPageString) {
+            autoHidedPageString = NO;
+            [self displayRect:[self pageStringRect]];
+            [self setInfoString:[infoString string]];
+        }
+        
+        if (autoHidePageBar || autoHidePageString) {
+            [accessoryTimer invalidate];
+            accessoryTimer = [NSTimer scheduledTimerWithTimeInterval:2
+                                                               target:self
+                                                             selector:@selector(hideAccessory)
+                                                             userInfo:nil
+                                                              repeats:NO];
+        }
+        
+        NSRect tempPageBarRect = NSInsetRect([self pageBarRect],2,2);
+        if (NSPointInRect(lensOldPoint, tempPageBarRect)) {
+            [self display];
+        } else {
+            if (!NSIsEmptyRect(pageBarStringRect)) {
+                [self display];
+            }
+        }
+    }
+    NSEnableScreenUpdates();
+}
+- (void)drawPageBarBubble
+{
 	NSPoint lensOldPoint;
 	if (!NSIsEmptyRect(pageBarStringRect)) {
-		[self displayRect:pageBarStringRect];
 		pageBarStringRect = NSZeroRect;
 	}
 	if ([controller indicator] && ![imageView loupeIsVisible]) {
 		lensOldPoint = [[self window] mouseLocationOutsideOfEventStream];
-		
-		if (autoHidedPageBar) {
-			autoHidedPageBar = NO;
-			[self displayRect:[self pageBarRect]];
-		}
-	
-		if (autoHidedPageString) {
-			autoHidedPageString = NO;
-			[self displayRect:[self pageStringRect]];
-			[self setInfoString:[infoString string]];
-		}
-		
-		if (autoHidePageBar || autoHidePageString) {
-			[accessoryTimer invalidate];
-			accessoryTimer = [NSTimer scheduledTimerWithTimeInterval:2
-															   target:self
-															 selector:@selector(hideAccessory)
-															 userInfo:nil
-															  repeats:NO];
-		}
 		
 		NSRect tempPageBarRect = NSInsetRect([self pageBarRect],2,2);
 		if (NSPointInRect(lensOldPoint, tempPageBarRect)) {
@@ -254,7 +269,7 @@ NSRect COIntRect(NSRect aRect)
 			}
 			temp = temp/tempRect.size.width;
 			
-			float fPage = [controller pageCount]*temp;
+			float fPage = [(Controller *)controller pageCount]*temp;
 			int page = (int)fPage;
 			
 			NSMutableDictionary* attr = [NSMutableDictionary dictionary];
@@ -263,7 +278,7 @@ NSRect COIntRect(NSRect aRect)
 			
 			if ([pageBarBGColor isEqualTo:[NSColor clearColor]]) {
 				NSColor *shadowColor = [pageBarFontColor colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
-				float white,alpha;
+				CGFloat white,alpha;
 				[shadowColor getWhite:&white alpha:&alpha];
 				NSShadow *shadow = [[NSShadow alloc] init];
 				[shadow setShadowBlurRadius:white];
@@ -296,10 +311,9 @@ NSRect COIntRect(NSRect aRect)
 				theight = 10;
 				float rad = 10.0;
 				NSImage *thumbnail = [controller loadThumbnailImage:page];
-				NSImageRep *rep = [thumbnail bestRepresentationForDevice:nil];
 				
-				int widthValue = [rep pixelsWide];
-				int heightValue = [rep pixelsHigh];
+				NSInteger widthValue = [thumbnail size].width;
+				NSInteger heightValue = [thumbnail size].height;
 				float imageRectWidth = 200;
 				float imageRectHeight = 200;
 				float width,height;
@@ -395,9 +409,7 @@ NSRect COIntRect(NSRect aRect)
 				[bezier closePath];
 				pageBarStringRect = NSInsetRect(COIntRect([bezier bounds]),-3,-3);
 				
-				
-				[[[self window] contentView] lockFocus];
-				if (![pageBarBGColor isEqualTo:[NSColor clearColor]]) {
+                if (![pageBarBGColor isEqualTo:[NSColor clearColor]]) {
 					[pageBarBGColor set];
 					[bezier fill];
 				}
@@ -406,11 +418,9 @@ NSRect COIntRect(NSRect aRect)
 					[bezier stroke];
 				}
 				[thumbnail drawInRect:imageRect
-							 fromRect:NSMakeRect(0,0,[rep pixelsWide],[rep pixelsHigh])
+							 fromRect:NSMakeRect(0,0,widthValue,heightValue)
 							operation:NSCompositeSourceOver fraction:1.0];
 				[string drawAtPoint:pt];
-				[[[self window] contentView] unlockFocus];
-				[self displayIfNeeded];
 			} else {
 				switch (pageBarPosition) {
 					case 0:case 1:
@@ -500,8 +510,7 @@ NSRect COIntRect(NSRect aRect)
 				[bezier closePath];
 				pageBarStringRect = NSInsetRect(COIntRect([bezier bounds]),-5,-5);
 				
-				[[[self window] contentView] lockFocus];
-				if (![pageBarBGColor isEqualTo:[NSColor clearColor]]) {
+                if (![pageBarBGColor isEqualTo:[NSColor clearColor]]) {
 					[pageBarBGColor set];
 					[bezier fill];
 				}
@@ -509,17 +518,12 @@ NSRect COIntRect(NSRect aRect)
 					[pageBarBorderColor set];
 					[bezier stroke];
 				}
-				[string drawAtPoint:pt];
-				[[[self window] contentView] unlockFocus];
-				[self displayIfNeeded];
+                [string drawAtPoint:pt];
 			}
 		} else {
 			[self resetCursorRects];
 		}
 	}
-	//[[self window] enableFlushWindow];
-	//[[self window] flushWindowIfNeeded];
-	NSEnableScreenUpdates();
 }
 
 -(void)drawAccessory
@@ -539,8 +543,8 @@ NSRect COIntRect(NSRect aRect)
 }
 
 -(void)drawRect:(NSRect)frameRect
-{		
-	if ([controller indicator] && [imageView image]) {		
+{
+	if ([controller indicator] && [imageView image]) {
 		if (!autoHidedPageBar) {
 			pageBarRect = [self pageBarRect];
 			
@@ -578,7 +582,6 @@ NSRect COIntRect(NSRect aRect)
 	} else {
 		//pageBarRect = NSZeroRect;
 	}
-	
 	
 	if (pageMover && tempPageNum>=0) {
 		pageMoverRect = [self pageMoverRect];
@@ -638,7 +641,9 @@ NSRect COIntRect(NSRect aRect)
 	} else {
 		//infoStringRect = NSZeroRect;
 	}
-	
+    
+    [self drawPageBarBubble];
+    
 }
 
 #pragma mark infoString
@@ -717,9 +722,6 @@ NSRect COIntRect(NSRect aRect)
 		default:
 			break;
 	}
-	return COIntRect(rect);
-	rect.size.width = [infoString sizeWithBG].width;
-	rect.size.height = [infoString sizeWithBG].height;
 	return COIntRect(rect);
 }
 

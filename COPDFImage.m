@@ -14,8 +14,6 @@
 		linkList = nil;
 		
 		image = [[NSImage alloc] initWithSize:[pdfRep size]];
-		[image setDataRetained:YES];
-		[image setScalesWhenResized:YES];
 		[image addRepresentation:pdfRep];
 		[self setLinkList:[rep linkListAtPage:p]];
 	}
@@ -38,12 +36,6 @@
 	return [NSArray arrayWithObject:pdfRep];
 }
 
-- (NSImageRep *)bestRepresentationForDevice:(NSDictionary *)deviceDescription
-{
-	[pdfRep setCurrentPage:page];
-	return pdfRep;
-}
-
 - (void)setSize:(NSSize)aSize
 {
 	return;
@@ -55,7 +47,7 @@
 	return [pdfRep size];
 }
 
-- (void)drawInRect:(NSRect)dstRect fromRect:(NSRect)srcRect operation:(NSCompositingOperation)op fraction:(float)delta
+- (void)drawInRect:(NSRect)dstRect fromRect:(NSRect)srcRect operation:(NSCompositingOperation)op fraction:(CGFloat)delta
 {
 	[pdfRep setCurrentPage:page];
 	//[pdfRep drawInRect:dstRect];
@@ -68,21 +60,12 @@
 		[image drawInRect:dstRect fromRect:fromRect operation:op fraction:delta];
 	}
 }
-/*
-- (void)drawAtPoint:(NSPoint)point fromRect:(NSRect)srcRect operation:(NSCompositingOperation)op fraction:(float)delta
-{
-	NSLog(@"kita2");
-	[pdfRep setCurrentPage:page];
-	[pdfRep drawAtPoint:point];
-	//[image drawAtPoint:point fromRect:srcRect operation:op fraction:delta];
-}*/
-- (void)compositeToPoint:(NSPoint)aPoint operation:(NSCompositingOperation)op
+
+- (void)drawAtPoint:(NSPoint)point fromRect:(NSRect)srcRect operation:(NSCompositingOperation)op fraction:(CGFloat)delta
 {
 	[pdfRep setCurrentPage:page];
-	[image setSize:[pdfRep size]];
-	[image compositeToPoint:aPoint operation:op];
-	//[pdfRep drawAtPoint:NSMakePoint(0,0)];
-	//[pdfRep drawInRect:NSMakeRect(aPoint.x,aPoint.y,[pdfRep size].width,[pdfRep size].height)];
+    [image setSize:[pdfRep size]];
+	[image drawAtPoint:point fromRect:srcRect operation:op fraction:delta];
 }
 
 
