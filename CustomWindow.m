@@ -56,7 +56,7 @@
 {
 	if (fullscreen) {
 		NSRect result = [[NSScreen mainScreen] frame];
-		if (hideMenuBar == YES) result.size.height+= 22;
+		if (hideMenuBar == YES) result.size.height += self.frame.size.height - view.frame.size.height;
 		return result;
 	} else {
 		NSRect result = [super constrainFrameRect:frameRect toScreen:aScreen];
@@ -80,7 +80,7 @@
 		} else {
 			if ([self isKeyWindow]) [NSMenu setMenuBarVisible:NO];
 			NSRect result = [[NSScreen mainScreen] frame];
-			result.size.height += 22;
+			result.size.height += self.frame.size.height - view.frame.size.height;
 			[self setFrame:result display:YES];
 		}
 		resizable = NO;

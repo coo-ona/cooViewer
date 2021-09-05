@@ -1,3 +1,23 @@
+/*
+ * XADArchiveParser.h
+ *
+ * Copyright (c) 2017-present, MacPaw Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301  USA
+ */
 #import <Foundation/Foundation.h>
 #import "XADException.h"
 #import "XADString.h"
@@ -70,6 +90,9 @@ extern NSString *XADVolumesKey;
 extern NSString *XADVolumeScanningFailedKey;
 extern NSString *XADDiskLabelKey;
 
+extern NSString *XADSignatureOffset;
+extern NSString *XADParserClass;
+
 @interface XADArchiveParser:NSObject
 {
 	CSHandle *sourcehandle;
@@ -98,6 +121,9 @@ extern NSString *XADDiskLabelKey;
 +(void)initialize;
 +(Class)archiveParserClassForHandle:(CSHandle *)handle firstBytes:(NSData *)header
 resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props;
++ (Class)archiveParserFromParsersWithFloatingSignature:(NSArray *)parsers forHandle:(CSHandle *)handle firstBytes:(NSData *)header name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props;
++ (BOOL)isValidParserClass:(Class)parserClass forHandle:(CSHandle *)handle firstBytes:(NSData *)header name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props;
+
 +(XADArchiveParser *)archiveParserForHandle:(CSHandle *)handle name:(NSString *)name;
 +(XADArchiveParser *)archiveParserForHandle:(CSHandle *)handle name:(NSString *)name error:(XADError *)errorptr;
 +(XADArchiveParser *)archiveParserForHandle:(CSHandle *)handle resourceFork:(XADResourceFork *)fork name:(NSString *)name;
@@ -172,9 +198,9 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext;
 -(CSHandle *)zeroLengthHandleWithChecksum:(BOOL)checksum;
 -(CSHandle *)subHandleFromSolidStreamForEntryWithDictionary:(NSDictionary *)dict;
 
--(NSArray *)volumes;
+-(BOOL)hasVolumes;
+-(NSArray *)volumeSizes;
 -(CSHandle *)currentHandle;
--(off_t)offsetForVolume:(int)disk offset:(off_t)offset;
 
 -(void)setObject:(id)object forPropertyKey:(NSString *)key;
 -(void)addPropertiesFromDictionary:(NSDictionary *)dict;
@@ -215,8 +241,6 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext;
 name:(NSString *)name;
 +(BOOL)recognizeFileWithHandle:(CSHandle *)handle firstBytes:(NSData *)data
 name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props;
-+(BOOL)recognizeFileWithHandle:(CSHandle *)handle firstBytes:(NSData *)data
-resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props;
 +(NSArray *)volumesForHandle:(CSHandle *)handle firstBytes:(NSData *)data
 name:(NSString *)name;
 
